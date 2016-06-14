@@ -15,7 +15,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
         .state('home', {
             url: '/home',
-            templateUrl: 'templates/dashboard.html'
+            templateUrl: 'templates/dashboard.html',
+            controller: 'dashCtrl'
         })
         
         // nested list with custom controller
@@ -133,4 +134,13 @@ app.controller('dashCtrl', function($scope){
             'valid': true
     }
 ];
+});
+
+app.directive('social', function(){
+    return {
+        restrict: 'AE', 
+        replace: 'true', 
+        templateUrl: 'templates/social-row.html'
+
+    }
 });

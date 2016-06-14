@@ -81,6 +81,12 @@ icon-white {
   	color: white;
 }
 
+.social-sm {
+	width: 50px;
+	margin-left: 2vw;
+	margin-right: 2vw;
+}
+
 .overlay-footer {
 	@extend .overlay-item;
 	top: 0;
@@ -126,7 +132,6 @@ icon-white {
 }
 
 .tile-img {
-	
 	height: 38%;
 	display: block;
 	position: relative;
@@ -134,6 +139,10 @@ icon-white {
 	margin: auto;
 	text-align:center;
 	
+}
+
+.social-img {
+	width: 45%;
 }
 
 .social-footer {
