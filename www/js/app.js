@@ -89,49 +89,57 @@ app.controller('dashCtrl', function($scope){
             'content': 'Azienda agricola',
             'link': 'profile',
             'image': $scope.iconhome + 'profile_icon.png' ,
-            'valid': true
+            'valid': true,
+            'side': 'left'
         },
         {
             'color': 'yellow',
             'content': 'Informazioni prodotto',
             'image': $scope.iconhome + 'info_icon.png',
-            'valid': true
+            'valid': true,
+            'side': 'right'
         },
         {
             'color': 'orange',
             'content': 'Dettagli prodotto',
             'image': $scope.iconhome + 'detail_icon.png',
-            'valid': true
+            'valid': true,
+            'side': 'left'
         },
         {
             'color': 'red',
             'content': 'Valori nutrizionali',
             'image': $scope.iconhome + 'nutrition_icon.png',
-            'valid': true
+            'valid': true,
+            'side': 'right'
         },
         {
             'color': 'brown',
             'content': 'Impatto CO2',
             'image': $scope.iconhome + 'co2impact_icon.png',
-            'valid': true
+            'valid': true,
+            'side': 'left'
         },
         {
             'color': 'purple',
             'content': 'Ingredienti particolari',
             'image': $scope.iconhome + 'ingredient_icon.png',
-            'valid': true
+            'valid': true,
+            'side': 'right'
         },
         {
             'color': 'blue',
             'content': 'Utilizzo acqua',
             'image': $scope.iconhome + 'water_icon.png',
-            'valid': true
+            'valid': true,
+            'side': 'left'
         },
         {
             'color': 'dark-green',
             'content': 'Ricette',
             'image': $scope.iconhome + 'recipe_icon.png',
-            'valid': true
+            'valid': true,
+            'side': 'right'
     }
 ];
 });
