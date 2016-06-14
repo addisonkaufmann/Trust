@@ -80,15 +80,24 @@ icon-white {
   height: 25vw; }
 
 .tile-text {
-  font-size: 130%;
+  font-size: 120%;
   color: white;
   text-align: center;
   position: relative;
-  top: 50%;
+  top: 75%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%); }
+
+.tile-img {
+  height: 38%;
+  position: absolute;
+  margin: auto;
+  text-align: center;
+  margin: auto;
+  display: block;
+  top: 20%; }
 
 .social-footer {
   color: white;
