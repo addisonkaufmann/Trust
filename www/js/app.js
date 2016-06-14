@@ -15,7 +15,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
         .state('home', {
             url: '/home',
-            templateUrl: 'templates/dashboard.html'
+            templateUrl: 'templates/dashboard.html',
+            controller: 'dashCtrl'
         })
         
         // nested list with custom controller
@@ -81,55 +82,65 @@ app.controller('scotchController', function($scope) {
 });
 
 app.controller('dashCtrl', function($scope){
+    $scope.iconhome = 'img/icons/';
     $scope.tiles = [
         {
             'color': 'light-green',
             'content': 'Azienda agricola',
             'link': 'profile',
-            'image': 'path',
+            'image': $scope.iconhome + 'profile_icon.png' ,
             'valid': true
         },
         {
             'color': 'yellow',
             'content': 'Informazioni prodotto',
-            'image': 'path',
+            'image': $scope.iconhome + 'info_icon.png',
             'valid': true
         },
         {
             'color': 'orange',
             'content': 'Dettagli prodotto',
-            'image': 'path',
+            'image': $scope.iconhome + 'detail_icon.png',
             'valid': true
         },
         {
             'color': 'red',
             'content': 'Valori nutrizionali',
-            'image': 'path',
+            'image': $scope.iconhome + 'nutrition_icon.png',
             'valid': true
         },
         {
             'color': 'brown',
             'content': 'Impatto CO2',
-            'image': 'path',
+            'image': $scope.iconhome + 'co2impact_icon.png',
             'valid': true
         },
         {
             'color': 'purple',
             'content': 'Ingredienti particolari',
-            'image': 'path',
+            'image': $scope.iconhome + 'ingredient_icon.png',
             'valid': true
         },
         {
             'color': 'blue',
             'content': 'Utilizzo acqua',
-            'image': 'path',
+            'image': $scope.iconhome + 'water_icon.png',
             'valid': true
         },
         {
             'color': 'dark-green',
             'content': 'Ricette',
-            'image': 'path',
+            'image': $scope.iconhome + 'recipe_icon.png',
             'valid': true
     }
 ];
+});
+
+app.directive('social', function(){
+    return {
+        restrict: 'AE', 
+        replace: 'true', 
+        templateUrl: 'templates/social-row.html'
+
+    }
 });
