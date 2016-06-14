@@ -1,17 +1,16 @@
-<a ui-sref=".profile">askdjf</a>
-<div class="row">
-	<div class="col-xs-6 col-lg-3 light-padding" ng-repeat="t in tiles" ng-show="t.valid">
-		<div class="tile" ng-class="t.color">
+<!-- <a ui-sref=".profile">askdjf</a> -->
+<div class="row" >
+	<div ng-repeat="t in tiles" class="col-xs-6 col-lg-3 {{t.side}}"  ng-show="t.valid">
+		<div class="tile {{t.color}} ">
 			<img class="tile-img" src="{{t.image}}">
 			<div class="tile-text">{{t.content}}</div>
 		</div>
 	</div>
 </div>
-<div class ="row" style="padding: 1% 1% 1% 1%;">
+<div class ="row" style="overflow: hidden;">
 	<div class="col-xs-12 light-green social-footer">
 		<div class="title">Social Connect</div>
 		<social/>
 	</div>	
 </div>
 
-<div ui-view></div>
