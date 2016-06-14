@@ -120,20 +120,20 @@ icon-white {
 	color: white;
 	text-align: center;
 	position: relative;
-	top: 75%;
-	@include transform(translateY(-50%))
+	top: 30%;
+	
 
 }
 
 .tile-img {
-
+	
 	height: 38%;
-	position: absolute;
+	display: block;
+	position: relative;
+	top: 20%;
 	margin: auto;
 	text-align:center;
-	margin: auto;
-	display: block;
-	top: 20%;
+	
 }
 
 .social-footer {

@@ -84,20 +84,15 @@ icon-white {
   color: white;
   text-align: center;
   position: relative;
-  top: 75%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%); }
+  top: 30%; }
 
 .tile-img {
   height: 38%;
-  position: absolute;
-  margin: auto;
-  text-align: center;
-  margin: auto;
   display: block;
-  top: 20%; }
+  position: relative;
+  top: 20%;
+  margin: auto;
+  text-align: center; }
 
 .social-footer {
   color: white;

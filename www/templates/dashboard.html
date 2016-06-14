@@ -1,8 +1,8 @@
 <a ui-sref=".profile">askdjf</a>
 <div class="row" ng-controller="dashCtrl">
 	<div class="col-xs-6 col-lg-3 light-padding" ng-repeat="t in tiles" ng-show="t.valid">
-		<img class="tile-img" src="{{t.image}}">
 		<div class="tile" ng-class="t.color">
+			<img class="tile-img" src="{{t.image}}">
 			<div class="tile-text">{{t.content}}</div>
 		</div>
 	</div>
