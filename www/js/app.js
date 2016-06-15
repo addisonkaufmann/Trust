@@ -24,6 +24,35 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'dashCtrl',
             templateUrl: 'templates/detail.html'
         })
+        
+        .state('ingredient', {
+            url: '/ingredient',
+            controller: 'dashCtrl',
+            templateUrl: 'templates/ingredient.html'
+        })
+           .state('recipe', {
+            url: '/recipe',
+            controller: 'dashCtrl',
+            templateUrl: 'templates/recipe.html'
+        })
+
+         .state('nutrition', {
+            url: '/nutrition',
+            controller: 'dashCtrl',
+            templateUrl: 'templates/nutrition.html'
+        })
+
+         .state('water', {
+            url: '/water',
+            controller: 'dashCtrl',
+            templateUrl: 'templates/water.html'
+        })
+
+         .state('co2impact', {
+            url: '/co2impact',
+            controller: 'dashCtrl',
+            templateUrl: 'templates/co2impact.html'
+        })
 
         .state('home', {
             url: '/home',
@@ -74,26 +103,26 @@ app.config(function($stateProvider, $urlRouterProvider) {
         
 });
 
-app.controller('scotchController', function($scope) {
+// app.controller('scotchController', function($scope) {
     
-    $scope.message = 'test';
+//     $scope.message = 'test';
    
-    $scope.scotches = [
-        {
-            name: 'Macallan 12',
-            price: 50
-        },
-        {
-            name: 'Chivas Regal Royal Salute',
-            price: 10000
-        },
-        {
-            name: 'Glenfiddich 1937',
-            price: 20000
-        }
-    ];
+//     $scope.scotches = [
+//         {
+//             name: 'Macallan 12',
+//             price: 50
+//         },
+//         {
+//             name: 'Chivas Regal Royal Salute',
+//             price: 10000
+//         },
+//         {
+//             name: 'Glenfiddich 1937',
+//             price: 20000
+//         }
+//     ];
     
-});
+// });
 
 app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
 
@@ -207,7 +236,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
 
     $scope.printCarousel = function(){
         console.log($scope.current.data.carousel);
-    }
+    };
 });
 
 app.directive('social', function(){
@@ -225,22 +254,22 @@ app.directive('carousel', function(){
         replace: 'true', 
         templateUrl: 'templates/carousel.html'
     };
-})
+});
 
 app.directive('card', function(){
     return {
         restrict: 'AE', 
         replace: 'true', 
         templateUrl: 'templates/card.html'
-    }
-})
+    };
+});
 
 app.directive('header', function(){
     return {
         restrict: 'AE', 
         replace: 'true', 
         templateUrl: 'templates/header.html'
-    }
-})
+    };
+});
 
 
