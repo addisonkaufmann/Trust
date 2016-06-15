@@ -7,6 +7,7 @@ $brown: rgb(206, 147, 81);
 $purple: rgb(186, 151, 191);
 $blue: rgb(69, 192, 223);
 $dark-green: rgb(86, 174, 124);
+$gray: rgb(138,138,138);
 $transparent-white: rgba(255,255,255,0.7);
 $transparent-black: rgba(0,0,0,0.7);
 
@@ -142,6 +143,15 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	margin-bottom: 1%;
 }
 
+.card-text {
+	padding: 3%;
+}
+
+.card-title {
+	font-size: 130%;
+}
+
+
 .fill { 
 	display: flex;
 	justify-content: center;
@@ -181,14 +191,6 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	width: 10%;
 	display: inline-block;
 
-}
-
-.card-title {
-	font-size: 130%;
-}
-
-.card-text {
-	padding: 3%;
 }
 
 .icon-white {
@@ -334,6 +336,10 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
 .dark-green {
 	background-color: $dark-green;
+}
+
+.gray {
+	background-color: $gray;
 }
 
 

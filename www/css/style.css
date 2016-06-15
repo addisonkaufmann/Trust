@@ -86,6 +86,12 @@
 .card {
   margin-bottom: 1%; }
 
+.card-text {
+  padding: 3%; }
+
+.card-title {
+  font-size: 130%; }
+
 .fill {
   display: flex;
   justify-content: center;
@@ -117,12 +123,6 @@
   padding-right: 4%;
   width: 10%;
   display: inline-block; }
-
-.card-title {
-  font-size: 130%; }
-
-.card-text {
-  padding: 3%; }
 
 .icon-white {
   padding-left: 2%;
@@ -235,3 +235,6 @@
 
 .dark-green {
   background-color: #56ae7c; }
+
+.gray {
+  background-color: #8a8a8a; }
