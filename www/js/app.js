@@ -19,6 +19,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'templates/info.html'
         })
 
+         .state('profile', {
+            url: '/profile',
+            controller: 'dashCtrl',
+            templateUrl: 'templates/profile.html'
+        })
+
          .state('detail', {
             url: '/detail',
             controller: 'dashCtrl',
@@ -144,6 +150,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
         'info': {
             'color': 'yellow',
             'content': 'Informazioni prodotto',
+            'link': 'info',
             'image': $scope.iconhome + 'info_icon.png',
             'valid': true,
             'side': 'right',
@@ -160,6 +167,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'content': 'Dettagli prodotto',
             'image': $scope.iconhome + 'detail_icon.png',
             'valid': true,
+            'link': 'detail',
             'side': 'left',
             'data': {
                 'carousel': [
@@ -173,6 +181,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'color': 'red',
             'content': 'Valori nutrizionali',
             'image': $scope.iconhome + 'nutrition_icon.png',
+            'link': 'nutrition',
             'valid': true,
             'side': 'right'
         },
@@ -180,6 +189,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'color': 'brown',
             'content': 'Impatto CO2',
             'image': $scope.iconhome + 'co2impact_icon.png',
+            'link': 'co2impact',
             'valid': true,
             'side': 'left'
         },
@@ -187,6 +197,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'color': 'purple',
             'content': 'Ingredienti particolari',
             'image': $scope.iconhome + 'ingredient_icon.png',
+            'link': 'ingredient',
             'valid': true,
             'side': 'right'
         },
@@ -194,6 +205,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'color': 'blue',
             'content': 'Utilizzo acqua',
             'image': $scope.iconhome + 'water_icon.png',
+            'link': 'water',
             'valid': true,
             'side': 'left'
         },
@@ -201,6 +213,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'color': 'dark-green',
             'content': 'Ricette',
             'image': $scope.iconhome + 'recipe_icon.png',
+            'link': 'recipe',
             'valid': true,
             'side': 'right'
         }
@@ -238,6 +251,33 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
         console.log($scope.current.data.carousel);
     };
 });
+
+app.controller('profileCtrl', function($scope) {
+    $scope.iconhome = 'img/icons/';
+    $scope.contacts = [
+        {
+            'image': $scope.iconhome + '../farm-logo.png',
+            'link': 'Via indirizzo 12 - Stradella PV'
+        },
+        {
+            'image': $scope.iconhome + '../farm-logo.png',
+            'link': '+39 02 6745889'
+        },
+        {
+            'image': $scope.iconhome + '../farm-logo.png',
+            'link': 'stefano@rcantineravizza.it'
+        },
+        {
+            'image': $scope.iconhome + '../farm-logo.png',
+            'link': 'Via indirizza 12 - Stradella 20100 PV'
+        },
+        {
+            'image': $scope.iconhome + '../farm-logo.png',
+            'link': 'www.iltorrino.it'
+        }
+    ];
+});
+
 
 app.directive('social', function(){
     return {

@@ -20,6 +20,7 @@ $min-width-md: 992px;
 $max-width-md: 1199px;
 
 $min-width-lg: 1200px;
+
 $rounded-corners-bottom: 0px 0px 15px 15px; 
 
 /*	MIXINS - ALPHABETICAL	*/
@@ -341,6 +342,70 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 .gray {
 	background-color: $gray;
 }
+
+
+a:hover {
+	text-decoration: none;
+}
+
+
+.header-pic-container {
+	height: 25vw;
+}
+
+.header-tab {
+	@extend .overlay-item;
+	top: 0;
+  	left: 10%;
+  	right: 10%;
+  	width: 60%;
+  	height: 9vw;
+  	border-radius: $rounded-corners-bottom;
+  	background-color: $transparent-white;
+}
+
+.profile-pic-container {
+	border: 2px solid $light-green;
+	width: 20vw;
+	height: 20vw;
+	border-radius: 50%;
+	position: relative;
+	margin-top: -10vw;
+	margin-left: auto;
+	margin-right: auto;
+	
+	img {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.heading {
+	color: $light-green;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+#contact-table {
+	margin-bottom: 2%;
+}
+
+.contact-pic-container {
+	width: 50px;
+	height: 50px;
+	Adisplay: inline;
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+
+
+
+
 
 
 
