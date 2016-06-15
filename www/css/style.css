@@ -83,6 +83,10 @@
     padding-left: 1vw; } }
 
 /*	CLASSES	- ALPHABETICAL	*/
+.dots {
+  margin-left: .5vw;
+  margin-right: .5vw; }
+
 .fill {
   display: flex;
   justify-content: center;
@@ -98,7 +102,24 @@
   padding-bottom: 2%;
   font-size: 130%; }
 
+.header-container {
+  padding-top: 3%;
+  padding-bottom: 3%;
+  padding-left: 4%;
+  padding-right: 4%; }
+
+.header-title {
+  font-size: 130%;
+  color: white;
+  display: inline-block; }
+
+.header-img {
+  padding-right: 4%;
+  width: 10%;
+  display: inline-block; }
+
 .icon-white {
+  padding-left: 2%;
   font-color: white; }
 
 .logo {
@@ -141,6 +162,12 @@
   width: 80%;
   top: 94%;
   color: white; }
+
+.padding-none {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: 0;
+  padding-left: 0; }
 
 .social-sm {
   width: 50px;
