@@ -83,9 +83,8 @@
     padding-left: 1vw; } }
 
 /*	CLASSES	- ALPHABETICAL	*/
-.dots {
-  margin-left: .5vw;
-  margin-right: .5vw; }
+.card {
+  margin-bottom: 1%; }
 
 .fill {
   display: flex;
@@ -114,9 +113,16 @@
   display: inline-block; }
 
 .header-img {
+  font-size: 130%;
   padding-right: 4%;
   width: 10%;
   display: inline-block; }
+
+.card-title {
+  font-size: 130%; }
+
+.card-text {
+  padding: 3%; }
 
 .icon-white {
   padding-left: 2%;

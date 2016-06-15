@@ -214,4 +214,20 @@ app.directive('carousel', function(){
     };
 })
 
+app.directive('card', function(){
+    return {
+        restrict: 'AE', 
+        replace: 'true', 
+        templateUrl: 'templates/card.html'
+    }
+})
+
+app.directive('header', function(){
+    return {
+        restrict: 'AE', 
+        replace: 'true', 
+        templateUrl: 'templates/header.html'
+    }
+})
+
 
