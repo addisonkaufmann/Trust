@@ -19,6 +19,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'templates/info.html'
         })
 
+         .state('detail', {
+            url: '/detail',
+            controller: 'dashCtrl',
+            templateUrl: 'templates/detail.html'
+        })
+
         .state('home', {
             url: '/home',
             templateUrl: 'templates/dashboard.html',
@@ -125,7 +131,14 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'content': 'Dettagli prodotto',
             'image': $scope.iconhome + 'detail_icon.png',
             'valid': true,
-            'side': 'left'
+            'side': 'left',
+            'data': {
+                'carousel': [
+                    {'image': 'img/farm.jpg', 'active':true},
+                    {'image': 'img/river.jpg', 'active': false},
+                    {'image': 'img/field.jpg', 'active':false},
+                ]
+            }
         },
         'nutrition': {
             'color': 'red',
