@@ -1,17 +1,14 @@
-<div class="row card">
-	<header/>
-</div>
-
-<div class="row card" >
+<div class="row" >
 	<div class="card-text col-xs-12 {{current.color}}">
 		<div class="card-title">PRODUCT NAME</div>
 	</div>
+</div>
 
+<div class="row" ng-show="current.data.carousel">
+	<carousel/>
+</div>
 
-	<div class="col-xs-12 padding-none">
-		<carousel/>
-	</div>
-
+<div class="row card">
 	<div class="card-text col-xs-12 {{current.color}}">
 		<p><b>Lotto: </p>
 		<p><b>Data Lotto: </p>
@@ -22,10 +19,4 @@
 		<p><b>Prodotti </p>
 
 	</div>
-</div>
-
-<div class="row row-lg-size" style="overflow: hidden;">
-	<div class="col-xs-12 col-md-12 gray ight-green social-footer">
-		<social/>
-	</div>	
 </div>

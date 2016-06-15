@@ -13,6 +13,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'templates/summary.html'
         })
 
+         .state('info', {
+            url: '/info',
+            controller: 'dashCtrl',
+            templateUrl: 'templates/info.html'
+        })
+
         .state('home', {
             url: '/home',
             templateUrl: 'templates/dashboard.html',
@@ -27,6 +33,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
             }
         })
+
+       
         
         // nested list with just some random string data
         .state('home.paragraph', {
@@ -81,10 +89,16 @@ app.controller('scotchController', function($scope) {
     
 });
 
-app.controller('dashCtrl', function($scope){
+app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
+
+    $rootScope.$on('$stateChangeSuccess', 
+        function(event, toState, toParams, fromState, fromParams){
+            $state.current = toState;  
+        });
+
     $scope.iconhome = 'img/icons/';
-    $scope.tiles = [
-        {
+    $scope.tiles = {
+        'profile': {
             'color': 'light-green',
             'content': 'Azienda agricola',
             'link': 'profile',
@@ -92,56 +106,95 @@ app.controller('dashCtrl', function($scope){
             'valid': true,
             'side': 'left'
         },
-        {
+        'info': {
             'color': 'yellow',
             'content': 'Informazioni prodotto',
             'image': $scope.iconhome + 'info_icon.png',
             'valid': true,
-            'side': 'right'
+            'side': 'right',
+            'data': {
+                'carousel': [
+                    {'image': 'img/farm.jpg', 'active':true},
+                    {'image': 'img/river.jpg', 'active': false},
+                    {'image': 'img/field.jpg', 'active':false},
+                ]
+            }
         },
-        {
+        'detail': {
             'color': 'orange',
             'content': 'Dettagli prodotto',
             'image': $scope.iconhome + 'detail_icon.png',
             'valid': true,
             'side': 'left'
         },
-        {
+        'nutrition': {
             'color': 'red',
             'content': 'Valori nutrizionali',
             'image': $scope.iconhome + 'nutrition_icon.png',
             'valid': true,
             'side': 'right'
         },
-        {
+        'co2impact': {
             'color': 'brown',
             'content': 'Impatto CO2',
             'image': $scope.iconhome + 'co2impact_icon.png',
             'valid': true,
             'side': 'left'
         },
-        {
+        'ingredient': {
             'color': 'purple',
             'content': 'Ingredienti particolari',
             'image': $scope.iconhome + 'ingredient_icon.png',
             'valid': true,
             'side': 'right'
         },
-        {
+        'water': {
             'color': 'blue',
             'content': 'Utilizzo acqua',
             'image': $scope.iconhome + 'water_icon.png',
             'valid': true,
             'side': 'left'
         },
-        {
+        'recipe': {
             'color': 'dark-green',
             'content': 'Ricette',
             'image': $scope.iconhome + 'recipe_icon.png',
             'valid': true,
             'side': 'right'
+        }
+    };
+
+    $scope.current = $scope.tiles[$state.current.name];
+    console.log($scope.current);
+
+    $scope.deactivateCurrent = function(carousel, len){
+        for (var i = 0; i < len; i++){
+            if (carousel[i].active === true){
+                carousel[i].active = false;
+                console.log(i);
+                return i;
+            }
+        }
+    };
+
+    $scope.activateNext = function(){
+        var carousel = $scope.current.data.carousel;
+        var len = carousel.length;
+        var i = $scope.deactivateCurrent(carousel, len);
+        carousel[ (i+1)%len ].active=true;
+
+    };
+
+    $scope.activatePrev = function(){
+        var carousel = $scope.current.data.carousel;
+        var len = carousel.length;
+        var i = $scope.deactivateCurrent(carousel, len);
+        carousel[ (i-1+len)%len ].active=true;
+    };
+
+    $scope.printCarousel = function(){
+        console.log($scope.current.data.carousel);
     }
-];
 });
 
 app.directive('social', function(){
@@ -150,5 +203,31 @@ app.directive('social', function(){
         replace: 'true', 
         templateUrl: 'templates/social-row.html'
 
-    }
+    };
 });
+
+app.directive('carousel', function(){
+    return {
+        restrict:'AE', 
+        replace: 'true', 
+        templateUrl: 'templates/carousel.html'
+    };
+})
+
+app.directive('card', function(){
+    return {
+        restrict: 'AE', 
+        replace: 'true', 
+        templateUrl: 'templates/card.html'
+    }
+})
+
+app.directive('header', function(){
+    return {
+        restrict: 'AE', 
+        replace: 'true', 
+        templateUrl: 'templates/header.html'
+    }
+})
+
+

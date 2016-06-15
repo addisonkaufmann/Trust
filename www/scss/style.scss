@@ -7,6 +7,7 @@ $brown: rgb(206, 147, 81);
 $purple: rgb(186, 151, 191);
 $blue: rgb(69, 192, 223);
 $dark-green: rgb(86, 174, 124);
+$gray: rgb(138,138,138);
 $transparent-white: rgba(255,255,255,0.7);
 $transparent-black: rgba(0,0,0,0.7);
 
@@ -136,6 +137,21 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
 
 /*	CLASSES	- ALPHABETICAL	*/
+
+
+.card {
+	margin-bottom: 1%;
+}
+
+.card-text {
+	padding: 3%;
+}
+
+.card-title {
+	font-size: 130%;
+}
+
+
 .fill { 
 	display: flex;
 	justify-content: center;
@@ -154,7 +170,31 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	font-size: 130%;
 }
 
+.header-container{
+	padding-top: 3%;
+	padding-bottom: 3%;
+	padding-left: 4%;
+	padding-right: 4%;
+
+
+}
+
+.header-title {
+	font-size: 130%;
+	color: white;
+	display: inline-block;
+}
+
+.header-img {
+	font-size: 130%;
+	padding-right: 4%;
+	width: 10%;
+	display: inline-block;
+
+}
+
 .icon-white {
+	padding-left: 2%;
 	font-color: white;
 }
 
@@ -207,6 +247,13 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
   	width: 80%;
   	top: 94%;
   	color: white;
+}
+
+.padding-none {
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-right: 0;
+	padding-left: 0;
 }
 
 .social-sm {
@@ -289,6 +336,10 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
 .dark-green {
 	background-color: $dark-green;
+}
+
+.gray {
+	background-color: $gray;
 }
 
 
