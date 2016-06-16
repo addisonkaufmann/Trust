@@ -212,50 +212,49 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 }
 
 .overlay-item {
+	left: 10%;
+  	right: 10%;
+  	width: 80%;
 	position: absolute;
 	margin: auto;
 	text-align: center;
 }
 
-.overlay-row {
+.overlay-social-row {
 	@extend .overlay-item;
 	bottom: 0;
-  	left: 10%;
-  	right: 10%;
-  	width: 80%;
-  	top: 85%;
-  	color: white;
+  	top: 50%;
+
 }
 
 .overlay-tab {
 	@extend .overlay-item;
 	top: 0;
-  	left: 10%;
-  	right: 10%;
-  	width: 80%;
   	bottom: 85%;
   	border-radius: $rounded-corners-bottom;
   	background-color: $transparent-white;
 }
 
-.overlay-text {
+.overlay-content {
 	@extend .overlay-item;
 	bottom: 0;
-  	left: 10%;
-  	right: 10%;
-  	width: 80%;
-  	top: 70%;
+  	top: 72%;
   	color: white;
 } 
 
+.overlay-title {
+	@extend .overlay-item;
+	font-size: 5vh;
+	top: 0;
+
+	p{
+		font-size: 3vh;
+	}
+}
+
 .overlay-footer {
 	@extend .overlay-item;
-	top: 0;
-  	left: 10%;
-  	right: 10%;
-  	width: 80%;
-  	top: 94%;
-  	color: white;
+  	top: 75%;
 }
 
 .padding-none {
@@ -266,7 +265,8 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 }
 
 .social-sm {
-	width: 50px;
+
+	height: 5vh;
 	margin-left: 2vw;
 	margin-right: 2vw;
 }

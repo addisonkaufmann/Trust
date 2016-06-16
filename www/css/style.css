@@ -131,43 +131,37 @@
 .logo {
   height: 100%; }
 
-.overlay-item, .overlay-row, .overlay-tab, .overlay-text, .overlay-footer, .header-tab {
+.overlay-item, .overlay-social-row, .overlay-tab, .overlay-content, .overlay-title, .overlay-footer, .header-tab {
+  left: 10%;
+  right: 10%;
+  width: 80%;
   position: absolute;
   margin: auto;
   text-align: center; }
 
-.overlay-row {
+.overlay-social-row {
   bottom: 0;
-  left: 10%;
-  right: 10%;
-  width: 80%;
-  top: 85%;
-  color: white; }
+  top: 50%; }
 
 .overlay-tab {
   top: 0;
-  left: 10%;
-  right: 10%;
-  width: 80%;
   bottom: 85%;
   border-radius: 0px 0px 15px 15px;
   background-color: rgba(255, 255, 255, 0.7); }
 
-.overlay-text {
+.overlay-content {
   bottom: 0;
-  left: 10%;
-  right: 10%;
-  width: 80%;
-  top: 70%;
+  top: 72%;
   color: white; }
 
+.overlay-title {
+  font-size: 5vh;
+  top: 0; }
+  .overlay-title p {
+    font-size: 3vh; }
+
 .overlay-footer {
-  top: 0;
-  left: 10%;
-  right: 10%;
-  width: 80%;
-  top: 94%;
-  color: white; }
+  top: 75%; }
 
 .padding-none {
   padding-top: 0;
@@ -176,7 +170,7 @@
   padding-left: 0; }
 
 .social-sm {
-  width: 50px;
+  height: 5vh;
   margin-left: 2vw;
   margin-right: 2vw; }
 
