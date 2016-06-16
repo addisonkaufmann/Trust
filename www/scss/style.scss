@@ -8,8 +8,8 @@ $purple: rgb(186, 151, 191);
 $blue: rgb(69, 192, 223);
 $dark-green: rgb(86, 174, 124);
 $gray: rgb(138,138,138);
-$transparent-white: rgba(255,255,255,0.7);
-$transparent-black: rgba(0,0,0,0.7);
+$transparent-white: rgba(255,255,255,0.75);
+$transparent-black: rgba(0,0,0,0.75);
 
 $max-width-xs: 767px;
 
@@ -20,6 +20,7 @@ $min-width-md: 992px;
 $max-width-md: 1199px;
 
 $min-width-lg: 1200px;
+
 
 $rounded-corners-bottom: 0px 0px 15px 15px; 
 
@@ -238,17 +239,17 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 .overlay-content {
 	@extend .overlay-item;
 	bottom: 0;
-  	top: 72%;
+  	top: 65%;
   	color: white;
 } 
 
 .overlay-title {
 	@extend .overlay-item;
-	font-size: 5vh;
+	font-size: 7vh;
 	top: 0;
 
 	p{
-		font-size: 3vh;
+		font-size: 3.5vh;
 	}
 }
 
@@ -266,9 +267,9 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
 .social-sm {
 
-	height: 5vh;
-	margin-left: 2vw;
-	margin-right: 2vw;
+	height: 6.5vh;
+	margin-left: 3vw;
+	margin-right: 3vw;
 }
 
 .tile-text{
@@ -301,7 +302,25 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
     	left: 50%;
     	width: 100%;
     	height: 100%;
-    	box-shadow: inset 0rem -40rem 15rem -13rem $transparent-black;
+
+		box-shadow: inset 0rem -48vh 15rem -13vh $transparent-black;
+
+/*    	@media (max-width: $max-width-xs){
+			box-shadow: inset 0rem -35rem 15rem -13rem $transparent-black;
+		}
+
+		@media (min-width: $min-width-sm) and (max-width: $max-width-sm){
+			box-shadow: inset 0rem -35rem 15rem -13rem $transparent-black;
+
+		}
+		@media (min-width: $min-width-md) and (max-width: $max-width-md){
+			box-shadow: inset 0rem -35rem 15rem -13rem $transparent-black;
+
+		}
+		@media (min-width: $min-width-lg){
+			box-shadow: inset 0rem -45rem 15rem -13rem $transparent-black;
+
+		}*/
 	}
 }
 
