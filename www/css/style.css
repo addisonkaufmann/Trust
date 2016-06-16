@@ -110,16 +110,35 @@
   padding-left: 4%;
   padding-right: 4%; }
 
-.header-title {
+.header-title, .header-img {
   font-size: 130%;
   color: white;
   display: inline-block; }
 
 .header-img {
-  font-size: 130%;
   padding-right: 4%;
-  width: 10%;
-  display: inline-block; }
+  width: 10%; }
+
+.header-pic-container {
+  height: 40vh; }
+
+.profile-title {
+  color: #81bc5f;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 7vh;
+  padding-top: 2%; }
+  .profile-title p {
+    font-size: 3vh; }
+
+.contact-pic-container {
+  width: 50px;
+  height: 50px;
+  Adisplay: inline; }
+  .contact-pic-container img {
+    width: 100%;
+    height: 100%; }
 
 .icon-white {
   padding-left: 2%;
@@ -128,13 +147,21 @@
 .logo {
   height: 100%; }
 
-.overlay-item, .overlay-social-row, .overlay-tab, .overlay-content, .overlay-title, .overlay-footer, .header-tab {
+.margin-bottom {
+  margin-bottom: 3%; }
+
+.overlay-content, .overlay-social-row, .overlay-tab, .overlay-tab-sm, .overlay-title, .overlay-footer {
   left: 10%;
   right: 10%;
   width: 80%;
   position: absolute;
   margin: auto;
   text-align: center; }
+
+.overlay-content {
+  bottom: 0;
+  top: 65%;
+  color: white; }
 
 .overlay-social-row {
   bottom: 0;
@@ -146,10 +173,11 @@
   border-radius: 0px 0px 15px 15px;
   background-color: rgba(255, 255, 255, 0.75); }
 
-.overlay-content {
-  bottom: 0;
-  top: 65%;
-  color: white; }
+.overlay-tab-sm {
+  top: 0;
+  bottom: 85%;
+  border-radius: 0px 0px 15px 15px;
+  background-color: rgba(255, 255, 255, 0.75); }
 
 .overlay-title {
   font-size: 7vh;
@@ -165,6 +193,36 @@
   padding-bottom: 0;
   padding-right: 0;
   padding-left: 0; }
+
+.profile-pic-container {
+  border: 3px solid #81bc5f;
+  border-radius: 50%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto; }
+  @media (max-width: 767px) {
+    .profile-pic-container {
+      width: 32vw;
+      height: 32vw;
+      margin-top: -16vw; } }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .profile-pic-container {
+      width: 20vw;
+      height: 20vw;
+      margin-top: -10vw; } }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .profile-pic-container {
+      width: 15vw;
+      height: 15vw;
+      margin-top: -7.5vw; } }
+  @media (min-width: 1200px) {
+    .profile-pic-container {
+      width: 12vw;
+      height: 12vw;
+      margin-top: -6vw; } }
+  .profile-pic-container img {
+    width: 100%;
+    height: 100%; }
 
 .social-sm {
   height: 6.5vh;
@@ -200,23 +258,7 @@
   left: 50%;
   width: 100%;
   height: 100%;
-  box-shadow: inset 0rem -48vh 15rem -13vh rgba(0, 0, 0, 0.75);
-  /*    	@media (max-width: $max-width-xs){
-			box-shadow: inset 0rem -35rem 15rem -13rem $transparent-black;
-		}
-
-		@media (min-width: $min-width-sm) and (max-width: $max-width-sm){
-			box-shadow: inset 0rem -35rem 15rem -13rem $transparent-black;
-
-		}
-		@media (min-width: $min-width-md) and (max-width: $max-width-md){
-			box-shadow: inset 0rem -35rem 15rem -13rem $transparent-black;
-
-		}
-		@media (min-width: $min-width-lg){
-			box-shadow: inset 0rem -45rem 15rem -13rem $transparent-black;
-
-		}*/ }
+  box-shadow: inset 0rem -48vh 15rem -13vh rgba(0, 0, 0, 0.75); }
 
 /*	COLOR CLASSES	*/
 .light-green {
@@ -248,45 +290,3 @@
 
 a:hover {
   text-decoration: none; }
-
-.header-pic-container {
-  height: 25vw; }
-
-.header-tab {
-  top: 0;
-  left: 10%;
-  right: 10%;
-  width: 60%;
-  height: 9vw;
-  border-radius: 0px 0px 15px 15px;
-  background-color: rgba(255, 255, 255, 0.75); }
-
-.profile-pic-container {
-  border: 2px solid #81bc5f;
-  width: 20vw;
-  height: 20vw;
-  border-radius: 50%;
-  position: relative;
-  margin-top: -10vw;
-  margin-left: auto;
-  margin-right: auto; }
-  .profile-pic-container img {
-    width: 100%;
-    height: 100%; }
-
-.heading {
-  color: #81bc5f;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center; }
-
-#contact-table {
-  margin-bottom: 2%; }
-
-.contact-pic-container {
-  width: 50px;
-  height: 50px;
-  Adisplay: inline; }
-  .contact-pic-container img {
-    width: 100%;
-    height: 100%; }

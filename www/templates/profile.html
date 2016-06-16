@@ -1,9 +1,9 @@
 <div class="row overlay-container" ng-controller="profileCtrl">
 	<div class="fill header-pic-container">
-		<img src="img/farm.jpg">
+		<img class="logo" src="img/farm.jpg">
 	</div>
 
-	<div class="header-tab">
+	<div class="overlay-tab-sm">
 		<img class="logo" src="img/farm-logo.png">
 	</div>
 
@@ -11,12 +11,12 @@
 		<img src="img/farm-logo.jpg">
 	</div>
 
-	<div class="heading">
-		<h2>Company Name</h2>
-		<h4>Company Owner</h4>
+	<div class="profile-title">
+		Company Name<br/>
+		<p>Company Owner</p>
 	</div>
 
-	<p>
+	<div class="card-text">
 	Lorem ipsum dolor sit amet, ea eos nibh modus accommodare, sed probo ridens eu, et aperiam platonem pro. Phaedrum voluptatum mei in, ei ceteros dissentias ullamcorper eos, ius ex case quaerendum. Vim eu brute appetere, sale eripuit ne pro. Nam te wisi harum albucius, id est dico habeo atqui. Duo amet modus facete te. Ad atomorum mnesarchum referrentur mel, ne sed stet semper, et vis rebum possit voluptua. Ne est propriae splendide, est et odio dolorem.
 
 	Ne oblique persius vel, patrioque dissentiet no nam, usu regione habemus in. Falli sensibus duo cu, autem audiam latine an eam. Te deserunt recteque duo. Docendi apeirian inciderint eos ad. His id graeco referrentur, eu mea ceteros pertinax. Vel at vide posse.
@@ -25,22 +25,27 @@
 
 	Quidam adolescens argumentum eam et. Mutat omnium impedit qui an. Sit probo velit ut, eum ne errem scribentur. Ad partem regione pri, pro rebum primis conclusionemque ut. Omnium perpetua incorrupte mea no. Te everti torquatos mea.
 
-	</p>
+	</div>
 
-	<table id="contact-table">
-		<tr ng-repeat="c in contacts">
-			<td class="contact-pic-container">
-				<img src="{{c.image}}">
-			</td>
-			<td style="padding-left: 20px;">
-				{{c.link}}
-			</td>
-		</tr>
-	</table>
+	<div class="card-text">
+		<table class="margin-bottom">
+			<tr ng-repeat="c in contacts">
+				<td class="contact-pic-container">
+					<img src="{{c.image}}">
+				</td>
+				<td style="padding-left: 20px;">
+					{{c.link}}
+				</td>
+			</tr>
+		</table>
+	</div>
 
-
-	<div class="row gray">
-		<social/>
+	<!-- don't remove this container you will regret it -->
+	<div class="container">
+		<div class="row gray" style="overflow-x: hidden">
+			<social/>
+		</div>
 	</div>
 
 </div>
+

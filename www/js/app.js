@@ -220,7 +220,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
     };
 
     $scope.current = $scope.tiles[$state.current.name];
-    console.log($scope.current);
+    // console.log($scope.current);
 
     $scope.deactivateCurrent = function(carousel, len){
         for (var i = 0; i < len; i++){

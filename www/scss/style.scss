@@ -188,22 +188,49 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	padding-bottom: 3%;
 	padding-left: 4%;
 	padding-right: 4%;
-
-
 }
 
-.header-title {
+%header-item {
 	font-size: $font-title-responsive;
 	color: white;
 	display: inline-block;
 }
 
+.header-title {
+	@extend %header-item;
+}
+
 .header-img {
-	font-size: $font-title-responsive;
+	@extend %header-item;
 	padding-right: 4%;
 	width: 10%;
-	display: inline-block;
+}
 
+.header-pic-container {
+	height: 40vh;
+}
+
+.profile-title {
+	color: $light-green;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-size: $font-title-xl-responsive;
+	padding-top: 2%;
+	p{
+		font-size: $font-normal-responsive;
+	}
+}
+
+.contact-pic-container {
+	width: 50px;
+	height: 50px;
+	Adisplay: inline;
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
 }
 
 .icon-white {
@@ -215,7 +242,11 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	height: 100%;
 }
 
-.overlay-item {
+.margin-bottom {
+	margin-bottom: 3%;
+}
+
+%overlay-item {
 	left: 10%;
   	right: 10%;
   	width: 80%;
@@ -224,30 +255,38 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	text-align: center;
 }
 
+.overlay-content {
+	@extend %overlay-item;
+	bottom: 0;
+  	top: 65%;
+  	color: white;
+} 
+
 .overlay-social-row {
-	@extend .overlay-item;
+	@extend %overlay-item;
 	bottom: 0;
   	top: 50%;
 
 }
 
 .overlay-tab {
-	@extend .overlay-item;
+	@extend %overlay-item;
 	top: 0;
   	bottom: 85%;
   	border-radius: $rounded-corners-bottom;
   	background-color: $transparent-white;
 }
 
-.overlay-content {
-	@extend .overlay-item;
-	bottom: 0;
-  	top: 65%;
-  	color: white;
-} 
+.overlay-tab-sm {
+	@extend %overlay-item;
+	top: 0;
+  	bottom: 85%;
+  	border-radius: $rounded-corners-bottom;
+  	background-color: $transparent-white;
+}
 
 .overlay-title {
-	@extend .overlay-item;
+	@extend %overlay-item;
 	font-size: $font-title-xl-responsive;
 	top: 0;
 
@@ -257,7 +296,7 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 }
 
 .overlay-footer {
-	@extend .overlay-item;
+	@extend %overlay-item;
   	top: 75%;
 }
 
@@ -266,6 +305,40 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	padding-bottom: 0;
 	padding-right: 0;
 	padding-left: 0;
+}
+
+.profile-pic-container {
+	border: 3px solid $light-green;
+
+	@media (max-width: $max-width-xs){
+		width: 32vw;
+		height: 32vw;
+		margin-top: -16vw;
+	}
+	@media (min-width: $min-width-sm) and (max-width: $max-width-sm){
+		width: 20vw;
+		height: 20vw;
+		margin-top: -10vw;
+	}
+	@media (min-width: $min-width-md) and (max-width: $max-width-md){
+		width: 15vw;
+		height: 15vw;
+		margin-top: -7.5vw;
+	}
+	@media (min-width: $min-width-lg){
+		width: 12vw;
+		height: 12vw;
+		margin-top: -6vw;
+	}
+	border-radius: 50%;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	
+	img {
+		width: 100%;
+		height: 100%;
+	}
 }
 
 .social-sm {
@@ -307,23 +380,6 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
     	height: 100%;
 
 		box-shadow: inset 0rem -48vh 15rem -13vh $transparent-black;
-
-/*    	@media (max-width: $max-width-xs){
-			box-shadow: inset 0rem -35rem 15rem -13rem $transparent-black;
-		}
-
-		@media (min-width: $min-width-sm) and (max-width: $max-width-sm){
-			box-shadow: inset 0rem -35rem 15rem -13rem $transparent-black;
-
-		}
-		@media (min-width: $min-width-md) and (max-width: $max-width-md){
-			box-shadow: inset 0rem -35rem 15rem -13rem $transparent-black;
-
-		}
-		@media (min-width: $min-width-lg){
-			box-shadow: inset 0rem -45rem 15rem -13rem $transparent-black;
-
-		}*/
 	}
 }
 
@@ -379,58 +435,7 @@ a:hover {
 }
 
 
-.header-pic-container {
-	height: 25vw;
-}
 
-.header-tab {
-	@extend .overlay-item;
-	top: 0;
-  	left: 10%;
-  	right: 10%;
-  	width: 60%;
-  	height: 9vw;
-  	border-radius: $rounded-corners-bottom;
-  	background-color: $transparent-white;
-}
-
-.profile-pic-container {
-	border: 2px solid $light-green;
-	width: 20vw;
-	height: 20vw;
-	border-radius: 50%;
-	position: relative;
-	margin-top: -10vw;
-	margin-left: auto;
-	margin-right: auto;
-	
-	img {
-		width: 100%;
-		height: 100%;
-	}
-}
-
-.heading {
-	color: $light-green;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-}
-
-#contact-table {
-	margin-bottom: 2%;
-}
-
-.contact-pic-container {
-	width: 50px;
-	height: 50px;
-	Adisplay: inline;
-
-	img {
-		width: 100%;
-		height: 100%;
-	}
-}
 
 
 
