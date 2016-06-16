@@ -206,7 +206,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
     if ($scope.current){
             $scope.current=$scope.current[0];
             console.log($scope.current);
-    };
+    }
 
     $scope.validTiles = $scope.tiles.filter(function(obj){
         return obj.valid === true;
@@ -239,10 +239,6 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
         var len = carousel.length;
         var i = $scope.deactivateCurrent(carousel, len);
         carousel[ (i-1+len)%len ].active=true;
-    };
-
-    $scope.printCarousel = function(){
-        console.log($scope.current.data.carousel);
     };
 });
 
@@ -322,6 +318,38 @@ app.directive('header', function(){
         restrict: 'AE', 
         replace: 'true', 
         templateUrl: 'templates/header.html'
+    };
+});
+
+app.directive('eighttiles', function(){
+    return {
+        restrict: 'AE',
+        replace: 'true', 
+        templateUrl: 'templates/8-tiles.html'
+    };
+});
+
+app.directive('sixtiles', function(){
+    return {
+        restrict: 'AE',
+        replace: 'true', 
+        templateUrl: 'templates/6-tiles.html'
+    };
+});
+
+app.directive('fourtiles', function(){
+    return {
+        restrict: 'AE',
+        replace: 'true', 
+        templateUrl: 'templates/4-tiles.html'
+    };
+});
+
+app.directive('twotiles', function(){
+    return {
+        restrict: 'AE',
+        replace: 'true', 
+        templateUrl: 'templates/2-tiles.html'
     };
 });
 
