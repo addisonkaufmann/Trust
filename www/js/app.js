@@ -252,6 +252,24 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
     };
 });
 
+
+app.controller('socialCtrl', function($scope){
+    $scope.iconhome = 'img/icons/';
+    $scope.social = [
+        {
+            'name': 'facebook', 
+            'icon': $scope.iconhome + 'social_facebook.png'
+        }, 
+        {
+            'name': 'instagram', 
+            'icon': $scope.iconhome + 'social_instagram.png'
+        }, 
+        {
+            'name': 'twitter', 
+            'icon': $scope.iconhome + 'social_twitter.png'
+        }
+    ];
+});
 app.controller('profileCtrl', function($scope) {
     $scope.iconhome = 'img/icons/';
     $scope.contacts = [

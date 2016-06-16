@@ -1,14 +1,7 @@
-<div class="col-xs-12 social-footer">
+<div class="col-xs-12 social-footer" ng-controller="socialCtrl">
 
-    <div class="col-xs-4">
-        <img class="social-img" src="img/icons/social_facebook.png">
-    </div>
-    <div class="col-xs-4">
-        <img class="social-img" src="img/icons/social_instagram.png">
-
-    </div>
-    <div class="col-xs-4">
-        <img class="social-img" src="img/icons/social_twitter.png">
+    <div class="col-xs-4" ng-repeat="s in social">
+        <img class="social-img" ng-src="{{s.icon}}">
     </div>
 
     <div class="col-xs-12">

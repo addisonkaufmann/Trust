@@ -14,10 +14,8 @@
             <p>Subtitle subtitle subtitle </p>
         </div>
 
-        <div class="overlay-social-row">
-            <img class="social-sm" src="img/icons/social_facebook.png">
-            <img class="social-sm" src="img/icons/social_instagram.png">
-            <img class="social-sm" src="img/icons/social_twitter.png">
+        <div class="overlay-social-row" ng-controller="socialCtrl">
+            <img class="social-sm" ng-repeat="s in social" src="{{s.icon}}">
         </div>
 
         <div class="overlay-footer">

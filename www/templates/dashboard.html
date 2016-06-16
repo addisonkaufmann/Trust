@@ -2,7 +2,7 @@
 <div class="row" >
 	<div ng-repeat="t in tiles" class="col-xs-6 col-md-3 {{t.side}}"  ng-show="t.valid" ui-sref="{{t.link}}">
 		<div class="tile {{t.color}} ">
-			<img class="tile-img" src="{{t.image}}">
+			<img class="tile-img" ng-src="{{t.image}}">
 			<div class="tile-text">{{t.content}}</div>
 		</div>
 	</div>
