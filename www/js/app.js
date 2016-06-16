@@ -109,37 +109,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
         
 });
 
-// app.controller('scotchController', function($scope) {
-    
-//     $scope.message = 'test';
-   
-//     $scope.scotches = [
-//         {
-//             name: 'Macallan 12',
-//             price: 50
-//         },
-//         {
-//             name: 'Chivas Regal Royal Salute',
-//             price: 10000
-//         },
-//         {
-//             name: 'Glenfiddich 1937',
-//             price: 20000
-//         }
-//     ];
-    
-// });
-
 app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
 
     $rootScope.$on('$stateChangeSuccess', 
         function(event, toState, toParams, fromState, fromParams){
-            $state.current = toState;  
+            $state.current = toState;
         });
 
     $scope.iconhome = 'img/icons/';
-    $scope.tiles = {
-        'profile': {
+    $scope.tiles = [
+        {   
             'color': 'light-green',
             'content': 'Azienda agricola',
             'link': 'profile',
@@ -147,7 +126,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'valid': true,
             'side': 'left'
         },
-        'info': {
+        {
             'color': 'yellow',
             'content': 'Informazioni prodotto',
             'link': 'info',
@@ -162,7 +141,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
                 ]
             }
         },
-        'detail': {
+        {
             'color': 'orange',
             'content': 'Dettagli prodotto',
             'image': $scope.iconhome + 'detail_icon.png',
@@ -177,7 +156,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
                 ]
             }
         },
-        'nutrition': {
+        {
             'color': 'red',
             'content': 'Valori nutrizionali',
             'image': $scope.iconhome + 'nutrition_icon.png',
@@ -185,7 +164,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'valid': true,
             'side': 'right'
         },
-        'co2impact': {
+        {
             'color': 'brown',
             'content': 'Impatto CO2',
             'image': $scope.iconhome + 'co2impact_icon.png',
@@ -193,7 +172,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'valid': true,
             'side': 'left'
         },
-        'ingredient': {
+        {
             'color': 'purple',
             'content': 'Ingredienti particolari',
             'image': $scope.iconhome + 'ingredient_icon.png',
@@ -201,7 +180,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'valid': true,
             'side': 'right'
         },
-        'water': {
+        {
             'color': 'blue',
             'content': 'Utilizzo acqua',
             'image': $scope.iconhome + 'water_icon.png',
@@ -209,7 +188,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'valid': true,
             'side': 'left'
         },
-        'recipe': {
+        {
             'color': 'dark-green',
             'content': 'Ricette',
             'image': $scope.iconhome + 'recipe_icon.png',
@@ -217,10 +196,25 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'valid': true,
             'side': 'right'
         }
+    ];
+
+
+    $scope.current = $scope.tiles.filter(function(obj){
+        return obj.link === $state.current.name;
+    });
+
+    if ($scope.current){
+            $scope.current=$scope.current[0];
+            console.log($scope.current);
     };
 
-    $scope.current = $scope.tiles[$state.current.name];
-    // console.log($scope.current);
+    $scope.validTiles = $scope.tiles.filter(function(obj){
+        return obj.valid === true;
+    });
+
+    $scope.numValidTiles = $scope.validTiles.length;
+    console.log($scope.numValidTiles);
+
 
     $scope.deactivateCurrent = function(carousel, len){
         for (var i = 0; i < len; i++){
@@ -270,6 +264,7 @@ app.controller('socialCtrl', function($scope){
         }
     ];
 });
+
 app.controller('profileCtrl', function($scope) {
     $scope.iconhome = 'img/icons/';
     $scope.contacts = [
