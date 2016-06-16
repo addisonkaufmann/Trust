@@ -145,7 +145,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'color': 'orange',
             'content': 'Dettagli prodotto',
             'image': $scope.iconhome + 'detail_icon.png',
-            'valid': true,
+            'valid': false,
             'link': 'detail',
             'side': 'left',
             'data': {
@@ -161,7 +161,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'content': 'Valori nutrizionali',
             'image': $scope.iconhome + 'nutrition_icon.png',
             'link': 'nutrition',
-            'valid': true,
+            'valid': false,
             'side': 'right'
         },
         {
@@ -169,7 +169,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'content': 'Impatto CO2',
             'image': $scope.iconhome + 'co2impact_icon.png',
             'link': 'co2impact',
-            'valid': true,
+            'valid': false,
             'side': 'left'
         },
         {
@@ -177,7 +177,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'content': 'Ingredienti particolari',
             'image': $scope.iconhome + 'ingredient_icon.png',
             'link': 'ingredient',
-            'valid': true,
+            'valid': false,
             'side': 'right'
         },
         {
@@ -185,7 +185,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'content': 'Utilizzo acqua',
             'image': $scope.iconhome + 'water_icon.png',
             'link': 'water',
-            'valid': true,
+            'valid': false,
             'side': 'left'
         },
         {
@@ -193,7 +193,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'content': 'Ricette',
             'image': $scope.iconhome + 'recipe_icon.png',
             'link': 'recipe',
-            'valid': true,
+            'valid': false,
             'side': 'right'
         }
     ];
@@ -325,7 +325,7 @@ app.directive('eighttiles', function(){
     return {
         restrict: 'AE',
         replace: 'true', 
-        templateUrl: 'templates/8-tiles.html'
+        templateUrl: 'templates/tiles/8-tiles.html'
     };
 });
 
@@ -333,7 +333,7 @@ app.directive('sixtiles', function(){
     return {
         restrict: 'AE',
         replace: 'true', 
-        templateUrl: 'templates/6-tiles.html'
+        templateUrl: 'templates/tiles/6-tiles.html'
     };
 });
 
@@ -341,7 +341,7 @@ app.directive('fourtiles', function(){
     return {
         restrict: 'AE',
         replace: 'true', 
-        templateUrl: 'templates/4-tiles.html'
+        templateUrl: 'templates/tiles/4-tiles.html'
     };
 });
 
@@ -349,7 +349,7 @@ app.directive('twotiles', function(){
     return {
         restrict: 'AE',
         replace: 'true', 
-        templateUrl: 'templates/2-tiles.html'
+        templateUrl: 'templates/tiles/2-tiles.html'
     };
 });
 
