@@ -1,4 +1,5 @@
 /*	VARIABLES - NO ORDER */
+/*colors*/
 $light-green: rgb(129,188,95);
 $yellow: rgb(248, 220, 84);
 $orange: rgb(246, 160, 73);
@@ -11,6 +12,14 @@ $gray: rgb(138,138,138);
 $transparent-white: rgba(255,255,255,0.75);
 $transparent-black: rgba(0,0,0,0.75);
 
+/*font sizes*/
+$font-normal: 16px;
+$font-normal-responsive: 3vh;
+
+$font-title-responsive: 130%;
+$font-title-xl-responsive: 7vh;
+
+/*media size breaks*/
 $max-width-xs: 767px;
 
 $min-width-sm: 768px;
@@ -21,7 +30,7 @@ $max-width-md: 1199px;
 
 $min-width-lg: 1200px;
 
-
+/*other*/
 $rounded-corners-bottom: 0px 0px 15px 15px; 
 
 /*	MIXINS - ALPHABETICAL	*/
@@ -109,6 +118,7 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 		width: 100%;
 		height: 19vh;
 	}
+
 }
 
 @media (min-width: $min-width-md) {
@@ -132,10 +142,10 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 		height: 10vh;
 	}
 
-	.row-lg-size {
-		padding-top: 1vh;
-		padding-right: 1vw;
-		padding-left: 1vw;
+	.row-responsive-size {
+		margin-left: 0;
+		margin-right: 0;
+		margin-top: 1vh;
 	}
 }
 
@@ -155,7 +165,7 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 }
 
 .card-title {
-	font-size: 130%;
+	font-size: $font-title-responsive;
 }
 
 
@@ -172,13 +182,6 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 		min-height: 100%;
 	}
 }
-/*.footer-title {
-	padding-top: 2%;
-	padding-bottom: 2%;
-	font-size: 130%;
-	text-align: center;
-	color: white;
-}*/
 
 .header-container{
 	padding-top: 3%;
@@ -190,13 +193,13 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 }
 
 .header-title {
-	font-size: 130%;
+	font-size: $font-title-responsive;
 	color: white;
 	display: inline-block;
 }
 
 .header-img {
-	font-size: 130%;
+	font-size: $font-title-responsive;
 	padding-right: 4%;
 	width: 10%;
 	display: inline-block;
@@ -245,11 +248,11 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
 .overlay-title {
 	@extend .overlay-item;
-	font-size: 7vh;
+	font-size: $font-title-xl-responsive;
 	top: 0;
 
 	p{
-		font-size: 3.5vh;
+		font-size: $font-normal-responsive;
 	}
 }
 
@@ -273,7 +276,7 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 }
 
 .tile-text{
-	font-size: 120%;
+	font-size: $font-normal-responsive;
 	color: white;
 	text-align: center;
 	position: relative;
