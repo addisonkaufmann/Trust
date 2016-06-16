@@ -25,11 +25,8 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
 /*	MIXINS - ALPHABETICAL	*/
 @mixin footer-common {
-	/*width: 100%;
-	padding-left: 15%;
-	padding-right: 15%;
-	padding-bottom: 3%;
-	padding-top: 3%;*/
+	padding-right: 12vw;
+	padding-left: 12vw;
 	text-align: center;
 	color: white;
 }
@@ -81,12 +78,15 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 }
 
 @media (min-width: $min-width-sm) and (max-width: $max-width-sm){
-	/*.social-img {
-		width: 40%;
-	}*/	
 	.social-footer {
 		@include footer-common;
+		padding-top: 3vh;
 		height: 20vh;
+		padding-bottom: 1vh;
+	}
+
+	.social-img {
+		height: 8vh;
 	}
 }
 
@@ -122,12 +122,14 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
   	.social-footer {
 		@include footer-common;
+		padding-top: 5vh;
 		height: 30vh;
+		padding-bottom: 5vh;
 	}
 
-	/*.social-img {
-		width: 30%;
-	}*/
+	.social-img {
+		height: 10vh;
+	}
 
 	.row-lg-size {
 		padding-top: 1vh;
