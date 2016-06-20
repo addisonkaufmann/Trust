@@ -1,4 +1,4 @@
-<div ng-repeat="t in validTiles" class="col-xs-6 col-md-3 {{t.side}}" ui-sref="{{t.link}}">
+<div ng-repeat="t in validTiles" class="col-xs-6 col-md-3 {{t.side}} animated" ng-class="{'fadeInLeft': t.side === 'left', 'fadeInRight': t.side ==='right'}" ui-sref="{{t.link}}">
 	<div class="tile-8 tile-lg {{t.color}} ">
 		<img class="tile-img" ng-src="{{t.image}}">
 		<div class="tile-text">{{t.content}}</div>

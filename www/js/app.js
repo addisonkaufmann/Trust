@@ -114,7 +114,9 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
     $rootScope.$on('$stateChangeSuccess', 
         function(event, toState, toParams, fromState, fromParams){
             $state.current = toState;
-            // console.log($state.current);
+            if ($state.current.name === 'home'){
+                console.log("you're home");
+            }
         });
 
     $scope.iconhome = 'img/icons/';
@@ -178,7 +180,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'content': 'Ingredienti particolari',
             'image': $scope.iconhome + 'ingredient_icon.png',
             'link': 'ingredient',
-            'valid': true,
+            'valid': false,
             'side': 'right'
         },
         {
@@ -231,6 +233,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
 	    console.log($scope.validTiles);
    };
 
+
     if ($scope.numValidTiles === 5 || $scope.numValidTiles === 7){
     	$scope.smallTiles = $scope.validTiles.slice(1,$scope.numValidTiles);
     	$scope.bigTile = $scope.validTiles[0];
@@ -242,7 +245,6 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
     	$scope.setSides($scope.validTiles, $scope.validTiles.length);
     }
     // console.log($scope.numValidTiles);
-
 
     $scope.deactivateCurrent = function(carousel, len){
         for (var i = 0; i < len; i++){
