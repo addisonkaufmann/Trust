@@ -11,6 +11,12 @@
     height: 100vh;
     width: 100vw;
     margin-left: -15px; }
+  .overlay-container-sm {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    margin-left: -15px;
+    height: 45vh; }
   .social-footer {
     padding-right: 12vw;
     padding-left: 12vw;
@@ -27,7 +33,11 @@
   .overlay-container {
     position: relative;
     height: 100vh;
-    width: 100%; } }
+    width: 100%; }
+  .overlay-container-sm {
+    position: relative;
+    height: 100vh;
+    height: 45vh; } }
 
 @media (min-width: 768px) and (max-width: 991px) {
   .social-footer {
@@ -240,17 +250,21 @@
   padding-left: 4%;
   padding-right: 4%; }
 
-.header-title, .header-img {
+.header-title, .header-img, .header-img-left, .header-img-right {
   font-size: 130%;
   color: white;
   display: inline-block; }
 
-.header-img {
-  padding-right: 4%;
+.header-img, .header-img-left, .header-img-right {
   width: 10%; }
 
-.header-pic-container {
-  height: 40vh; }
+.header-img-left {
+  padding-right: 4%;
+  float: left; }
+
+.header-img-right {
+  float: right;
+  padding-left: 4%; }
 
 .profile-title {
   color: #81bc5f;
@@ -265,8 +279,20 @@
 .contact-pic-container {
   width: 50px;
   height: 50px;
-  Adisplay: inline; }
+  display: inline-block; }
   .contact-pic-container img {
+    width: 100%;
+    height: 100%; }
+
+.contact-text {
+  display: inline-block;
+  padding-left: 3%; }
+
+.contact-container {
+  width: 50px;
+  height: 50px;
+  display: inline-block; }
+  .contact-container img {
     width: 100%;
     height: 100%; }
 
@@ -305,7 +331,7 @@
 
 .overlay-tab-sm {
   top: 0;
-  bottom: 85%;
+  bottom: 75%;
   border-radius: 0px 0px 15px 15px;
   background-color: rgba(255, 255, 255, 0.75); }
 

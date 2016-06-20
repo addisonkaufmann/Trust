@@ -120,6 +120,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
         });
 
     $scope.iconhome = 'img/icons/';
+    $scope.menuicon = $scope.iconhome + 'menu_icon.png';
     $scope.tiles = [
         {   
             'color': 'light-green',
@@ -198,6 +199,29 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'link': 'recipe',
             'valid': true,
             'side': 'right'
+        }
+    ];
+
+        $scope.contacts = [
+        {
+            'image': $scope.iconhome + '../farm-logo.png',
+            'link': 'Via indirizzo 12 - Stradella PV'
+        },
+        {
+            'image': $scope.iconhome + '../farm-logo.png',
+            'link': '+39 02 6745889'
+        },
+        {
+            'image': $scope.iconhome + '../farm-logo.png',
+            'link': 'stefano@rcantineravizza.it'
+        },
+        {
+            'image': $scope.iconhome + '../farm-logo.png',
+            'link': 'Via indirizza 12 - Stradella 20100 PV'
+        },
+        {
+            'image': $scope.iconhome + '../farm-logo.png',
+            'link': 'www.iltorrino.it'
         }
     ];
 

@@ -87,6 +87,12 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 		width: 100vw;
 		margin-left:-15px;
 	}
+	.overlay-container-sm {
+		@include overlay-common;
+		width: 100vw;
+		margin-left:-15px;
+		height:45vh;
+	}
 	.social-footer {
 		@include footer-common;
 		padding-top: 3vh;
@@ -103,6 +109,10 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	.overlay-container {
 		@include overlay-common;
 		width: 100%;
+	}
+	.overlay-container-sm {
+		@include overlay-common;
+		height: 45vh;
 	}
 }
 
@@ -315,13 +325,23 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
 .header-img {
 	@extend %header-item;
-	padding-right: 4%;
 	width: 10%;
 }
 
-.header-pic-container {
-	height: 40vh;
+.header-img-left {
+	@extend .header-img;
+	padding-right: 4%;
+	float: left;
 }
+
+.header-img-right {
+	@extend .header-img;
+	float: right;
+	padding-left: 4%;
+
+}
+
+
 
 .profile-title {
 	color: $light-green;
@@ -338,11 +358,31 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 .contact-pic-container {
 	width: 50px;
 	height: 50px;
-	Adisplay: inline;
+	display: inline-block;
 
 	img {
 		width: 100%;
 		height: 100%;
+	}
+}
+
+.contact-text {
+	display: inline-block;
+	padding-left: 3%;
+}
+
+.contact-container {
+	width: 50px;
+	height: 50px;
+		display: inline-block;
+
+	img {
+
+		width: 100%;
+		height: 100%;
+	}
+	p {
+		
 	}
 }
 
@@ -393,7 +433,7 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 .overlay-tab-sm {
 	@extend %overlay-item;
 	top: 0;
-  	bottom: 85%;
+  	bottom: 75%;
   	border-radius: $rounded-corners-bottom;
   	background-color: $transparent-white;
 }
