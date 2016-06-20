@@ -180,7 +180,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'content': 'Ingredienti particolari',
             'image': $scope.iconhome + 'ingredient_icon.png',
             'link': 'ingredient',
-            'valid': false,
+            'valid': true,
             'side': 'right'
         },
         {
