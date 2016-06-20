@@ -13,14 +13,14 @@
 	        <img class="social-img" ng-src="{{s.icon}}">
 	    </div>
 
-	    <div class="col-xs-12 hidden-lg" ng-click="showExpand(); gotoElement('bottom')">
+	    <div class="col-xs-12 hidden-lg" ng-click="showExpand(); scrollToBottom()">
 	        <i class="fa fa-chevron-down fa-2x social-img" aria-hidden="true"></i>
 	    </div>
 	</div>
 
 <!-- small social footer expanded: only for small and extra small screens -->
 	<div class="col-xs-12 social-footer-lg hidden-lg" ng-show="expand">
-		<div class="col-xs-12" ng-click="hideExpand();">
+		<div class="col-xs-12" ng-click="scrollToTop(); hideExpand()">
 	        <i class="fa fa-chevron-up fa-2x social-img social-arrow-top" aria-hidden="true"></i>
 	    </div>
 
@@ -28,8 +28,6 @@
 	        <img class="social-img" ng-src="{{s.icon}}">
 	    </div>
 	</div>
-
-	<div id="bottom"></div>
 </div>
 
 
