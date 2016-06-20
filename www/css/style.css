@@ -150,8 +150,7 @@
     /*@include transform(translate(0%, -55%));*/
     padding-top: 1vh;
     height: 35vh;
-    padding-bottom: 2vh;
-    overflow-y: hidden; }
+    padding-bottom: 2vh; }
   .social-arrow-top {
     padding-bottom: 2vh; }
   .social-img {
