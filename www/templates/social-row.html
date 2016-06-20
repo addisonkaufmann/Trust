@@ -1,14 +1,38 @@
 
-<div class="col-xs-12 social-footer" ng-class="{'social-expand': expand }" ng-controller="socialCtrl">
-
+<div  ng-controller="socialCtrl">
+<div class="col-xs-12 social-footer" ng-show="!expand">
     <div class="col-xs-4" ng-repeat="s in social">
         <img class="social-img" ng-src="{{s.icon}}">
     </div>
 
-    <div class="col-xs-12" ng-click="toggleExpand()">
-        <i class="fa fa-chevron-down fa-2x social-img" aria-hidden="true"></i>
+
+    <div class="col-xs-12" ng-show="!expand" ng-click="showExpand(); gotoElement('bottom')">
+        <i class="fa fa-chevron-down fa-2x social-arrow-bottom" aria-hidden="true"></i>
+    </div>
+</div>
+
+<div class="col-xs-12 social-footer-lg" ng-show="expand">
+	<div class="col-xs-12" ng-click="hideExpand();">
+        <i class="fa fa-chevron-up fa-2x social-arrow-top" aria-hidden="true"></i>
     </div>
 
+    <div class="col-xs-4 social-col" ng-repeat="s in social">
+        <img class="social-img" ng-src="{{s.icon}}">
+    </div>
+
+    <div class="col-xs-4 social-col" n ng-repeat="s in social">
+        <img class="social-img" ng-src="{{s.icon}}">
+    </div>
+
+    <div class="col-xs-4 social-col"   ng-repeat="s in social">
+        <img class="social-img" ng-src="{{s.icon}}">
+    </div>
+    
+
 </div>
+<div id="bottom"></div>
+</div>
+
+
 
 

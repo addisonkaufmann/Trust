@@ -92,12 +92,29 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 		padding-bottom: 2vh;
 	}
 
-	.social-expand {
+	
+
+	.social-col {
+		padding-top: 1vh;
+		padding-bottom: 1vh;
+	}
+
+	.social-footer-lg {
 		@include footer-common;
-		padding-top: 3vh;
-		height: 50vh; /*social-height-xs*/
+		padding-top: 1vh;  /*social-height-xs*/
 		padding-bottom: 2vh;
-		@include transform(translate(0%, -50%));
+	}
+
+	.social-expand {
+		/*@include transform(translate(0%, -55%));*/
+		padding-top: 1vh;
+		height: 45vh;
+		padding-bottom: 2vh;
+		overflow-y: hidden;
+	}
+
+	.social-arrow-top {
+		padding-bottom: 2vh;
 	}
 
 	.social-img {

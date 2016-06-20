@@ -20,19 +20,25 @@
     height: 20vh;
     /*social-height-xs*/
     padding-bottom: 2vh; }
-  .social-expand {
+  .social-col {
+    padding-top: 1vh;
+    padding-bottom: 1vh; }
+  .social-footer-lg {
     padding-right: 12vw;
     padding-left: 12vw;
     text-align: center;
     color: white;
-    padding-top: 3vh;
-    height: 50vh;
+    padding-top: 1vh;
     /*social-height-xs*/
+    padding-bottom: 2vh; }
+  .social-expand {
+    /*@include transform(translate(0%, -55%));*/
+    padding-top: 1vh;
+    height: 45vh;
     padding-bottom: 2vh;
-    -webkit-transform: translate(0%, -50%);
-    -moz-transform: translate(0%, -50%);
-    -ms-transform: translate(0%, -50%);
-    transform: translate(0%, -50%); }
+    overflow-y: hidden; }
+  .social-arrow-top {
+    padding-bottom: 2vh; }
   .social-img {
     height: 7.5vh; } }
 

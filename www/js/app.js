@@ -271,14 +271,28 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
 });
 
 
-app.controller('socialCtrl', function($scope){
+app.controller('socialCtrl', function($scope, $location, anchorSmoothScroll){
     $scope.iconhome = 'img/icons/';
     $scope.expand = false;
 
-    $scope.toggleExpand = function(){
-        $scope.expand = !$scope.expand;
-        console.log($scope.expand);
+    $scope.showExpand = function(){
+        $scope.expand = true;
     };
+
+    $scope.hideExpand = function(){
+        $scope.expand = false;
+    };
+
+    $scope.gotoElement = function (eID){
+
+      // set the location.hash to the id of
+      // the element you wish to scroll to.
+      $location.hash('bottom');
+      // call $anchorScroll()
+      anchorSmoothScroll.scrollTo(eID);
+      
+    };
+
     $scope.social = [
         {
             'name': 'facebook', 
@@ -327,9 +341,22 @@ app.directive('social', function(){
         restrict: 'AE', 
         replace: 'true', 
         templateUrl: 'templates/social-row.html'
-
     };
 });
+
+// app.directive('scrollOnClick', function() {
+//   return {
+//     restrict: 'A',
+//     link: function(scope, $elm) {
+//       $elm.on('click', function() {
+//         console.log("trying to scroll");
+//         $("body").animate({scrollTop: $elm.getBoundingClientRect().top}, "slow");
+//       });
+//     }
+//   };
+// });
+
+
 
 app.directive('carousel', function(){
     return {
@@ -410,6 +437,63 @@ app.directive('seventiles', function(){
         replace: 'true', 
         templateUrl: 'templates/tiles/7-tiles.html'
     };
+});
+
+app.service('anchorSmoothScroll', function(){
+    
+    this.scrollTo = function(eID) {
+
+        // This scrolling function 
+        // is from http://www.itnewb.com/tutorial/Creating-the-Smooth-Scroll-Effect-with-JavaScript
+        
+        var startY = currentYPosition();
+        var stopY = elmYPosition(eID);
+        console.log('start: ' + startY + "; stop: " + stopY);
+    
+        var distance = stopY > startY ? stopY - startY : startY - stopY;
+        if (distance < 100) {
+            scrollTo(0, stopY); return;
+        }
+        var speed = Math.round(distance / 100);
+        if (speed >= 20) speed = 20;
+        var step = Math.round(distance / 25);
+        var leapY = stopY > startY ? startY + step : startY - step;
+        var timer = 0;
+        if (stopY > startY) {
+            for ( var i=startY; i<stopY; i+=step ) {
+                setTimeout("window.scrollTo(0, "+leapY+")", timer * speed);
+                leapY += step; if (leapY > stopY) leapY = stopY; timer++;
+            } return;
+        }
+    
+        for (  var i=startY; i>stopY; i-=step ) {
+            setTimeout("window.scrollTo(0, "+leapY+")", timer * speed);
+            leapY -= step; if (leapY < stopY) leapY = stopY; timer++;
+        }
+        
+        function currentYPosition() {
+            // Firefox, Chrome, Opera, Safari
+            if (self.pageYOffset) return self.pageYOffset;
+            // Internet Explorer 6 - standards mode
+            if (document.documentElement && document.documentElement.scrollTop)
+                return document.documentElement.scrollTop;
+            // Internet Explorer 6, 7 and 8
+            if (document.body.scrollTop) return document.body.scrollTop;
+            return 0;
+        }
+        
+        function elmYPosition(eID) {
+            var elm = document.getElementById(eID);
+            var y = elm.offsetTop;
+            var node = elm;
+            while (node.offsetParent && node.offsetParent != document.body) {
+                node = node.offsetParent;
+                y += node.offsetTop;
+            } return y;
+        }
+
+    };
+    
 });
 
 
