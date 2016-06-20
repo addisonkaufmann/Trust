@@ -275,12 +275,15 @@ app.controller('socialCtrl', function($scope, $location, anchorSmoothScroll){
     $scope.iconhome = 'img/icons/';
     $scope.expand = false;
 
+
     $scope.showExpand = function(){
         $scope.expand = true;
+        console.log('expand is now ' + $scope.expand);
     };
 
     $scope.hideExpand = function(){
         $scope.expand = false;
+        console.log('expand is now ' + $scope.expand);
     };
 
     $scope.gotoElement = function (eID){
@@ -305,7 +308,20 @@ app.controller('socialCtrl', function($scope, $location, anchorSmoothScroll){
         {
             'name': 'twitter', 
             'icon': $scope.iconhome + 'social_twitter.png'
+        },
+        {
+            'name': 'twitter', 
+            'icon': $scope.iconhome + 'social_twitter.png'
+        },
+        {
+            'name': 'twitter', 
+            'icon': $scope.iconhome + 'social_twitter.png'
+        },
+        {
+            'name': 'twitter', 
+            'icon': $scope.iconhome + 'social_twitter.png'
         }
+
     ];
 });
 
@@ -448,7 +464,7 @@ app.service('anchorSmoothScroll', function(){
         
         var startY = currentYPosition();
         var stopY = elmYPosition(eID);
-        console.log('start: ' + startY + "; stop: " + stopY);
+        // console.log('start: ' + startY + "; stop: " + stopY);
     
         var distance = stopY > startY ? stopY - startY : startY - stopY;
         if (distance < 100) {

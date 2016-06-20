@@ -15,7 +15,7 @@
         </div>
 
         <div class="overlay-social-row" ng-controller="socialCtrl">
-            <img class="social-sm" ng-repeat="s in social" src="{{s.icon}}">
+            <img class="social-sm" ng-repeat="s in social | limitTo : 3" src="{{s.icon}}">
         </div>
 
         <div class="overlay-footer">
