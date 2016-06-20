@@ -1,13 +1,32 @@
-<div class="row" >
-	<div ng-repeat="t in tiles" class="col-xs-6 col-md-3 {{t.side}}"  ng-show="t.valid" ui-sref="{{t.link}}">
-		<div class="tile {{t.color}} ">
-			<img class="tile-img" ng-src="{{t.image}}">
-			<div class="tile-text">{{t.content}}</div>
-		</div>
-	</div>
+<div class="row" ng-show="numValidTiles === 8">
+	<eighttiles/>
 </div>
 
-<div class="row row-responsive-size light-green" style="overflow: hidden;">
+<div class="row" ng-show="numValidTiles === 7">
+	<seventiles />
+</div>
+
+<div class="row" ng-show="numValidTiles === 6">
+	<sixtiles />
+</div>
+
+<div class="row" ng-show="numValidTiles === 5">
+	<fivetiles />
+</div>
+
+<div class="row" ng-show="numValidTiles === 4">
+	<fourtiles />
+</div>
+
+<div class="row" ng-show="numValidTiles === 3">
+	<threetiles />
+</div>
+
+<div class="row" ng-show="numValidTiles === 2">
+	<twotiles />
+</div>
+
+<div class="row row-responsive-size light-green">
 	<social/>
 </div>
 

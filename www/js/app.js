@@ -64,82 +64,62 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/home',
             templateUrl: 'templates/dashboard.html',
             controller: 'dashCtrl'
-        })
+        });
         
         // nested list with custom controller
-        .state('home.list', {
-            url: '/list',
-            templateUrl: 'templates/partial-home-list.html',
-            controller: function($scope) {
-                $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
-            }
-        })
+        // .state('home.list', {
+        //     url: '/list',
+        //     templateUrl: 'templates/partial-home-list.html',
+        //     controller: function($scope) {
+        //         $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
+        //     }
+        // })
 
        
         
         // nested list with just some random string data
-        .state('home.paragraph', {
-            url: '/paragraph',
-            template: 'I could sure use a drink right now.'
-        })
+        // .state('home.paragraph', {
+        //     url: '/paragraph',
+        //     template: 'I could sure use a drink right now.'
+        // })
 
-        .state('home.profile', {
-            url: '/profile',
-            templateUrl: 'templates/profile.html'
-        })
+        // .state('home.profile', {
+        //     url: '/profile',
+        //     templateUrl: 'templates/profile.html'
+        // })
 
-        .state('home.dashboard', {
-            url: '/dashboard',
-            templateUrl: 'templates/dashboard.html'
-        })
+        // .state('home.dashboard', {
+        //     url: '/dashboard',
+        //     templateUrl: 'templates/dashboard.html'
+        // })
         
         // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
-        .state('about', {
-            url: '/about',
-            views: {
-                '': { templateUrl: 'templates/partial-about.html' },
-                'columnOne@about': { template: 'Look I am a column!' },
-                'columnTwo@about': { 
-                    templateUrl: 'templates/table-data.html',
-                    controller: 'scotchController'
-                }
-            }
+        // .state('about', {
+        //     url: '/about',
+        //     views: {
+        //         '': { templateUrl: 'templates/partial-about.html' },
+        //         'columnOne@about': { template: 'Look I am a column!' },
+        //         'columnTwo@about': { 
+        //             templateUrl: 'templates/table-data.html',
+        //             controller: 'scotchController'
+        //         }
+        //     }
             
-        });
+        // });
         
 });
-
-// app.controller('scotchController', function($scope) {
-    
-//     $scope.message = 'test';
-   
-//     $scope.scotches = [
-//         {
-//             name: 'Macallan 12',
-//             price: 50
-//         },
-//         {
-//             name: 'Chivas Regal Royal Salute',
-//             price: 10000
-//         },
-//         {
-//             name: 'Glenfiddich 1937',
-//             price: 20000
-//         }
-//     ];
-    
-// });
 
 app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
 
     $rootScope.$on('$stateChangeSuccess', 
         function(event, toState, toParams, fromState, fromParams){
-            $state.current = toState;  
+            $state.current = toState;
+            console.log($state.current);
         });
 
     $scope.iconhome = 'img/icons/';
-    $scope.tiles = {
-        'profile': {
+    $scope.tiles = [
+        {   
             'color': 'light-green',
             'content': 'Azienda agricola',
             'link': 'profile',
@@ -147,7 +127,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'valid': true,
             'side': 'left'
         },
-        'info': {
+        {
             'color': 'yellow',
             'content': 'Informazioni prodotto',
             'link': 'info',
@@ -162,7 +142,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
                 ]
             }
         },
-        'detail': {
+        {
             'color': 'orange',
             'content': 'Dettagli prodotto',
             'image': $scope.iconhome + 'detail_icon.png',
@@ -177,7 +157,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
                 ]
             }
         },
-        'nutrition': {
+        {
             'color': 'red',
             'content': 'Valori nutrizionali',
             'image': $scope.iconhome + 'nutrition_icon.png',
@@ -185,7 +165,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'valid': true,
             'side': 'right'
         },
-        'co2impact': {
+        {
             'color': 'brown',
             'content': 'Impatto CO2',
             'image': $scope.iconhome + 'co2impact_icon.png',
@@ -193,7 +173,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'valid': true,
             'side': 'left'
         },
-        'ingredient': {
+        {
             'color': 'purple',
             'content': 'Ingredienti particolari',
             'image': $scope.iconhome + 'ingredient_icon.png',
@@ -201,7 +181,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'valid': true,
             'side': 'right'
         },
-        'water': {
+        {
             'color': 'blue',
             'content': 'Utilizzo acqua',
             'image': $scope.iconhome + 'water_icon.png',
@@ -209,7 +189,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'valid': true,
             'side': 'left'
         },
-        'recipe': {
+        {
             'color': 'dark-green',
             'content': 'Ricette',
             'image': $scope.iconhome + 'recipe_icon.png',
@@ -217,10 +197,52 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
             'valid': true,
             'side': 'right'
         }
-    };
+    ];
 
-    $scope.current = $scope.tiles[$state.current.name];
-    // console.log($scope.current);
+
+
+    $scope.current = $scope.tiles.filter(function(obj){
+        return obj.link === $state.current.name;
+    });
+
+    if ($scope.current){
+            $scope.current=$scope.current[0];
+            console.log($scope.current);
+    }
+
+
+
+    $scope.validTiles = $scope.tiles.filter(function(obj){
+        return obj.valid === true;
+    });
+
+
+    $scope.numValidTiles = $scope.validTiles.length;
+
+    $scope.setSides = function(array, len){
+	    var i = 0;        
+	    for (i; i < len; i++){
+	        if (i%2 === 0){
+	            array[i].side = 'left'; 
+	        } else {
+	            array[i].side = 'right';
+	        }
+	    } 
+	    console.log($scope.validTiles);
+   };
+
+    if ($scope.numValidTiles === 5 || $scope.numValidTiles === 7){
+    	$scope.smallTiles = $scope.validTiles.slice(1,$scope.numValidTiles);
+    	$scope.bigTile = $scope.validTiles[0];
+    	console.log($scope.validTiles);
+    	console.log($scope.smallTiles);
+    	console.log($scope.bigTile);
+    	$scope.setSides($scope.smallTiles, $scope.smallTiles.length);
+    } else {
+    	$scope.setSides($scope.validTiles, $scope.validTiles.length);
+    }
+    // console.log($scope.numValidTiles);
+
 
     $scope.deactivateCurrent = function(carousel, len){
         for (var i = 0; i < len; i++){
@@ -246,15 +268,17 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
         var i = $scope.deactivateCurrent(carousel, len);
         carousel[ (i-1+len)%len ].active=true;
     };
-
-    $scope.printCarousel = function(){
-        console.log($scope.current.data.carousel);
-    };
 });
 
 
 app.controller('socialCtrl', function($scope){
     $scope.iconhome = 'img/icons/';
+    $scope.expand = false;
+
+    $scope.toggleExpand = function(){
+        $scope.expand = !$scope.expand;
+        console.log($scope.expand);
+    };
     $scope.social = [
         {
             'name': 'facebook', 
@@ -270,6 +294,7 @@ app.controller('socialCtrl', function($scope){
         }
     ];
 });
+
 app.controller('profileCtrl', function($scope) {
     $scope.iconhome = 'img/icons/';
     $scope.contacts = [
@@ -327,6 +352,63 @@ app.directive('header', function(){
         restrict: 'AE', 
         replace: 'true', 
         templateUrl: 'templates/header.html'
+    };
+});
+
+app.directive('eighttiles', function(){
+    return {
+        restrict: 'AE',
+        replace: 'true', 
+        templateUrl: 'templates/tiles/8-tiles.html'
+    };
+});
+
+app.directive('sixtiles', function(){
+    return {
+        restrict: 'AE',
+        replace: 'true', 
+        templateUrl: 'templates/tiles/6-tiles.html'
+    };
+});
+
+app.directive('fourtiles', function(){
+    return {
+        restrict: 'AE',
+        replace: 'true', 
+        templateUrl: 'templates/tiles/4-tiles.html'
+    };
+});
+
+
+app.directive('threetiles', function(){
+    return {
+        restrict: 'AE',
+        replace: 'true', 
+        templateUrl: 'templates/tiles/3-tiles.html'
+    };
+});
+
+app.directive('twotiles', function(){
+    return {
+        restrict: 'AE',
+        replace: 'true', 
+        templateUrl: 'templates/tiles/2-tiles.html'
+    };
+});
+
+app.directive('fivetiles', function(){
+    return {
+        restrict: 'AE',
+        replace: 'true', 
+        templateUrl: 'templates/tiles/5-tiles.html'
+    };
+});
+
+app.directive('seventiles', function(){
+    return {
+        restrict: 'AE',
+        replace: 'true', 
+        templateUrl: 'templates/tiles/7-tiles.html'
     };
 });
 
