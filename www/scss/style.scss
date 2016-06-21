@@ -14,9 +14,9 @@ $transparent-black: rgba(0,0,0,0.75);
 
 /*font sizes*/
 $font-normal: 16px;
-$font-normal-responsive: 3vh;
+$font-normal-responsive: 3.5vh;
+$font-small-responsive: 2.5vh;
 
-$font-title-responsive: 130%;
 $font-title-xl-responsive: 7vh;
 
 /*media size breaks*/
@@ -285,10 +285,14 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
 .card-text {
 	padding: 3%;
+	font-size: $font-small-responsive;
+
+
 }
 
 .card-title {
-	font-size: $font-title-responsive;
+	font-size: $font-normal-responsive;
+
 }
 
 
@@ -336,13 +340,19 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 		padding-top: 0;
 		padding-bottom: 0;
 		height: 5vh;
+		opacity: 0.7;
+		@include hover-opacity(1);
+		@include active-scale(0.9);
+		
 	}
 
 	.header-left {
+		opacity: 0.7;
 		float: left;
 		padding-top: 0;
 		padding-bottom: 0;
 		height: 5vh;
+		@include hover-opacity(1);
 
 	}
 }
@@ -510,7 +520,7 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 .tile-text{
 	font-size: $font-normal-responsive;
 	@media (max-width: $max-width-xs){
-		font-size: 4.25vw;
+		font-size: 4.1vw;
 	}
 	color: white;
 	text-align: center;
