@@ -1,5 +1,8 @@
 <div class="header-container col-xs-12 {{current.color}}">
-	<img class="header-img-left" ng-src="{{current.image}}">
-	<div class="header-title">{{current.content}}</div>
-	<img class="header-img-right" ui-sref="home" ng-src="{{menuicon}}">
+	<div class="header-title">
+		<img class="header-left" ng-src="{{current.image}}">
+			{{current.content}}
+		<img class="header-right" ui-sref="home" ng-src="{{menuicon}}">
+	</div>
 </div>
+

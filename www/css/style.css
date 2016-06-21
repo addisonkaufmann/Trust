@@ -228,10 +228,11 @@
   margin-bottom: 1%; }
 
 .card-text {
-  padding: 3%; }
+  padding: 3%;
+  font-size: 2.5vh; }
 
 .card-title {
-  font-size: 130%; }
+  font-size: 3.5vh; }
 
 .fill {
   display: flex;
@@ -245,26 +246,45 @@
     min-height: 100%; }
 
 .header-container {
-  padding-top: 3%;
-  padding-bottom: 3%;
-  padding-left: 4%;
-  padding-right: 4%; }
+  height: 5%;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  padding-left: 0;
+  padding-right: 0; }
 
-.header-title, .header-img, .header-img-left, .header-img-right {
-  font-size: 130%;
+.header-container {
+  padding-left: 3%;
+  padding-right: 3%; }
+
+.header-title {
+  height: 100%;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 3.5vh;
   color: white;
-  display: inline-block; }
-
-.header-img, .header-img-left, .header-img-right {
-  width: 10%; }
-
-.header-img-left {
-  padding-right: 4%;
-  float: left; }
-
-.header-img-right {
-  float: right;
-  padding-left: 4%; }
+  padding-top: 1vh;
+  padding-bottom: 1vh; }
+  .header-title .header-right {
+    float: right;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 5vh;
+    opacity: 0.7; }
+    .header-title .header-right:hover {
+      opacity: 1; }
+    .header-title .header-right:active {
+      -webkit-transform: scale(0.9, 0.9);
+      -moz-transform: scale(0.9, 0.9);
+      -ms-transform: scale(0.9, 0.9);
+      transform: scale(0.9, 0.9); }
+  .header-title .header-left {
+    opacity: 0.7;
+    float: left;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 5vh; }
+    .header-title .header-left:hover {
+      opacity: 1; }
 
 .profile-title {
   color: #81bc5f;
@@ -274,7 +294,7 @@
   font-size: 7vh;
   padding-top: 2%; }
   .profile-title p {
-    font-size: 3vh; }
+    font-size: 3.5vh; }
 
 .contact-pic-container {
   width: 50px;
@@ -339,7 +359,7 @@
   font-size: 7vh;
   top: 0; }
   .overlay-title p {
-    font-size: 3vh; }
+    font-size: 3.5vh; }
 
 .overlay-footer {
   top: 75%; }
@@ -386,11 +406,14 @@
   margin-right: 3vw; }
 
 .tile-text {
-  font-size: 3vh;
+  font-size: 3.5vh;
   color: white;
   text-align: center;
   position: relative;
   top: 30%; }
+  @media (max-width: 767px) {
+    .tile-text {
+      font-size: 4.1vw; } }
 
 .tile-img {
   height: 38%;
