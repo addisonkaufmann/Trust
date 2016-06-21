@@ -245,26 +245,34 @@
     min-height: 100%; }
 
 .header-container {
-  padding-top: 3%;
-  padding-bottom: 3%;
-  padding-left: 4%;
-  padding-right: 4%; }
+  height: 5%;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  padding-left: 0;
+  padding-right: 0; }
 
-.header-title, .header-img, .header-img-left, .header-img-right {
-  font-size: 130%;
+.header-container {
+  padding-left: 3%;
+  padding-right: 3%; }
+
+.header-title {
+  height: 100%;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 3.5vh;
   color: white;
-  display: inline-block; }
-
-.header-img, .header-img-left, .header-img-right {
-  width: 10%; }
-
-.header-img-left {
-  padding-right: 4%;
-  float: left; }
-
-.header-img-right {
-  float: right;
-  padding-left: 4%; }
+  padding-top: 1vh;
+  padding-bottom: 1vh; }
+  .header-title .header-right {
+    float: right;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 5vh; }
+  .header-title .header-left {
+    float: left;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 5vh; }
 
 .profile-title {
   color: #81bc5f;
@@ -391,6 +399,9 @@
   text-align: center;
   position: relative;
   top: 30%; }
+  @media (max-width: 767px) {
+    .tile-text {
+      font-size: 4.25vw; } }
 
 .tile-img {
   height: 38%;

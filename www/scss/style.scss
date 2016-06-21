@@ -307,38 +307,44 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 }
 
 .header-container{
-	padding-top: 3%;
-	padding-bottom: 3%;
-	padding-left: 4%;
-	padding-right: 4%;
+	height: 5%;
+	padding-top: 2vh;
+	padding-bottom: 2vh;
+	padding-left: 0;
+	padding-right: 0;
 }
 
-%header-item {
-	font-size: $font-title-responsive;
-	color: white;
-	display: inline-block;
+.header-container {
+	padding-left: 3%;
+	padding-right: 3%;
 }
+
+
+
 
 .header-title {
-	@extend %header-item;
-}
+	height: 100%;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 3.5vh;
+	color: white;
+	padding-top: 1vh;
+	padding-bottom: 1vh;
 
-.header-img {
-	@extend %header-item;
-	width: 10%;
-}
+	.header-right {
+		float: right;
+		padding-top: 0;
+		padding-bottom: 0;
+		height: 5vh;
+	}
 
-.header-img-left {
-	@extend .header-img;
-	padding-right: 4%;
-	float: left;
-}
+	.header-left {
+		float: left;
+		padding-top: 0;
+		padding-bottom: 0;
+		height: 5vh;
 
-.header-img-right {
-	@extend .header-img;
-	float: right;
-	padding-left: 4%;
-
+	}
 }
 
 
@@ -503,6 +509,9 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
 .tile-text{
 	font-size: $font-normal-responsive;
+	@media (max-width: $max-width-xs){
+		font-size: 4.25vw;
+	}
 	color: white;
 	text-align: center;
 	position: relative;
