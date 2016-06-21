@@ -1,12 +1,12 @@
 <div>
-<div class="col-xs-12 col-md-3 full" ui-sref="bigTile.link">
+<div class="col-xs-12 col-md-3 full animated fadeInDown" ng-click="printbigtile()" ui-sref="bigTile.link">
 	<div class="tile-8 tile-lg {{bigTile.color}}">
 		<img class="tile-img" ng-src="{{bigTile.image}}">
 		<div class="tile-text">{{bigTile.content}}</div>
 	</div>
 </div>
 
-<div ng-repeat="t in smallTiles" class="col-xs-6 col-md-3 {{t.side}}" ui-sref="{{t.link}}">
+<div ng-repeat="t in smallTiles" class="col-xs-6 col-md-3 {{t.side}} animated" ng-class="{'fadeInLeft': t.side === 'left', 'fadeInRight': t.side ==='right'}" ui-sref="{{t.link}}">
 	<div class="tile-8 tile-lg {{t.color}}">
 		<img class="tile-img" ng-src="{{t.image}}">
 		<div class="tile-text">{{t.content}}</div>

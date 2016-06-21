@@ -114,10 +114,13 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
     $rootScope.$on('$stateChangeSuccess', 
         function(event, toState, toParams, fromState, fromParams){
             $state.current = toState;
-            console.log($state.current);
+            if ($state.current.name === 'home'){
+                console.log("you're home");
+            }
         });
 
     $scope.iconhome = 'img/icons/';
+    $scope.menuicon = $scope.iconhome + 'menu_icon.png';
     $scope.tiles = [
         {   
             'color': 'light-green',
@@ -199,6 +202,29 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
         }
     ];
 
+        $scope.contacts = [
+        {
+            'image': $scope.iconhome + '../farm-logo.png',
+            'link': 'Via indirizzo 12 - Stradella PV'
+        },
+        {
+            'image': $scope.iconhome + '../farm-logo.png',
+            'link': '+39 02 6745889'
+        },
+        {
+            'image': $scope.iconhome + '../farm-logo.png',
+            'link': 'stefano@rcantineravizza.it'
+        },
+        {
+            'image': $scope.iconhome + '../farm-logo.png',
+            'link': 'Via indirizza 12 - Stradella 20100 PV'
+        },
+        {
+            'image': $scope.iconhome + '../farm-logo.png',
+            'link': 'www.iltorrino.it'
+        }
+    ];
+
 
 
     $scope.current = $scope.tiles.filter(function(obj){
@@ -231,6 +257,7 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
 	    console.log($scope.validTiles);
    };
 
+
     if ($scope.numValidTiles === 5 || $scope.numValidTiles === 7){
     	$scope.smallTiles = $scope.validTiles.slice(1,$scope.numValidTiles);
     	$scope.bigTile = $scope.validTiles[0];
@@ -242,7 +269,6 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
     	$scope.setSides($scope.validTiles, $scope.validTiles.length);
     }
     // console.log($scope.numValidTiles);
-
 
     $scope.deactivateCurrent = function(carousel, len){
         for (var i = 0; i < len; i++){
@@ -271,14 +297,38 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
 });
 
 
-app.controller('socialCtrl', function($scope){
+app.controller('socialCtrl', function($scope, $location, $window, $rootScope, $anchorScroll){
     $scope.iconhome = 'img/icons/';
     $scope.expand = false;
 
-    $scope.toggleExpand = function(){
-        $scope.expand = !$scope.expand;
-        console.log($scope.expand);
+    angular.element($window).bind('resize', function () {
+    	console.log($window.innerHeight);	
+	});
+
+	
+
+    $scope.showExpand = function(){
+        $scope.expand = true;
+        // console.log('expand is now ' + $scope.expand + '; innerheight: ' + $window.innerHeight);
     };
+
+    $scope.hideExpand = function(){
+        $scope.expand = false;
+        console.log('expand is now ' + $scope.expand);
+    };
+
+    $scope.scrollToBottom = function(){
+		 console.log('fuck my life');
+	    $("html,body").animate({ scrollTop: $window.innerHeight}, "slow");
+
+    };
+
+    $scope.scrollToTop = function(){
+	    $("html,body").animate({ scrollTop: 0}, "slow");
+    };
+
+
+
     $scope.social = [
         {
             'name': 'facebook', 
@@ -291,7 +341,20 @@ app.controller('socialCtrl', function($scope){
         {
             'name': 'twitter', 
             'icon': $scope.iconhome + 'social_twitter.png'
+        },
+        {
+            'name': 'pinterest', 
+            'icon': $scope.iconhome + 'social_pinterest.png'
+        },
+        {
+            'name': 'reddit', 
+            'icon': $scope.iconhome + 'social_reddit.png'
+        },
+        {
+            'name': 'googleplus', 
+            'icon': $scope.iconhome + 'social_googleplus.png'
         }
+
     ];
 });
 
@@ -327,9 +390,22 @@ app.directive('social', function(){
         restrict: 'AE', 
         replace: 'true', 
         templateUrl: 'templates/social-row.html'
-
     };
 });
+
+// app.directive('scrollOnClick', function() {
+//   return {
+//     restrict: 'A',
+//     link: function(scope, $elm) {
+//       $elm.on('click', function() {
+//         console.log("trying to scroll");
+//         $("body").animate({scrollTop: $elm.getBoundingClientRect().top}, "slow");
+//       });
+//     }
+//   };
+// });
+
+
 
 app.directive('carousel', function(){
     return {
@@ -411,5 +487,4 @@ app.directive('seventiles', function(){
         templateUrl: 'templates/tiles/7-tiles.html'
     };
 });
-
 
