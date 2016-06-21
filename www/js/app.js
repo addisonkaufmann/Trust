@@ -318,8 +318,9 @@ app.controller('socialCtrl', function($scope, $location, $window, $rootScope, $a
     };
 
     $scope.scrollToBottom = function(){
-		console.log($window.innerHeight);
+		 console.log('fuck my life');
 	    $("html,body").animate({ scrollTop: $window.innerHeight}, "slow");
+
     };
 
     $scope.scrollToTop = function(){
