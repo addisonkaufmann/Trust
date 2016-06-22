@@ -64,15 +64,30 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state('home', {
             url: '/home',
             templateUrl: 'templates/dashboard.html',
-            controller: 'dashCtrl'
+            controller: 'dashCtrl',
+            resolve: {
+                // blurb:  function($http){
+                //     // $http returns a promise for the url data
+
+                //     var url = 'http://trust.techgapint.com/trust/api/farm/public/1/jsonp?callback=?';
+                //     $.getJSON(url, function(jsonp){
+                //         $("#jsonp-response").html(JSON.stringify(jsonp, null, 2));
+                //     // return $http.jsonp('http://trust.techgapint.com/trust/api/farm/public/1');
+                //     });
+                // }
+
+                blurb: function($http){
+                    return $http({method: 'GET', url: 'http://localhost:8080/trust/api/farm/public/1'});
+                }
+            }
         });
         
 });
 
 //  ===================  CONTROLLERS  ===================
 
-app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state, 
-    bulkServ, iconhomeServ){
+app.controller('dashCtrl', function($scope, $http, $rootScope, $stateParams, $state, 
+    bulkServ, iconhomeServ, blurb){
 
     $rootScope.$on('$stateChangeSuccess', 
         function(event, toState, toParams, fromState, fromParams){
@@ -92,8 +107,13 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state,
     //     'recipe': bulkServ.recipe
     // };
 
+    // var url = 'http://trust.techgapint.com/trust/api/farm/public/1?alt=json&callback=JSON_CALLBACK';
+    // $http.jsonp(url).success(function(data) {
+    //     $scope.results = data.feed.entry;
+    // });
     $scope.iconhome = iconhomeServ.iconhome;
 
+    console.log(blurb);
     $scope.tiles = [
         bulkServ.profile,
         bulkServ.info,
