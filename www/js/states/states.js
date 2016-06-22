@@ -30,7 +30,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
         .state('detail', {
             url: '/detail',
-            controller: 'dashCtrl',
+            controller: 'detailCtrl',
             templateUrl: 'templates/detail.html',
             resolve: {
                 data: function($http){

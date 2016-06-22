@@ -77,6 +77,15 @@ app.controller('dashCtrl', function($scope, $http, $rootScope, $stateParams, $st
 });
 
 
+
+app.controller('detailCtrl', function($scope, data, bulkServ, iconhomeServ){
+
+    $scope.iconhome = iconhomeServ.iconhome;
+    $scope.menuicon = $scope.iconhome + 'menu_icon.png';
+    $scope.current=bulkServ.detail;
+    $scope.data = data.data;
+    console.log($scope.data);
+});
 app.controller('carouselCtrl', function($scope){
 
     $scope.carousel = [
