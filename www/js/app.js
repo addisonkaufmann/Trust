@@ -6,26 +6,26 @@ app.config(function($stateProvider, $urlRouterProvider) {
     
     $stateProvider
         
-        // HOME STATES AND NESTED VIEWS ========================================
+        // HOME STATES AND NESTED VIEWS ===========================
 
         .state('summary', {
             url: '/summary',
             templateUrl: 'templates/summary.html'
         })
 
-         .state('info', {
+        .state('info', {
             url: '/info',
             controller: 'dashCtrl',
             templateUrl: 'templates/info.html'
         })
 
-         .state('profile', {
+        .state('profile', {
             url: '/profile',
-            controller: 'dashCtrl',
+            controller: 'profileCtrl',
             templateUrl: 'templates/profile.html'
         })
 
-         .state('detail', {
+        .state('detail', {
             url: '/detail',
             controller: 'dashCtrl',
             templateUrl: 'templates/detail.html'
@@ -36,25 +36,26 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'dashCtrl',
             templateUrl: 'templates/ingredient.html'
         })
-           .state('recipe', {
+        
+        .state('recipe', {
             url: '/recipe',
             controller: 'dashCtrl',
             templateUrl: 'templates/recipe.html'
         })
 
-         .state('nutrition', {
+        .state('nutrition', {
             url: '/nutrition',
-            controller: 'dashCtrl',
+            controller: 'nutritionCtrl',
             templateUrl: 'templates/nutrition.html'
         })
 
-         .state('water', {
+        .state('water', {
             url: '/water',
             controller: 'dashCtrl',
             templateUrl: 'templates/water.html'
         })
 
-         .state('co2impact', {
+        .state('co2impact', {
             url: '/co2impact',
             controller: 'dashCtrl',
             templateUrl: 'templates/co2impact.html'
@@ -66,215 +67,103 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'dashCtrl'
         });
         
-        // nested list with custom controller
-        // .state('home.list', {
-        //     url: '/list',
-        //     templateUrl: 'templates/partial-home-list.html',
-        //     controller: function($scope) {
-        //         $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
-        //     }
-        // })
-
-       
-        
-        // nested list with just some random string data
-        // .state('home.paragraph', {
-        //     url: '/paragraph',
-        //     template: 'I could sure use a drink right now.'
-        // })
-
-        // .state('home.profile', {
-        //     url: '/profile',
-        //     templateUrl: 'templates/profile.html'
-        // })
-
-        // .state('home.dashboard', {
-        //     url: '/dashboard',
-        //     templateUrl: 'templates/dashboard.html'
-        // })
-        
-        // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
-        // .state('about', {
-        //     url: '/about',
-        //     views: {
-        //         '': { templateUrl: 'templates/partial-about.html' },
-        //         'columnOne@about': { template: 'Look I am a column!' },
-        //         'columnTwo@about': { 
-        //             templateUrl: 'templates/table-data.html',
-        //             controller: 'scotchController'
-        //         }
-        //     }
-            
-        // });
-        
 });
 
-app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
+//  ===================  CONTROLLERS  ===================
+
+app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state, 
+    bulkServ, iconhomeServ){
 
     $rootScope.$on('$stateChangeSuccess', 
         function(event, toState, toParams, fromState, fromParams){
-            $state.current = toState;
-            if ($state.current.name === 'home'){
-                console.log("you're home");
-            }
+            $state.current = toState;  
         });
 
-    $scope.iconhome = 'img/icons/';
-    $scope.menuicon = $scope.iconhome + 'menu_icon.png';
+    //to be deleted upon completion of merge
+
+    // $scope.tiles = {
+    //     'profile': bulkServ.profile,
+    //     'info': bulkServ.info,
+    //     'detail': bulkServ.detail,
+    //     'nutrition': bulkServ.nutrition,
+    //     'co2impact': bulkServ.co2impact,
+    //     'ingredient': bulkServ.ingredient,
+    //     'water': bulkServ.water,
+    //     'recipe': bulkServ.recipe
+    // };
+
+    $scope.iconhome = iconhomeServ.iconhome;
+
     $scope.tiles = [
-        {   
-            'color': 'light-green',
-            'content': 'Azienda agricola',
-            'link': 'profile',
-            'image': $scope.iconhome + 'profile_icon.png' ,
-            'valid': true,
-            'side': 'left'
-        },
-        {
-            'color': 'yellow',
-            'content': 'Informazioni prodotto',
-            'link': 'info',
-            'image': $scope.iconhome + 'info_icon.png',
-            'valid': true,
-            'side': 'right',
-            'data': {
-                'carousel': [
-                    {'image': 'img/farm.jpg', 'active':true},
-                    {'image': 'img/river.jpg', 'active': false},
-                    {'image': 'img/field.jpg', 'active':false},
-                ]
-            }
-        },
-        {
-            'color': 'orange',
-            'content': 'Dettagli prodotto',
-            'image': $scope.iconhome + 'detail_icon.png',
-            'valid': true,
-            'link': 'detail',
-            'side': 'left',
-            'data': {
-                'carousel': [
-                    {'image': 'img/farm.jpg', 'active':true},
-                    {'image': 'img/river.jpg', 'active': false},
-                    {'image': 'img/field.jpg', 'active':false},
-                ]
-            }
-        },
-        {
-            'color': 'red',
-            'content': 'Valori nutrizionali',
-            'image': $scope.iconhome + 'nutrition_icon.png',
-            'link': 'nutrition',
-            'valid': true,
-            'side': 'right'
-        },
-        {
-            'color': 'brown',
-            'content': 'Impatto CO2',
-            'image': $scope.iconhome + 'co2impact_icon.png',
-            'link': 'co2impact',
-            'valid': true,
-            'side': 'left'
-        },
-        {
-            'color': 'purple',
-            'content': 'Ingredienti particolari',
-            'image': $scope.iconhome + 'ingredient_icon.png',
-            'link': 'ingredient',
-            'valid': true,
-            'side': 'right'
-        },
-        {
-            'color': 'blue',
-            'content': 'Utilizzo acqua',
-            'image': $scope.iconhome + 'water_icon.png',
-            'link': 'water',
-            'valid': true,
-            'side': 'left'
-        },
-        {
-            'color': 'dark-green',
-            'content': 'Ricette',
-            'image': $scope.iconhome + 'recipe_icon.png',
-            'link': 'recipe',
-            'valid': true,
-            'side': 'right'
-        }
+        bulkServ.profile,
+        bulkServ.info,
+        bulkServ.detail,
+        bulkServ.nutrition,
+        bulkServ.co2impact,
+        bulkServ.ingredient,
+        bulkServ.water,
+        bulkServ.recipe
     ];
 
-        $scope.contacts = [
-        {
-            'image': $scope.iconhome + '../farm-logo.png',
-            'link': 'Via indirizzo 12 - Stradella PV'
-        },
-        {
-            'image': $scope.iconhome + '../farm-logo.png',
-            'link': '+39 02 6745889'
-        },
-        {
-            'image': $scope.iconhome + '../farm-logo.png',
-            'link': 'stefano@rcantineravizza.it'
-        },
-        {
-            'image': $scope.iconhome + '../farm-logo.png',
-            'link': 'Via indirizza 12 - Stradella 20100 PV'
-        },
-        {
-            'image': $scope.iconhome + '../farm-logo.png',
-            'link': 'www.iltorrino.it'
-        }
-    ];
+    $scope.menuicon = $scope.iconhome + 'menu_icon.png';
 
 
 
+
+    //sets $scope.current to an array holding one object whose 
+    //link (i.e 'profile', 'water') is the same as the name 
+    //of the current state (also 'profile', 'water', etc)
     $scope.current = $scope.tiles.filter(function(obj){
         return obj.link === $state.current.name;
     });
 
+    //changes $scope.current from an array of
+    //one object to just a regular object
     if ($scope.current){
-            $scope.current=$scope.current[0];
-            console.log($scope.current);
+        $scope.current = $scope.current[0];
     }
 
 
+
+    //used for the layout of the tiles on the dashboard when
+    //there are a variable number of tiles present
 
     $scope.validTiles = $scope.tiles.filter(function(obj){
         return obj.valid === true;
     });
 
-
     $scope.numValidTiles = $scope.validTiles.length;
 
     $scope.setSides = function(array, len){
-	    var i = 0;        
-	    for (i; i < len; i++){
-	        if (i%2 === 0){
-	            array[i].side = 'left'; 
-	        } else {
-	            array[i].side = 'right';
-	        }
-	    } 
-	    console.log($scope.validTiles);
+        var i = 0;        
+        for (i; i < len; i++){
+            if (i%2 === 0){
+                array[i].side = 'left'; 
+            } else {
+                array[i].side = 'right';
+            }
+        } 
    };
 
-
-    if ($scope.numValidTiles === 5 || $scope.numValidTiles === 7){
-    	$scope.smallTiles = $scope.validTiles.slice(1,$scope.numValidTiles);
-    	$scope.bigTile = $scope.validTiles[0];
-    	console.log($scope.validTiles);
-    	console.log($scope.smallTiles);
-    	console.log($scope.bigTile);
-    	$scope.setSides($scope.smallTiles, $scope.smallTiles.length);
-    } else {
-    	$scope.setSides($scope.validTiles, $scope.validTiles.length);
+   if ($scope.numValidTiles === 5 || $scope.numValidTiles === 7){
+        $scope.smallTiles = $scope.validTiles.slice(1, 
+            $scope.numValidTiles);
+        $scope.bigTile = $scope.validTiles[0];
+        $scope.setSides($scope.smallTiles, $scope.smallTiles.length);
     }
-    // console.log($scope.numValidTiles);
+    else {
+        $scope.setSides($scope.validTiles, $scope.validTiles.length);
+    }
+
+
+
+
+    //code for the picture carousels
 
     $scope.deactivateCurrent = function(carousel, len){
         for (var i = 0; i < len; i++){
             if (carousel[i].active === true){
                 carousel[i].active = false;
-                console.log(i);
                 return i;
             }
         }
@@ -284,47 +173,43 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state){
         var carousel = $scope.current.data.carousel;
         var len = carousel.length;
         var i = $scope.deactivateCurrent(carousel, len);
-        carousel[ (i+1)%len ].active=true;
-
+        carousel[ (i + 1) % len ].active = true;
     };
 
     $scope.activatePrev = function(){
         var carousel = $scope.current.data.carousel;
         var len = carousel.length;
         var i = $scope.deactivateCurrent(carousel, len);
-        carousel[ (i-1+len)%len ].active=true;
+        carousel[ (i - 1 + len) % len ].active = true;
     };
+
 });
 
 
-app.controller('socialCtrl', function($scope, $location, $window, $rootScope, $anchorScroll){
-    $scope.iconhome = 'img/icons/';
+
+
+app.controller('socialCtrl', function($scope, $location, $window, $rootScope, 
+    $anchorScroll, iconhomeServ){
+
+    $scope.iconhome = iconhomeServ.iconhome;
     $scope.expand = false;
-
-    angular.element($window).bind('resize', function () {
-    	console.log($window.innerHeight);	
-	});
-
-	
+    
 
     $scope.showExpand = function(){
         $scope.expand = true;
-        // console.log('expand is now ' + $scope.expand + '; innerheight: ' + $window.innerHeight);
     };
 
     $scope.hideExpand = function(){
         $scope.expand = false;
-        console.log('expand is now ' + $scope.expand);
     };
 
     $scope.scrollToBottom = function(){
-		 console.log('fuck my life');
-	    $("html,body").animate({ scrollTop: $window.innerHeight}, "slow");
+        $("html,body").animate({ scrollTop: $window.innerHeight}, "slow");
 
     };
 
     $scope.scrollToTop = function(){
-	    $("html,body").animate({ scrollTop: 0}, "slow");
+        $("html,body").animate({ scrollTop: 0}, "slow");
     };
 
 
@@ -358,8 +243,14 @@ app.controller('socialCtrl', function($scope, $location, $window, $rootScope, $a
     ];
 });
 
-app.controller('profileCtrl', function($scope) {
-    $scope.iconhome = 'img/icons/';
+
+
+
+app.controller('profileCtrl', function($scope, bulkServ, iconhomeServ) {
+    $scope.current = bulkServ.profile;
+    $scope.iconhome = iconhomeServ.iconhome;
+    $scope.menuicon = $scope.iconhome + 'menu_icon.png';
+    
     $scope.contacts = [
         {
             'image': $scope.iconhome + '../farm-logo.png',
@@ -385,27 +276,308 @@ app.controller('profileCtrl', function($scope) {
 });
 
 
+
+app.controller('nutritionCtrl', function($scope, bulkServ) {
+
+    $scope.iconhome = bulkServ.iconhome;
+    $scope.current = bulkServ.nutrition;
+    $scope.menuicon = $scope.iconhome + 'menu_icon.png';
+
+
+    // ==========  FUNCTIONS  ==========
+
+    function populatePercentages() {
+        for (var i = 0; i < $scope.charts.length; i++) {
+            $scope.charts[i].percentage = 
+                100 * $scope.charts[i].data/$scope.charts[i].total;
+        }
+    }
+
+    function getDataArray(i) {
+        return [$scope.charts[i].data, $scope.charts[i].total - $scope.charts[i].data];
+    }
+
+    //used to dynamically resize the charts on the page
+    function innerCircleWidth() {
+        return $('div.innerPercentage').width();
+    }
+
+    function headerHeight() {
+        return $('div.innerPercentage h2').height();
+    }
+
+
+
+    $(window).resize(function() {
+        $('div.innerPercentage').css({'height': innerCircleWidth() + 'px'});
+        $('div.chart-title').css({'font-size': 0.25*innerCircleWidth() + 'px'});
+        $('div.chart-data').css({'font-size': 0.12*innerCircleWidth() + 'px'});
+        $('div.innerPercentage h2').css({'font-size': 0.30*innerCircleWidth() + 'px'});
+        $('div.innerPercentage h2').css({'margin-top': -0.5*headerHeight() + 'px'});
+        populatePercentages();
+    });
+
+
+
+    $scope.charts = [
+        {
+            name: 'Calories',
+            color: 'rgba(255, 99, 132, 1)',
+            data: 2000,
+            total: 2000,
+            valid: true
+        },
+        {
+            name: 'Protein',
+            color: 'rgba(155, 199, 32, 1)',
+            data: 24,
+            total: 30,
+            valid: true
+        },
+        {
+            name: 'Fat',
+            color: 'rgba(124, 159, 64, 1)',
+            data: 10,
+            total: 20,
+            valid: true
+        }
+    ];
+
+
+
+    //Some standard formatting settings for all charts
+    var options = {
+        cutoutPercentage: 90,
+        animation: {
+            animateScale: true
+        },
+        legend: {
+            display: false
+        },
+        tooltips: {
+            enabled: false
+        }
+    };
+
+    var transparent = 'rgba(0, 0, 0, 0)';
+
+
+
+    //must wait until the ng-repeat directive is finished, otherwise none
+    //of the elements will be rendered on the page. In this case, all of the 
+    //if(someElement.length) statements will evaluate to false because they do not
+    //exist yet
+
+    $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
+
+        if ($('#Calories').length) {
+            $scope.calorieChart = new Chart($('#' + $scope.charts[0].name), {
+                type: 'doughnut',
+                data: {
+                    labels: ["", ""],
+                    datasets: [{
+                        data: getDataArray(0),
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 1)',
+                            transparent
+                        ],
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            transparent
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: options
+            });
+        }
+
+        if ($('#Protein').length) {
+            $scope.proteinChart = new Chart($('#' + $scope.charts[1].name), {
+                type: 'doughnut',
+                data: {
+                    labels: ["", ""],
+                    datasets: [{
+                        data: getDataArray(1),
+                        backgroundColor: [
+                            'rgba(155, 199, 32, 1)',
+                            transparent
+                        ],
+                        borderColor: [
+                            'rgba(155, 199, 32, 1)',
+                            transparent
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: options
+            });
+        }
+
+        if ($('#Fat').length) {
+            $scope.fatChart = new Chart($('#' + $scope.charts[2].name), {
+                type: 'doughnut',
+                data: {
+                    labels: ["", ""],
+                    datasets: [{
+                        data: getDataArray(2),
+                        backgroundColor: [
+                            'rgba(124, 159, 64, 1)',
+                            transparent
+                        ],
+                        borderColor: [
+                            'rgba(124, 159, 64, 1)',
+                            transparent
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: options
+            });
+        }
+
+        $(window).trigger('resize');
+    });
+
+
+}); // end of nutrition controller
+
+
+
+
+
+
+
+
+//  ===================  SERVICES  ===================
+
+app.service('iconhomeServ', function() {
+    this.iconhome = 'img/icons/';
+});
+
+
+app.service('bulkServ', function(iconhomeServ) {
+
+    this.iconhome = iconhomeServ.iconhome;
+
+    this.profile = {
+        'color': 'light-green',
+        'content': 'Azienda agricola',
+        'link': 'profile',
+        'image': this.iconhome + 'profile_icon.png' ,
+        'valid': true,
+        'side': 'left'
+    };
+
+    this.info = {
+        'color': 'yellow',
+        'content': 'Informazioni prodotto',
+        'link': 'info',
+        'image': this.iconhome + 'info_icon.png',
+        'valid': true,
+        'side': 'right',
+        'data': {
+            'carousel': [
+                {'image': 'img/farm.jpg', 'active':true},
+                {'image': 'img/river.jpg', 'active': false},
+                {'image': 'img/field.jpg', 'active':false},
+            ]
+        }
+    };
+
+    this.detail = {
+        'color': 'orange',
+        'content': 'Dettagli prodotto',
+        'image': this.iconhome + 'detail_icon.png',
+        'valid': true,
+        'link': 'detail',
+        'side': 'left',
+        'data': {
+            'carousel': [
+                {'image': 'img/farm.jpg', 'active':true},
+                {'image': 'img/river.jpg', 'active': false},
+                {'image': 'img/field.jpg', 'active':false},
+            ]
+        }
+    };
+
+    this.nutrition = {
+        'color': 'red',
+        'content': 'Valori nutrizionali',
+        'image': this.iconhome + 'nutrition_icon.png',
+        'link': 'nutrition',
+        'valid': true,
+        'side': 'right'
+    };
+
+    this.co2impact = {
+        'color': 'brown',
+        'content': 'Impatto CO2',
+        'image': this.iconhome + 'co2impact_icon.png',
+        'link': 'co2impact',
+        'valid': true,
+        'side': 'left'
+    };
+
+    this.ingredient = {
+        'color': 'purple',
+        'content': 'Ingredienti particolari',
+        'image': this.iconhome + 'ingredient_icon.png',
+        'link': 'ingredient',
+        'valid': true,
+        'side': 'right'
+    };
+
+    this.water = {
+        'color': 'blue',
+        'content': 'Utilizzo acqua',
+        'image': this.iconhome + 'water_icon.png',
+        'link': 'water',
+        'valid': true,
+        'side': 'left'
+    };
+
+    this.recipe = {
+        'color': 'dark-green',
+        'content': 'Ricette',
+        'image': this.iconhome + 'recipe_icon.png',
+        'link': 'recipe',
+        'valid': true,
+        'side': 'right'
+    };
+
+});
+
+
+
+
+
+
+//  ===================  DIRECTIVES  ===================
+
+
+app.directive('onFinishRender', function ($timeout) {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attr) {
+            if (scope.$last === true) {
+                $timeout(function () {
+                    scope.$emit('ngRepeatFinished');
+                });
+            }
+        }
+    };
+});
+
+
 app.directive('social', function(){
     return {
         restrict: 'AE', 
         replace: 'true', 
         templateUrl: 'templates/social-row.html'
+
     };
 });
-
-// app.directive('scrollOnClick', function() {
-//   return {
-//     restrict: 'A',
-//     link: function(scope, $elm) {
-//       $elm.on('click', function() {
-//         console.log("trying to scroll");
-//         $("body").animate({scrollTop: $elm.getBoundingClientRect().top}, "slow");
-//       });
-//     }
-//   };
-// });
-
-
 
 app.directive('carousel', function(){
     return {
@@ -431,6 +603,11 @@ app.directive('header', function(){
     };
 });
 
+
+
+
+//Tile layout directives
+
 app.directive('eighttiles', function(){
     return {
         restrict: 'AE',
@@ -439,11 +616,27 @@ app.directive('eighttiles', function(){
     };
 });
 
+app.directive('seventiles', function(){
+    return {
+        restrict: 'AE',
+        replace: 'true', 
+        templateUrl: 'templates/tiles/7-tiles.html'
+    };
+});
+
 app.directive('sixtiles', function(){
     return {
         restrict: 'AE',
         replace: 'true', 
         templateUrl: 'templates/tiles/6-tiles.html'
+    };
+});
+
+app.directive('fivetiles', function(){
+    return {
+        restrict: 'AE',
+        replace: 'true', 
+        templateUrl: 'templates/tiles/5-tiles.html'
     };
 });
 
@@ -469,22 +662,6 @@ app.directive('twotiles', function(){
         restrict: 'AE',
         replace: 'true', 
         templateUrl: 'templates/tiles/2-tiles.html'
-    };
-});
-
-app.directive('fivetiles', function(){
-    return {
-        restrict: 'AE',
-        replace: 'true', 
-        templateUrl: 'templates/tiles/5-tiles.html'
-    };
-});
-
-app.directive('seventiles', function(){
-    return {
-        restrict: 'AE',
-        replace: 'true', 
-        templateUrl: 'templates/tiles/7-tiles.html'
     };
 });
 

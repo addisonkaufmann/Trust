@@ -1,21 +1,21 @@
 <div class="overlay-container" ui-sref="home">
-	<div class="vignette fill">
-		<img src="img/farm.jpg">
-	</div>
+    <div class="vignette fill">
+        <img ng-src="img/farm.jpg">
+    </div>
 
-	<div class="overlay-tab">
-		<img class="logo" src="img/farm-logo.png">
-	</div>
+    <div class="overlay-tab">
+        <img class="logo" ng-src="img/farm-logo.png">
+    </div>
 
     <div class="overlay-content">
 
         <div class="overlay-title">
             Product<br/>
-            <p>Subtitle subtitle subtitle </p>
+            <p>Subtitle subtitle subtitle</p>
         </div>
 
         <div class="overlay-social-row" ng-controller="socialCtrl">
-            <img class="social-sm" ng-repeat="s in social | limitTo : 3" src="{{s.icon}}">
+            <img class="social-sm" ng-repeat="s in social | limitTo : 3" ng-src="{{s.icon}}">
         </div>
 
         <div class="overlay-footer">
