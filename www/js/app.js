@@ -315,33 +315,6 @@ app.controller('profileCtrl', function($scope, bulkServ, iconhomeServ, blurb) {
             'value': $scope.data.email 
         });
     }
- 
-    
-
-
-
-    // $scope.contacts = [
-    //     {
-    //         'image': $scope.iconhome + '../farm-logo.png',
-    //         'link': 'Via indirizzo 12 - Stradella PV'
-    //     },
-    //     {
-    //         'image': $scope.iconhome + '../farm-logo.png',
-    //         'link': '+39 02 6745889'
-    //     },
-    //     {
-    //         'image': $scope.iconhome + '../farm-logo.png',
-    //         'link': 'stefano@rcantineravizza.it'
-    //     },
-    //     {
-    //         'image': $scope.iconhome + '../farm-logo.png',
-    //         'link': 'Via indirizza 12 - Stradella 20100 PV'
-    //     },
-    //     {
-    //         'image': $scope.iconhome + '../farm-logo.png',
-    //         'link': 'www.iltorrino.it'
-    //     }
-    // ];
 });
 
 
