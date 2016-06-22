@@ -24,7 +24,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'profileCtrl',
             templateUrl: 'templates/profile.html',
             resolve: {
-                blurb: function($http){
+                data: function($http){
                     return $http({method: 'GET', url: 'http://localhost:8080/trust/api/farm/public/1'});
                 }
             }
@@ -180,6 +180,16 @@ app.controller('dashCtrl', function($scope, $http, $rootScope, $stateParams, $st
 
 
     //code for the picture carousels
+});
+
+
+app.controller('carouselCtrl', function($scope){
+
+    $scope.carousel = [
+        {'image': 'img/farm.jpg', 'active':true},
+        {'image': 'img/river.jpg', 'active': false},
+        {'image': 'img/field.jpg', 'active':false},
+    ];
 
     $scope.deactivateCurrent = function(carousel, len){
         for (var i = 0; i < len; i++){
@@ -191,23 +201,20 @@ app.controller('dashCtrl', function($scope, $http, $rootScope, $stateParams, $st
     };
 
     $scope.activateNext = function(){
-        var carousel = $scope.current.data.carousel;
+        var carousel = $scope.carousel;
         var len = carousel.length;
         var i = $scope.deactivateCurrent(carousel, len);
         carousel[ (i + 1) % len ].active = true;
     };
 
     $scope.activatePrev = function(){
-        var carousel = $scope.current.data.carousel;
+        var carousel = $scope.carousel;
         var len = carousel.length;
         var i = $scope.deactivateCurrent(carousel, len);
         carousel[ (i - 1 + len) % len ].active = true;
     };
 
 });
-
-
-
 
 app.controller('socialCtrl', function($scope, $location, $window, $rootScope, 
     $anchorScroll, iconhomeServ){
@@ -268,9 +275,9 @@ app.controller('socialCtrl', function($scope, $location, $window, $rootScope,
 
 
 
-app.controller('profileCtrl', function($scope, bulkServ, iconhomeServ, blurb) {
-    console.log(blurb);
-    $scope.data= blurb.data;
+app.controller('profileCtrl', function($scope, bulkServ, iconhomeServ, data) {
+    console.log(data);
+    $scope.data= data.data;
     $scope.current = bulkServ.profile;
     $scope.iconhome = iconhomeServ.iconhome;
     $scope.menuicon = $scope.iconhome + 'menu_icon.png';
@@ -316,6 +323,8 @@ app.controller('profileCtrl', function($scope, bulkServ, iconhomeServ, blurb) {
         });
     }
 });
+
+
 
 
 
@@ -518,13 +527,7 @@ app.service('bulkServ', function(iconhomeServ) {
         'image': this.iconhome + 'info_icon.png',
         'valid': true,
         'side': 'right',
-        'data': {
-            'carousel': [
-                {'image': 'img/farm.jpg', 'active':true},
-                {'image': 'img/river.jpg', 'active': false},
-                {'image': 'img/field.jpg', 'active':false},
-            ]
-        }
+        'carousel': true
     };
 
     this.detail = {
@@ -534,13 +537,7 @@ app.service('bulkServ', function(iconhomeServ) {
         'valid': true,
         'link': 'detail',
         'side': 'left',
-        'data': {
-            'carousel': [
-                {'image': 'img/farm.jpg', 'active':true},
-                {'image': 'img/river.jpg', 'active': false},
-                {'image': 'img/field.jpg', 'active':false},
-            ]
-        }
+        'carousel': true
     };
 
     this.nutrition = {
