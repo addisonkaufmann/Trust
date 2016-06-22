@@ -242,13 +242,13 @@
     width: 100%;
     height: 100%; }
 
-.contact-pic-container {
-  width: 50px;
-  height: 50px;
+.contact-pic-container img {
+  width: 8vh;
+  height: 8vh;
   display: inline-block; }
-  .contact-pic-container img {
-    width: 100%;
-    height: 100%; }
+
+.contact-pic-container p {
+  display: inline-block; }
 
 .contact-text {
   display: inline-block;

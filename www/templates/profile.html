@@ -14,21 +14,25 @@
 
 
 <div class="fill profile-pic-container center">
-	<img src="img/farm-logo.jpg">
+	<img ng-src="img/farm-logo.jpg">
 </div>
 
 
 <div class="card" >
 	<div class="profile-title">
-		Company Name<br/>
-		<p>Company Owner</p>
+		{{data.name}}
+		<p>{{data.description}}</p>
 	</div>
 	<div class="card-text">
-		Lorem ipsum dolor sit amet, ea eos nibh modus accommodare, sed probo ridens eu, et aperiam platonem pro. Phaedrum voluptatum mei in, ei ceteros dissentias ullamcorper eos, ius ex case quaerendum. Vim eu brute appetere, sale eripuit ne pro. Nam te wisi harum albucius, id est dico habeo atqui. Duo amet modus facete te. Ad atomorum mnesarchum referrentur mel, ne sed stet semper, et vis rebum possit voluptua. Ne est propriae splendide, est et odio dolorem.
+		<p ng-bind-html="data.presentation"></p>
+	</div>
 
-		Ne oblique persius vel, patrioque dissentiet no nam, usu regione habemus in. Falli sensibus duo cu, autem audiam latine an eam. Te deserunt recteque duo. Docendi apeirian inciderint eos ad. His id graeco referrentur, eu mea ceteros pertinax. Vel at vide posse.
+	<div class="card-text">
+		<div class="contact-pic-container" ng-repeat="c in contactinfo">
+			<img class="contact-img" ng-src="{{c.img}}">	
+			<p>{{c.value}}</p>
 
-		Ne oblique persius vel, patrioque dissentiet no nam, usu regione habemus in. Falli sensibus duo cu, autem audiam latine an eam. Te deserunt recteque duo. Docendi apeirian inciderint eos ad. His id graeco referrentur, eu mea ceteros pertinax. Vel at vide posse.
+		</div>
 	</div>
 </div>
 

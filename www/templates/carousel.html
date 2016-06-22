@@ -1,12 +1,12 @@
-<div  class="carousel slide">
+<div  class="carousel slide" ng-controller="carouselCtrl">
   <!-- Indicators -->
   <ol class="carousel-indicators">
-    <li class="dots" ng-repeat="i in current.data.carousel" ng-class="{'active': i.active}"></li>
+    <li class="dots" ng-repeat="i in carousel" ng-class="{'active': i.active}"></li>
   </ol>
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
-    <div class="item" ng-class="{'active': i.active}" ng-repeat="i in current.data.carousel">
+    <div class="item" ng-class="{'active': i.active}" ng-repeat="i in carousel">
       <img ng-src="{{i.image}}">
     </div>
   </div>

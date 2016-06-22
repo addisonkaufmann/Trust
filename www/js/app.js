@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router']);
+var app = angular.module('app', ['ui.router', 'ngSanitize']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
     
@@ -22,7 +22,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state('profile', {
             url: '/profile',
             controller: 'profileCtrl',
-            templateUrl: 'templates/profile.html'
+            templateUrl: 'templates/profile.html',
+            resolve: {
+                data: function($http){
+                    return $http({method: 'GET', url: 'http://localhost:8080/trust/api/farm/public/1'});
+                }
+            }
         })
 
         .state('detail', {
@@ -64,14 +69,25 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state('home', {
             url: '/home',
             templateUrl: 'templates/dashboard.html',
-            controller: 'dashCtrl'
+            controller: 'dashCtrl',
+            resolve: {
+                // blurb:  function($http){
+                //     // $http returns a promise for the url data
+
+                //     var url = 'http://trust.techgapint.com/trust/api/farm/public/1/jsonp?callback=?';
+                //     $.getJSON(url, function(jsonp){
+                //         $("#jsonp-response").html(JSON.stringify(jsonp, null, 2));
+                //     // return $http.jsonp('http://trust.techgapint.com/trust/api/farm/public/1');
+                //     });
+                // }
+            }
         });
         
 });
 
 //  ===================  CONTROLLERS  ===================
 
-app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state, 
+app.controller('dashCtrl', function($scope, $http, $rootScope, $stateParams, $state, 
     bulkServ, iconhomeServ){
 
     $rootScope.$on('$stateChangeSuccess', 
@@ -92,8 +108,13 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state,
     //     'recipe': bulkServ.recipe
     // };
 
+    // var url = 'http://trust.techgapint.com/trust/api/farm/public/1?alt=json&callback=JSON_CALLBACK';
+    // $http.jsonp(url).success(function(data) {
+    //     $scope.results = data.feed.entry;
+    // });
     $scope.iconhome = iconhomeServ.iconhome;
 
+ 
     $scope.tiles = [
         bulkServ.profile,
         bulkServ.info,
@@ -159,6 +180,16 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state,
 
 
     //code for the picture carousels
+});
+
+
+app.controller('carouselCtrl', function($scope){
+
+    $scope.carousel = [
+        {'image': 'img/farm.jpg', 'active':true},
+        {'image': 'img/river.jpg', 'active': false},
+        {'image': 'img/field.jpg', 'active':false},
+    ];
 
     $scope.deactivateCurrent = function(carousel, len){
         for (var i = 0; i < len; i++){
@@ -170,23 +201,20 @@ app.controller('dashCtrl', function($scope, $rootScope, $stateParams, $state,
     };
 
     $scope.activateNext = function(){
-        var carousel = $scope.current.data.carousel;
+        var carousel = $scope.carousel;
         var len = carousel.length;
         var i = $scope.deactivateCurrent(carousel, len);
         carousel[ (i + 1) % len ].active = true;
     };
 
     $scope.activatePrev = function(){
-        var carousel = $scope.current.data.carousel;
+        var carousel = $scope.carousel;
         var len = carousel.length;
         var i = $scope.deactivateCurrent(carousel, len);
         carousel[ (i - 1 + len) % len ].active = true;
     };
 
 });
-
-
-
 
 app.controller('socialCtrl', function($scope, $location, $window, $rootScope, 
     $anchorScroll, iconhomeServ){
@@ -246,34 +274,57 @@ app.controller('socialCtrl', function($scope, $location, $window, $rootScope,
 
 
 
-app.controller('profileCtrl', function($scope, bulkServ, iconhomeServ) {
+
+app.controller('profileCtrl', function($scope, bulkServ, iconhomeServ, data) {
+    console.log(data);
+    $scope.data= data.data;
     $scope.current = bulkServ.profile;
     $scope.iconhome = iconhomeServ.iconhome;
     $scope.menuicon = $scope.iconhome + 'menu_icon.png';
     
-    $scope.contacts = [
-        {
-            'image': $scope.iconhome + '../farm-logo.png',
-            'link': 'Via indirizzo 12 - Stradella PV'
-        },
-        {
-            'image': $scope.iconhome + '../farm-logo.png',
-            'link': '+39 02 6745889'
-        },
-        {
-            'image': $scope.iconhome + '../farm-logo.png',
-            'link': 'stefano@rcantineravizza.it'
-        },
-        {
-            'image': $scope.iconhome + '../farm-logo.png',
-            'link': 'Via indirizza 12 - Stradella 20100 PV'
-        },
-        {
-            'image': $scope.iconhome + '../farm-logo.png',
-            'link': 'www.iltorrino.it'
-        }
-    ];
+    $scope.address=angular.fromJson($scope.data.address);
+    console.log($scope.address);
+
+    /*mailing address, phonenumber, email, actual adress, website */
+    $scope.contactinfo = [];
+
+    if (angular.fromJson($scope.data.address).address){
+        $scope.contactinfo.push({
+            'type':'address',
+            'img': $scope.iconhome + '../farm-logo.png', 
+            'value': angular.fromJson($scope.data.address).address 
+        });
+    }
+
+    if ($scope.data.website){
+        //push to contact
+        $scope.contactinfo.push({
+            'type':'website',
+            'img': $scope.iconhome + '../farm-logo.png', 
+            'value': $scope.data.website 
+        });
+    }
+
+    if ($scope.data.phone){
+        //push
+        $scope.contactinfo.push({
+            'type':'phone',
+            'img': $scope.iconhome + '../farm-logo.png', 
+            'value': $scope.data.phone 
+        });
+    }
+
+    if ($scope.data.email){
+        //push
+        $scope.contactinfo.push({
+            'type':'email',
+            'img': $scope.iconhome + '../farm-logo.png', 
+            'value': $scope.data.email 
+        });
+    }
 });
+
+
 
 
 
@@ -476,13 +527,7 @@ app.service('bulkServ', function(iconhomeServ) {
         'image': this.iconhome + 'info_icon.png',
         'valid': true,
         'side': 'right',
-        'data': {
-            'carousel': [
-                {'image': 'img/farm.jpg', 'active':true},
-                {'image': 'img/river.jpg', 'active': false},
-                {'image': 'img/field.jpg', 'active':false},
-            ]
-        }
+        'carousel': true
     };
 
     this.detail = {
@@ -492,13 +537,7 @@ app.service('bulkServ', function(iconhomeServ) {
         'valid': true,
         'link': 'detail',
         'side': 'left',
-        'data': {
-            'carousel': [
-                {'image': 'img/farm.jpg', 'active':true},
-                {'image': 'img/river.jpg', 'active': false},
-                {'image': 'img/field.jpg', 'active':false},
-            ]
-        }
+        'carousel': true
     };
 
     this.nutrition = {
