@@ -22,7 +22,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state('profile', {
             url: '/profile',
             controller: 'profileCtrl',
-            templateUrl: 'templates/profile.html'
+            templateUrl: 'templates/profile.html',
+            resolve: {
+                blurb: function($http){
+                    return $http({method: 'GET', url: 'http://localhost:8080/trust/api/farm/public/1'});
+                }
+            }
         })
 
         .state('detail', {
@@ -75,10 +80,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 //     // return $http.jsonp('http://trust.techgapint.com/trust/api/farm/public/1');
                 //     });
                 // }
-
-                blurb: function($http){
-                    return $http({method: 'GET', url: 'http://localhost:8080/trust/api/farm/public/1'});
-                }
             }
         });
         
@@ -87,7 +88,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 //  ===================  CONTROLLERS  ===================
 
 app.controller('dashCtrl', function($scope, $http, $rootScope, $stateParams, $state, 
-    bulkServ, iconhomeServ, blurb){
+    bulkServ, iconhomeServ){
 
     $rootScope.$on('$stateChangeSuccess', 
         function(event, toState, toParams, fromState, fromParams){
@@ -113,7 +114,7 @@ app.controller('dashCtrl', function($scope, $http, $rootScope, $stateParams, $st
     // });
     $scope.iconhome = iconhomeServ.iconhome;
 
-    console.log(blurb);
+ 
     $scope.tiles = [
         bulkServ.profile,
         bulkServ.info,
@@ -266,7 +267,10 @@ app.controller('socialCtrl', function($scope, $location, $window, $rootScope,
 
 
 
-app.controller('profileCtrl', function($scope, bulkServ, iconhomeServ) {
+
+app.controller('profileCtrl', function($scope, bulkServ, iconhomeServ, blurb) {
+    console.log(blurb);
+    $scope.data= blurb.data;
     $scope.current = bulkServ.profile;
     $scope.iconhome = iconhomeServ.iconhome;
     $scope.menuicon = $scope.iconhome + 'menu_icon.png';
