@@ -78,7 +78,8 @@ app.service('bulkServ', function(iconhomeServ) {
         'image': this.iconhome + 'recipe_icon.png',
         'link': 'recipe',
         'valid': true,
-        'side': 'right'
+        'side': 'right', 
+        'carousel': true
     };
 
 });

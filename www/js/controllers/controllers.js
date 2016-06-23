@@ -86,6 +86,7 @@ app.controller('detailCtrl', function($scope, data, bulkServ, iconhomeServ){
     $scope.data = data.data;
     console.log($scope.data);
 });
+
 app.controller('carouselCtrl', function($scope){
 
     $scope.carousel = [
@@ -117,6 +118,41 @@ app.controller('carouselCtrl', function($scope){
         carousel[ (i - 1 + len) % len ].active = true;
     };
 
+});
+
+
+app.controller('recipeCtrl', function($scope,$stateParams, $rootScope, $state, $http,  data, bulkServ, iconhomeServ){
+    $rootScope.$on('$stateChangeSuccess', function(event, toState){
+        if (toState.params && toState.params.defaultChild){
+            $state.go(toState.params.defaultChild);     
+        }
+        $state.current=toState;
+    });
+    // console.log($stateParams);
+
+    if ($state.current.name === 'recipe.detail'){
+        $http({ method : "GET",
+            url : 'http://localhost:8080/trust/api/timeline/getTimelineByFarmIdAndMenuRecipeId/15/' + $stateParams.id})
+        .then(function mySuccess(response) {
+            console.log(response);
+            $scope.detail = response.data;
+        }, function myError(response) {
+            $scope.detail = response.statusText;
+        });
+    }   
+
+
+    $scope.iconhome = iconhomeServ.iconhome;
+    $scope.menuicon = $scope.iconhome + 'menu_icon.png';
+    $scope.current=bulkServ.recipe;
+    $scope.data = data.data;
+    // console.log($scope.data.list);
+    // $scope.currentItem = {};
+    // $scope.cacheItem = function(item){
+    //     $scope.currentItem=item;
+    //     console.log(item);
+    //     $state.go('recipe.detail',{id : item.id} );
+    // };
 });
 
 app.controller('socialCtrl', function($scope, $location, $window, $rootScope, 

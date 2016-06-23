@@ -52,8 +52,31 @@ app.config(function($stateProvider, $urlRouterProvider) {
         
         .state('recipe', {
             url: '/recipe',
-            controller: 'dashCtrl',
-            templateUrl: 'templates/recipe.html'
+            controller: 'recipeCtrl',
+            templateUrl: 'templates/recipe.html', 
+            params: {
+                defaultChild: 'recipe.list'
+            },
+            resolve: {
+                data: function($http){
+                    return $http({method: 'GET', url: 'http://localhost:8080/trust/api/timeline/getRecipeByFarmIdAndProductionId/15/221/0/2'});
+                }
+            }
+        })
+
+        .state('recipe.list', {
+            url:'/list', 
+            controller: 'recipeCtrl', 
+            templateUrl: 'templates/recipe-list.html',
+        })
+
+        .state('recipe.detail', {
+            url: '/detail', 
+            controller: 'recipeCtrl', 
+            templateUrl: 'templates/recipe-detail.html',
+            params: {
+                'id': 0
+            }
         })
 
         .state('nutrition', {
