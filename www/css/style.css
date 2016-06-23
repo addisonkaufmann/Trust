@@ -418,6 +418,9 @@
   margin: auto;
   text-align: center; }
 
+.small-chevron {
+  height: 4vh; }
+
 .vignette img {
   display: block; }
 

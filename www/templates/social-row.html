@@ -8,20 +8,20 @@
     </div>
 
 <!-- small social footer NOT expanded: only for small and extra small screens -->
-    <div class="col-xs-12 social-footer hidden-lg" ng-show="!expand">
+    <div class="col-xs-12 social-footer hidden-lg" ng-if="!expand">
         <div class="col-xs-4 animated fadeInDown" ng-repeat="s in social | limitTo : 3">
             <img class="social-img" ng-src="{{s.icon}}">
         </div>
 
-        <div class="col-xs-12 hidden-lg animated rotateIn" ng-click="showExpand(); scrollToBottom()">
-            <i class="fa fa-chevron-down fa-2x social-img" aria-hidden="true"></i>
+        <div class="col-xs-12 hidden-lg social-img animated rotateIn" ng-click="showExpand(); scrollToBottom()">  
+            <img class="social-img small-chevron" ng-src="{{iconhome + 'chevron_down.png'}}">
         </div>
     </div>
 
 <!-- small social footer expanded: only for small and extra small screens -->
-    <div class="col-xs-12 social-footer-lg hidden-lg" ng-show="expand">
+    <div class="col-xs-12 social-footer-lg hidden-lg" ng-if="expand">
         <div class="col-xs-12 animated rotateIn" ng-click="hideExpand()">
-            <i class="fa fa-chevron-up fa-2x social-img social-arrow-top" aria-hidden="true"></i>
+            <img class="social-img small-chevron" ng-src="{{iconhome + 'chevron_up.png'}}">
         </div>
 
         <div class="col-xs-4 social-col animated fadeInUp" ng-repeat="s in social">
