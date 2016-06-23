@@ -15,11 +15,11 @@
         </div>
 
         <div class="overlay-social-row" ng-controller="socialCtrl">
-            <img class="social-sm" ng-repeat="s in social | limitTo : 3" ng-src="{{s.icon}}">
+            <img class="social-img social-sm" ng-repeat="s in social | limitTo : 3" ng-src="{{s.icon}}">
         </div>
 
         <div class="overlay-footer">
-            <i class="fa fa-chevron-down fa-2x" aria-hidden="true"></i>
+            <img class="social-img small-chevron" ng-src="img/icons/chevron_down.png">
         </div>
         
     </div>

@@ -8,18 +8,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
         .state('summary', {
             url: '/summary',
-            templateUrl: 'templates/summary.html'
+            templateUrl: 'templates/summary.html', 
         })
 
         .state('info', {
             url: '/info',
-            controller: 'infoCtrl',
-            templateUrl: 'templates/info.html',
-            resolve: {
-                data: function($http) {
-                    return $http({method: 'GET', url: 'http://trust.techgapint.com/trust/api/timeline/getTimelineByFarmIdAndProductionId/1/243'});
-                }
-            }
+            controller: 'dashCtrl',
+            templateUrl: 'templates/info.html'
         })
 
         .state('profile', {
