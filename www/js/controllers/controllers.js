@@ -86,6 +86,7 @@ app.controller('detailCtrl', function($scope, data, bulkServ, iconhomeServ){
     $scope.data = data.data;
     console.log($scope.data);
 });
+
 app.controller('carouselCtrl', function($scope){
 
     $scope.carousel = [
@@ -116,6 +117,17 @@ app.controller('carouselCtrl', function($scope){
         var i = $scope.deactivateCurrent(carousel, len);
         carousel[ (i - 1 + len) % len ].active = true;
     };
+
+});
+
+
+app.controller('recipeCtrl', function($scope, data, bulkServ, iconhomeServ){
+
+    $scope.iconhome = iconhomeServ.iconhome;
+    $scope.menuicon = $scope.iconhome + 'menu_icon.png';
+    $scope.current=bulkServ.recipe;
+    $scope.data = data.data;
+    console.log($scope.data.list);
 
 });
 
