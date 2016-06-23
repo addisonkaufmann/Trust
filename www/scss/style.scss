@@ -444,28 +444,16 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 .profile-pic-container {
 	border: 3px solid $light-green;
 
-	@media (max-width: $max-width-xs) {
-		width: 32vw;
-		height: 32vw;
-		margin-top: -16vw;
+	@media  (max-width: $max-width-sm) {
+		width: 180px;
+		height: 180px;
+		margin-top: -90px;
 	}
 
-	@media (min-width: $min-width-sm) and (max-width: $max-width-sm) {
-		width: 20vw;
-		height: 20vw;
-		margin-top: -10vw;
-	}
-
-	@media (min-width: $min-width-md) and (max-width: $max-width-md) {
-		width: 15vw;
-		height: 15vw;
-		margin-top: -7.5vw;
-	}
-
-	@media (min-width: $min-width-lg) {
-		width: 12vw;
-		height: 12vw;
-		margin-top: -6vw;
+	@media (min-width: $min-width-md){
+		width: 240px;
+		height: 240px;
+		margin-top: -120px;
 	}
 
 	border-radius: 50%;
