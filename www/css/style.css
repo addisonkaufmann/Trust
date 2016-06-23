@@ -89,7 +89,8 @@
     /* 20 + 4*1 + 4*19 = 100 */
     cursor: pointer;
     width: 100%;
-    height: 19vh; }
+    height: 19vh;
+    min-height: 100px; }
     .tile-8:hover {
       opacity: 0.5; }
     .tile-8:active {

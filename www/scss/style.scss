@@ -162,6 +162,7 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 		@include tile-animate;
 		width: 100%;
 		height: 19vh; 
+		min-height: 100px;
 	}
 	.tile-6 {
 		/* 20 + 3*1 + 3*25.65 = 100 */
