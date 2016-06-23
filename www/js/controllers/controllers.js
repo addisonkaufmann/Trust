@@ -400,3 +400,15 @@ app.controller('nutritionCtrl', function($scope, bulkServ) {
 
 
 
+app.controller('infoCtrl', function($scope, bulkServ, iconhomeServ, data) {
+
+    $scope.current = bulkServ.info;
+
+    $scope.iconhome = iconhomeServ.iconhome;
+    $scope.menuicon = $scope.iconhome + 'menu_icon.png';
+
+    $scope.data = data.data.productDescr;
+
+});
+
+
