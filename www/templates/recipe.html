@@ -2,12 +2,4 @@
 	<header/>
 </div>
 
-<div class="row card" ng-repeat="item in data.list" ui-sref=".detail">
-	<div class="card-text col-xs-12 {{current.color}}">
-		<div class="card-title">{{item.name}}</div>
-	</div>
-
-	<div ng-if="current.carousel" class="col-xs-12 padding-none">
-		<carousel/>
-	</div>
-</div>
+<div ui-view></div>
