@@ -16,7 +16,8 @@
     height: 100vh;
     width: 100vw;
     margin-left: -15px;
-    height: 45vh; }
+    height: 45vh;
+    min-height: 200px; }
   .social-footer {
     padding-right: 12vw;
     padding-left: 12vw;
@@ -37,7 +38,8 @@
   .overlay-container-sm {
     position: relative;
     height: 100vh;
-    height: 45vh; } }
+    height: 45vh;
+    min-height: 200px; } }
 
 @media (min-width: 768px) and (max-width: 991px) {
   .social-footer {
@@ -230,7 +232,11 @@
 
 .card-text {
   padding: 3%;
-  font-size: 2.5vh; }
+  /*font-size: $font-small-responsive;*/
+  font-size: medium; }
+  @media (max-width: 767px) {
+    .card-text {
+      font-size: small; } }
 
 .card-title {
   font-size: 3.5vh; }
@@ -268,25 +274,27 @@
 
 .header-container {
   height: 5%;
-  padding-top: 2vh;
-  padding-bottom: 2vh;
   padding-left: 3%;
-  padding-right: 3%; }
+  padding-right: 3%;
+  min-height: 60px; }
+
+.invisible-margin {
+  width: 100%;
+  height: 3vh;
+  min-height: 10px;
+  clear: both; }
 
 .header-title {
   height: 100%;
   vertical-align: middle;
   text-align: center;
-  font-size: 3.5vh;
-  color: white;
-  padding-top: 1vh;
-  padding-bottom: 1vh; }
+  font-size: 25px;
+  color: white; }
   .header-title .header-right {
     float: right;
-    padding-top: 0;
-    padding-bottom: 0;
     height: 5vh;
-    opacity: 0.7; }
+    opacity: 0.7;
+    min-height: 40px; }
     .header-title .header-right:hover {
       opacity: 1; }
     .header-title .header-right:active {
@@ -297,9 +305,8 @@
   .header-title .header-left {
     opacity: 0.7;
     float: left;
-    padding-top: 0;
-    padding-bottom: 0;
-    height: 5vh; }
+    height: 5vh;
+    min-height: 40px; }
     .header-title .header-left:hover {
       opacity: 1; }
 
@@ -339,7 +346,7 @@
 
 .overlay-tab-sm {
   top: 0;
-  bottom: 75%;
+  bottom: 65%;
   border-radius: 0px 0px 15px 15px;
   background-color: rgba(255, 255, 255, 0.7); }
 
@@ -361,7 +368,12 @@
   position: relative;
   margin-left: auto;
   margin-right: auto; }
-  @media (max-width: 991px) {
+  @media (max-width: 767px) {
+    .profile-pic-container {
+      width: 130pt;
+      height: 130pt;
+      margin-top: -65pt; } }
+  @media (min-width: 768px) and (max-width: 991px) {
     .profile-pic-container {
       width: 180px;
       height: 180px;
@@ -380,10 +392,16 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  font-size: 7vh;
+  font-size: xx-large;
   padding-top: 2%; }
   .profile-title p {
-    font-size: 3.5vh; }
+    /*font-size: $font-normal-responsive;*/
+    font-size: x-large; }
+  @media (max-width: 767px) {
+    .profile-title {
+      font-size: x-large; }
+      .profile-title p {
+        font-size: large; } }
 
 .social-sm {
   height: 6.5vh;
@@ -398,7 +416,7 @@
   top: 30%; }
   @media (max-width: 767px) {
     .tile-text {
-      font-size: 4.1vw; } }
+      font-size: small; } }
 
 .tile-img {
   height: 38%;
