@@ -1,51 +1,22 @@
-app.controller('dashCtrl', function($scope, $http, $rootScope, $stateParams, $state, 
-    bulkServ, iconhomeServ){
+app.controller('dashCtrl', function($scope, $http, $rootScope, $stateParams, $state, Icons, Tiles){
 
     $rootScope.$on('$stateChangeSuccess', 
         function(event, toState, toParams, fromState, fromParams){
             $state.current = toState;  
         });
 
-    $scope.iconhome = iconhomeServ.iconhome;
+    $scope.iconhome = Icons.home();
 
- 
-    $scope.tiles = [
-        bulkServ.profile,
-        bulkServ.info,
-        bulkServ.detail,
-        bulkServ.nutrition,
-        bulkServ.co2impact,
-        bulkServ.ingredient,
-        bulkServ.water,
-        bulkServ.recipe
-    ];
+    $scope.tiles = Tiles.all();
 
     $scope.menuicon = $scope.iconhome + 'menu_icon.png';
 
-
-
-
-    //sets $scope.current to an array holding one object whose 
-    //link (i.e 'profile', 'water') is the same as the name 
-    //of the current state (also 'profile', 'water', etc)
-    $scope.current = $scope.tiles.filter(function(obj){
-        return obj.link === $state.current.name;
-    });
-
-    //changes $scope.current from an array of
-    //one object to just a regular object
-    if ($scope.current){
+    $scope.current = Tiles.get($state.current.name);
+    if ($scope.current && $scope.current.length === 1){
         $scope.current = $scope.current[0];
     }
 
-
-
-    //used for the layout of the tiles on the dashboard when
-    //there are a variable number of tiles present
-
-    $scope.validTiles = $scope.tiles.filter(function(obj){
-        return obj.valid === true;
-    });
+    $scope.validTiles = Tiles.getValid();
 
     $scope.numValidTiles = $scope.validTiles.length;
 
@@ -58,7 +29,7 @@ app.controller('dashCtrl', function($scope, $http, $rootScope, $stateParams, $st
                 array[i].side = 'right';
             }
         } 
-   };
+    };
 
    if ($scope.numValidTiles === 5 || $scope.numValidTiles === 7){
         $scope.smallTiles = $scope.validTiles.slice(1, 
@@ -69,20 +40,14 @@ app.controller('dashCtrl', function($scope, $http, $rootScope, $stateParams, $st
     else {
         $scope.setSides($scope.validTiles, $scope.validTiles.length);
     }
-
-
-
-
-    //code for the picture carousels
 });
 
 
 
-app.controller('detailCtrl', function($scope, data, bulkServ, iconhomeServ){
-
-    $scope.iconhome = iconhomeServ.iconhome;
+app.controller('detailCtrl', function($scope, data, bulkServ, Tiles, Icons){
+    $scope.iconhome = Icons.home();
     $scope.menuicon = $scope.iconhome + 'menu_icon.png';
-    $scope.current=bulkServ.detail;
+    $scope.current=Tiles.get('detail');
     $scope.data = data.data;
     console.log($scope.data);
 });
@@ -121,7 +86,7 @@ app.controller('carouselCtrl', function($scope){
 });
 
 
-app.controller('recipeCtrl', function($scope,$stateParams, $rootScope, $state, $http,  data, bulkServ, iconhomeServ){
+app.controller('recipeCtrl', function($scope,$stateParams, $rootScope, $state, $http,  data, bulkServ, Icons){
     $rootScope.$on('$stateChangeSuccess', function(event, toState){
         if (toState.params && toState.params.defaultChild){
             $state.go(toState.params.defaultChild);     
@@ -142,7 +107,7 @@ app.controller('recipeCtrl', function($scope,$stateParams, $rootScope, $state, $
     }   
 
 
-    $scope.iconhome = iconhomeServ.iconhome;
+    $scope.iconhome = Icons.home();
     $scope.menuicon = $scope.iconhome + 'menu_icon.png';
     $scope.current=bulkServ.recipe;
     $scope.data = data.data;
@@ -156,9 +121,9 @@ app.controller('recipeCtrl', function($scope,$stateParams, $rootScope, $state, $
 });
 
 app.controller('socialCtrl', function($scope, $location, $window, $rootScope, 
-    $anchorScroll, iconhomeServ){
+    $anchorScroll, Icons){
 
-    $scope.iconhome = iconhomeServ.iconhome;
+    $scope.iconhome = Icons.home();
     $scope.expand = false;
     
 
@@ -214,11 +179,11 @@ app.controller('socialCtrl', function($scope, $location, $window, $rootScope,
 
 
 
-app.controller('profileCtrl', function($scope, bulkServ, iconhomeServ, data) {
+app.controller('profileCtrl', function($scope, bulkServ, Icons, data) {
     console.log(data);
     $scope.data= data.data;
     $scope.current = bulkServ.profile;
-    $scope.iconhome = iconhomeServ.iconhome;
+    $scope.iconhome = Icons.home();
     $scope.menuicon = $scope.iconhome + 'menu_icon.png';
     
     $scope.address=angular.fromJson($scope.data.address);
@@ -436,11 +401,11 @@ app.controller('nutritionCtrl', function($scope, bulkServ) {
 
 
 
-app.controller('infoCtrl', function($scope, bulkServ, iconhomeServ, data) {
+app.controller('infoCtrl', function($scope, bulkServ, Icons, data) {
 
     $scope.current = bulkServ.info;
 
-    $scope.iconhome = iconhomeServ.iconhome;
+    $scope.iconhome = Icons.home();
     $scope.menuicon = $scope.iconhome + 'menu_icon.png';
 
     $scope.data = data.data.productDescr;
