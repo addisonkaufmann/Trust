@@ -1,4 +1,4 @@
-app.controller('dashCtrl', function($scope, $http, $rootScope, $stateParams, $state, Icons, Tiles){
+app.controller('dashCtrl', function($scope, $http, $rootScope, $stateParams, $state, Icons, Tiles, TileClasses){
 
     $rootScope.$on('$stateChangeSuccess', 
         function(event, toState, toParams, fromState, fromParams){
@@ -20,26 +20,14 @@ app.controller('dashCtrl', function($scope, $http, $rootScope, $stateParams, $st
 
     $scope.numValidTiles = $scope.validTiles.length;
 
-    $scope.setSides = function(array, len){
-        var i = 0;        
-        for (i; i < len; i++){
-            if (i%2 === 0){
-                array[i].side = 'left'; 
-            } else {
-                array[i].side = 'right';
-            }
-        } 
-    };
+    $scope.tilesize = 'tile-' + $scope.numValidTiles;
 
-   if ($scope.numValidTiles === 5 || $scope.numValidTiles === 7){
-        $scope.smallTiles = $scope.validTiles.slice(1, 
-            $scope.numValidTiles);
-        $scope.bigTile = $scope.validTiles[0];
-        $scope.setSides($scope.smallTiles, $scope.smallTiles.length);
-    }
-    else {
-        $scope.setSides($scope.validTiles, $scope.validTiles.length);
-    }
+    $scope.tileclasses = TileClasses.get($scope.numValidTiles);
+
+    $scope.classes = $scope.tileclasses.classes;
+    $scope.first = $scope.tileclasses.first;
+
+
 });
 
 

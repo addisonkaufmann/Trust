@@ -61,7 +61,7 @@ app.factory('Tiles', function(){
         'link': 'profile',
         'image': iconHome + 'profile_icon.png' ,
         'valid': true,
-        'side': 'left'
+        'side': 'left',
     },
     {
         'state': 'info',
@@ -89,7 +89,7 @@ app.factory('Tiles', function(){
         'content': 'Valori nutrizionali',
         'image': iconHome + 'nutrition_icon.png',
         'link': 'nutrition',
-        'valid': true,
+        'valid':  true,
         'side': 'right'
     },
     {
@@ -149,5 +149,26 @@ app.factory('Tiles', function(){
         }    
     };
 });
+
+app.factory('TileClasses', function(){
+    var tileclasses = [
+        {'num': 2, 'classes':'col-xs-12 col-md-6 full'},
+        {'num': 3, 'classes':'col-xs-12 col-md-4 full' },
+        {'num': 4, 'classes':'col-xs-6 col-md-6'},
+        {'num': 5, 'classes':'col-xs-6 col-md-4','first':'col-xs-12 col-md-4 full'},
+        {'num': 6, 'classes':'col-xs-6 col-md-4' },
+        {'num': 7, 'classes':'col-xs-6 col-md-3','first':'col-xs-12 col-md-3 full'},
+        {'num': 8, 'classes':'col-xs-6 col-md-3'}
+    ];
+    return {
+        get: function(num){
+            var array =  tileclasses.filter(function(obj){
+                return obj.num === num;
+            });
+            return array[0];
+        }, 
+    };
+});
+
 
 

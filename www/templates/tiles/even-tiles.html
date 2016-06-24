@@ -1,0 +1,14 @@
+<div ng-repeat="t in validTiles" 
+	 class="{{classes}} animated" 
+	 ng-class="{
+		'fadeInLeft': $even, 
+		'fadeInRight': $odd, 
+		'left': $even, 
+		'right': $odd}" 
+	 ui-sref="{{t.link}}">
+
+	<div class="{{tilesize}} tile-lg {{t.color}} ">
+		<img class="tile-img" ng-src="{{t.image}}">
+		<div class="tile-text">{{t.content}}</div>
+	</div>
+</div>

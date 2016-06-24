@@ -50,59 +50,19 @@ app.directive('header', function(){
 
 //Tile layout directives
 
-app.directive('eighttiles', function(){
+app.directive('eventiles', function(){
     return {
         restrict: 'AE',
         replace: 'true', 
-        templateUrl: 'templates/tiles/8-tiles.html'
+        templateUrl: 'templates/tiles/even-tiles.html'
     };
 });
 
-app.directive('seventiles', function(){
+app.directive('oddtiles', function(){
     return {
         restrict: 'AE',
         replace: 'true', 
-        templateUrl: 'templates/tiles/7-tiles.html'
+        templateUrl: 'templates/tiles/odd-tiles.html'
     };
 });
 
-app.directive('sixtiles', function(){
-    return {
-        restrict: 'AE',
-        replace: 'true', 
-        templateUrl: 'templates/tiles/6-tiles.html'
-    };
-});
-
-app.directive('fivetiles', function(){
-    return {
-        restrict: 'AE',
-        replace: 'true', 
-        templateUrl: 'templates/tiles/5-tiles.html'
-    };
-});
-
-app.directive('fourtiles', function(){
-    return {
-        restrict: 'AE',
-        replace: 'true', 
-        templateUrl: 'templates/tiles/4-tiles.html'
-    };
-});
-
-
-app.directive('threetiles', function(){
-    return {
-        restrict: 'AE',
-        replace: 'true', 
-        templateUrl: 'templates/tiles/3-tiles.html'
-    };
-});
-
-app.directive('twotiles', function(){
-    return {
-        restrict: 'AE',
-        replace: 'true', 
-        templateUrl: 'templates/tiles/2-tiles.html'
-    };
-});
