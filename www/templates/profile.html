@@ -1,46 +1,46 @@
 <div class="minimum-width">
 
-<div class="row card">
-	<header/>
-</div>
-
-<div class="row overlay-container-sm" ui-sref="home">
-	<div class="fill">
-		<img src="img/farm.jpg">
+	<div class="row card">
+		<header/>
 	</div>
 
-	<div class="overlay-tab-sm">
-		<img class="logo" src="img/farm-logo.png">
-	</div>
-</div>
+	<div class="row overlay-container-sm" ui-sref="home">
+		<div class="fill">
+			<img src="img/farm.jpg">
+		</div>
 
-
-<div class="fill profile-pic-container">
-	<img ng-src="img/farm-logo.jpg">
-</div>
-
-
-<div class="card" >
-	<div class="profile-title">
-		{{data.name}}
-		<p>{{data.description}}</p>
-	</div>
-	<div class="card-text">
-		<p ng-bind-html="data.presentation"></p>
-	</div>
-
-	<div class="card-text">
-		<div class="contact-pic-container" ng-repeat="c in contactinfo">
-			<img class="contact-img" ng-src="{{c.img}}">	
-			<p>{{c.value}}</p>
-
+		<div class="overlay-tab-sm">
+			<img class="logo" src="img/farm-logo.png">
 		</div>
 	</div>
-</div>
 
 
-<div class="row gray">
-	<social/>
-</div>
+	<div class="fill profile-pic-container">
+		<img ng-src="img/farm-logo.jpg">
+	</div>
+
+
+	<div class="card" >
+		<div class="profile-title">
+			{{data.name}}
+			<p>{{data.description}}</p>
+		</div>
+		<div class="card-text">
+			<p ng-bind-html="data.presentation"></p>
+		</div>
+
+		<div class="card-text">
+			<div class="contact-pic-container" ng-repeat="c in contactinfo">
+				<img class="contact-img" ng-src="{{c.img}}">	
+				<p>{{c.value}}</p>
+
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row gray">
+		<social/>
+	</div>
 
 </div>

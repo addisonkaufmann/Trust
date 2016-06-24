@@ -13,14 +13,14 @@
             <img class="social-img" ng-src="{{s.icon}}">
         </div>
 
-        <div class="col-xs-12 hidden-lg social-img animated rotateIn" ng-click="showExpand(); scrollToBottom()">  
+        <div class="col-xs-12 hidden-lg social-img animated rotateIn" ng-click="showExpand(); scrollToBottom()" style="margin-top: 2vh">  
             <img class="social-img small-chevron" ng-src="{{iconhome + 'chevron_down.png'}}">
         </div>
     </div>
 
 <!-- small social footer expanded: only for small and extra small screens -->
     <div class="col-xs-12 social-footer-lg hidden-lg" ng-if="expand">
-        <div class="col-xs-12 animated rotateIn" ng-click="hideExpand()">
+        <div class="col-xs-12 animated rotateIn" ng-click="hideExpand()" style="margin-bottom: 4vh">
             <img class="social-img small-chevron" ng-src="{{iconhome + 'chevron_up.png'}}">
         </div>
 
