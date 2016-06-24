@@ -90,7 +90,6 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	}
 	.overlay-container-sm {
 		@include overlay-common;
-		width: 100vw;
 		margin-left:-15px;
 		height:45vh;
 
@@ -406,6 +405,10 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	width: auto;
 }
 
+.minimum-width {
+	min-width: 300px;
+}
+
 .overlay-content {
 	@extend %overlay-item;
 	bottom: 0;
@@ -470,9 +473,9 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	border: 3px solid $light-green;
 
 	@media  (max-width: $max-width-xs) {
-		width: 130pt;
-		height: 130pt;
-		margin-top: -65pt;
+		width: 150px;
+		height: 150px;
+		margin-top: -75px;
 	}
 
 
@@ -663,5 +666,7 @@ a:hover {
 		left: 10%;
 	}
 }
+
+
 
 
