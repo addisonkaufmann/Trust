@@ -528,6 +528,14 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	}
 }
 
+
+.summary-social {
+
+	width: 100%;
+	position: absolute;
+	top: 80%;
+}
+
 .profile-title {
 	color: $light-green;
 	margin-left: auto;
@@ -628,12 +636,6 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	background-color: $dark-green;
 }
 
-.black {
-
-	width: 100%;
-	position: absolute;
-	top: 80%;
-}
 
 .gray {
 	background-color: $gray;

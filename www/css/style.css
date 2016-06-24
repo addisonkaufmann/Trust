@@ -15,14 +15,10 @@
     position: relative;
     width: 100vw;
     height: 100vh;
-<<<<<<< HEAD
     margin-left: -15px;
     height: 130vh; }
   .overlay-container-sm {
     position: relative;
-    width: 100vw;
-=======
->>>>>>> 6f9df822ae9132470a2868044b7c406237a11240
     margin-left: -15px;
     height: 45vh;
     min-height: 200px; }
@@ -430,6 +426,11 @@
     width: 100%;
     height: 100%; }
 
+.summary-social {
+  width: 100%;
+  position: absolute;
+  top: 80%; }
+
 .profile-title {
   color: #81bc5f;
   margin-left: auto;
@@ -513,11 +514,6 @@
 
 .dark-green {
   background-color: #56ae7c; }
-
-.black {
-  width: 100%;
-  position: absolute;
-  top: 80%; }
 
 .gray {
   background-color: #8a8a8a; }
