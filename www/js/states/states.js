@@ -13,8 +13,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
         .state('info', {
             url: '/info',
-            controller: 'dashCtrl',
-            templateUrl: 'templates/info.html'
+            controller: 'infoCtrl',
+            templateUrl: 'templates/info.html',
+            resolve: {
+                data: function($http){
+                    return $http({method: 'GET', url: 'http://localhost:8080/trust/api/timeline/getTimelineByFarmIdAndProductionId/13/171'});
+
+                }
+            }
         })
 
         .state('profile', {
@@ -34,7 +40,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'templates/detail.html',
             resolve: {
                 data: function($http){
-                    return $http({method: 'GET', url: 'http://trust.techgapint.com/trust/api/timeline/getTimelineByFarmIdAndProductionId/13/171'});
+                    return $http({method: 'GET', url: 'http://localhost:8080/trust/api/timeline/getTimelineByFarmIdAndProductionId/13/171'});
                 }
             }
         })

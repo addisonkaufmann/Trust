@@ -401,9 +401,10 @@ app.controller('nutritionCtrl', function($scope, bulkServ) {
 
 
 
-app.controller('infoCtrl', function($scope, bulkServ, Icons, data) {
+app.controller('infoCtrl', function($scope, Tiles, Icons, data) {
 
-    $scope.current = bulkServ.info;
+    console.log(data);
+    $scope.current = Tiles.get('info');
 
     $scope.iconhome = Icons.home();
     $scope.menuicon = $scope.iconhome + 'menu_icon.png';
