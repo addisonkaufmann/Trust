@@ -14,7 +14,6 @@
   .overlay-container-sm {
     position: relative;
     height: 100vh;
-    width: 100vw;
     margin-left: -15px;
     height: 45vh;
     min-height: 200px; }
@@ -318,6 +317,9 @@
   height: 100%;
   width: auto; }
 
+.minimum-width {
+  min-width: 300px; }
+
 .overlay-content {
   bottom: 0;
   top: 65%;
@@ -370,9 +372,9 @@
   margin-right: auto; }
   @media (max-width: 767px) {
     .profile-pic-container {
-      width: 130pt;
-      height: 130pt;
-      margin-top: -65pt; } }
+      width: 150px;
+      height: 150px;
+      margin-top: -75px; } }
   @media (min-width: 768px) and (max-width: 991px) {
     .profile-pic-container {
       width: 180px;
