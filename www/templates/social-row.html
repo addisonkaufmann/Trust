@@ -1,7 +1,7 @@
-<div  ng-controller="socialCtrl">
+<div>
 
 <!-- large social footer: only for medium and large screens -->
-    <div class="col-xs-12 social-footer hidden-sm">
+    <div class="col-xs-12 social-footer hidden-sm" ng-class="{'social-summary': state === 'summary'}">
         <div class="hidden-sm col-xs-2 animated fadeInUp" ng-repeat="s in social">
             <img class="social-img" ng-src="{{s.icon}}">
         </div>

@@ -45,7 +45,6 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
 @mixin overlay-common {
 	position: relative;
-	height: 100vh;
 }
 
 @mixin padding-none {
@@ -86,8 +85,19 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	.overlay-container {
 		@include overlay-common;
 		width: 100vw;
+		height: 100vh;
 		margin-left:-15px;
 	}
+
+	.overlay-container-expanded {
+		@include overlay-common;
+		width: 100vw;
+		height: 100vh;
+		margin-left:-15px;
+		height: 130vh;
+
+	}
+
 	.overlay-container-sm {
 		@include overlay-common;
 		margin-left:-15px;
@@ -112,8 +122,19 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 @media (min-width: $min-width-sm){
 	.overlay-container {
 		@include overlay-common;
+		height: 100vh;
 		width: 100%;
 	}
+
+	.overlay-container-expanded {
+		@include overlay-common;
+		width: 100%;
+		height: 100vh;
+		margin-left:-15px;
+		height: 130vh;
+
+	}
+
 	.overlay-container-sm {
 		@include overlay-common;
 		height: 45vh;
@@ -282,6 +303,10 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 		padding-bottom: 5vh;
 
 		min-height: 50px;
+	}
+
+	.social-summary {
+		height: 20vh;
 	}
 
 	.social-img {
@@ -510,6 +535,14 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	}
 }
 
+
+.summary-social {
+
+	width: 100%;
+	position: absolute;
+	top: 80%;
+}
+
 .profile-title {
 	color: $light-green;
 	margin-left: auto;
@@ -578,6 +611,23 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	}
 }
 
+.vignette-expanded {
+	img {
+		display: block;
+	}
+
+	&:after {
+		@include transform(translate(-50%, -50%))
+		content: '';
+		position: absolute;
+		top: 50%;
+    	left: 50%;
+    	width: 100%;
+    	height: 100%;
+		box-shadow: inset 0rem -67vh 15rem -13vh $transparent-black;
+	}
+}
+
 
 /*	COLOR CLASSES	*/
 
@@ -592,6 +642,7 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 .dark-green {
 	background-color: $dark-green;
 }
+
 
 .gray {
 	background-color: $gray;

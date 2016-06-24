@@ -97,8 +97,15 @@ app.controller('recipeCtrl', function($scope,$stateParams, $rootScope, $state, $
 });
 
 
-app.controller('socialCtrl', function($scope, $location, $window, $rootScope, 
+app.controller('socialCtrl', function($scope,$state, $location, $window, $rootScope, 
     $anchorScroll, Icons, Social){
+
+    $rootScope.$on('$stateChangeSuccess', 
+        function(event, toState){
+            $state.current = toState;  
+        });
+
+    $scope.state = $state.current.name;
 
     $scope.iconhome = Icons.home();
     $scope.social = Social.all();
