@@ -110,6 +110,8 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 		padding-top: 3vh;
 		height: 20vh; /*social-height-xs*/
 		padding-bottom: 2vh;
+
+		min-height: 50px;
 	}
 
 	.hidden-sm {
@@ -137,6 +139,7 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 		@include overlay-common;
 		height: 45vh;
 
+
 		min-height: 200px;
 	}
 }
@@ -147,6 +150,8 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 		padding-top: 3vh;
 		height: 20vh; /*social-height-xs*/
 		padding-bottom: 1vh;
+
+		min-height: 50px;
 	}
 
 	.social-img {
@@ -296,6 +301,8 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 		padding-top: 5vh;
 		height: 30vh; /*social-height-lg*/
 		padding-bottom: 5vh;
+
+		min-height: 50px;
 	}
 
 	.social-summary {

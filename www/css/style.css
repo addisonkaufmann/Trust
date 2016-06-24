@@ -30,7 +30,8 @@
     padding-top: 3vh;
     height: 20vh;
     /*social-height-xs*/
-    padding-bottom: 2vh; }
+    padding-bottom: 2vh;
+    min-height: 50px; }
   .hidden-sm {
     visibility: hidden; } }
 
@@ -59,7 +60,8 @@
     padding-top: 3vh;
     height: 20vh;
     /*social-height-xs*/
-    padding-bottom: 1vh; }
+    padding-bottom: 1vh;
+    min-height: 50px; }
   .social-img {
     opacity: 0.75;
     height: 8vh; }
@@ -244,9 +246,14 @@
     padding-top: 5vh;
     height: 30vh;
     /*social-height-lg*/
+<<<<<<< HEAD
     padding-bottom: 5vh; }
   .social-summary {
     height: 20vh; }
+=======
+    padding-bottom: 5vh;
+    min-height: 50px; }
+>>>>>>> 661f0b90c4d538c2c1414429a70e3d2e5f90e7ce
   .social-img {
     height: 7vh;
     opacity: 0.75; }
