@@ -444,7 +444,7 @@
   text-align: center;
   position: relative;
   top: 30%; }
-  @media (max-width: 767px) {
+  @media (max-width: 991px) {
     .tile-text {
       font-size: small; } }
 
