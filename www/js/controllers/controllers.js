@@ -142,52 +142,40 @@ app.controller('socialCtrl', function($scope, $location, $window, $rootScope,
 
 
 
-app.controller('profileCtrl', function($scope, Tiles, Icons, data) {
+app.controller('profileCtrl', function($scope, Tiles, Icons, Contact, data) {
     console.log(data);
     $scope.data= data.data;
     $scope.current = Tiles.get('profile');
     $scope.iconhome = Icons.home();
     $scope.menuicon = $scope.iconhome + 'menu_icon.png';
 
-    /*mailing address, phonenumber, email, actual adress, website */
     $scope.contactinfo = [];
 
-    // console.log(new Contact('address', 'myimg', 'myvalue'));
-
+    var mything = new Contact('mytype', 'myimg', 'myval');
+    console.log(mything);
 
     if (angular.fromJson($scope.data.address).address){
-        $scope.contactinfo.push({
-            'type':'address',
-            'img': $scope.iconhome + '../farm-logo.png', 
-            'value': angular.fromJson($scope.data.address).address 
-        });
+        $scope.contactinfo.push(
+            new Contact('address', $scope.iconhome + '../farm-logo.png', angular.fromJson($scope.data.address).address)
+        );
     }
 
     if ($scope.data.website){
-        //push to contact
-        $scope.contactinfo.push({
-            'type':'website',
-            'img': $scope.iconhome + '../farm-logo.png', 
-            'value': $scope.data.website 
-        });
+        $scope.contactinfo.push(
+            new Contact('address', $scope.iconhome + '../farm-logo.png', $scope.data.website)
+        );
     }
 
     if ($scope.data.phone){
-        //push
-        $scope.contactinfo.push({
-            'type':'phone',
-            'img': $scope.iconhome + '../farm-logo.png', 
-            'value': $scope.data.phone 
-        });
+        $scope.contactinfo.push(
+            new Contact('phone', $scope.iconhome + '../farm-logo.png', $scope.data.phone)
+        );
     }
 
     if ($scope.data.email){
-        //push
-        $scope.contactinfo.push({
-            'type':'email',
-            'img': $scope.iconhome + '../farm-logo.png', 
-            'value': $scope.data.email 
-        });
+        $scope.contactinfo.push(
+            new Contact('email', $scope.iconhome + '../farm-logo.png', $scope.data.email)
+        );
     }
 });
 
