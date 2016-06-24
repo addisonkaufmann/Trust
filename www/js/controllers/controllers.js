@@ -44,7 +44,7 @@ app.controller('dashCtrl', function($scope, $http, $rootScope, $stateParams, $st
 
 
 
-app.controller('detailCtrl', function($scope, data, bulkServ, Tiles, Icons){
+app.controller('detailCtrl', function($scope, data, Tiles, Icons){
     $scope.iconhome = Icons.home();
     $scope.menuicon = $scope.iconhome + 'menu_icon.png';
     $scope.current=Tiles.get('detail');
@@ -86,14 +86,10 @@ app.controller('carouselCtrl', function($scope){
 });
 
 
-app.controller('recipeCtrl', function($scope,$stateParams, $rootScope, $state, $http,  data, bulkServ, Icons){
+app.controller('recipeCtrl', function($scope,$stateParams, $rootScope, $state, $http,  data, Icons, Tiles){
     $rootScope.$on('$stateChangeSuccess', function(event, toState){
-        if (toState.params && toState.params.defaultChild){
-            $state.go(toState.params.defaultChild);     
-        }
         $state.current=toState;
     });
-    // console.log($stateParams);
 
     if ($state.current.name === 'recipe.detail'){
         $http({ method : "GET",
@@ -106,24 +102,19 @@ app.controller('recipeCtrl', function($scope,$stateParams, $rootScope, $state, $
         });
     }   
 
-
     $scope.iconhome = Icons.home();
     $scope.menuicon = $scope.iconhome + 'menu_icon.png';
-    $scope.current=bulkServ.recipe;
+    $scope.current = Tiles.get('recipe');
     $scope.data = data.data;
-    // console.log($scope.data.list);
-    // $scope.currentItem = {};
-    // $scope.cacheItem = function(item){
-    //     $scope.currentItem=item;
-    //     console.log(item);
-    //     $state.go('recipe.detail',{id : item.id} );
-    // };
 });
 
+
 app.controller('socialCtrl', function($scope, $location, $window, $rootScope, 
-    $anchorScroll, Icons){
+    $anchorScroll, Icons, Social){
 
     $scope.iconhome = Icons.home();
+    $scope.social = Social.all();
+
     $scope.expand = false;
     
 
@@ -144,50 +135,19 @@ app.controller('socialCtrl', function($scope, $location, $window, $rootScope,
         $("html,body").animate({ scrollTop: 0}, "slow");
     };
 
-
-
-    $scope.social = [
-        {
-            'name': 'facebook', 
-            'icon': $scope.iconhome + 'social_facebook.png'
-        }, 
-        {
-            'name': 'instagram', 
-            'icon': $scope.iconhome + 'social_instagram.png'
-        }, 
-        {
-            'name': 'twitter', 
-            'icon': $scope.iconhome + 'social_twitter.png'
-        },
-        {
-            'name': 'pinterest', 
-            'icon': $scope.iconhome + 'social_pinterest.png'
-        },
-        {
-            'name': 'reddit', 
-            'icon': $scope.iconhome + 'social_reddit.png'
-        },
-        {
-            'name': 'googleplus', 
-            'icon': $scope.iconhome + 'social_googleplus.png'
-        }
-
-    ];
+    
 });
 
 
 
 
 
-app.controller('profileCtrl', function($scope, bulkServ, Icons, data) {
+app.controller('profileCtrl', function($scope, Tiles, Icons, data) {
     console.log(data);
     $scope.data= data.data;
-    $scope.current = bulkServ.profile;
+    $scope.current = Tiles.get('profile');
     $scope.iconhome = Icons.home();
     $scope.menuicon = $scope.iconhome + 'menu_icon.png';
-    
-    $scope.address=angular.fromJson($scope.data.address);
-    console.log($scope.address);
 
     /*mailing address, phonenumber, email, actual adress, website */
     $scope.contactinfo = [];
@@ -232,10 +192,10 @@ app.controller('profileCtrl', function($scope, bulkServ, Icons, data) {
 
 
 
-app.controller('nutritionCtrl', function($scope, bulkServ) {
+app.controller('nutritionCtrl', function($scope, Tiles, Icons) {
 
-    $scope.iconhome = bulkServ.iconhome;
-    $scope.current = bulkServ.nutrition;
+    $scope.iconhome = Icons.home();
+    $scope.current = Tiles.get('nutrition');
     $scope.menuicon = $scope.iconhome + 'menu_icon.png';
 
 
@@ -403,13 +363,19 @@ app.controller('nutritionCtrl', function($scope, bulkServ) {
 
 app.controller('infoCtrl', function($scope, Tiles, Icons, data) {
 
-    console.log(data);
+    
     $scope.current = Tiles.get('info');
 
     $scope.iconhome = Icons.home();
     $scope.menuicon = $scope.iconhome + 'menu_icon.png';
 
-    $scope.data = data.data.productDescr;
+    $scope.data = data.data;
+    console.log($scope.data);
+
+
+    $scope.title = $scope.data.productDescr[0];
+    $scope.img = $scope.data.productDescr[1];
+    $scope.info = $scope.data.productDescr[2];
 
 });
 
