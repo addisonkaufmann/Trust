@@ -246,14 +246,10 @@
     padding-top: 5vh;
     height: 30vh;
     /*social-height-lg*/
-<<<<<<< HEAD
-    padding-bottom: 5vh; }
-  .social-summary {
-    height: 20vh; }
-=======
     padding-bottom: 5vh;
     min-height: 50px; }
->>>>>>> 661f0b90c4d538c2c1414429a70e3d2e5f90e7ce
+  .social-summary {
+    height: 20vh; }
   .social-img {
     height: 7vh;
     opacity: 0.75; }
