@@ -8,12 +8,17 @@
 @media (max-width: 767px) {
   .overlay-container {
     position: relative;
-    height: 100vh;
     width: 100vw;
+    height: 100vh;
     margin-left: -15px; }
+  .overlay-container-expanded {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    margin-left: -15px;
+    height: 130vh; }
   .overlay-container-sm {
     position: relative;
-    height: 100vh;
     width: 100vw;
     margin-left: -15px;
     height: 45vh;
@@ -35,9 +40,14 @@
     position: relative;
     height: 100vh;
     width: 100%; }
+  .overlay-container-expanded {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin-left: -15px;
+    height: 130vh; }
   .overlay-container-sm {
     position: relative;
-    height: 100vh;
     height: 45vh;
     min-height: 200px; } }
 
@@ -236,6 +246,8 @@
     height: 30vh;
     /*social-height-lg*/
     padding-bottom: 5vh; }
+  .social-summary {
+    height: 20vh; }
   .social-img {
     height: 7vh;
     opacity: 0.75; }
@@ -470,6 +482,22 @@
   height: 100%;
   box-shadow: inset 0rem -48vh 15rem -13vh rgba(0, 0, 0, 0.7); }
 
+.vignette-expanded img {
+  display: block; }
+
+.vignette-expanded:after {
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0rem -67vh 15rem -13vh rgba(0, 0, 0, 0.7); }
+
 /*	COLOR CLASSES	*/
 .blue {
   background-color: #45c0df; }
@@ -479,6 +507,11 @@
 
 .dark-green {
   background-color: #56ae7c; }
+
+.black {
+  width: 100%;
+  position: absolute;
+  top: 80%; }
 
 .gray {
   background-color: #8a8a8a; }
