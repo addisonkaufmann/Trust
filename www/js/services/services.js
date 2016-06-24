@@ -91,7 +91,11 @@ app.factory ('Icons', function(){
     };
 });
 
-
+app.service('Contact', function(type, img, value){
+    this.type = type;
+    this.img = img;
+    this.value = value;
+});
 
 app.factory('Social', function(Icons){
     var iconhome = Icons.home();

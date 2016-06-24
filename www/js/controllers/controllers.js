@@ -152,6 +152,9 @@ app.controller('profileCtrl', function($scope, Tiles, Icons, data) {
     /*mailing address, phonenumber, email, actual adress, website */
     $scope.contactinfo = [];
 
+    // console.log(new Contact('address', 'myimg', 'myvalue'));
+
+
     if (angular.fromJson($scope.data.address).address){
         $scope.contactinfo.push({
             'type':'address',
