@@ -1,11 +1,15 @@
-<div class="animated" ng-class="{'fadeOutLeft': exitRight, 'fadeOutRight': exitLeft}">
+<div class="animated" 
+	ng-class="{
+		'fadeOutLeft': exitRight, 
+		'fadeOutRight': exitLeft, 
+		'fadeOutDown': exitDown}">
 
 	<div class="row" ng-if="numValidTiles % 2 === 0 || numValidTiles === 3">
 		<eventiles/>
 	</div>
 
 	<div class="row" ng-if="numValidTiles % 2 !== 0 && numValidTiles !== 3">
-		<oddtiles />
+		<oddtiles/>
 	</div>
 
 
