@@ -2,12 +2,13 @@
 	class=" animated" 
 	ng-class="{
 		'{{classes}}': !$first,
-		'{{first}}': $first,  
-		'fadeInLeft': $odd, 
-		'fadeInRight': $even, 
-		'left': $odd, 
-		'right': $even}" 
-	ui-sref="{{t.link}}">
+		'{{first}}': $first,
+		'fadeInDown': $first,  
+		'fadeInLeft': $odd && !$first, 
+		'fadeInRight': $even && !$first, 
+		'left': $odd && !$first, 
+		'right': $even && !$first}" 
+	ng-click="animateLink(t.link, $first, $even)">
 
 	<div class="{{tilesize}} tile-lg {{t.color}} ">
 		<img class="tile-img" ng-src="{{t.image}}">

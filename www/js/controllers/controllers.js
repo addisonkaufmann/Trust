@@ -1,4 +1,4 @@
-app.controller('dashCtrl', function($scope, $http, $rootScope, $stateParams, $state, Icons, Tiles, TileClasses){
+app.controller('dashCtrl', function($scope, $http, $timeout, $rootScope, $stateParams, $state, Icons, Tiles, TileClasses){
 
     $rootScope.$on('$stateChangeSuccess', 
         function(event, toState, toParams, fromState, fromParams){
@@ -6,10 +6,9 @@ app.controller('dashCtrl', function($scope, $http, $rootScope, $stateParams, $st
         });
 
     $scope.iconhome = Icons.home();
-
     $scope.tiles = Tiles.all();
 
-    $scope.menuicon = $scope.iconhome + 'menu_icon.png';
+    $scope.menuicon = Icons.menu();
 
     $scope.current = Tiles.get($state.current.name);
     if ($scope.current && $scope.current.length === 1){
@@ -26,6 +25,42 @@ app.controller('dashCtrl', function($scope, $http, $rootScope, $stateParams, $st
 
     $scope.classes = $scope.tileclasses.classes;
     $scope.first = $scope.tileclasses.first;
+
+    $scope.exitLeft = false;
+    $scope.exitRight = false;
+    $scope.exitDown = false;
+
+    $scope.animateLink = function(link, first, even) {
+        // console.log(link);
+        // console.log(side);
+        // if (side === 'left'){
+        //     $scope.exitLeft = true;
+        // } else if (side === 'right'){
+        //     $scope.exitRight = true;
+        // }
+
+        var animation = '';
+
+        if (first){
+            $scope.exitDown = true;
+            animation = 'fadeInDown';
+
+        } else {
+            if (even){
+                $scope.exitRight = true;
+                animation = 'fadeInRight'; 
+            } else {
+                $scope.exitLeft = true;
+                animation = 'fadeInLeft';
+            }
+        }
+
+        $timeout(function() {
+            $state.go(link, { animate: animation });
+        }, 200);
+
+
+    };
 
 
 });
@@ -44,10 +79,14 @@ app.controller('summaryCtrl', function($scope, $timeout, $state, data){
 
 });
 
-
-app.controller('detailCtrl', function($scope, data, Tiles, Icons){
+app.controller('detailCtrl', function($scope, $stateParams, data, Tiles, Icons){
+    if ($stateParams.animate){
+        $scope.animation = $stateParams.animate;
+    } else {
+        $scope.animation = 'fadeIn'; 
+    }
     $scope.iconhome = Icons.home();
-    $scope.menuicon = $scope.iconhome + 'menu_icon.png';
+    $scope.menuicon = Icons.menu();
     $scope.current=Tiles.get('detail');
     $scope.data = data.data;
     console.log($scope.data);
@@ -87,10 +126,16 @@ app.controller('carouselCtrl', function($scope){
 });
 
 
-app.controller('recipeCtrl', function($scope,$stateParams, $rootScope, $state, $http,  data, Icons, Tiles){
+app.controller('recipeCtrl', function($scope, $stateParams, $rootScope, $state, $http,  data, Icons, Tiles){
     $rootScope.$on('$stateChangeSuccess', function(event, toState){
         $state.current=toState;
     });
+
+    if ($stateParams.animate){
+        $scope.animation = $stateParams.animate;
+    } else {
+        $scope.animation = 'fadeIn'; 
+    }
 
     if ($state.current.name === 'recipe.detail'){
         $http({ method : "GET",
@@ -104,13 +149,13 @@ app.controller('recipeCtrl', function($scope,$stateParams, $rootScope, $state, $
     }   
 
     $scope.iconhome = Icons.home();
-    $scope.menuicon = $scope.iconhome + 'menu_icon.png';
+    $scope.menuicon = Icons.menu();
     $scope.current = Tiles.get('recipe');
     $scope.data = data.data;
 });
 
 
-app.controller('socialCtrl', function($scope,$state, $location, $window, $rootScope, 
+app.controller('socialCtrl', function($scope, $state, $location, $window, $rootScope, 
     $anchorScroll, Icons, Social){
 
     $rootScope.$on('$stateChangeSuccess', 
@@ -147,15 +192,18 @@ app.controller('socialCtrl', function($scope,$state, $location, $window, $rootSc
 });
 
 
+app.controller('profileCtrl', function($scope, $stateParams,Tiles, Icons, Contact, data) {
+    
+    if ($stateParams.animate){
+        $scope.animation = $stateParams.animate;
+    } else {
+        $scope.animation = 'fadeIn'; 
+    }
 
-
-
-app.controller('profileCtrl', function($scope, Tiles, Icons, Contact, data) {
-    console.log(data);
     $scope.data= data.data;
     $scope.current = Tiles.get('profile');
     $scope.iconhome = Icons.home();
-    $scope.menuicon = $scope.iconhome + 'menu_icon.png';
+    $scope.menuicon = Icons.menu();
 
     $scope.contactinfo = [];
 
@@ -189,13 +237,17 @@ app.controller('profileCtrl', function($scope, Tiles, Icons, Contact, data) {
 
 
 
+app.controller('nutritionCtrl', function($scope, $stateParams, $timeout, Tiles, Icons) {
 
-
-app.controller('nutritionCtrl', function($scope, Tiles, Icons) {
+    if ($stateParams.animate){
+        $scope.animation = $stateParams.animate;
+    } else {
+        $scope.animation = 'fadeIn'; 
+    }
 
     $scope.iconhome = Icons.home();
     $scope.current = Tiles.get('nutrition');
-    $scope.menuicon = $scope.iconhome + 'menu_icon.png';
+    $scope.menuicon = Icons.menu();
 
 
     // ==========  FUNCTIONS  ==========
@@ -282,6 +334,8 @@ app.controller('nutritionCtrl', function($scope, Tiles, Icons) {
     //if(someElement.length) statements will evaluate to false because they do not
     //exist yet
 
+
+
     $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
 
         if ($('#Calories').length) {
@@ -358,15 +412,18 @@ app.controller('nutritionCtrl', function($scope, Tiles, Icons) {
 
 
 
+app.controller('infoCtrl', function($scope, $stateParams, Tiles, Icons, data) {
 
+    if ($stateParams.animate){
+        $scope.animation = $stateParams.animate;
+    } else {
+        $scope.animation = 'fadeIn'; 
+    }
 
-app.controller('infoCtrl', function($scope, Tiles, Icons, data) {
-
-    
     $scope.current = Tiles.get('info');
 
     $scope.iconhome = Icons.home();
-    $scope.menuicon = $scope.iconhome + 'menu_icon.png';
+    $scope.menuicon = Icons.menu();
 
     $scope.data = data.data;
     console.log($scope.data);
@@ -376,6 +433,40 @@ app.controller('infoCtrl', function($scope, Tiles, Icons, data) {
     $scope.img = $scope.data.productDescr[1];
     $scope.info = $scope.data.productDescr[2];
 
+});
+
+app.controller('co2impactCtrl', function($scope, $stateParams, Tiles, Icons){
+    if ($stateParams.animate){
+        $scope.animation = $stateParams.animate;
+    } else {
+        $scope.animation = 'fadeIn'; 
+    }
+    $scope.iconhome = Icons.home();
+    $scope.current = Tiles.get('co2impact');
+    $scope.menuicon = Icons.menu();
+});
+
+app.controller('ingredientCtrl', function($scope, $stateParams, Tiles, Icons){
+    if ($stateParams.animate){
+        $scope.animation = $stateParams.animate;
+    } else {
+        $scope.animation = 'fadeIn'; 
+    }
+    $scope.iconhome = Icons.home();
+    $scope.current = Tiles.get('ingredient');
+    $scope.menuicon = Icons.menu();
+});
+
+app.controller('waterCtrl', function($scope, $stateParams, Tiles, Icons){
+    console.log($stateParams.animate);
+    if ($stateParams.animate){
+        $scope.animation = $stateParams.animate;
+    } else {
+        $scope.animation = 'fadeIn'; 
+    }
+    $scope.iconhome = Icons.home();
+    $scope.current = Tiles.get('water');
+    $scope.menuicon = Icons.menu();
 });
 
 

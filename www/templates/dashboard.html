@@ -1,14 +1,23 @@
-<div class="row" ng-if="numValidTiles % 2 === 0 || numValidTiles === 3">
-	<eventiles/>
-</div>
+<div class="animated" 
+	ng-class="{
+		'fadeOutLeft': exitRight, 
+		'fadeOutRight': exitLeft, 
+		'fadeOutDown': exitDown}">
 
-<div class="row" ng-if="numValidTiles % 2 !== 0 && numValidTiles !== 3">
-	<oddtiles />
-</div>
+	<div class="row" ng-if="numValidTiles % 2 === 0 || numValidTiles === 3">
+		<eventiles/>
+	</div>
+
+	<div class="row" ng-if="numValidTiles % 2 !== 0 && numValidTiles !== 3">
+		<oddtiles/>
+	</div>
 
 
-<div style="position: relative;" ng-class="{'social-expand': expand }" 
-	class="row row-responsive-size light-green animated fadeInUp"
-	ng-controller="socialCtrl">
-	<social/>
+	<div style="position: relative;"
+		 ng-class="{'social-expand': expand }" 
+		 class="row row-responsive-size light-green animated fadeInUp"
+		 ng-controller="socialCtrl">
+		<social/>
+	</div>
+
 </div>

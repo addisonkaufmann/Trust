@@ -3,6 +3,9 @@ app.factory ('Icons', function(){
     return {
         home: function(){
             return home;
+        }, 
+        menu: function(){
+            return home + 'menu_icon.png';
         }
 
     };
@@ -61,7 +64,6 @@ app.factory('Tiles', function(){
         'link': 'profile',
         'image': iconHome + 'profile_icon.png' ,
         'valid': true,
-        'side': 'left',
     },
     {
         'state': 'info',
@@ -70,7 +72,6 @@ app.factory('Tiles', function(){
         'link': 'info',
         'image': iconHome + 'info_icon.png',
         'valid': true,
-        'side': 'right',
         'carousel': true
     },
     {
@@ -80,7 +81,6 @@ app.factory('Tiles', function(){
         'image': iconHome + 'detail_icon.png',
         'valid': true,
         'link': 'detail',
-        'side': 'left',
         'carousel': true
     },
     {
@@ -89,7 +89,7 @@ app.factory('Tiles', function(){
         'content': 'Valori nutrizionali',
         'image': iconHome + 'nutrition_icon.png',
         'link': 'nutrition',
-        'valid':  true,
+        'valid': true,
         'side': 'right'
     },
     {
@@ -99,7 +99,6 @@ app.factory('Tiles', function(){
         'image': iconHome + 'co2impact_icon.png',
         'link': 'co2impact',
         'valid': true,
-        'side': 'left'
     },
     {
         'state': 'ingredient',
@@ -108,7 +107,6 @@ app.factory('Tiles', function(){
         'image': iconHome + 'ingredient_icon.png',
         'link': 'ingredient',
         'valid': true,
-        'side': 'right'
     },
     {
         'state': 'water',
@@ -117,7 +115,6 @@ app.factory('Tiles', function(){
         'image': iconHome + 'water_icon.png',
         'link': 'water',
         'valid': true,
-        'side': 'left'
     },
     {
         'state': 'recipe',
@@ -126,7 +123,6 @@ app.factory('Tiles', function(){
         'image': iconHome + 'recipe_icon.png',
         'link': 'recipe.list',
         'valid': true,
-        'side': 'right', 
         'carousel': true
     }];
 

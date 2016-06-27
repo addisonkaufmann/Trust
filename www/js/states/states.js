@@ -22,6 +22,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/info',
             controller: 'infoCtrl',
             templateUrl: 'templates/info.html',
+            params: {
+                animate: ''
+            },
             resolve: {
                 data: function($http){
                     return $http({method: 'GET', url: 'http://localhost:8080/trust/api/timeline/getTimelineByFarmIdAndProductionId/13/171'});
@@ -34,6 +37,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/profile',
             controller: 'profileCtrl',
             templateUrl: 'templates/profile.html',
+            params: {
+                animate: ''
+            },
             resolve: {
                 data: function($http){
                     return $http({method: 'GET', url: 'http://localhost:8080/trust/api/farm/public/13'});
@@ -45,6 +51,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/detail',
             controller: 'detailCtrl',
             templateUrl: 'templates/detail.html',
+            params: {
+                animate: ''
+            },
             resolve: {
                 data: function($http){
                     return $http({method: 'GET', url: 'http://localhost:8080/trust/api/timeline/getTimelineByFarmIdAndProductionId/13/171'});
@@ -54,8 +63,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
         
         .state('ingredient', {
             url: '/ingredient',
-            controller: 'dashCtrl',
-            templateUrl: 'templates/ingredient.html'
+            controller: 'ingredientCtrl',
+            templateUrl: 'templates/ingredient.html',
+            params: {
+                animate: ''
+            }
         })
         
         .state('recipe', {
@@ -63,7 +75,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'recipeCtrl',
             templateUrl: 'templates/recipe.html', 
             params: {
-                defaultChild: 'recipe.list'
+                defaultChild: 'recipe.list',
+                animate: ''
             },
             resolve: {
                 data: function($http){
@@ -90,25 +103,37 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state('nutrition', {
             url: '/nutrition',
             controller: 'nutritionCtrl',
-            templateUrl: 'templates/nutrition.html'
+            templateUrl: 'templates/nutrition.html',
+            params: {
+                animate: ''
+            }
         })
 
         .state('water', {
             url: '/water',
-            controller: 'dashCtrl',
-            templateUrl: 'templates/water.html'
+            controller: 'waterCtrl',
+            templateUrl: 'templates/water.html',
+            params: {
+                animate: ''
+            }
         })
 
         .state('co2impact', {
             url: '/co2impact',
-            controller: 'dashCtrl',
-            templateUrl: 'templates/co2impact.html'
+            controller: 'co2impactCtrl',
+            templateUrl: 'templates/co2impact.html',
+            params: {
+                animate: ''
+            }
         })
 
         .state('home', {
             url: '/home',
             templateUrl: 'templates/dashboard.html',
             controller: 'dashCtrl',
+            params: {
+                animate: ''
+            },
             resolve: {
             }
         });

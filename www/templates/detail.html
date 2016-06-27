@@ -1,30 +1,32 @@
-<div class="row card">
-	<header/>
-</div>
-
-<card ng-repeat="t in data.timelineChilds"></card>
-<!-- <div class="row card" >
-
-	<div class="card-text col-xs-12 {{current.color}}">
-		<div class="card-title" ng-click="log()">PRODUCT NAME</div>
+<div class="minimum-width animated {{animation}}">
+	<div class="row card">
+		<header/>
 	</div>
 
+	<card ng-repeat="t in data.timelineChilds"></card>
+	<!-- <div class="row card" >
 
-	<div ng-if="current.carousel" class="col-xs-12 padding-none">
-		<carousel/>
+		<div class="card-text col-xs-12 {{current.color}}">
+			<div class="card-title" ng-click="log()">PRODUCT NAME</div>
+		</div>
+
+
+		<div ng-if="current.carousel" class="col-xs-12 padding-none">
+			<carousel/>
+		</div>
+
+		<div class="card-text col-xs-12 {{current.color}}">
+			<p><b>Lotto:</b> </p>
+			<p><b>Data Lotto:</b>  </p>
+			<p><b>Name </b> </p>
+			<p><b>Dettagli:</b>  </p>
+			<p><b>Descrizione (Italiano)</b>  </p>
+			<p><b>Description (English)</b>  </p>
+			<p><b>Prodotti </b> </p>
+		</div>
+	</div> -->
+
+	<div class="row gray" ng-controller="socialCtrl">
+		<social/>
 	</div>
-
-	<div class="card-text col-xs-12 {{current.color}}">
-		<p><b>Lotto:</b> </p>
-		<p><b>Data Lotto:</b>  </p>
-		<p><b>Name </b> </p>
-		<p><b>Dettagli:</b>  </p>
-		<p><b>Descrizione (Italiano)</b>  </p>
-		<p><b>Description (English)</b>  </p>
-		<p><b>Prodotti </b> </p>
-	</div>
-</div> -->
-
-<div class="row gray" ng-controller="socialCtrl">
-	<social/>
 </div>
