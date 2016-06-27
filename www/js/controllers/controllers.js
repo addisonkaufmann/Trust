@@ -197,13 +197,7 @@ app.controller('profileCtrl', function($scope, $stateParams,Tiles, Icons, Contac
         $scope.animation = 'fadeIn'; 
     }
 
-<<<<<<< HEAD
-=======
-
-
-app.controller('profileCtrl', function($scope, Tiles, Icons, Contact, data) {
->>>>>>> af5106e... some changes
-    $scope.data= data.data;
+    $scope.data = data.data;
     $scope.current = Tiles.get('profile');
     $scope.iconhome = Icons.home();
     $scope.menuicon = Icons.menu();
