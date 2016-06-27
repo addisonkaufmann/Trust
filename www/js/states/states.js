@@ -12,8 +12,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'templates/summary.html',
             resolve: {
                 data: function($http){
-                    // return $http({method: 'GET', url: 'http://localhost:8080/trust/api/farm/public/13'});
-                    return 'hi'; 
+                    return $http({method: 'GET', url: 'http://localhost:8080/trust/api/farm/public/13'});
+ 
                 }
             } 
         })

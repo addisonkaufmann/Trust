@@ -1,20 +1,19 @@
-<div ng-class="{'overlay-container': !expand, 'overlay-container-expanded': expand}" ng-controller="socialCtrl">
+<div class="animated hello" ng-class="{'overlay-container': !expand, 'overlay-container-expanded': expand, 'fadeOutUp': animateExit}" ng-controller="socialCtrl">
     <div class="fill" ng-class="{'vignette': !expand, 'vignette-expanded': expand}">
         <img ng-src="img/farm.jpg">
     </div>
 
-    <div class="overlay-tab">
+    <div class="overlay-tab" ng-click="animateExit=true; exit()">
         <img class="logo" ng-src="img/farm-logo.png">
     </div>
 
     <div class="overlay-content">
-
         <div class="overlay-title">
-            Societa Agricola Fumagalli SS<br/>
-            <p>Hello my name is blad</p>
-        </div>
-        
+            {{data.name}}<br/>
+            <p>{{data.description}}</p>
+        </div>        
     </div>
+
      <div class="summary-social">
         <social/>
     </div>

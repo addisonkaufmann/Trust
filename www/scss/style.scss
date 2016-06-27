@@ -728,68 +728,8 @@ a:hover {
 
 
 
-$duration: 5s;
 
-@-webkit-keyframes ticker {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    visibility: visible;
-  }
 
-  100% {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
-}
-
-@keyframes ticker {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    visibility: visible;
-  }
-
-  100% {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
-}
-
-.ticker-wrap {
-  
-  position: fixed;
-  width: 100%;
-  overflow: hidden;
-  padding-left: 100%;  // offset items to begin 
-  
-}
-
-.ticker {
-    
-  display: inline-block; 
-  white-space: nowrap; // display items in a line
-  padding-right: 100%; // ensure items go before animations repeat (taken from parent due to inline-block)
-  
-  -webkit-animation-iteration-count: infinite; 
-          animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
- -webkit-animation-name: ticker;
-         animation-name: ticker;
-  -webkit-animation-duration: $duration;
-          animation-duration: $duration;
-  
-  &__item {
-    
-    display: inline-block;
-    
-
-    color: white;   
-    
-  }
-  
-}
 
 
 

@@ -30,9 +30,18 @@ app.controller('dashCtrl', function($scope, $http, $rootScope, $stateParams, $st
 
 });
 
-app.controller('summaryCtrl', function($scope, data){
+app.controller('summaryCtrl', function($scope, $timeout, $state, data){
     $scope.data = data.data;
     console.log(data);
+
+    $scope.animateExit = false;
+
+    $scope.exit = function(){
+        $timeout(function() {
+            $state.go('home');
+        }, 1000);
+    };
+
 });
 
 
