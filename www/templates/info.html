@@ -1,33 +1,21 @@
-<<<<<<< HEAD
 <div class="minimum-width animated {{animation}}">
 	<div class="row card">
 		<header/>
-=======
-<div class="row card">
-	<header/>
 </div>
 
 <div class="row card" >
 	<div class="card-text col-xs-12 {{current.color}}">
-		<!-- <div class="card-title">{{title.value}} brian</div> -->
-		{{title.value}}
->>>>>>> af5106e... some changes
+		<div class="card-title">{{title.value}}</div>
 	</div>
 
-	<div class="row card" >
-		<div class="card-text col-xs-12 {{current.color}}">
-			<div class="card-title">{{title.value}}</div>
-		</div>
 
-
-		<div ng-if="current.carousel" class="col-xs-12 padding-none">
-			<carousel/>
-		</div>
-
-		<div class="card-text col-xs-12 {{current.color}}" ng-bind-html="info.value"></div>
+	<div ng-if="current.carousel" class="col-xs-12 padding-none">
+		<carousel/>
 	</div>
 
-	<div class="row gray" ng-controller="socialCtrl">
-		<social/>
-	</div>
+	<div class="card-text col-xs-12 {{current.color}}" ng-bind-html="info.value"></div>
+</div>
+
+<div class="row gray" ng-controller="socialCtrl">
+	<social/>
 </div>

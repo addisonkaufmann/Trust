@@ -62,8 +62,8 @@ app.factory('Tiles', function(){
         'color': 'light-green',
         'content': 'Azienda agricola',
         'link': 'profile',
-        'image': iconHome + 'profile_icon.png' ,
-        'valid': false,
+        'image': iconHome + 'profile_icon.png',
+        'valid': true
     },
     {
         'state': 'info',
@@ -71,59 +71,58 @@ app.factory('Tiles', function(){
         'content': 'Informazioni prodotto',
         'link': 'info',
         'image': iconHome + 'info_icon.png',
-        'valid': false,
-        'carousel': true
+        'carousel': true,
+        'valid': true
     },
     {
         'state': 'detail',
         'color': 'orange',
         'content': 'Dettagli prodotto',
-        'image': iconHome + 'detail_icon.png',
-        'valid': false,
         'link': 'detail',
-        'carousel': true
+        'image': iconHome + 'detail_icon.png',
+        'carousel': true,
+        'valid': true
     },
     {
         'state': 'nutrition',
         'color': 'red',
         'content': 'Valori nutrizionali',
-        'image': iconHome + 'nutrition_icon.png',
         'link': 'nutrition',
-        'valid': true,
-        'side': 'right'
+        'image': iconHome + 'nutrition_icon.png',
+        'valid': true
     },
     {
         'state': 'co2impact',
         'color': 'brown',
         'content': 'Impatto CO2',
-        'image': iconHome + 'co2impact_icon.png',
         'link': 'co2impact',
-        'valid': true,
+        'image': iconHome + 'co2impact_icon.png',
+        'valid': true
     },
     {
         'state': 'ingredient',
         'color': 'purple',
         'content': 'Ingredienti particolari',
-        'image': iconHome + 'ingredient_icon.png',
         'link': 'ingredient',
-        'valid': true,
+        'image': iconHome + 'ingredient_icon.png',
+        'valid': true
     },
     {
         'state': 'water',
         'color': 'blue',
         'content': 'Utilizzo acqua',
-        'image': iconHome + 'water_icon.png',
         'link': 'water',
-        'valid': true,
+        'image': iconHome + 'water_icon.png',
+        'valid': true
     },
     {
         'state': 'recipe',
         'color': 'dark-green',
         'content': 'Ricette',
-        'image': iconHome + 'recipe_icon.png',
         'link': 'recipe.list',
-        'valid': true,
-        'carousel': true
+        'image': iconHome + 'recipe_icon.png',
+        'carousel': true,
+        'valid': true
     }];
 
     var validTiles = tiles.filter(function(tile){
