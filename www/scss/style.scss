@@ -336,7 +336,7 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
 .card-text {
 	padding: 3%;
-	/*font-size: $font-small-responsive;*/
+	border: 2px solid red;
 	font-size: medium;
 	@media (max-width: $max-width-xs) {
 		font-size: small;
@@ -344,7 +344,7 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 }
 
 .card-title {
-	font-size: $font-normal-responsive;
+	font-size: large;
 }
 
 .chart-container {
