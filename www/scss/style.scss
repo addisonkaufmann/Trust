@@ -347,6 +347,41 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	font-size: $font-normal-responsive;
 }
 
+.chart-container {
+	width: 50%;
+	/*height: 90%; cannot set height*/
+
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	color: $gray;
+
+	.chart-data {
+		margin-bottom: 5%;
+	}
+}
+
+/*.chart-container .innerPercentage {
+	background-color: $gray; /*gray background color*/
+	color: white; /*white font color*/
+	border-radius: 50%; /*circular shape*/
+	margin-left: auto; /*center horizontically*/
+	margin-right: auto;
+	margin-top: -80%;
+	margin-bottom: 25%;
+	width: 60%; /*fit within chart*/
+	height: 60%;
+	position: relative;
+
+	h2 {
+		width: 80%;
+		text-align: center;
+		position: absolute;
+		top: 50%;
+		left: 10%;
+	}
+}*/
+
 .contact-container {
 	width: 50px;
 	height: 50px;
@@ -433,6 +468,27 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 .icon-white {
 	padding-left: 2%;
 	font-color: white;
+}
+
+.innerPercentage {
+	background-color: $gray; /*gray background color*/
+	color: white; /*white font color*/
+	border-radius: 50%; /*circular shape*/
+	margin-left: auto; /*center horizontically*/
+	margin-right: auto;
+	margin-top: -80%;
+	margin-bottom: 25%;
+	width: 60%; /*fit within chart*/
+	height: 60%;
+	position: relative;
+
+	h2 {
+		width: 80%;
+		text-align: center;
+		position: absolute;
+		top: 50%;
+		left: 10%;
+	}
 }
 
 .logo{
@@ -539,14 +595,6 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	}
 }
 
-
-.summary-social {
-
-	width: 100%;
-	position: absolute;
-	top: 77%;
-}
-
 .profile-title {
 	color: $light-green;
 	margin-left: auto;
@@ -568,21 +616,21 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	}
 }
 
+.small-chevron {
+	height: 4vh;
+}
+
 .social-sm {
 	height: 6.5vh;
 	margin-left: 3vw;
 	margin-right: 3vw;
 }
 
-.tile-text{
-	font-size: large;
-	@media (max-width: $max-width-sm){
-		font-size: small;
-	}
-	color: white;
-	text-align: center;
-	position: relative;
-	top: 30%;
+.summary-social {
+
+	width: 100%;
+	position: absolute;
+	top: 77%;
 }
 
 .tile-img {
@@ -594,8 +642,15 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	text-align:center;
 }
 
-.small-chevron {
-	height: 4vh;
+.tile-text{
+	font-size: large;
+	@media (max-width: $max-width-sm){
+		font-size: small;
+	}
+	color: white;
+	text-align: center;
+	position: relative;
+	top: 30%;
 }
 
 .vignette {
@@ -683,64 +738,28 @@ a:hover {
 
 
 
-.chart-container {
-	width: 50%;
-	/*height: 90%; cannot set height*/
-
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-	color: $gray;
-
-	.chart-data {
-		margin-bottom: 5%;
-	}
-}
-
-.chart-container .innerPercentage {
-	background-color: $gray; /*gray background color*/
-	color: white; /*white font color*/
-	border-radius: 50%; /*circular shape*/
-	margin-left: auto; /*center horizontically*/
-	margin-right: auto;
-	margin-top: -80%;
-	margin-bottom: 25%;
-	width: 60%; /*fit within chart*/
-	height: 60%;
-	position: relative;
-
-	h2 {
-		width: 80%;
-		text-align: center;
-		position: absolute;
-		top: 50%;
-		left: 10%;
-	}
-}
 
 
+/*	IDs	- ALPHABETICAL	*/
 
-
-
-.test1 {
-	@media (min-width: $min-width-md) {
-		padding-left: 1vh;
-		padding-right: 1vh;
-		/*border: 2px solid yellow;*/
-	}
-}
-
-.test2 {
-	@media (min-width: $min-width-md) {
-		margin-left: 0px;
-		margin-right: 0px;
-	}
-}
-
-.test3 {
+#socialDash {
 	@media (min-width: $min-width-md) {
 		margin-left: 1vh;
 		margin-right: 1vh;
+	}
+}
+
+#tileContainer {
+	@media (min-width: $min-width-md) {
+		padding-left: 1vh;
+		padding-right: 1vh;
+	}
+}
+
+#tilesContainer {
+	@media (min-width: $min-width-md) {
+		margin-left: 0px;
+		margin-right: 0px;
 	}
 }
 
