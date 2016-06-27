@@ -8,7 +8,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
         .state('summary', {
             url: '/summary',
-            templateUrl: 'templates/summary.html', 
+            controller: 'summaryCtrl',
+            templateUrl: 'templates/summary.html',
+            resolve: {
+                data: function($http){
+                    return $http({method: 'GET', url: 'http://localhost:8080/trust/api/farm/public/13'});
+ 
+                }
+            } 
         })
 
         .state('info', {

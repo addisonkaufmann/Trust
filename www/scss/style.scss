@@ -17,7 +17,7 @@ $transparent-black: rgba(0,0,0,0.7);
 $font-normal: 16px;
 $font-normal-responsive: 3.5vh;
 $font-small-responsive: 2.5vh;
-$font-title-xl-responsive: 7vh;
+$font-title-xl-responsive: 6vh;
 
 /*media size breaks*/
 $max-width-xs: 767px;
@@ -444,7 +444,7 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 .overlay-content {
 	@extend %overlay-item;
 	bottom: 0;
-  	top: 65%;
+  	top: 58%;
   	color: white;
 }
 
@@ -487,7 +487,8 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 .overlay-title {
 	@extend %overlay-item;
 	font-size: $font-title-xl-responsive;
-	top: 0;
+	overflow-x: auto;
+	bottom: 52%;
 
 	p{
 		font-size: $font-normal-responsive;
@@ -540,7 +541,7 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
 	width: 100%;
 	position: absolute;
-	top: 80%;
+	top: 77%;
 }
 
 .profile-title {
@@ -607,7 +608,7 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
     	left: 50%;
     	width: 100%;
     	height: 100%;
-		box-shadow: inset 0rem -48vh 15rem -13vh $transparent-black;
+		box-shadow: inset 0rem -55vh 15rem -13vh $transparent-black;
 	}
 }
 
@@ -724,6 +725,11 @@ a:hover {
 		left: 10%;
 	}
 }
+
+
+
+
+
 
 
 
