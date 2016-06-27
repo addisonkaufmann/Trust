@@ -362,7 +362,7 @@
 
 .overlay-content {
   bottom: 0;
-  top: 65%;
+  top: 58%;
   color: white; }
 
 .overlay-footer {
@@ -432,7 +432,7 @@
 .summary-social {
   width: 100%;
   position: absolute;
-  top: 80%; }
+  top: 77%; }
 
 .profile-title {
   color: #81bc5f;
@@ -490,7 +490,7 @@
   left: 50%;
   width: 100%;
   height: 100%;
-  box-shadow: inset 0rem -48vh 15rem -13vh rgba(0, 0, 0, 0.7); }
+  box-shadow: inset 0rem -55vh 15rem -13vh rgba(0, 0, 0, 0.7); }
 
 .vignette-expanded img {
   display: block; }

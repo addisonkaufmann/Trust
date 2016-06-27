@@ -444,7 +444,7 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 .overlay-content {
 	@extend %overlay-item;
 	bottom: 0;
-  	top: 65%;
+  	top: 58%;
   	color: white;
 }
 
@@ -540,7 +540,7 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
 	width: 100%;
 	position: absolute;
-	top: 80%;
+	top: 77%;
 }
 
 .profile-title {
@@ -607,7 +607,7 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
     	left: 50%;
     	width: 100%;
     	height: 100%;
-		box-shadow: inset 0rem -48vh 15rem -13vh $transparent-black;
+		box-shadow: inset 0rem -55vh 15rem -13vh $transparent-black;
 	}
 }
 

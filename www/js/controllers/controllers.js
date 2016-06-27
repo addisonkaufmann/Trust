@@ -30,6 +30,10 @@ app.controller('dashCtrl', function($scope, $http, $rootScope, $stateParams, $st
 
 });
 
+app.controller('summaryCtrl', function($scope, data){
+    $scope.data = data.data;
+    console.log(data);
+});
 
 
 app.controller('detailCtrl', function($scope, data, Tiles, Icons){
