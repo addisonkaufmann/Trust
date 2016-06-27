@@ -1,4 +1,4 @@
-app.controller('dashCtrl', function($scope, $http, $rootScope, $stateParams, $state, Icons, Tiles, TileClasses){
+app.controller('dashCtrl', function($scope, $http, $timeout, $rootScope, $stateParams, $state, Icons, Tiles, TileClasses){
 
     $rootScope.$on('$stateChangeSuccess', 
         function(event, toState, toParams, fromState, fromParams){
@@ -26,6 +26,26 @@ app.controller('dashCtrl', function($scope, $http, $rootScope, $stateParams, $st
 
     $scope.classes = $scope.tileclasses.classes;
     $scope.first = $scope.tileclasses.first;
+
+    $scope.exitLeft = false;
+    $scope.exitRight = false;
+
+    $scope.animateLink = function(link, side) {
+        console.log(link);
+        console.log(side);
+        if (side === 'left'){
+            $scope.exitLeft = true;
+        } else {
+            $scope.exitRight = true;
+        }
+
+        $timeout(function() {
+            $state.go(link);
+        }, 1000);
+
+
+
+    };
 
 
 });

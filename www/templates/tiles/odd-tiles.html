@@ -7,7 +7,7 @@
 		'fadeInRight': $even, 
 		'left': $odd, 
 		'right': $even}" 
-	ui-sref="{{t.link}}">
+	ng-click="animateLink(t.link, t.side)">
 
 	<div class="{{tilesize}} tile-lg {{t.color}} ">
 		<img class="tile-img" ng-src="{{t.image}}">

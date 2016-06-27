@@ -78,7 +78,7 @@ app.factory('Tiles', function(){
         'color': 'orange',
         'content': 'Dettagli prodotto',
         'image': iconHome + 'detail_icon.png',
-        'valid': true,
+        'valid': false,
         'link': 'detail',
         'side': 'left',
         'carousel': true
@@ -89,7 +89,7 @@ app.factory('Tiles', function(){
         'content': 'Valori nutrizionali',
         'image': iconHome + 'nutrition_icon.png',
         'link': 'nutrition',
-        'valid':  true,
+        'valid':  false,
         'side': 'right'
     },
     {
@@ -98,7 +98,7 @@ app.factory('Tiles', function(){
         'content': 'Impatto CO2',
         'image': iconHome + 'co2impact_icon.png',
         'link': 'co2impact',
-        'valid': true,
+        'valid': false,
         'side': 'left'
     },
     {
