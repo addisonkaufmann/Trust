@@ -219,7 +219,8 @@
     padding-bottom: 1vh; }
   .full .tile-lg {
     height: 66vh;
-    /*2x regular tile-lg height*/ }
+    /*2x regular tile-lg height*/
+    min-height: 204px; }
   .full .tile-img {
     top: 35%;
     height: 19%; }
@@ -541,16 +542,6 @@
 a:hover {
   text-decoration: none; }
 
-/*.heading {
-	color: $light-green;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-}
-
-#contact-table {
-	margin-bottom: 2%;
-}*/
 .chart-container {
   width: 50%;
   /*height: 90%; cannot set height*/
@@ -583,3 +574,19 @@ a:hover {
     position: absolute;
     top: 50%;
     left: 10%; }
+
+@media (min-width: 992px) {
+  .test1 {
+    padding-left: 1vh;
+    padding-right: 1vh;
+    /*border: 2px solid yellow;*/ } }
+
+@media (min-width: 992px) {
+  .test2 {
+    margin-left: 0px;
+    margin-right: 0px; } }
+
+@media (min-width: 992px) {
+  .test3 {
+    margin-left: 1vh;
+    margin-right: 1vh; } }

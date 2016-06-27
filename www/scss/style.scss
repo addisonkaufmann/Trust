@@ -274,6 +274,7 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	.full {
 		.tile-lg {
 			height: 66vh; /*2x regular tile-lg height*/
+			min-height: 204px;
 		}
 
 		.tile-img{
@@ -679,17 +680,6 @@ a:hover {
 	text-decoration: none;
 }
 
-/*.heading {
-	color: $light-green;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-}
-
-#contact-table {
-	margin-bottom: 2%;
-}*/
-
 
 
 
@@ -732,7 +722,25 @@ a:hover {
 
 
 
+.test1 {
+	@media (min-width: $min-width-md) {
+		padding-left: 1vh;
+		padding-right: 1vh;
+		/*border: 2px solid yellow;*/
+	}
+}
 
+.test2 {
+	@media (min-width: $min-width-md) {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+}
 
-
+.test3 {
+	@media (min-width: $min-width-md) {
+		margin-left: 1vh;
+		margin-right: 1vh;
+	}
+}
 
