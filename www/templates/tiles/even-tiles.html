@@ -1,5 +1,6 @@
 <div ng-repeat="t in validTiles" 
 	 class="{{classes}} animated" 
+	 id="tileContainer"
 	 ng-class="{
 		'fadeInLeft': $even, 
 		'fadeInRight': $odd, 
@@ -7,7 +8,7 @@
 		'right': $odd}"
 	 ng-click="animateLink(t.link, false, $odd)">
 
-	<div class="{{tilesize}} tile-lg {{t.color}} ">
+	<div class="{{tilesize}} tile-lg {{t.color}}">
 		<img class="tile-img" ng-src="{{t.image}}">
 		<div class="tile-text">{{t.content}}</div>
 	</div>

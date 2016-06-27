@@ -63,7 +63,7 @@ app.factory('Tiles', function(){
         'content': 'Azienda agricola',
         'link': 'profile',
         'image': iconHome + 'profile_icon.png' ,
-        'valid': true,
+        'valid': false,
     },
     {
         'state': 'info',
@@ -71,7 +71,7 @@ app.factory('Tiles', function(){
         'content': 'Informazioni prodotto',
         'link': 'info',
         'image': iconHome + 'info_icon.png',
-        'valid': true,
+        'valid': false,
         'carousel': true
     },
     {
@@ -79,7 +79,7 @@ app.factory('Tiles', function(){
         'color': 'orange',
         'content': 'Dettagli prodotto',
         'image': iconHome + 'detail_icon.png',
-        'valid': true,
+        'valid': false,
         'link': 'detail',
         'carousel': true
     },

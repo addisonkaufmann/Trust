@@ -67,7 +67,6 @@ app.controller('dashCtrl', function($scope, $http, $timeout, $rootScope, $stateP
 
 app.controller('summaryCtrl', function($scope, $timeout, $state, data){
     $scope.data = data.data;
-    console.log(data);
 
     $scope.animateExit = false;
 
@@ -89,7 +88,6 @@ app.controller('detailCtrl', function($scope, $stateParams, data, Tiles, Icons){
     $scope.menuicon = Icons.menu();
     $scope.current=Tiles.get('detail');
     $scope.data = data.data;
-    console.log($scope.data);
 });
 
 app.controller('carouselCtrl', function($scope){
@@ -141,7 +139,6 @@ app.controller('recipeCtrl', function($scope, $stateParams, $rootScope, $state, 
         $http({ method : "GET",
             url : 'http://localhost:8080/trust/api/timeline/getTimelineByFarmIdAndMenuRecipeId/15/' + $stateParams.id})
         .then(function mySuccess(response) {
-            console.log(response);
             $scope.detail = response.data;
         }, function myError(response) {
             $scope.detail = response.statusText;
@@ -200,7 +197,7 @@ app.controller('profileCtrl', function($scope, $stateParams,Tiles, Icons, Contac
         $scope.animation = 'fadeIn'; 
     }
 
-    $scope.data= data.data;
+    $scope.data = data.data;
     $scope.current = Tiles.get('profile');
     $scope.iconhome = Icons.home();
     $scope.menuicon = Icons.menu();
@@ -208,7 +205,6 @@ app.controller('profileCtrl', function($scope, $stateParams,Tiles, Icons, Contac
     $scope.contactinfo = [];
 
     var mything = new Contact('mytype', 'myimg', 'myval');
-    console.log(mything);
 
     if (angular.fromJson($scope.data.address).address){
         $scope.contactinfo.push(
@@ -426,7 +422,6 @@ app.controller('infoCtrl', function($scope, $stateParams, Tiles, Icons, data) {
     $scope.menuicon = Icons.menu();
 
     $scope.data = data.data;
-    console.log($scope.data);
 
 
     $scope.title = $scope.data.productDescr[0];
