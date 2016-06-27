@@ -5,9 +5,9 @@
     </ol>
 
   <!-- Wrapper for slides -->
-    <div class="carousel-inner black" style="height: 40vh;" role="listbox">
-        <div class="item fill" ng-class="{'active': i.active}" ng-repeat="i in carousel">
-            <img class="animated" style="height: 100%; width: auto;" ng-class="{'fadeIn': i.active}" ng-src="{{i.image}}">
+    <div class="carousel-inner black" style="height: 50vh;" role="listbox">
+        <div class="item" style="height: 100%" ng-class="{'active': i.active}" ng-repeat="i in carousel">
+            <img class="animated" style="height: 100%; width: auto; display: block; margin-right: auto; margin-left: auto;" ng-class="{'fadeIn': i.active}" ng-src="{{i.image}}">
         </div>
     </div>
 
