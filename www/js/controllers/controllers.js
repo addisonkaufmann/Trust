@@ -237,7 +237,7 @@ app.controller('profileCtrl', function($scope, $stateParams,Tiles, Icons, Contac
 
 
 
-app.controller('nutritionCtrl', function($scope, $stateParams, Tiles, Icons) {
+app.controller('nutritionCtrl', function($scope, $stateParams, $timeout, Tiles, Icons) {
 
     if ($stateParams.animate){
         $scope.animation = $stateParams.animate;
@@ -333,6 +333,8 @@ app.controller('nutritionCtrl', function($scope, $stateParams, Tiles, Icons) {
     //of the elements will be rendered on the page. In this case, all of the 
     //if(someElement.length) statements will evaluate to false because they do not
     //exist yet
+
+
 
     $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
 
