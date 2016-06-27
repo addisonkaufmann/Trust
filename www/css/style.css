@@ -273,14 +273,15 @@
 
 .card-text {
   padding: 3%;
-  /*border: 2px solid red;*/
   font-size: medium; }
   @media (max-width: 767px) {
     .card-text {
       font-size: small; } }
 
 .card-title {
-  font-size: large; }
+  font-size: large;
+  text-align: center;
+  padding: 3%; }
 
 .chart-container {
   width: 50%;
