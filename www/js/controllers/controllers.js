@@ -45,30 +45,23 @@ app.controller('dashCtrl', function($scope, $http, $timeout, $rootScope, $stateP
     $scope.exitDown = false;
 
     $scope.animateLink = function(link, first, even) {
-        // console.log(link);
-        // console.log(side);
-        // if (side === 'left'){
-        //     $scope.exitLeft = true;
-        // } else if (side === 'right'){
-        //     $scope.exitRight = true;
-        // }
 
         var animateIn = '';
         var animateOut = '';
 
         if (first){
-            $scope.exitDown = true;
+            $scope.animateDash = 'fadeOutDown';
             animateIn = 'fadeInDown';
             animateOut = 'fadeOutUp';
 
         } else {
             if (even){
-                $scope.exitRight = true;
+                $scope.animateDash = 'fadeOutLeft';
                 animateIn = 'fadeInRight';
                 animateOut = 'fadeOutRight'; 
 
             } else {
-                $scope.exitLeft = true;
+                $scope.animateDash = 'fadeOutRight';
                 animateIn = 'fadeInLeft';
                 animateOut = 'fadeOutLeft';
             }
@@ -77,11 +70,7 @@ app.controller('dashCtrl', function($scope, $http, $timeout, $rootScope, $stateP
         $timeout(function() {
             $state.go(link, { animateIn: animateIn, animateOut: animateOut });
         }, 200);
-
-
     };
-
-
 });
 
 app.controller('summaryCtrl', function($scope, $timeout, $state, data){
