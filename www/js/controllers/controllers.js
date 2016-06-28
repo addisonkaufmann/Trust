@@ -1,3 +1,17 @@
+app.controller('headerCtrl', function($scope, $state, $stateParams, $timeout){
+    $scope.animateOut = '';
+
+    $scope.goHome = function(){
+        if ($stateParams.animateOut){
+            $scope.animateOut = $stateParams.animateOut;
+        }
+        $timeout(function() {
+            $state.go('home');
+        }, 300);
+    };
+});
+
+
 app.controller('dashCtrl', function($scope, $http, $timeout, $rootScope, $stateParams, $state, Icons, Tiles, TileClasses){
 
     $rootScope.$on('$stateChangeSuccess', 
@@ -31,38 +45,32 @@ app.controller('dashCtrl', function($scope, $http, $timeout, $rootScope, $stateP
     $scope.exitDown = false;
 
     $scope.animateLink = function(link, first, even) {
-        // console.log(link);
-        // console.log(side);
-        // if (side === 'left'){
-        //     $scope.exitLeft = true;
-        // } else if (side === 'right'){
-        //     $scope.exitRight = true;
-        // }
 
-        var animation = '';
+        var animateIn = '';
+        var animateOut = '';
 
         if (first){
-            $scope.exitDown = true;
-            animation = 'fadeInDown';
+            $scope.animateDash = 'fadeOutDown';
+            animateIn = 'fadeInDown';
+            animateOut = 'fadeOutUp';
 
         } else {
             if (even){
-                $scope.exitRight = true;
-                animation = 'fadeInRight'; 
+                $scope.animateDash = 'fadeOutLeft';
+                animateIn = 'fadeInRight';
+                animateOut = 'fadeOutRight'; 
+
             } else {
-                $scope.exitLeft = true;
-                animation = 'fadeInLeft';
+                $scope.animateDash = 'fadeOutRight';
+                animateIn = 'fadeInLeft';
+                animateOut = 'fadeOutLeft';
             }
         }
 
         $timeout(function() {
-            $state.go(link, { animate: animation });
+            $state.go(link, { animateIn: animateIn, animateOut: animateOut });
         }, 200);
-
-
     };
-
-
 });
 
 app.controller('summaryCtrl', function($scope, $timeout, $state, data){
@@ -79,10 +87,10 @@ app.controller('summaryCtrl', function($scope, $timeout, $state, data){
 });
 
 app.controller('detailCtrl', function($scope, $stateParams, data, Tiles, Icons){
-    if ($stateParams.animate){
-        $scope.animation = $stateParams.animate;
+    if ($stateParams.animateIn){
+        $scope.animateIn = $stateParams.animateIn;
     } else {
-        $scope.animation = 'fadeIn'; 
+        $scope.animateIn = 'fadeIn'; 
     }
     $scope.iconhome = Icons.home();
     $scope.menuicon = Icons.menu();
@@ -95,7 +103,7 @@ app.controller('carouselCtrl', function($scope){
     $scope.carousel = [
         {'image': 'img/farm.jpg', 'active':true},
         {'image': 'img/river.jpg', 'active': false},
-        {'image': 'img/field.jpg', 'active':false},
+        {'image': 'img/field.jpg', 'active':false}
     ];
 
     $scope.deactivateCurrent = function(carousel, len){
@@ -129,10 +137,10 @@ app.controller('recipeCtrl', function($scope, $stateParams, $rootScope, $state, 
         $state.current=toState;
     });
 
-    if ($stateParams.animate){
-        $scope.animation = $stateParams.animate;
+    if ($stateParams.animateIn){
+        $scope.animateIn = $stateParams.animateIn;
     } else {
-        $scope.animation = 'fadeIn'; 
+        $scope.animateIn = 'fadeIn'; 
     }
 
     if ($state.current.name === 'recipe.detail'){
@@ -191,10 +199,10 @@ app.controller('socialCtrl', function($scope, $state, $location, $window, $rootS
 
 app.controller('profileCtrl', function($scope, $stateParams,Tiles, Icons, Contact, data) {
     
-    if ($stateParams.animate){
-        $scope.animation = $stateParams.animate;
+    if ($stateParams.animateIn){
+        $scope.animateIn = $stateParams.animateIn;
     } else {
-        $scope.animation = 'fadeIn'; 
+        $scope.animateIn = 'fadeIn'; 
     }
 
     $scope.data = data.data;
@@ -235,10 +243,10 @@ app.controller('profileCtrl', function($scope, $stateParams,Tiles, Icons, Contac
 
 app.controller('nutritionCtrl', function($scope, $stateParams, $timeout, Tiles, Icons) {
 
-    if ($stateParams.animate){
-        $scope.animation = $stateParams.animate;
+    if ($stateParams.animateIn){
+        $scope.animateIn = $stateParams.animateIn;
     } else {
-        $scope.animation = 'fadeIn'; 
+        $scope.animateIn = 'fadeIn'; 
     }
 
     $scope.iconhome = Icons.home();
@@ -310,7 +318,7 @@ app.controller('nutritionCtrl', function($scope, $stateParams, $timeout, Tiles, 
     //Some standard formatting settings for all charts
     var options = {
         cutoutPercentage: 90,
-        animation: {
+        animateIn: {
             animateScale: true
         },
         legend: {
@@ -410,10 +418,10 @@ app.controller('nutritionCtrl', function($scope, $stateParams, $timeout, Tiles, 
 
 app.controller('infoCtrl', function($scope, $stateParams, Tiles, Icons, data) {
 
-    if ($stateParams.animate){
-        $scope.animation = $stateParams.animate;
+    if ($stateParams.animateIn){
+        $scope.animateIn = $stateParams.animateIn;
     } else {
-        $scope.animation = 'fadeIn'; 
+        $scope.animateIn = 'fadeIn'; 
     }
 
     $scope.current = Tiles.get('info');
@@ -431,10 +439,10 @@ app.controller('infoCtrl', function($scope, $stateParams, Tiles, Icons, data) {
 });
 
 app.controller('co2impactCtrl', function($scope, $stateParams, Tiles, Icons){
-    if ($stateParams.animate){
-        $scope.animation = $stateParams.animate;
+    if ($stateParams.animateIn){
+        $scope.animateIn = $stateParams.animateIn;
     } else {
-        $scope.animation = 'fadeIn'; 
+        $scope.animateIn = 'fadeIn'; 
     }
     $scope.iconhome = Icons.home();
     $scope.current = Tiles.get('co2impact');
@@ -442,10 +450,10 @@ app.controller('co2impactCtrl', function($scope, $stateParams, Tiles, Icons){
 });
 
 app.controller('ingredientCtrl', function($scope, $stateParams, Tiles, Icons){
-    if ($stateParams.animate){
-        $scope.animation = $stateParams.animate;
+    if ($stateParams.animateIn){
+        $scope.animateIn = $stateParams.animateIn;
     } else {
-        $scope.animation = 'fadeIn'; 
+        $scope.animateIn = 'fadeIn'; 
     }
     $scope.iconhome = Icons.home();
     $scope.current = Tiles.get('ingredient');
@@ -453,11 +461,11 @@ app.controller('ingredientCtrl', function($scope, $stateParams, Tiles, Icons){
 });
 
 app.controller('waterCtrl', function($scope, $stateParams, Tiles, Icons){
-    console.log($stateParams.animate);
-    if ($stateParams.animate){
-        $scope.animation = $stateParams.animate;
+    console.log($stateParams.animateIn);
+    if ($stateParams.animateIn){
+        $scope.animateIn = $stateParams.animateIn;
     } else {
-        $scope.animation = 'fadeIn'; 
+        $scope.animateIn = 'fadeIn'; 
     }
     $scope.iconhome = Icons.home();
     $scope.current = Tiles.get('water');

@@ -23,7 +23,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'infoCtrl',
             templateUrl: 'templates/info.html',
             params: {
-                animate: ''
+                animateIn: '',
+                animateOut: ''
             },
             resolve: {
                 data: function($http){
@@ -38,7 +39,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'profileCtrl',
             templateUrl: 'templates/profile.html',
             params: {
-                animate: ''
+                animateIn: '',
+                animateOut: ''
             },
             resolve: {
                 data: function($http){
@@ -52,7 +54,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'detailCtrl',
             templateUrl: 'templates/detail.html',
             params: {
-                animate: ''
+                animateIn: '',
+                animateOut: ''
             },
             resolve: {
                 data: function($http){
@@ -66,7 +69,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'ingredientCtrl',
             templateUrl: 'templates/ingredient.html',
             params: {
-                animate: ''
+                animateIn: '',
+                animateOut: ''
             }
         })
         
@@ -76,7 +80,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'templates/recipe.html', 
             params: {
                 defaultChild: 'recipe.list',
-                animate: ''
+                animateIn: '',
+                animateOut: ''
             },
             resolve: {
                 data: function($http){
@@ -105,7 +110,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'nutritionCtrl',
             templateUrl: 'templates/nutrition.html',
             params: {
-                animate: ''
+                animateIn: '',
+                animateOut: ''
             }
         })
 
@@ -114,7 +120,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'waterCtrl',
             templateUrl: 'templates/water.html',
             params: {
-                animate: ''
+                animateIn: '',
+                animateOut: ''
             }
         })
 
@@ -123,7 +130,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'co2impactCtrl',
             templateUrl: 'templates/co2impact.html',
             params: {
-                animate: ''
+                animateIn: '',
+                animateOut: ''
             }
         })
 
@@ -132,7 +140,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'templates/dashboard.html',
             controller: 'dashCtrl',
             params: {
-                animate: ''
+                animateIn: '',
+                animateOut: ''
             },
             resolve: {
             }

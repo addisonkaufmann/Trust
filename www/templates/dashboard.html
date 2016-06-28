@@ -1,9 +1,4 @@
-<div class="animated" 
-	ng-class="{
-		'fadeOutLeft': exitRight, 
-		'fadeOutRight': exitLeft, 
-		'fadeOutDown': exitDown
-	}">
+<div class="animated {{animateDash}}">
 
 	<div id="tilesContainer" class="row" ng-if="numValidTiles % 2 === 0 || numValidTiles === 3">
 		<eventiles/>
