@@ -396,6 +396,9 @@
 .minimum-width {
   min-width: 300px; }
 
+.overlay-container {
+  min-height: 350px; }
+
 .overlay-content {
   bottom: 0;
   top: 58%;
