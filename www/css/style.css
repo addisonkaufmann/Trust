@@ -435,11 +435,16 @@
 .overlay-title {
   color: white;
   font-size: 6vh;
-  /*font-size: 20px;*/
   overflow-x: auto;
   bottom: 35%; }
+  @media (max-height: 500px) {
+    .overlay-title {
+      font-size: 30px; } }
   .overlay-title p {
     font-size: 3.5vh; }
+    @media (max-height: 500px) {
+      .overlay-title p {
+        font-size: 17.5px; } }
 
 .padding-none {
   padding-top: 0;

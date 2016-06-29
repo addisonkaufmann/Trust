@@ -19,6 +19,7 @@ $font-normal-responsive: 3.5vh;
 $font-small-responsive: 2.5vh;
 $font-title-xl-responsive: 6vh;
 
+
 /*media size breaks*/
 $max-width-xs: 767px;
 
@@ -530,13 +531,20 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 .overlay-title {
 	@extend %overlay-item;
 	color: white;
+
 	font-size: $font-title-xl-responsive;
-	/*font-size: 20px;*/
+	@media (max-height: 500px) {
+		font-size: 30px;
+	}
+
 	overflow-x: auto;
 	bottom: 35%;
 
 	p{
 		font-size: $font-normal-responsive;
+		@media (max-height: 500px) {
+			font-size: 17.5px;
+		}
 	}
 }
 
