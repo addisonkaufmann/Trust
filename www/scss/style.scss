@@ -531,8 +531,9 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	@extend %overlay-item;
 	color: white;
 	font-size: $font-title-xl-responsive;
+	/*font-size: 20px;*/
 	overflow-x: auto;
-	bottom: 25%;
+	bottom: 35%;
 
 	p{
 		font-size: $font-normal-responsive;
