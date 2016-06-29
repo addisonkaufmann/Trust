@@ -438,7 +438,7 @@
   color: white;
   font-size: 6vh;
   overflow-x: auto;
-  bottom: 35%; }
+  bottom: 25%; }
   @media (max-height: 500px) {
     .overlay-title {
       font-size: 30px; } }
