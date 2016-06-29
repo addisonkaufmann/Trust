@@ -114,10 +114,6 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
 		min-height: 50px;
 	}
-
-	.hidden-sm {
-		visibility: hidden;
-	}
 }
 
 @media (min-width: $min-width-sm){
@@ -181,10 +177,6 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	.full {
 		@include padding-none;
 		padding-bottom: 1vh;
-	}
-
-	.hidden-sm {
-		display: none;
 	}
 
 	.tile-8 {
@@ -446,6 +438,12 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	}
 }
 
+.hidden-sm {
+	@media (max-width: $max-width-sm) {
+		display: none;
+	}
+}
+
 .icon-white {
 	padding-left: 2%;
 	font-color: white;
@@ -621,7 +619,6 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 }
 
 .summary-social {
-
 	width: 100%;
 	position: absolute;
 	top: 77%;
