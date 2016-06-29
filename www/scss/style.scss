@@ -89,15 +89,6 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 		margin-left:-15px;
 	}
 
-	.overlay-container-expanded {
-		@include overlay-common;
-		width: 100vw;
-		height: 100vh;
-		margin-left:-15px;
-		height: 130vh;
-
-	}
-
 	.overlay-container-sm {
 		margin-left:-15px;
 	}
@@ -116,15 +107,6 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 		@include overlay-common;
 		height: 100vh;
 		width: 100%;
-	}
-
-	.overlay-container-expanded {
-		@include overlay-common;
-		width: 100%;
-		height: 100vh;
-		margin-left:-15px;
-		height: 130vh;
-
 	}
 }
 
@@ -448,6 +430,15 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
 .overlay-container {
 	min-height: 350px;
+}
+
+.overlay-container-expanded {
+	@include overlay-common;
+	width: 100vw;
+	height: 100vh;
+	margin-left:-15px;
+	height: 130vh;
+	min-height: 455px;
 }
 
 .overlay-container-sm {

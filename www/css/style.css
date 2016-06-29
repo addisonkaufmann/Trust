@@ -11,12 +11,6 @@
     width: 100vw;
     height: 100vh;
     margin-left: -15px; }
-  .overlay-container-expanded {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    margin-left: -15px;
-    height: 130vh; }
   .overlay-container-sm {
     margin-left: -15px; }
   .social-footer {
@@ -34,13 +28,7 @@
   .overlay-container {
     position: relative;
     height: 100vh;
-    width: 100%; }
-  .overlay-container-expanded {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    margin-left: -15px;
-    height: 130vh; } }
+    width: 100%; } }
 
 @media (min-width: 768px) and (max-width: 991px) {
   .social-footer {
@@ -363,6 +351,14 @@
 
 .overlay-container {
   min-height: 350px; }
+
+.overlay-container-expanded {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  margin-left: -15px;
+  height: 130vh;
+  min-height: 455px; }
 
 .overlay-container-sm {
   position: relative;
