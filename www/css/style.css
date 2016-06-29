@@ -399,15 +399,16 @@
 .overlay-container {
   min-height: 350px; }
 
-.overlay-content {
-  bottom: 0;
-  top: 58%;
-  color: white; }
-
+/*.overlay-content {
+	@extend %overlay-item;
+	bottom: 0;
+  	top: 58%;
+  	color: white;
+}*/
 .overlay-footer {
   top: 75%; }
 
-.overlay-content, .overlay-footer, .overlay-social-row, .overlay-tab, .overlay-tab-sm, .overlay-title {
+.overlay-footer, .overlay-social-row, .overlay-tab, .overlay-tab-sm, .overlay-title {
   left: 10%;
   right: 10%;
   width: 80%;
@@ -432,9 +433,10 @@
   background-color: rgba(255, 255, 255, 0.7); }
 
 .overlay-title {
+  color: white;
   font-size: 6vh;
   overflow-x: auto;
-  bottom: 52%; }
+  bottom: 25%; }
   .overlay-title p {
     font-size: 3.5vh; }
 

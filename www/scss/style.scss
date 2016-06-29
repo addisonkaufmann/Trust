@@ -484,12 +484,12 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	min-height: 350px;
 }
 
-.overlay-content {
+/*.overlay-content {
 	@extend %overlay-item;
 	bottom: 0;
   	top: 58%;
   	color: white;
-}
+}*/
 
 .overlay-footer {
 	@extend %overlay-item;
@@ -529,9 +529,10 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
 .overlay-title {
 	@extend %overlay-item;
+	color: white;
 	font-size: $font-title-xl-responsive;
 	overflow-x: auto;
-	bottom: 52%;
+	bottom: 25%;
 
 	p{
 		font-size: $font-normal-responsive;
