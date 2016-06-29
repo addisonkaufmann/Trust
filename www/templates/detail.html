@@ -3,7 +3,9 @@
 		<header/>
 	</div>
 
-	<card ng-repeat="t in data.timelineChilds"></card>
+<!-- 	<img ng-src="http://localhost:8080/trust/api/file/getImageWithFarm/13/normal/bd68fea2-b640-42.jpg"></img> -->
+
+	<card ng-repeat="t in data.timelineChilds " ng-init="id = t.id"></card>
 	<!-- <div class="row card" >
 
 		<div class="card-text col-xs-12 {{current.color}}">

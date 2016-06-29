@@ -1,8 +1,8 @@
 <div>
 	
-	<div class="row card" >
+	<div class="row">
 		<div class="card-title col-xs-12 {{current.color}}">
-			PRODUCT NAME
+			{{t.title}}
 		</div>
 	</div>
 
@@ -12,14 +12,28 @@
 
 	<div class="row card">
 		<div class="card-text col-xs-12 {{current.color}}">
-			<p><b>Lotto: </p>
-			<p><b>Data Lotto: </p>
-			<p><b>Name </p>
-			<p><b>Dettagli: </p>
-			<p><b>Descrizione (Italiano) </p>
-			<p><b>Description (English) </p>
-			<p><b>Prodotti </p>
+
+			<b ng-if="t.details">DETAILS</b>
+			<div ng-repeat="d in t.details">
+				<p>{{d.value}}</p>
+			</div>
+
+			<b ng-if="t.infoChilds">INFO CHILDS</b>
+			<div ng-repeat="i in t.infoChilds">
+				<div ng-repeat = "item in i.details">
+					<b>{{item.key}}</b>:{{item.value}}
+					<br></br>
+				</div>
+			</div>
+
+			<b ng-if="t.plannedProducts">PLANNED PRODUCTS</b>
+			<div ng-repeat="p in t.plannedProducts">
+				<p>{{p.value}}</p>
+			</div>
+
 		</div>
+
+
 	</div>
 
 </div>

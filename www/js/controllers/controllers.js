@@ -1,3 +1,15 @@
+$(window).load(function() {
+    // setTimeout(function() {
+    //     $("#pre").css({'display': 'none'});
+    //     $("#splash").css({'display': 'block'});
+    // }, 1000);
+
+    $("#pre").css({'display': 'none'});
+    $("#splash").css({'display': 'block'});
+});
+
+
+
 app.controller('headerCtrl', function($scope, $state, $stateParams, $timeout){
     $scope.animateOut = '';
 
@@ -86,7 +98,11 @@ app.controller('summaryCtrl', function($scope, $timeout, $state, data){
 
 });
 
-app.controller('detailCtrl', function($scope, $stateParams, data, Tiles, Icons){
+app.controller('detailCtrl', function($rootScope, $scope, $stateParams, data, Tiles, Icons, Images){
+
+    Images.generateFromTimelineChilds(data.data);
+
+
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
     } else {
@@ -96,15 +112,18 @@ app.controller('detailCtrl', function($scope, $stateParams, data, Tiles, Icons){
     $scope.menuicon = Icons.menu();
     $scope.current=Tiles.get('detail');
     $scope.data = data.data;
+
 });
 
-app.controller('carouselCtrl', function($scope){
 
-    $scope.carousel = [
-        {'image': 'img/farm.jpg', 'active':true},
-        {'image': 'img/river.jpg', 'active': false},
-        {'image': 'img/field.jpg', 'active':false}
-    ];
+
+
+
+app.controller('carouselCtrl', function($scope, Images){
+    $scope.getCarousel = function(id){
+        $scope.carousel = Images.get(id);
+        return $scope.carousel;
+    };
 
     $scope.deactivateCurrent = function(carousel, len){
         for (var i = 0; i < len; i++){
@@ -132,10 +151,16 @@ app.controller('carouselCtrl', function($scope){
 });
 
 
-app.controller('recipeCtrl', function($scope, $stateParams, $rootScope, $state, $http,  data, Icons, Tiles){
+app.controller('recipeCtrl', function($scope, $stateParams, $rootScope, $state, $http,  data, Icons, Tiles, Images){
+    Images.generateFromRecipeList(data.data);
+
     $rootScope.$on('$stateChangeSuccess', function(event, toState){
-        $state.current=toState;
+        $state.current=toState;   
     });
+
+    if ($state.current.name === 'recipe.detail' && $stateParams.id === 0){
+        $state.go('recipe.list');
+    }
 
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
@@ -152,6 +177,11 @@ app.controller('recipeCtrl', function($scope, $stateParams, $rootScope, $state, 
             $scope.detail = response.statusText;
         });
     }   
+
+    if ($stateParams.id){
+        $scope.id = $stateParams.id;
+    }
+
 
     $scope.iconhome = Icons.home();
     $scope.menuicon = Icons.menu();
@@ -209,6 +239,14 @@ app.controller('profileCtrl', function($scope, $stateParams,Tiles, Icons, Contac
     $scope.current = Tiles.get('profile');
     $scope.iconhome = Icons.home();
     $scope.menuicon = Icons.menu();
+
+
+    var imgUrl = 'http://localhost:8080/trust/api/file/getImageWithFarm/13/normal/';
+    $scope.logo =  imgUrl + $scope.data.logo;
+
+    $scope.profilepic = imgUrl + $scope.data.presentationImage;
+
+    $scope.backgroundpic = '';
 
     $scope.contactinfo = [];
 
@@ -416,7 +454,10 @@ app.controller('nutritionCtrl', function($scope, $stateParams, $timeout, Tiles, 
 
 
 
-app.controller('infoCtrl', function($scope, $stateParams, Tiles, Icons, data) {
+app.controller('infoCtrl', function($scope, $stateParams, Tiles, Icons, Images, data) {
+
+    Images.generateFromProductDescr(data.data);
+    console.log(Images.all());
 
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;

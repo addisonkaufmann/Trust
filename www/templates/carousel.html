@@ -1,13 +1,17 @@
 <div  class="carousel slide" ng-controller="carouselCtrl">
   <!-- Indicators -->
     <ol ng-if="carousel.length > 1" class="carousel-indicators">
-        <li class="dots" ng-repeat="i in carousel" ng-class="{'active': i.active}"></li>
+        <li class="dots" ng-repeat="i in getCarousel(id)" ng-class="{'active': i.active}"></li>
     </ol>
 
   <!-- Wrapper for slides -->
     <div class="carousel-inner black" style="height: 50vh;" role="listbox">
-        <div class="item" style="height: 100%" ng-class="{'active': i.active}" ng-repeat="i in carousel">
-            <img class="animated" style="height: 100%; width: auto; display: block; margin-right: auto; margin-left: auto;" ng-class="{'fadeIn': i.active}" ng-src="{{i.image}}">
+        <div class="item" style="height: 100%" ng-class="{'active': i.active}" ng-repeat="i in getCarousel(id)">
+            <img 
+                class="animated" 
+                style="height: 100%; width: auto; display: block; margin-right: auto; margin-left: auto;" 
+                ng-class="{'fadeIn': i.active}" 
+                ng-src="{{i.image}}">
         </div>
     </div>
 
@@ -23,3 +27,4 @@
         </a>
     </div>
 </div>
+

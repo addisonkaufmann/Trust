@@ -19,7 +19,6 @@ $font-normal-responsive: 3.5vh;
 $font-small-responsive: 2.5vh;
 $font-title-xl-responsive: 6vh;
 
-
 /*media size breaks*/
 $max-width-xs: 767px;
 
@@ -100,11 +99,7 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	}
 
 	.overlay-container-sm {
-		@include overlay-common;
 		margin-left:-15px;
-		height:45vh;
-
-		min-height: 200px;
 	}
 	.social-footer {
 		@include footer-common;
@@ -130,14 +125,6 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 		margin-left:-15px;
 		height: 130vh;
 
-	}
-
-	.overlay-container-sm {
-		@include overlay-common;
-		height: 45vh;
-
-
-		min-height: 200px;
 	}
 }
 
@@ -463,6 +450,12 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	min-height: 350px;
 }
 
+.overlay-container-sm {
+	@include overlay-common;
+	height:45vh;
+	min-height: 200px;
+}
+
 .overlay-footer {
 	@extend %overlay-item;
   	top: 75%;
@@ -529,24 +522,24 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 .profile-pic-container {
 	border: 3px solid $light-green;
 
-	@media  (max-width: $max-width-xs) {
+	@media  (max-height: 400px) {
 		width: 150px;
 		height: 150px;
 		margin-top: -75px;
 	}
 
 
-	@media  (min-width: $min-width-sm
-		) and (max-width: $max-width-sm) {
+	@media  (min-height: 401px) 
+		and (max-height: 500px) {
 		width: 180px;
 		height: 180px;
 		margin-top: -90px;
 	}
 
-	@media (min-width: $min-width-md){
-		width: 240px;
-		height: 240px;
-		margin-top: -120px;
+	@media (min-height: 501px){
+		width: 210px;
+		height: 210px;
+		margin-top: -105px;
 	}
 
 	border-radius: 50%;
@@ -581,20 +574,20 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	}
 }
 
-.small-chevron {
-	height: 4vh;
-	min-height: 14px;
+.small-chevron, .social-img {
 	opacity: 0.75;
 	@include hover-opacity(1);
 	@include active-scale(0.9);
 }
 
+.small-chevron {
+	height: 4vh;
+	min-height: 14px;
+}
+
 .social-img {
 	height: 7.5vh;
 	min-height: 26px;
-	opacity: 0.75;
-	@include hover-opacity(1);
-	@include active-scale(0.9);
 }
 
 .social-sm {
@@ -677,7 +670,6 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 .dark-green {
 	background-color: $dark-green;
 }
-
 
 .gray {
 	background-color: $gray;

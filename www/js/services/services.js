@@ -11,6 +11,74 @@ app.factory ('Icons', function(){
     };
 });
 
+app.factory('Carousel', function(){
+
+});
+
+app.factory ('Images', function(Image){
+    var images = {};
+    return {
+        all: function(){
+            // console.log(images);
+            return images;
+        },
+        get: function(id){
+            console.log('getting ' + id);
+            images[id][0].active = true;
+            console.log(images[id]);
+            return images[id];
+        },
+        generateFromTimelineChilds: function(obj){
+            images = {};
+            console.log('generate from timeline childs of:');
+            console.log(obj);
+            var i = 0;
+            var len = obj.timelineChilds.length;
+            
+
+            for (; i < len; i++){
+                images[obj.timelineChilds[i].id] = [];
+                images[obj.timelineChilds[i].id].push(new Image('http://localhost:8080/trust/api/file/getImageWithFarm/13/normal/' + obj.timelineChilds[i].image, false));
+            }
+            console.log(images);
+
+        }, 
+        generateFromProductDescr: function(obj){
+            // console.log(obj);
+            images[obj.id] = [];
+            var i = 0;
+            var len = obj.productDescr.length;
+            for(; i < len; i++){
+                if (obj.productDescr[i].key === "IMAGE"){
+                    images[obj.id].push(new Image('http://localhost:8080/trust/api/file/getImageWithFarm/13/normal/' + obj.productDescr[i].value, false));
+                }
+            }
+        },
+
+
+        generateFromRecipeList: function(obj){
+            // console.log(obj);
+            var i = 0;
+            var len = obj.list.length;
+            
+
+            for (; i < len; i++){
+                images[obj.list[i].id] = [];
+                images[obj.list[i].id].push(new Image('http://localhost:8080/trust/api/file/getImageWithFarm/15/thumbnail/' + obj.list[i].image, false));
+            }
+            console.log(images);
+        }
+    };
+});
+
+app.service('Image', function(){
+    var Image = function(image, active){
+        this.image = image;
+        this.active = active;
+    };
+    return Image;
+});
+
 app.service('Contact', function(){
     var Contact = function(type, img, val){
         this.type = type;

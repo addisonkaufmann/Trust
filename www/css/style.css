@@ -18,10 +18,7 @@
     margin-left: -15px;
     height: 130vh; }
   .overlay-container-sm {
-    position: relative;
-    margin-left: -15px;
-    height: 45vh;
-    min-height: 200px; }
+    margin-left: -15px; }
   .social-footer {
     padding-right: 12vw;
     padding-left: 12vw;
@@ -43,11 +40,7 @@
     width: 100%;
     height: 100vh;
     margin-left: -15px;
-    height: 130vh; }
-  .overlay-container-sm {
-    position: relative;
-    height: 45vh;
-    min-height: 200px; } }
+    height: 130vh; } }
 
 @media (min-width: 768px) and (max-width: 991px) {
   .social-footer {
@@ -371,6 +364,11 @@
 .overlay-container {
   min-height: 350px; }
 
+.overlay-container-sm {
+  position: relative;
+  height: 45vh;
+  min-height: 200px; }
+
 .overlay-footer {
   top: 75%; }
 
@@ -424,21 +422,21 @@
   position: relative;
   margin-left: auto;
   margin-right: auto; }
-  @media (max-width: 767px) {
+  @media (max-height: 400px) {
     .profile-pic-container {
       width: 150px;
       height: 150px;
       margin-top: -75px; } }
-  @media (min-width: 768px) and (max-width: 991px) {
+  @media (min-height: 401px) and (max-height: 500px) {
     .profile-pic-container {
       width: 180px;
       height: 180px;
       margin-top: -90px; } }
-  @media (min-width: 992px) {
+  @media (min-height: 501px) {
     .profile-pic-container {
-      width: 240px;
-      height: 240px;
-      margin-top: -120px; } }
+      width: 210px;
+      height: 210px;
+      margin-top: -105px; } }
   .profile-pic-container img {
     width: 100%;
     height: 100%; }
@@ -459,29 +457,23 @@
       .profile-title p {
         font-size: large; } }
 
-.small-chevron {
-  height: 4vh;
-  min-height: 14px;
+.small-chevron, .social-img {
   opacity: 0.75; }
-  .small-chevron:hover {
+  .small-chevron:hover, .social-img:hover {
     opacity: 1; }
-  .small-chevron:active {
+  .small-chevron:active, .social-img:active {
     -webkit-transform: scale(0.9, 0.9);
     -moz-transform: scale(0.9, 0.9);
     -ms-transform: scale(0.9, 0.9);
     transform: scale(0.9, 0.9); }
 
+.small-chevron {
+  height: 4vh;
+  min-height: 14px; }
+
 .social-img {
   height: 7.5vh;
-  min-height: 26px;
-  opacity: 0.75; }
-  .social-img:hover {
-    opacity: 1; }
-  .social-img:active {
-    -webkit-transform: scale(0.9, 0.9);
-    -moz-transform: scale(0.9, 0.9);
-    -ms-transform: scale(0.9, 0.9);
-    transform: scale(0.9, 0.9); }
+  min-height: 26px; }
 
 .social-sm {
   height: 6.5vh;
