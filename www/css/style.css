@@ -12,35 +12,13 @@
     height: 100vh;
     margin-left: -15px; }
   .overlay-container-sm {
-    margin-left: -15px; }
-  .social-footer {
-    padding-right: 12vw;
-    padding-left: 12vw;
-    text-align: center;
-    color: white;
-    padding-top: 3vh;
-    height: 20vh;
-    /*social-height-xs*/
-    padding-bottom: 2vh;
-    min-height: 50px; } }
+    margin-left: -15px; } }
 
 @media (min-width: 768px) {
   .overlay-container {
     position: relative;
     height: 100vh;
     width: 100%; } }
-
-@media (min-width: 768px) and (max-width: 991px) {
-  .social-footer {
-    padding-right: 12vw;
-    padding-left: 12vw;
-    text-align: center;
-    color: white;
-    padding-top: 3vh;
-    height: 20vh;
-    /*social-height-xs*/
-    padding-bottom: 1vh;
-    min-height: 50px; } }
 
 @media (max-width: 991px) {
   /*tiles on the left side*/
@@ -65,12 +43,21 @@
     padding-right: 0;
     padding-left: 0;
     padding-bottom: 1vh; }
+  .social-footer {
+    padding-right: 12vw;
+    padding-left: 12vw;
+    text-align: center;
+    color: white;
+    padding-top: 3vh;
+    padding-bottom: 2vh;
+    height: 20vh;
+    min-height: 75px; }
   .tile-8 {
     /* 20 + 4*1 + 4*19 = 100 */
     cursor: pointer;
     width: 100%;
     height: 19vh;
-    min-height: 100px; }
+    min-height: 70px; }
     .tile-8:hover {
       opacity: 0.5; }
     .tile-8:active {
@@ -83,7 +70,7 @@
     cursor: pointer;
     width: 100%;
     height: 19vh;
-    min-height: 100px; }
+    min-height: 70px; }
     .tile-7:hover {
       opacity: 0.5; }
     .tile-7:active {
@@ -95,7 +82,8 @@
     /* 20 + 3*1 + 3*25.65 = 100 */
     cursor: pointer;
     width: 100%;
-    height: 25.65vh; }
+    height: 25.65vh;
+    min-height: 70px; }
     .tile-6:hover {
       opacity: 0.5; }
     .tile-6:active {
@@ -107,7 +95,8 @@
     /* 20 + 2*1 + 2*39 = 100 */
     cursor: pointer;
     width: 100%;
-    height: 25.65vh; }
+    height: 25.65vh;
+    min-height: 70px; }
     .tile-5:hover {
       opacity: 0.5; }
     .tile-5:active {
@@ -119,7 +108,8 @@
     /* 20 + 2*1 + 2*39 = 100 */
     cursor: pointer;
     width: 100%;
-    height: 39vh; }
+    height: 39vh;
+    min-height: 70px; }
     .tile-4:hover {
       opacity: 0.5; }
     .tile-4:active {
@@ -131,7 +121,8 @@
     /* 20 + 2*1 + 2*39 = 100 */
     cursor: pointer;
     width: 100%;
-    height: 39vh; }
+    height: 39vh;
+    min-height: 70px; }
     .tile-2:hover {
       opacity: 0.5; }
     .tile-2:active {
@@ -143,7 +134,8 @@
     /* same as tile-4 */
     cursor: pointer;
     width: 100%;
-    height: 25.6vh; }
+    height: 25.6vh;
+    min-height: 70px; }
     .tile-3:hover {
       opacity: 0.5; }
     .tile-3:active {
@@ -161,11 +153,6 @@
     color: white;
     padding-top: 1vh;
     /*social-height-xs*/
-    padding-bottom: 2vh; }
-  .social-expand {
-    /*@include transform(translate(0%, -55%));*/
-    padding-top: 1vh;
-    height: 35vh;
     padding-bottom: 2vh; }
   .social-arrow-top {
     padding-bottom: 2vh; } }
@@ -204,7 +191,7 @@
     height: 30vh;
     /*social-height-lg*/
     padding-bottom: 5vh;
-    min-height: 50px; }
+    min-height: 75px; }
   .social-summary {
     height: 20vh; }
   .row-responsive-size {
@@ -466,6 +453,12 @@
 .small-chevron {
   height: 4vh;
   min-height: 14px; }
+
+.social-expand {
+  padding-top: 1vh;
+  padding-bottom: 2vh;
+  height: 35vh;
+  min-height: 100px; }
 
 .social-img {
   height: 7.5vh;
