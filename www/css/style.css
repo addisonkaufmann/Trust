@@ -59,17 +59,7 @@
     height: 20vh;
     /*social-height-xs*/
     padding-bottom: 1vh;
-    min-height: 50px; }
-  .social-img {
-    opacity: 0.75;
-    height: 8vh; }
-    .social-img:hover {
-      opacity: 1; }
-    .social-img:active {
-      -webkit-transform: scale(0.9, 0.9);
-      -moz-transform: scale(0.9, 0.9);
-      -ms-transform: scale(0.9, 0.9);
-      transform: scale(0.9, 0.9); } }
+    min-height: 50px; } }
 
 @media (max-width: 991px) {
   /*tiles on the left side*/
@@ -197,17 +187,7 @@
     height: 35vh;
     padding-bottom: 2vh; }
   .social-arrow-top {
-    padding-bottom: 2vh; }
-  .social-img {
-    opacity: 0.75;
-    height: 7.5vh; }
-    .social-img:hover {
-      opacity: 1; }
-    .social-img:active {
-      -webkit-transform: scale(0.9, 0.9);
-      -moz-transform: scale(0.9, 0.9);
-      -ms-transform: scale(0.9, 0.9);
-      transform: scale(0.9, 0.9); } }
+    padding-bottom: 2vh; } }
 
 @media (min-width: 992px) {
   .left, .right, .full {
@@ -246,16 +226,6 @@
     min-height: 50px; }
   .social-summary {
     height: 20vh; }
-  .social-img {
-    height: 7vh;
-    opacity: 0.75; }
-    .social-img:hover {
-      opacity: 1; }
-    .social-img:active {
-      -webkit-transform: scale(0.9, 0.9);
-      -moz-transform: scale(0.9, 0.9);
-      -ms-transform: scale(0.9, 0.9);
-      transform: scale(0.9, 0.9); }
   .row-responsive-size {
     margin-left: 0;
     margin-right: 0;
@@ -401,12 +371,6 @@
 .overlay-container {
   min-height: 350px; }
 
-/*.overlay-content {
-	@extend %overlay-item;
-	bottom: 0;
-  	top: 58%;
-  	color: white;
-}*/
 .overlay-footer {
   top: 75%; }
 
@@ -496,7 +460,28 @@
         font-size: large; } }
 
 .small-chevron {
-  height: 4vh; }
+  height: 4vh;
+  min-height: 14px;
+  opacity: 0.75; }
+  .small-chevron:hover {
+    opacity: 1; }
+  .small-chevron:active {
+    -webkit-transform: scale(0.9, 0.9);
+    -moz-transform: scale(0.9, 0.9);
+    -ms-transform: scale(0.9, 0.9);
+    transform: scale(0.9, 0.9); }
+
+.social-img {
+  height: 7.5vh;
+  min-height: 26px;
+  opacity: 0.75; }
+  .social-img:hover {
+    opacity: 1; }
+  .social-img:active {
+    -webkit-transform: scale(0.9, 0.9);
+    -moz-transform: scale(0.9, 0.9);
+    -ms-transform: scale(0.9, 0.9);
+    transform: scale(0.9, 0.9); }
 
 .social-sm {
   height: 6.5vh;

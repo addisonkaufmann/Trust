@@ -150,13 +150,6 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
 		min-height: 50px;
 	}
-
-	.social-img {
-		opacity: 0.75;
-		@include hover-opacity(1);
-		@include active-scale(0.9);
-		height: 8vh;
-	}
 }
 
 @media (max-width: $max-width-sm ) {
@@ -248,14 +241,6 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	.social-arrow-top {
 		padding-bottom: 2vh;
 	}
-
-	.social-img {
-		opacity: 0.75;
-		@include hover-opacity(1);
-		@include active-scale(0.9);
-		height: 7.5vh;
-	}
-
 }
 
 @media (min-width: $min-width-md) {
@@ -299,13 +284,6 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
 	.social-summary {
 		height: 20vh;
-	}
-
-	.social-img {
-		height: 7vh;
-		opacity: 0.75;
-		@include hover-opacity(1);
-		@include active-scale(0.9);
 	}
 
 	.row-responsive-size {
@@ -485,13 +463,6 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	min-height: 350px;
 }
 
-/*.overlay-content {
-	@extend %overlay-item;
-	bottom: 0;
-  	top: 58%;
-  	color: white;
-}*/
-
 .overlay-footer {
 	@extend %overlay-item;
   	top: 75%;
@@ -612,6 +583,18 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
 .small-chevron {
 	height: 4vh;
+	min-height: 14px;
+	opacity: 0.75;
+	@include hover-opacity(1);
+	@include active-scale(0.9);
+}
+
+.social-img {
+	height: 7.5vh;
+	min-height: 26px;
+	opacity: 0.75;
+	@include hover-opacity(1);
+	@include active-scale(0.9);
 }
 
 .social-sm {
