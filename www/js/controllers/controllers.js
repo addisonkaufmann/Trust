@@ -4,17 +4,49 @@ $(window).load(function() {
 });
 
 
-app.controller('headerCtrl', function($scope, $state, $stateParams, $timeout){
-    $scope.animateOut = '';
 
-    $scope.goHome = function(){
-        if ($stateParams.animateOut){
-            $scope.animateOut = $stateParams.animateOut;
-        }
-        $timeout(function() {
-            $state.go('home');
-        }, 300);
+app.controller('carouselCtrl', function($scope, Images){
+    $scope.getCarousel = function(id){
+        $scope.carousel = Images.get(id);
+        return $scope.carousel;
     };
+
+    $scope.deactivateCurrent = function(carousel, len){
+        for (var i = 0; i < len; i++){
+            if (carousel[i].active === true){
+                carousel[i].active = false;
+                return i;
+            }
+        }
+    };
+
+    $scope.activateNext = function(){
+        var carousel = $scope.carousel;
+        var len = carousel.length;
+        var i = $scope.deactivateCurrent(carousel, len);
+        carousel[ (i + 1) % len ].active = true;
+    };
+
+    $scope.activatePrev = function(){
+        var carousel = $scope.carousel;
+        var len = carousel.length;
+        var i = $scope.deactivateCurrent(carousel, len);
+        carousel[ (i - 1 + len) % len ].active = true;
+    };
+
+});
+
+
+
+app.controller('co2impactCtrl', function($scope, $stateParams, Tiles, Icons){
+    if ($stateParams.animateIn){
+        $scope.animateIn = $stateParams.animateIn;
+    } else {
+        $scope.animateIn = 'fadeIn'; 
+    }
+    $scope.iconhome = Icons.home();
+    $scope.current = Tiles.get('co2impact');
+    $scope.menuicon = Icons.menu();
 });
 
 
@@ -82,21 +114,6 @@ app.controller('dashCtrl', function($scope, $http, $timeout, $rootScope, $stateP
 
 
 
-app.controller('summaryCtrl', function($scope, $timeout, $state, data){
-    $scope.data = data.data;
-
-    $scope.animateExit = false;
-
-    $scope.exit = function(){
-        $timeout(function() {
-            $state.go('home');
-        }, 1000);
-    };
-
-});
-
-
-
 app.controller('detailCtrl', function($rootScope, $scope, $stateParams, data, Tiles, Icons, Images){
 
     Images.generateFromTimelineChilds(data.data);
@@ -116,49 +133,25 @@ app.controller('detailCtrl', function($rootScope, $scope, $stateParams, data, Ti
 
 
 
-app.controller('carouselCtrl', function($scope, Images){
-    $scope.getCarousel = function(id){
-        $scope.carousel = Images.get(id);
-        return $scope.carousel;
-    };
+app.controller('headerCtrl', function($scope, $state, $stateParams, $timeout){
+    $scope.animateOut = '';
 
-    $scope.deactivateCurrent = function(carousel, len){
-        for (var i = 0; i < len; i++){
-            if (carousel[i].active === true){
-                carousel[i].active = false;
-                return i;
-            }
+    $scope.goHome = function(){
+        if ($stateParams.animateOut){
+            $scope.animateOut = $stateParams.animateOut;
         }
+        $timeout(function() {
+            $state.go('home');
+        }, 300);
     };
-
-    $scope.activateNext = function(){
-        var carousel = $scope.carousel;
-        var len = carousel.length;
-        var i = $scope.deactivateCurrent(carousel, len);
-        carousel[ (i + 1) % len ].active = true;
-    };
-
-    $scope.activatePrev = function(){
-        var carousel = $scope.carousel;
-        var len = carousel.length;
-        var i = $scope.deactivateCurrent(carousel, len);
-        carousel[ (i - 1 + len) % len ].active = true;
-    };
-
 });
 
 
 
-app.controller('recipeCtrl', function($scope, $stateParams, $rootScope, $state, $http,  data, Icons, Tiles, Images){
-    Images.generateFromRecipeList(data.data);
+app.controller('infoCtrl', function($scope, $stateParams, Tiles, Icons, Images, data) {
 
-    $rootScope.$on('$stateChangeSuccess', function(event, toState){
-        $state.current=toState;   
-    });
-
-    if ($state.current.name === 'recipe.detail' && $stateParams.id === 0){
-        $state.go('recipe.list');
-    }
+    Images.generateFromProductDescr(data.data);
+    console.log(Images.all());
 
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
@@ -166,88 +159,31 @@ app.controller('recipeCtrl', function($scope, $stateParams, $rootScope, $state, 
         $scope.animateIn = 'fadeIn'; 
     }
 
-    if ($state.current.name === 'recipe.detail'){
-        $http({ method : "GET",
-            url : 'http://localhost:8080/trust/api/timeline/getTimelineByFarmIdAndMenuRecipeId/15/' + $stateParams.id})
-        .then(function mySuccess(response) {
-            $scope.detail = response.data;
-        }, function myError(response) {
-            $scope.detail = response.statusText;
-        });
-    }   
-
-    if ($stateParams.id){
-        $scope.id = $stateParams.id;
-    }
-
+    $scope.current = Tiles.get('info');
 
     $scope.iconhome = Icons.home();
     $scope.menuicon = Icons.menu();
-    $scope.current = Tiles.get('recipe');
+
     $scope.data = data.data;
+
+
+    $scope.title = $scope.data.productDescr[0];
+    $scope.img = $scope.data.productDescr[1];
+    $scope.info = $scope.data.productDescr[2];
+
 });
 
 
 
-app.controller('socialCtrl', function($scope, $state, $location, $window, $rootScope, 
-    $anchorScroll, Icons, Social){
-
-    $rootScope.$on('$stateChangeSuccess', 
-        function(event, toState){
-            $state.current = toState;  
-        });
-
-    $scope.state = $state.current.name;
-
-    $scope.iconhome = Icons.home();
-    $scope.social = Social.all();
-
-    $scope.expand = false;
-    
-
-    $scope.showExpand = function(){
-        $scope.expand = true;
-    };
-
-    $scope.hideExpand = function(){
-        $scope.expand = false;
-    };
-
-    $scope.scrollToBottom = function(){
-        $("html,body").animate({ scrollTop: $window.innerHeight}, "slow");
-
-    };
-
-    $scope.scrollToTop = function(){
-        $("html,body").animate({ scrollTop: 0}, "slow");
-    };
-
-    
-});
-
-
-app.controller('profileCtrl', function($scope, $stateParams,Tiles, Icons, Contacts, data) {
-    
+app.controller('ingredientCtrl', function($scope, $stateParams, Tiles, Icons){
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
     } else {
         $scope.animateIn = 'fadeIn'; 
     }
-
-    $scope.data = data.data;
-    $scope.current = Tiles.get('profile');
     $scope.iconhome = Icons.home();
+    $scope.current = Tiles.get('ingredient');
     $scope.menuicon = Icons.menu();
-
-
-    var imgUrl = 'http://localhost:8080/trust/api/file/getImageWithFarm/13/normal/';
-    $scope.logo =  imgUrl + $scope.data.logo;
-
-    $scope.profilepic = imgUrl + $scope.data.presentationImage;
-
-    $scope.backgroundpic = '';
-
-    $scope.contacts = Contacts.all($scope.data);
 });
 
 
@@ -427,55 +363,124 @@ app.controller('nutritionCtrl', function($scope, $stateParams, $timeout, Tiles, 
 
 
 
-app.controller('infoCtrl', function($scope, $stateParams, Tiles, Icons, Images, data) {
-
-    Images.generateFromProductDescr(data.data);
-    console.log(Images.all());
-
+app.controller('profileCtrl', function($scope, $stateParams, Contacts, Tiles, Icons, data) {
+    
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
     } else {
         $scope.animateIn = 'fadeIn'; 
     }
-
-    $scope.current = Tiles.get('info');
-
-    $scope.iconhome = Icons.home();
-    $scope.menuicon = Icons.menu();
 
     $scope.data = data.data;
+    $scope.current = Tiles.get('profile');
+    $scope.iconhome = Icons.home();
+    $scope.menuicon = Icons.menu();
 
 
-    $scope.title = $scope.data.productDescr[0];
-    $scope.img = $scope.data.productDescr[1];
-    $scope.info = $scope.data.productDescr[2];
+    var imgUrl = 'http://localhost:8080/trust/api/file/getImageWithFarm/13/normal/';
+    $scope.logo =  imgUrl + $scope.data.logo;
 
+    $scope.profilepic = imgUrl + $scope.data.presentationImage;
+
+    $scope.backgroundpic = '';
+
+    $scope.contacts = Contacts.all($scope.data);
 });
 
 
 
-app.controller('co2impactCtrl', function($scope, $stateParams, Tiles, Icons){
+app.controller('recipeCtrl', function($scope, $stateParams, $rootScope, $state, $http,  data, Icons, Tiles, Images){
+    Images.generateFromRecipeList(data.data);
+
+    $rootScope.$on('$stateChangeSuccess', function(event, toState){
+        $state.current=toState;   
+    });
+
+    if ($state.current.name === 'recipe.detail' && $stateParams.id === 0){
+        $state.go('recipe.list');
+    }
+
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
     } else {
         $scope.animateIn = 'fadeIn'; 
     }
+
+    if ($state.current.name === 'recipe.detail'){
+        $http({ method : "GET",
+            url : 'http://localhost:8080/trust/api/timeline/getTimelineByFarmIdAndMenuRecipeId/15/' + $stateParams.id})
+        .then(function mySuccess(response) {
+            $scope.detail = response.data;
+        }, function myError(response) {
+            $scope.detail = response.statusText;
+        });
+    }   
+
+    if ($stateParams.id){
+        $scope.id = $stateParams.id;
+    }
+
+
     $scope.iconhome = Icons.home();
-    $scope.current = Tiles.get('co2impact');
     $scope.menuicon = Icons.menu();
+    $scope.current = Tiles.get('recipe');
+    $scope.data = data.data;
 });
 
 
 
-app.controller('ingredientCtrl', function($scope, $stateParams, Tiles, Icons){
-    if ($stateParams.animateIn){
-        $scope.animateIn = $stateParams.animateIn;
-    } else {
-        $scope.animateIn = 'fadeIn'; 
-    }
+app.controller('socialCtrl', function($scope, $state, $location, $window, $rootScope, 
+    $anchorScroll, Icons, Social){
+
+    $rootScope.$on('$stateChangeSuccess', 
+        function(event, toState){
+            $state.current = toState;  
+        });
+
+    $scope.state = $state.current.name;
+
     $scope.iconhome = Icons.home();
-    $scope.current = Tiles.get('ingredient');
-    $scope.menuicon = Icons.menu();
+    $scope.social = Social.all();
+
+    $scope.expand = false;
+    
+
+    $scope.showExpand = function(){
+        $scope.expand = true;
+    };
+
+    $scope.hideExpand = function(){
+        $scope.expand = false;
+    };
+
+    $scope.scrollToBottom = function(){
+        $("html,body").animate({ scrollTop: $window.innerHeight}, "slow");
+
+    };
+
+    $scope.scrollToTop = function(){
+        $("html,body").animate({ scrollTop: 0}, "slow");
+    };
+
+    
+});
+
+
+
+app.controller('summaryCtrl', function($scope, $timeout, $state, data){
+    $scope.data = data.data;
+
+    var imgUrl = 'http://localhost:8080/trust/api/file/getImageWithFarm/13/normal/';
+    $scope.logo =  imgUrl + $scope.data.logo;
+
+    $scope.animateExit = false;
+
+    $scope.exit = function(){
+        $timeout(function() {
+            $state.go('home');
+        }, 1000);
+    };
+
 });
 
 
