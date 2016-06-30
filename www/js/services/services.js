@@ -35,7 +35,7 @@ app.factory ('Images', function(Image){
 
             for (; i < len; i++){
                 images[obj.timelineChilds[i].id] = [];
-                images[obj.timelineChilds[i].id].push(new Image('http://localhost:8080/trust/api/file/getImageWithFarm/13/normal/' + obj.timelineChilds[i].image, false));
+                images[obj.timelineChilds[i].id].push(new Image('http://localhost:8080/trust/api/file/getImageWithFarm/' + obj.timelineChilds[i].farmId + '/normal/' + obj.timelineChilds[i].image, false));
             }
             console.log(images);
 
@@ -47,7 +47,7 @@ app.factory ('Images', function(Image){
             var len = obj.productDescr.length;
             for(; i < len; i++){
                 if (obj.productDescr[i].key === "IMAGE"){
-                    images[obj.id].push(new Image('http://localhost:8080/trust/api/file/getImageWithFarm/13/normal/' + obj.productDescr[i].value, false));
+                    images[obj.id].push(new Image('http://localhost:8080/trust/api/file/getImageWithFarm/' + obj.farmId + '/normal/' + obj.productDescr[i].value, false));
                 }
             }
         },
@@ -61,7 +61,7 @@ app.factory ('Images', function(Image){
 
             for (; i < len; i++){
                 images[obj.list[i].id] = [];
-                images[obj.list[i].id].push(new Image('http://localhost:8080/trust/api/file/getImageWithFarm/15/thumbnail/' + obj.list[i].image, false));
+                images[obj.list[i].id].push(new Image('http://localhost:8080/trust/api/file/getImageWithFarm/' + obj.list[i].farmId + '/thumbnail/' + obj.list[i].image, false));
             }
             console.log(images);
         }
@@ -82,10 +82,11 @@ app.service('Contacts', function(Icons, Contact){
     var iconhome = Icons.home();
 
     var contactPush = function(data, type){
+        var content;
         if (type === 'address'){
-            var content = angular.fromJson(data.address).address;
+            content = angular.fromJson(data.address).address;
         }else{
-            var content = data[type];
+            content = data[type];
         }
         if (content){
             contacts.push(
@@ -99,7 +100,7 @@ app.service('Contacts', function(Icons, Contact){
         contactPush(data, 'address');
         contactPush(data, 'email');
         contactPush(data, 'phone');
-        contactPush(data, 'facebookPage') 
+        contactPush(data, 'facebookPage');
 
     };
 
@@ -110,7 +111,7 @@ app.service('Contacts', function(Icons, Contact){
             }
             return contacts;
         }
-    }
+    };
 });
 
 app.service('Contact', function(){
