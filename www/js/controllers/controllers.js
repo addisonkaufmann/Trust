@@ -377,7 +377,7 @@ app.controller('profileCtrl', function($scope, $stateParams, Contacts, Tiles, Ic
     $scope.menuicon = Icons.menu();
 
 
-    var imgUrl = 'http://localhost:8080/trust/api/file/getImageWithFarm/13/normal/';
+    var imgUrl = 'http://localhost:8080/trust/api/file/getImageWithFarm/' + $scope.data.id + '/normal/';
     $scope.logo =  imgUrl + $scope.data.logo;
 
     $scope.profilepic = imgUrl + $scope.data.presentationImage;
@@ -386,6 +386,11 @@ app.controller('profileCtrl', function($scope, $stateParams, Contacts, Tiles, Ic
 
     $scope.contacts = Contacts.all($scope.data);
 });
+
+
+
+
+    
 
 
 
