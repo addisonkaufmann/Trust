@@ -334,38 +334,45 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	}
 }
 
-.header-container{
-	height: 5%;
+.header-container {
 	padding-left: 3%;
 	padding-right: 3%;
 
-	min-height: 60px;
+	height: 60px;
+	@media (max-width: $max-width-xs) {
+		height: 45px;
+	}
 }
 
 .header-title {
-	height: 100%;
 	vertical-align: middle;
 	text-align: center;
 	font-size: 25px;
 	color: white;
+	margin-top: 10px;
+
+	.header-left {
+		float: left;
+	}
 
 	.header-right {
 		float: right;
-		height: 5vh;
-		opacity: 0.7;
-		@include hover-opacity(1);
 		@include active-scale(0.9);
-
-		min-height: 40px;
 	}
 
-	.header-left {
+	.header-left, .header-right {
+		height: 40px;
 		opacity: 0.7;
-		float: left;
-		height: 5vh;
 		@include hover-opacity(1);
+	}
 
-		min-height: 40px;
+	@media (max-width: $max-width-xs) {
+		font-size: 19px;
+		margin-top: 7.5px;
+
+		.header-left, .header-right {
+			height: 30px;
+		}
 	}
 }
 
