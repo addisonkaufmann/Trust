@@ -20,9 +20,9 @@ app.factory ('Images', function(Image){
             return images;
         },
         get: function(id){
-            console.log('getting ' + id);
+            // console.log('getting ' + id);
             images[id][0].active = true;
-            console.log(images[id]);
+            // console.log(images[id]);
             return images[id];
         },
         generateFromTimelineChilds: function(obj){

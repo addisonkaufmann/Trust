@@ -385,6 +385,16 @@ app.controller('profileCtrl', function($scope, $stateParams, Contacts, Tiles, Ic
 app.controller('recipeCtrl', function($scope, $stateParams, $rootScope, $state, $http,  data, Icons, Tiles, Images){
     Images.generateFromRecipeList(data.data);
 
+    $scope.getImage = function(id){
+        // console.log(Images.get(id));
+        // return Images.get(id).image;
+        var img = Images.get(id);
+        return img[0].image;
+    };
+
+
+
+
     $rootScope.$on('$stateChangeSuccess', function(event, toState){
         $state.current=toState;   
     });
