@@ -1,7 +1,7 @@
 <div class="row card" ng-repeat="i in [1,2,3]" >
 	<div class="col-xs-12 col-sm-6" ng-repeat="d in data.list" ng-init = "id = d.id">
 
-		<div class=" overlay-container" style="height: 30vh; margin-top: 15px; margin-bottom:15px;">
+		<div class=" overlay-container" ui-sref="recipe.detail({'id': d.id})" style="height: 30vh; margin-top: 15px; margin-bottom:15px;">
 		    <div class="fill vignette-small">
 		        <img ng-src="{{getImage(id)}}">
 		    </div>

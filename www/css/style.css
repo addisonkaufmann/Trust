@@ -273,6 +273,11 @@
     .header-container {
       height: 45px; } }
 
+.recipe-list-item {
+  height: 30vh;
+  margin-top: 15px;
+  margin-bottom: 15px; }
+
 .header-title {
   vertical-align: middle;
   text-align: center;
