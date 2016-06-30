@@ -9,7 +9,6 @@ $(window).load(function() {
 });
 
 
-
 app.controller('headerCtrl', function($scope, $state, $stateParams, $timeout){
     $scope.animateOut = '';
 
@@ -248,9 +247,7 @@ app.controller('profileCtrl', function($scope, $stateParams, Contacts, Tiles, Ic
 
     $scope.backgroundpic = '';
 
-
-    Contacts.generate($scope.data);
-    $scope.contacts = Contacts.all();
+    $scope.contacts = Contacts.all($scope.data);
 });
 
 

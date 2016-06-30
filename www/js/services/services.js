@@ -94,15 +94,20 @@ app.service('Contacts', function(Icons, Contact){
         }
     };
 
+    var generate = function(data){
+        contactPush(data, 'website');
+        contactPush(data, 'address');
+        contactPush(data, 'email');
+        contactPush(data, 'phone');
+        contactPush(data, 'facebookPage') 
+
+    };
+
     return {
-        generate: function(data){
-            contactPush(data, 'website');
-            contactPush(data, 'address');
-            contactPush(data, 'email');
-            contactPush(data, 'phone');
-            contactPush(data, 'facebookPage')           
-        }, 
-        all: function(){
+        all: function(data){
+            if (contacts.length === 0){
+                generate(data);
+            }
             return contacts;
         }
     }

@@ -142,8 +142,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
             params: {
                 animateIn: '',
                 animateOut: ''
-            },
-            resolve: {
             }
         });
         
