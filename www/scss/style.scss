@@ -335,7 +335,6 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 .header-container {
 	padding-left: 3%;
 	padding-right: 3%;
-
 	height: 60px;
 	@media (max-width: $max-width-xs) {
 		height: 45px;
@@ -343,12 +342,21 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 }
 
 .recipe-list-item {
-
 	height: 30vh; 
 	margin-top: 15px; 
 	margin-bottom:15px;
-
 }
+
+
+
+@media(max-width: $max-width-xs){
+	.recipe-col {
+		@include padding-none;
+		overflow-x: hidden;
+	}	
+}
+
+
 
 .header-title {
 	vertical-align: middle;
