@@ -300,12 +300,16 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 // }
 
 .contact-pic-container {
+	padding-bottom: 2%;
 	img {
 		width: 50px;
 		height: 50px;
 		min-height: 26px;
 		min-width: 26px;
 		display:inline-block;
+		opacity: 0.75;
+		@include hover-opacity(1);
+		@include active-scale(0.9);
 	}
 	p {
 		padding-left: 2%;

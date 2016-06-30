@@ -260,19 +260,25 @@ app.controller('profileCtrl', function($scope, $stateParams,Tiles, Icons, Contac
 
     if ($scope.data.website){
         $scope.contactinfo.push(
-            new Contact('address', $scope.iconhome + '../contact_website.png', $scope.data.website)
+            new Contact('address', $scope.iconhome + 'contact_website.png', $scope.data.website)
         );
     }
 
     if ($scope.data.phone){
         $scope.contactinfo.push(
-            new Contact('phone', $scope.iconhome + '../contact_phone.png', $scope.data.phone)
+            new Contact('phone', $scope.iconhome + 'contact_phone.png', $scope.data.phone)
         );
     }
 
     if ($scope.data.email){
         $scope.contactinfo.push(
-            new Contact('email', $scope.iconhome + '../contact_mail.png', $scope.data.email)
+            new Contact('email', $scope.iconhome + 'contact_mail.png', $scope.data.email)
+        );
+    }
+
+    if ($scope.data.facebookPage){
+        $scope.contactinfo.push(
+            new Contact('facebook', $scope.iconhome + 'contact_facebook.png', $scope.data.facebookPage)
         );
     }
 });

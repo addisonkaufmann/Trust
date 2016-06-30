@@ -44,7 +44,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             },
             resolve: {
                 data: function($http){
-                    return $http({method: 'GET', url: 'http://localhost:8080/trust/api/farm/public/13'});
+                    return $http({method: 'GET', url: 'http://localhost:8080/trust/api/farm/public/14'});
                 }
             }
         })
