@@ -1,6 +1,7 @@
 $(window).load(function() {
-    $("#pre").css({'display': 'none'});
-    $("#splash").css({'display': 'block'});
+    setTimeout(function() {
+        $('body').addClass('loaded');
+    }, 3000);
 });
 
 
@@ -386,11 +387,6 @@ app.controller('profileCtrl', function($scope, $stateParams, Contacts, Tiles, Ic
 
     $scope.contacts = Contacts.all($scope.data);
 });
-
-
-
-
-    
 
 
 
