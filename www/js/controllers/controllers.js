@@ -470,6 +470,9 @@ app.controller('socialCtrl', function($scope, $state, $location, $window, $rootS
 app.controller('summaryCtrl', function($scope, $timeout, $state, data){
     $scope.data = data.data;
 
+    var imgUrl = 'http://localhost:8080/trust/api/file/getImageWithFarm/13/normal/';
+    $scope.logo =  imgUrl + $scope.data.logo;
+
     $scope.animateExit = false;
 
     $scope.exit = function(){
