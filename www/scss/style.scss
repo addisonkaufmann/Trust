@@ -274,6 +274,11 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	padding: 3%;
 }
 
+.carousel-height {
+	height: 50vh;
+	min-height: 25vw;
+}
+
 .chart-container {
 	width: 50%;
 	/*height: 90%; cannot set height*/
