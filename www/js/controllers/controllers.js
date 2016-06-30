@@ -226,12 +226,8 @@ app.controller('socialCtrl', function($scope, $state, $location, $window, $rootS
 });
 
 
-<<<<<<< HEAD
-app.controller('profileCtrl', function($scope, $stateParams, Contacts, Tiles, Icons, data) {
-=======
 
-app.controller('profileCtrl', function($scope, $stateParams,Tiles, Icons, Contact, data) {
->>>>>>> feature/small-changes
+app.controller('profileCtrl', function($scope, $stateParams, Contacts, Tiles, Icons, data) {
     
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
