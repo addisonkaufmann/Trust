@@ -76,7 +76,47 @@ app.service('Image', function(){
     return Image;
 });
 
+app.service('Contacts', function(Icons, Contact){
+    var contacts = [];
 
+    return {
+        generate: function(data){
+            var iconhome = Icons.home();
+            if (angular.fromJson(data.address).address){
+                contacts.push(
+                    new Contact('address', iconhome + 'contact_address.png', angular.fromJson(data.address).address)
+                );
+            }
+
+            if (data.website){
+                contacts.push(
+                    new Contact('address', iconhome + 'contact_website.png', data.website)
+                );
+            }
+
+            if (data.phone){
+                contacts.push(
+                    new Contact('phone', iconhome + 'contact_phone.png', data.phone)
+                );
+            }
+
+            if (data.email){
+                contacts.push(
+                    new Contact('email', iconhome + 'contact_mail.png', data.email)
+                );
+            }
+
+            if (data.facebookPage){
+                contacts.push(
+                    new Contact('facebook', iconhome + 'contact_facebook.png', data.facebookPage)
+                );
+            }
+        }, 
+        all: function(){
+            return contacts;
+        }
+    }
+});
 
 app.service('Contact', function(){
     var Contact = function(type, img, val){

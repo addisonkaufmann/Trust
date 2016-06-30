@@ -227,7 +227,7 @@ app.controller('socialCtrl', function($scope, $state, $location, $window, $rootS
 });
 
 
-app.controller('profileCtrl', function($scope, $stateParams,Tiles, Icons, Contact, data) {
+app.controller('profileCtrl', function($scope, $stateParams, Contacts, Tiles, Icons, data) {
     
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
@@ -248,39 +248,9 @@ app.controller('profileCtrl', function($scope, $stateParams,Tiles, Icons, Contac
 
     $scope.backgroundpic = '';
 
-    $scope.contactinfo = [];
 
-    var mything = new Contact('mytype', 'myimg', 'myval');
-
-    if (angular.fromJson($scope.data.address).address){
-        $scope.contactinfo.push(
-            new Contact('address', $scope.iconhome + 'contact_address.png', angular.fromJson($scope.data.address).address)
-        );
-    }
-
-    if ($scope.data.website){
-        $scope.contactinfo.push(
-            new Contact('address', $scope.iconhome + 'contact_website.png', $scope.data.website)
-        );
-    }
-
-    if ($scope.data.phone){
-        $scope.contactinfo.push(
-            new Contact('phone', $scope.iconhome + 'contact_phone.png', $scope.data.phone)
-        );
-    }
-
-    if ($scope.data.email){
-        $scope.contactinfo.push(
-            new Contact('email', $scope.iconhome + 'contact_mail.png', $scope.data.email)
-        );
-    }
-
-    if ($scope.data.facebookPage){
-        $scope.contactinfo.push(
-            new Contact('facebook', $scope.iconhome + 'contact_facebook.png', $scope.data.facebookPage)
-        );
-    }
+    Contacts.generate($scope.data);
+    $scope.contacts = Contacts.all();
 });
 
 

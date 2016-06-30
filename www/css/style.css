@@ -225,23 +225,23 @@
   .chart-container .chart-data {
     margin-bottom: 5%; }
 
-.contact-pic-container {
+.contact-container {
   padding-bottom: 2%; }
-  .contact-pic-container img {
+  .contact-container img {
     width: 50px;
     height: 50px;
     min-height: 26px;
     min-width: 26px;
     display: inline-block;
     opacity: 0.75; }
-    .contact-pic-container img:hover {
+    .contact-container img:hover {
       opacity: 1; }
-    .contact-pic-container img:active {
+    .contact-container img:active {
       -webkit-transform: scale(0.9, 0.9);
       -moz-transform: scale(0.9, 0.9);
       -ms-transform: scale(0.9, 0.9);
       transform: scale(0.9, 0.9); }
-  .contact-pic-container p {
+  .contact-container p {
     padding-left: 2%;
     max-width: 70vw;
     display: inline-block; }
