@@ -1,9 +1,4 @@
 $(window).load(function() {
-    // setTimeout(function() {
-    //     $("#pre").css({'display': 'none'});
-    //     $("#splash").css({'display': 'block'});
-    // }, 1000);
-
     $("#pre").css({'display': 'none'});
     $("#splash").css({'display': 'block'});
 });
@@ -22,6 +17,7 @@ app.controller('headerCtrl', function($scope, $state, $stateParams, $timeout){
         }, 300);
     };
 });
+
 
 
 app.controller('dashCtrl', function($scope, $http, $timeout, $rootScope, $stateParams, $state, Icons, Tiles, TileClasses){
@@ -85,6 +81,8 @@ app.controller('dashCtrl', function($scope, $http, $timeout, $rootScope, $stateP
     };
 });
 
+
+
 app.controller('summaryCtrl', function($scope, $timeout, $state, data){
     $scope.data = data.data;
 
@@ -97,6 +95,8 @@ app.controller('summaryCtrl', function($scope, $timeout, $state, data){
     };
 
 });
+
+
 
 app.controller('detailCtrl', function($rootScope, $scope, $stateParams, data, Tiles, Icons, Images){
 
@@ -114,8 +114,6 @@ app.controller('detailCtrl', function($rootScope, $scope, $stateParams, data, Ti
     $scope.data = data.data;
 
 });
-
-
 
 
 
@@ -149,6 +147,7 @@ app.controller('carouselCtrl', function($scope, Images){
     };
 
 });
+
 
 
 app.controller('recipeCtrl', function($scope, $stateParams, $rootScope, $state, $http,  data, Icons, Tiles, Images){
@@ -190,6 +189,7 @@ app.controller('recipeCtrl', function($scope, $stateParams, $rootScope, $state, 
 });
 
 
+
 app.controller('socialCtrl', function($scope, $state, $location, $window, $rootScope, 
     $anchorScroll, Icons, Social){
 
@@ -225,6 +225,7 @@ app.controller('socialCtrl', function($scope, $state, $location, $window, $rootS
 
     
 });
+
 
 
 app.controller('profileCtrl', function($scope, $stateParams,Tiles, Icons, Contact, data) {
@@ -450,7 +451,7 @@ app.controller('nutritionCtrl', function($scope, $stateParams, $timeout, Tiles, 
     });
 
 
-}); // end of nutrition controller
+});
 
 
 
@@ -479,6 +480,8 @@ app.controller('infoCtrl', function($scope, $stateParams, Tiles, Icons, Images, 
 
 });
 
+
+
 app.controller('co2impactCtrl', function($scope, $stateParams, Tiles, Icons){
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
@@ -490,6 +493,8 @@ app.controller('co2impactCtrl', function($scope, $stateParams, Tiles, Icons){
     $scope.menuicon = Icons.menu();
 });
 
+
+
 app.controller('ingredientCtrl', function($scope, $stateParams, Tiles, Icons){
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
@@ -500,6 +505,8 @@ app.controller('ingredientCtrl', function($scope, $stateParams, Tiles, Icons){
     $scope.current = Tiles.get('ingredient');
     $scope.menuicon = Icons.menu();
 });
+
+
 
 app.controller('waterCtrl', function($scope, $stateParams, Tiles, Icons){
     console.log($stateParams.animateIn);
