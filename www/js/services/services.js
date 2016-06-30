@@ -79,38 +79,28 @@ app.service('Image', function(){
 app.service('Contacts', function(Icons, Contact){
     var contacts = [];
 
+    var iconhome = Icons.home();
+
+    var contactPush = function(data, type){
+        if (type === 'address'){
+            var content = angular.fromJson(data.address).address;
+        }else{
+            var content = data[type];
+        }
+        if (content){
+            contacts.push(
+                new Contact(type, iconhome + 'contact_' + type + '.png', content)
+            );
+        }
+    };
+
     return {
         generate: function(data){
-            var iconhome = Icons.home();
-            if (angular.fromJson(data.address).address){
-                contacts.push(
-                    new Contact('address', iconhome + 'contact_address.png', angular.fromJson(data.address).address)
-                );
-            }
-
-            if (data.website){
-                contacts.push(
-                    new Contact('address', iconhome + 'contact_website.png', data.website)
-                );
-            }
-
-            if (data.phone){
-                contacts.push(
-                    new Contact('phone', iconhome + 'contact_phone.png', data.phone)
-                );
-            }
-
-            if (data.email){
-                contacts.push(
-                    new Contact('email', iconhome + 'contact_mail.png', data.email)
-                );
-            }
-
-            if (data.facebookPage){
-                contacts.push(
-                    new Contact('facebook', iconhome + 'contact_facebook.png', data.facebookPage)
-                );
-            }
+            contactPush(data, 'website');
+            contactPush(data, 'address');
+            contactPush(data, 'email');
+            contactPush(data, 'phone');
+            contactPush(data, 'facebookPage')           
         }, 
         all: function(){
             return contacts;
