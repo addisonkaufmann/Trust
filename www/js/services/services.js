@@ -11,9 +11,6 @@ app.factory ('Icons', function(){
     };
 });
 
-app.factory('Carousel', function(){
-
-});
 
 app.factory ('Images', function(Image){
     var images = {};
@@ -77,6 +74,43 @@ app.service('Image', function(){
         this.active = active;
     };
     return Image;
+});
+
+app.service('Contacts', function(Icons, Contact){
+    var contacts = [];
+
+    var iconhome = Icons.home();
+
+    var contactPush = function(data, type){
+        if (type === 'address'){
+            var content = angular.fromJson(data.address).address;
+        }else{
+            var content = data[type];
+        }
+        if (content){
+            contacts.push(
+                new Contact(type, iconhome + 'contact_' + type + '.png', content)
+            );
+        }
+    };
+
+    var generate = function(data){
+        contactPush(data, 'website');
+        contactPush(data, 'address');
+        contactPush(data, 'email');
+        contactPush(data, 'phone');
+        contactPush(data, 'facebookPage') 
+
+    };
+
+    return {
+        all: function(data){
+            if (contacts.length === 0){
+                generate(data);
+            }
+            return contacts;
+        }
+    }
 });
 
 app.service('Contact', function(){

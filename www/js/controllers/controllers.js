@@ -9,7 +9,6 @@ $(window).load(function() {
 });
 
 
-
 app.controller('headerCtrl', function($scope, $state, $stateParams, $timeout){
     $scope.animateOut = '';
 
@@ -227,7 +226,7 @@ app.controller('socialCtrl', function($scope, $state, $location, $window, $rootS
 });
 
 
-app.controller('profileCtrl', function($scope, $stateParams,Tiles, Icons, Contact, data) {
+app.controller('profileCtrl', function($scope, $stateParams, Contacts, Tiles, Icons, data) {
     
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
@@ -248,33 +247,7 @@ app.controller('profileCtrl', function($scope, $stateParams,Tiles, Icons, Contac
 
     $scope.backgroundpic = '';
 
-    $scope.contactinfo = [];
-
-    var mything = new Contact('mytype', 'myimg', 'myval');
-
-    if (angular.fromJson($scope.data.address).address){
-        $scope.contactinfo.push(
-            new Contact('address', $scope.iconhome + '../farm-logo.png', angular.fromJson($scope.data.address).address)
-        );
-    }
-
-    if ($scope.data.website){
-        $scope.contactinfo.push(
-            new Contact('address', $scope.iconhome + '../farm-logo.png', $scope.data.website)
-        );
-    }
-
-    if ($scope.data.phone){
-        $scope.contactinfo.push(
-            new Contact('phone', $scope.iconhome + '../farm-logo.png', $scope.data.phone)
-        );
-    }
-
-    if ($scope.data.email){
-        $scope.contactinfo.push(
-            new Contact('email', $scope.iconhome + '../farm-logo.png', $scope.data.email)
-        );
-    }
+    $scope.contacts = Contacts.all($scope.data);
 });
 
 
