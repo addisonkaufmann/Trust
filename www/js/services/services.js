@@ -11,9 +11,6 @@ app.factory ('Icons', function(){
     };
 });
 
-app.factory('Carousel', function(){
-
-});
 
 app.factory ('Images', function(Image){
     var images = {};
@@ -78,6 +75,8 @@ app.service('Image', function(){
     };
     return Image;
 });
+
+
 
 app.service('Contact', function(){
     var Contact = function(type, img, val){
