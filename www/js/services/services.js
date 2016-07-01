@@ -96,12 +96,16 @@ app.factory ('Images', function(Image){
             
 
             for (; i < len; i++){
+
                 images[obj.list[i].id] = [];
                 if (obj.list[i].image){
+
                     images[obj.list[i].id].push(new Image('http://localhost:8080/trust/api/file/getImageWithFarm/' + obj.list[i].farmId + '/thumbnail/' + obj.list[i].image, false));
                 } else {
-                    images[obj.list[i].id].push(new Image('img/no_image_recipe.png'), false);
+
+                    images[obj.list[i].id].push(new Image('img/no_image_recipe.png', false));
                 }
+
             }
             console.log(images);
         }
