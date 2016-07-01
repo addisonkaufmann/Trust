@@ -111,6 +111,10 @@ app.controller('detailCtrl', function($rootScope, $scope, $stateParams, data, Ti
 
     Images.generateFromTimelineChilds(data.data);
 
+    // $scope.expand = false;
+    // console.log($scope.expand);
+
+
 
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
@@ -404,11 +408,13 @@ app.controller('recipeCtrl', function($scope, $stateParams, $rootScope, $state, 
 
     // console.log($scope.tester);
 
-    $scope.getImage = function(id){
-        // console.log(Images.get(id));
-        // return Images.get(id).image;
-        var img = Images.get(id);
-        return img[0].image;
+    $scope.getImage = function(obj){
+        if (obj.image){
+            return 'http://localhost:8080/trust/api/file/getImageWithFarm/' 
+            + obj.farmId + '/normal/' + obj.image;
+        } else {
+            return 'img/no_image_recipe.png';
+        }
     };
 
 
@@ -518,5 +524,11 @@ app.controller('waterCtrl', function($scope, $stateParams, Tiles, Icons){
     $scope.current = Tiles.get('water');
     $scope.menuicon = Icons.menu();
 });
+
+app.controller('cardCtrl', function($scope){
+    $scope.expand = false;
+});
+
+
 
 
