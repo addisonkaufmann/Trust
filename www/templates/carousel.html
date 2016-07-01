@@ -8,10 +8,10 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner black carousel-height" role="listbox">
-        <div class="item" style="height: 100%" ng-class="{'active': i.active}" ng-repeat="i in getCarousel(id)">
+        <div class="item carousel-height" style="position: relative;"  ng-class="{'active': i.active}" ng-repeat="i in getCarousel(id)">
             <img 
-                class="animated" 
-                style="height: 100%; width: auto; display: block; margin-right: auto; margin-left: auto;" 
+                class="carousel-media animated" 
+                style=" "
                 ng-class="{'fadeIn': i.active}" 
                 ng-src="{{i.image}}">
         </div>

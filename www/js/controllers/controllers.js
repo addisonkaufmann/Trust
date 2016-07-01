@@ -144,7 +144,7 @@ app.controller('headerCtrl', function($scope, $state, $stateParams, $timeout){
 app.controller('infoCtrl', function($scope, $stateParams, Tiles, Icons, Images, data) {
 
     Images.generateFromProductDescr(data.data);
-    console.log(Images.all());
+    // console.log(Images.all());
 
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
@@ -382,8 +382,37 @@ app.controller('profileCtrl', function($scope, $stateParams, Contacts, Tiles, Ic
 
 
 
-app.controller('recipeCtrl', function($scope, $stateParams, $rootScope, $state, $http,  data, Icons, Tiles, Images){
-    Images.generateFromRecipeList(data.data);
+
+
+    
+
+
+
+app.controller('recipeCtrl', function($scope, $stateParams, $rootScope, $state, $http,  $q, Recipes, data, Icons, Tiles, Images){
+    // console.log('before');
+    // console.log(data);
+    // console.log('after');
+
+    Recipes.getAll(9).then(function(d) {
+        $scope.tester = d;
+        $scope.data = d.data;
+        // console.log(d.data);
+        Images.generateFromRecipeList($scope.data);
+
+    }); 
+
+
+    // console.log($scope.tester);
+
+    $scope.getImage = function(id){
+        // console.log(Images.get(id));
+        // return Images.get(id).image;
+        var img = Images.get(id);
+        return img[0].image;
+    };
+
+
+
 
     $rootScope.$on('$stateChangeSuccess', function(event, toState){
         $state.current=toState;   
@@ -479,7 +508,7 @@ app.controller('summaryCtrl', function($scope, $timeout, $state, data){
 
 
 app.controller('waterCtrl', function($scope, $stateParams, Tiles, Icons){
-    console.log($stateParams.animateIn);
+    // console.log($stateParams.animateIn);
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
     } else {

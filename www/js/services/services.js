@@ -1,3 +1,39 @@
+// app.service('Recipes',function($http, $q){
+//   var service={}; 
+//   service.getAll = function(total){
+//         return $q.resolve($http({method: 'GET', url: 'http://localhost:8080/trust/api/timeline/getRecipeByFarmIdAndProductionId/15/221/0/' + total}));
+//   };
+//   return service;
+// });
+
+// app.factory('Recipes', function($http) {
+//   var myService = {
+//     getAll: function(total) {
+//       // $http returns a promise, which has a then function, which also returns a promise
+//       var promise = $http.get(
+//         'http://localhost:8080/trust/api/timeline/getRecipeByFarmIdAndProductionId/15/221/0/' + total
+//         ).then(function (response) {
+//         // The then function here is an opportunity to modify the response
+//         console.log("promise resolved");
+//         // The return value gets picked up by the then in the controller.
+//         return response.data;
+//       });
+//       // Return the promise to the controller
+//       return promise;
+//     }
+//   };
+//   return myService;
+// });
+
+app.factory('Recipes', function($http) {
+  return {
+    getAll: function(total) {
+      return $http.get('http://localhost:8080/trust/api/timeline/getRecipeByFarmIdAndProductionId/15/221/0/' + total);  //1. this returns promise
+    }
+  };
+});
+
+
 app.factory ('Icons', function(){
     var home = 'img/icons/';
     return {
@@ -20,15 +56,15 @@ app.factory ('Images', function(Image){
             return images;
         },
         get: function(id){
-            console.log('getting ' + id);
+            // console.log('getting ' + id);
             images[id][0].active = true;
-            console.log(images[id]);
+            // console.log(images[id]);
             return images[id];
         },
         generateFromTimelineChilds: function(obj){
             images = {};
-            console.log('generate from timeline childs of:');
-            console.log(obj);
+            // console.log('generate from timeline childs of:');
+            // console.log(obj);
             var i = 0;
             var len = obj.timelineChilds.length;
             
@@ -37,7 +73,7 @@ app.factory ('Images', function(Image){
                 images[obj.timelineChilds[i].id] = [];
                 images[obj.timelineChilds[i].id].push(new Image('http://localhost:8080/trust/api/file/getImageWithFarm/' + obj.timelineChilds[i].farmId + '/normal/' + obj.timelineChilds[i].image, false));
             }
-            console.log(images);
+            // console.log(images);
 
         }, 
         generateFromProductDescr: function(obj){
@@ -60,10 +96,18 @@ app.factory ('Images', function(Image){
             
 
             for (; i < len; i++){
+
                 images[obj.list[i].id] = [];
-                images[obj.list[i].id].push(new Image('http://localhost:8080/trust/api/file/getImageWithFarm/' + obj.list[i].farmId + '/thumbnail/' + obj.list[i].image, false));
+                if (obj.list[i].image){
+
+                    images[obj.list[i].id].push(new Image('http://localhost:8080/trust/api/file/getImageWithFarm/' + obj.list[i].farmId + '/thumbnail/' + obj.list[i].image, false));
+                } else {
+
+                    images[obj.list[i].id].push(new Image('img/no_image_recipe.png', false));
+                }
+
             }
-            console.log(images);
+            // console.log(images);
         }
     };
 });
@@ -200,7 +244,7 @@ app.factory('Tiles', function(){
         'content': 'Impatto CO2',
         'link': 'co2impact',
         'image': iconHome + 'co2impact_icon.png',
-        'valid': true
+        'valid': false
     },
     {
         'state': 'ingredient',
@@ -208,7 +252,7 @@ app.factory('Tiles', function(){
         'content': 'Ingredienti particolari',
         'link': 'ingredient',
         'image': iconHome + 'ingredient_icon.png',
-        'valid': true
+        'valid': false
     },
     {
         'state': 'water',
@@ -216,7 +260,7 @@ app.factory('Tiles', function(){
         'content': 'Utilizzo acqua',
         'link': 'water',
         'image': iconHome + 'water_icon.png',
-        'valid': true
+        'valid': false
     },
     {
         'state': 'recipe',

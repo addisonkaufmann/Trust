@@ -1,11 +1,18 @@
-<div class="row card" ng-repeat="d in data.list" ng-init = "id = d.id">
-	<div class="card-title col-xs-12 {{current.color}}" ui-sref="recipe.detail({'id': d.id})">
-		{{d.name}}
-	</div>
+<div class="row card">
+	<div class="col-xs-12 col-sm-6" style="overflow-x: hidden" ng-class="{'recipe-col-left': $even, 'recipe-col-right': $odd}"ng-repeat="d in data.list" ng-init = "id = d.id">
 
-	<div ng-if="current.carousel" class="col-xs-12 padding-none">
-		<carousel/>
+		<div class="recipe-list-item overlay-container" ui-sref="recipe.detail({'id': d.id})">
+		    <div class="fill vignette-small">
+		        <img ng-src="{{getImage(id)}}">
+		    </div>
+
+		    <div class="overlay-title-sm">
+		        {{d.name}}<br/>
+		    </div>
+		</div>
+
 	</div>
 </div>
+
 
 

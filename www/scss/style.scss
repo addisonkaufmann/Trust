@@ -256,6 +256,23 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
 /*	CLASSES	- ALPHABETICAL	*/
 
+.carousel-media {
+	max-height: 100%;  
+    max-width: 100%; 
+    width: auto;
+    height: auto;
+    position: absolute;  
+    top: 0;  
+    bottom: 0;  
+    left: 0;  
+    right: 0;  
+    margin: auto;
+
+}
+.carousel-height {
+	height: 40vh;
+}
+
 .card {
 	margin-bottom: 1%;
 }
@@ -274,10 +291,7 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	padding: 3%;
 }
 
-.carousel-height {
-	height: 50vh;
-	min-height: 25vw;
-}
+
 
 .chart-container {
 	width: 50%;
@@ -335,10 +349,41 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 .header-container {
 	padding-left: 3%;
 	padding-right: 3%;
-
 	height: 60px;
 	@media (max-width: $max-width-xs) {
 		height: 45px;
+	}
+}
+
+.recipe-list-item {
+	height: 30vh; 
+	margin-top: 15px; 
+	margin-bottom:15px;
+}
+
+
+
+@media(max-width: $max-width-xs){
+	.recipe-col{
+		@include padding-none;
+		overflow-x: hidden;
+		width: 100%;
+	}
+}
+
+@media(width: $min-width-sm){
+	.recipe-col{
+		@include padding-none;
+		overflow-x: hidden;
+	}
+	.recipe-col-left{
+		padding: 0px;
+		margin-right: 1.5vw;
+
+	}
+	.recipe-col-right{
+		margin-left: 1.5vw;
+
 	}
 }
 
@@ -502,11 +547,25 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	}
 }
 
+.overlay-title-sm {
+	@extend %overlay-item;
+	color: white;
+
+	font-size: 20px;
+	overflow-x: auto;
+	bottom: 5%;
+
+	p{
+		font-size: $font-normal-responsive;
+		@media (max-height: 500px) {
+			font-size: 17.5px;
+		}
+	}
+
+}
+
 .padding-none {
-	padding-top: 0;
-	padding-bottom: 0;
-	padding-right: 0;
-	padding-left: 0;
+	@include padding-none;
 }
 
 .profile-pic-container {
@@ -633,6 +692,23 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
     	width: 100%;
     	height: 100%;
 		box-shadow: inset 0rem -55vh 15rem -13vh $transparent-black;
+	}
+}
+
+.vignette-small {
+	img {
+		display: block;
+	}
+
+	&:after {
+		@include transform(translate(-50%, -50%))
+		content: '';
+		position: absolute;
+		top: 50%;
+    	left: 50%;
+    	width: 100%;
+    	height: 100%;
+		box-shadow: inset 0rem -55vh 15rem -43vh $transparent-black;
 	}
 }
 
