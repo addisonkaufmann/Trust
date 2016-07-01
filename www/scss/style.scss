@@ -281,7 +281,7 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
 .chart-container {
 	width: 50%;
-	/*height: 90%; cannot set height*/
+	/*set height in javascript*/
 
 	margin-left: auto;
 	margin-right: auto;
@@ -310,7 +310,6 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 		padding-left: 2%;
 		max-width: 70vw;
 		display:inline-block;
-
 	}
 }
 
@@ -416,6 +415,12 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 .logo{
 	height: 100%;
 	width: auto;
+}
+
+.maximum-width-900 {
+	max-width: 900px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .minimum-width {
