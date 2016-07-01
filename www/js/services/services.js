@@ -63,8 +63,8 @@ app.factory ('Images', function(Image){
         },
         generateFromTimelineChilds: function(obj){
             images = {};
-            console.log('generate from timeline childs of:');
-            console.log(obj);
+            // console.log('generate from timeline childs of:');
+            // console.log(obj);
             var i = 0;
             var len = obj.timelineChilds.length;
             
@@ -73,7 +73,7 @@ app.factory ('Images', function(Image){
                 images[obj.timelineChilds[i].id] = [];
                 images[obj.timelineChilds[i].id].push(new Image('http://localhost:8080/trust/api/file/getImageWithFarm/' + obj.timelineChilds[i].farmId + '/normal/' + obj.timelineChilds[i].image, false));
             }
-            console.log(images);
+            // console.log(images);
 
         }, 
         generateFromProductDescr: function(obj){
@@ -107,7 +107,7 @@ app.factory ('Images', function(Image){
                 }
 
             }
-            console.log(images);
+            // console.log(images);
         }
     };
 });

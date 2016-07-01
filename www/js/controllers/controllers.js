@@ -144,7 +144,7 @@ app.controller('headerCtrl', function($scope, $state, $stateParams, $timeout){
 app.controller('infoCtrl', function($scope, $stateParams, Tiles, Icons, Images, data) {
 
     Images.generateFromProductDescr(data.data);
-    console.log(Images.all());
+    // console.log(Images.all());
 
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
@@ -396,7 +396,7 @@ app.controller('recipeCtrl', function($scope, $stateParams, $rootScope, $state, 
     Recipes.getAll(9).then(function(d) {
         $scope.tester = d;
         $scope.data = d.data;
-        console.log(d.data);
+        // console.log(d.data);
         Images.generateFromRecipeList($scope.data);
 
     }); 
@@ -508,7 +508,7 @@ app.controller('summaryCtrl', function($scope, $timeout, $state, data){
 
 
 app.controller('waterCtrl', function($scope, $stateParams, Tiles, Icons){
-    console.log($stateParams.animateIn);
+    // console.log($stateParams.animateIn);
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
     } else {

@@ -256,6 +256,23 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
 /*	CLASSES	- ALPHABETICAL	*/
 
+.carousel-media {
+	max-height: 100%;  
+    max-width: 100%; 
+    width: auto;
+    height: auto;
+    position: absolute;  
+    top: 0;  
+    bottom: 0;  
+    left: 0;  
+    right: 0;  
+    margin: auto;
+
+}
+.carousel-height {
+	height: 40vh;
+}
+
 .card {
 	margin-bottom: 1%;
 }
@@ -274,10 +291,7 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 	padding: 3%;
 }
 
-.carousel-height {
-	height: 50vh;
-	min-height: 25vw;
-}
+
 
 .chart-container {
 	width: 50%;

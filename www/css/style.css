@@ -200,6 +200,21 @@
     margin-top: 1vh; } }
 
 /*	CLASSES	- ALPHABETICAL	*/
+.carousel-media {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto; }
+
+.carousel-height {
+  height: 40vh; }
+
 .card {
   margin-bottom: 1%; }
 
@@ -214,10 +229,6 @@
   font-size: large;
   text-align: center;
   padding: 3%; }
-
-.carousel-height {
-  height: 50vh;
-  min-height: 25vw; }
 
 .chart-container {
   width: 50%;
