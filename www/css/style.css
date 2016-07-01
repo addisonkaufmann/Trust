@@ -221,7 +221,7 @@
 
 .chart-container {
   width: 50%;
-  /*height: 90%; cannot set height*/
+  /*set height in javascript*/
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -338,6 +338,11 @@
 .logo {
   height: 100%;
   width: auto; }
+
+.maximum-width-900 {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto; }
 
 .minimum-width {
   min-width: 300px; }
@@ -580,6 +585,7 @@ a:hover {
     margin-left: 0px;
     margin-right: 0px; } }
 
+/*Styling for splash page*/
 #loader-wrapper {
   position: fixed;
   top: 0;

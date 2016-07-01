@@ -281,7 +281,7 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
 .chart-container {
 	width: 50%;
-	/*height: 90%; cannot set height*/
+	/*set height in javascript*/
 
 	margin-left: auto;
 	margin-right: auto;
@@ -310,7 +310,6 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 		padding-left: 2%;
 		max-width: 70vw;
 		display:inline-block;
-
 	}
 }
 
@@ -416,6 +415,12 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 .logo{
 	height: 100%;
 	width: auto;
+}
+
+.maximum-width-900 {
+	max-width: 900px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .minimum-width {
@@ -735,6 +740,7 @@ a:hover {
 
 
 
+/*Styling for splash page*/
 
 #loader-wrapper {
     position: fixed;
@@ -744,6 +750,7 @@ a:hover {
     height: 100%;
     z-index: 1000;
 }
+
 #loader {
 	z-index: 1001;
     display: block;
@@ -800,6 +807,7 @@ a:hover {
         transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
     }
 }
+
 @keyframes spin {
     0%   {
         -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
@@ -859,7 +867,6 @@ a:hover {
     -webkit-transition: all 0.3s ease-out; 
             transition: all 0.3s ease-out;
 }
-
 
 .loaded #loader-wrapper {
 	visibility: hidden;
