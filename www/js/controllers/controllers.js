@@ -1,10 +1,3 @@
-$(window).load(function() {
-    $("#pre").css({'display': 'none'});
-    $("#splash").css({'display': 'block'});
-});
-
-
-
 app.controller('carouselCtrl', function($scope, Images){
     $scope.getCarousel = function(id){
         $scope.carousel = Images.get(id);
@@ -386,11 +379,6 @@ app.controller('profileCtrl', function($scope, $stateParams, Contacts, Tiles, Ic
 
     $scope.contacts = Contacts.all($scope.data);
 });
-
-
-
-
-    
 
 
 
