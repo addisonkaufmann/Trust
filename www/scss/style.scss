@@ -350,13 +350,28 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 
 
 @media(max-width: $max-width-xs){
-	.recipe-col {
+	.recipe-col{
 		@include padding-none;
 		overflow-x: hidden;
-	}	
+		width: 100%;
+	}
 }
 
+@media(width: $min-width-sm){
+	.recipe-col{
+		@include padding-none;
+		overflow-x: hidden;
+	}
+	.recipe-col-left{
+		padding: 0px;
+		margin-right: 1.5vw;
 
+	}
+	.recipe-col-right{
+		margin-left: 1.5vw;
+
+	}
+}
 
 .header-title {
 	vertical-align: middle;

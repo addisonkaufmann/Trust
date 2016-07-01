@@ -284,7 +284,21 @@
     padding-bottom: 0;
     padding-right: 0;
     padding-left: 0;
-    overflow-x: hidden; } }
+    overflow-x: hidden;
+    width: 100%; } }
+
+@media (width: 768px) {
+  .recipe-col {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    padding-left: 0;
+    overflow-x: hidden; }
+  .recipe-col-left {
+    padding: 0px;
+    margin-right: 1.5vw; }
+  .recipe-col-right {
+    margin-left: 1.5vw; } }
 
 .header-title {
   vertical-align: middle;

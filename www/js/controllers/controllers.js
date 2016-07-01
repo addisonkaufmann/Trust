@@ -382,8 +382,27 @@ app.controller('profileCtrl', function($scope, $stateParams, Contacts, Tiles, Ic
 
 
 
-app.controller('recipeCtrl', function($scope, $stateParams, $rootScope, $state, $http,  data, Icons, Tiles, Images){
-    Images.generateFromRecipeList(data.data);
+
+
+    
+
+
+
+app.controller('recipeCtrl', function($scope, $stateParams, $rootScope, $state, $http,  $q, Recipes, data, Icons, Tiles, Images){
+    // console.log('before');
+    // console.log(data);
+    // console.log('after');
+
+    Recipes.getAll(9).then(function(d) {
+        $scope.tester = d;
+        $scope.data = d.data;
+        console.log(d.data);
+        Images.generateFromRecipeList($scope.data);
+
+    }); 
+
+
+    // console.log($scope.tester);
 
     $scope.getImage = function(id){
         // console.log(Images.get(id));

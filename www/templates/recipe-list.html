@@ -1,7 +1,7 @@
 <div class="row card">
-	<div class="col-xs-12 col-sm-6 recipe-col" ng-repeat="d in data.list" ng-init = "id = d.id">
+	<div class="col-xs-12 col-sm-6 recipe-col" ng-class="{'recipe-col-left': $even, 'recipe-col-right': $odd}"ng-repeat="d in data.list" ng-init = "id = d.id">
 
-		<div class="recipe-list-item overlay-container" ng-class="{'recipe-col-left': $even, 'recipe-col-right': $odd}"ui-sref="recipe.detail({'id': d.id})">
+		<div class="recipe-list-item overlay-container" ui-sref="recipe.detail({'id': d.id})">
 		    <div class="fill vignette-small">
 		        <img ng-src="{{getImage(id)}}">
 		    </div>
