@@ -1,9 +1,3 @@
-$(window).load(function() {
-    $('body').addClass('loaded');
-});
-
-
-
 app.controller('carouselCtrl', function($scope, Images){
     $scope.getCarousel = function(id){
         $scope.carousel = Images.get(id);
