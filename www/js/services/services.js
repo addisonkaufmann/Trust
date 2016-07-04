@@ -32,7 +32,7 @@ app.factory('Images', function(Image) {
 
     return {
         getAll: function(obj) {
-            console.log(cache);
+            // console.log(cache);
           //if we haven't created an array with this argument before
           if (!cache[obj.id]) {
             //create one and store it in the cache with that argument as the key
