@@ -1,22 +1,20 @@
-<div  class="carousel slide" ng-controller="carouselCtrl">
+<div  class="carousel slide" ng-controller="carouselCtrl" ng-init = "carousel = getCarousel(t)">
     
     <!-- Indicators -->
     <ol ng-if="carousel.length > 1" class="carousel-indicators">
-        <li class="dots" ng-repeat="i in getCarousel(id)" ng-class="{'active': i.active}"></li>
+        <li class="dots" ng-repeat="i in carousel" ng-class="{'active': i.active}"></li>
     </ol>
 
 
-    <!-- Wrapper for slides -->
+    <!-- Carousel -->
     <div class="carousel-inner black carousel-height" role="listbox">
-        <div class="item carousel-height" style="position: relative;"  ng-class="{'active': i.active}" ng-repeat="i in getCarousel(id)">
+        <div class="item carousel-height" style="position: relative;"  ng-class="{'active': i.active}" ng-repeat="i in carousel">
             <img 
                 class="carousel-media animated" 
-                style=" "
                 ng-class="{'fadeIn': i.active}" 
                 ng-src="{{i.image}}">
         </div>
     </div>
-
 
     <!-- Left and right controls -->
     <div ng-if="carousel.length > 1">

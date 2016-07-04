@@ -1,30 +1,3 @@
-// app.service('Recipes',function($http, $q){
-//   var service={}; 
-//   service.getAll = function(total){
-//         return $q.resolve($http({method: 'GET', url: 'http://localhost:8080/trust/api/timeline/getRecipeByFarmIdAndProductionId/15/221/0/' + total}));
-//   };
-//   return service;
-// });
-
-// app.factory('Recipes', function($http) {
-//   var myService = {
-//     getAll: function(total) {
-//       // $http returns a promise, which has a then function, which also returns a promise
-//       var promise = $http.get(
-//         'http://localhost:8080/trust/api/timeline/getRecipeByFarmIdAndProductionId/15/221/0/' + total
-//         ).then(function (response) {
-//         // The then function here is an opportunity to modify the response
-//         console.log("promise resolved");
-//         // The return value gets picked up by the then in the controller.
-//         return response.data;
-//       });
-//       // Return the promise to the controller
-//       return promise;
-//     }
-//   };
-//   return myService;
-// });
-
 app.factory('Recipes', function($http) {
   return {
     getAll: function(total) {
@@ -47,69 +20,32 @@ app.factory ('Icons', function(){
     };
 });
 
+app.factory('Images', function(Image) {
+  /*
+   * anything created will be stored in this cache object,
+   * based on the arguments passed to `getObj`.
+   * If you need multiple arguments, you could form them into a string,
+   * and use that as the cache key
+   * since there's only one argument here, I'll just use that
+   */
+  var cache = {};
 
-app.factory ('Images', function(Image){
-    var images = {};
     return {
-        all: function(){
-            // console.log(images);
-            return images;
-        },
-        get: function(id){
-            // console.log('getting ' + id);
-            images[id][0].active = true;
-            // console.log(images[id]);
-            return images[id];
-        },
-        generateFromTimelineChilds: function(obj){
-            images = {};
-            // console.log('generate from timeline childs of:');
-            // console.log(obj);
-            var i = 0;
-            var len = obj.timelineChilds.length;
-            
-
-            for (; i < len; i++){
-                images[obj.timelineChilds[i].id] = [];
-                images[obj.timelineChilds[i].id].push(new Image('http://localhost:8080/trust/api/file/getImageWithFarm/' + obj.timelineChilds[i].farmId + '/normal/' + obj.timelineChilds[i].image, false));
-            }
-            // console.log(images);
-
-        }, 
-        generateFromProductDescr: function(obj){
-            // console.log(obj);
-            images[obj.id] = [];
-            var i = 0;
-            var len = obj.productDescr.length;
-            for(; i < len; i++){
-                if (obj.productDescr[i].key === "IMAGE"){
-                    images[obj.id].push(new Image('http://localhost:8080/trust/api/file/getImageWithFarm/' + obj.farmId + '/normal/' + obj.productDescr[i].value, false));
-                }
-            }
-        },
-
-
-        generateFromRecipeList: function(obj){
-            // console.log(obj);
-            var i = 0;
-            var len = obj.list.length;
-            
-
-            for (; i < len; i++){
-
-                images[obj.list[i].id] = [];
-                if (obj.list[i].image){
-
-                    images[obj.list[i].id].push(new Image('http://localhost:8080/trust/api/file/getImageWithFarm/' + obj.list[i].farmId + '/thumbnail/' + obj.list[i].image, false));
-                } else {
-
-                    images[obj.list[i].id].push(new Image('img/no_image_recipe.png', false));
-                }
-
-            }
-            // console.log(images);
+        getAll: function(obj) {
+            console.log(cache);
+          //if we haven't created an array with this argument before
+          if (!cache[obj.id]) {
+            //create one and store it in the cache with that argument as the key
+            cache[obj.id] = [
+              new Image('http://localhost:8080/trust/api/file/getImageWithFarm/' + obj.farmId + '/normal/' + obj.image, true),
+              new Image('img/farm-logo.jpg', false)
+            ];
+          }
+          //return the cached array
+          return cache[obj.id];
         }
     };
+
 });
 
 app.service('Image', function(){
@@ -218,7 +154,6 @@ app.factory('Tiles', function(){
         'content': 'Informazioni prodotto',
         'link': 'info',
         'image': iconHome + 'info_icon.png',
-        'carousel': true,
         'valid': true
     },
     {
@@ -227,7 +162,6 @@ app.factory('Tiles', function(){
         'content': 'Dettagli prodotto',
         'link': 'detail',
         'image': iconHome + 'detail_icon.png',
-        'carousel': true,
         'valid': true
     },
     {
@@ -268,7 +202,6 @@ app.factory('Tiles', function(){
         'content': 'Ricette',
         'link': 'recipe.list',
         'image': iconHome + 'recipe_icon.png',
-        'carousel': true,
         'valid': true
     }];
 

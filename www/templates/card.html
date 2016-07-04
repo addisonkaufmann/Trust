@@ -1,4 +1,4 @@
-<div>
+<div ng-controller="cardCtrl">
 	
 	<div class="row">
 		<div class="card-title col-xs-12 {{current.color}}">
@@ -6,11 +6,11 @@
 		</div>
 	</div>
 
-	<div class="row" ng-if="current.carousel">
+	<div class="row"  ng-if="t.image">
 		<carousel/>
 	</div>
 
-	<div class="row card">
+	<div class="row card" >
 		<div class="card-text col-xs-12 {{current.color}}">
 
 			<b ng-if="t.details">DETAILS</b>
@@ -31,9 +31,33 @@
 				<p>{{p.value}}</p>
 			</div>
 
+			<div ng-if="t.timelineChilds"  >
+
+				<!-- <div class="checkbox">
+			 		<label><input type="checkbox" ng-model="expand" ng-click="console.log(expand);">Expand</label>
+				</div> -->
+
+				<div style="text-align: center" ng-show="!expand" ng-class="social-img " ng-click="expand = !expand" >  
+					More<br/>
+		            <img class="small-chevron" ng-src="{{iconhome + 'chevron_down.png'}}">
+		            
+		        </div>
+
+		        <div style="text-align: center" ng-show="expand" ng-class="social-img" ng-click="expand = !expand" >  
+		        	Less<br/>
+		            <img class="small-chevron" ng-src="{{iconhome + 'chevron_up.png'}}">
+		           
+		        </div>
+
+				<card ng-if="expand" style = "padding-left: 3%; padding-right: 3%;" ng-repeat="t in t.timelineChilds" ></card>
+			</div>
+
+			
+
+			<!-- <button class="btn btn-primary" ng-click="toggleChildren(t)">Expand</button> -->
+
 		</div>
-
-
 	</div>
+
 
 </div>
