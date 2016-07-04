@@ -1,6 +1,7 @@
 /*	VARIABLES - NO ORDER */
 
 /*colors*/
+
 $light-green: rgb(129,188,95);
 $yellow: rgb(248, 220, 84);
 $orange: rgb(246, 160, 73);
@@ -42,6 +43,9 @@ $rounded-corners-bottom: 0px 0px 15px 15px;
 html, body {
 	@include font;
 }
+
+// body::-webkit-scrollbar { display: none;  }
+//     html, body { -ms-overflow-style: none; overflow: auto; }
 
 .font-black {
 	color: black;
@@ -354,6 +358,7 @@ html, body {
 	justify-content: center;
 	align-items: center;
 	overflow: hidden;
+	-ms-overflow-style: none;
 	height: 100%;
 
 	img {
@@ -384,6 +389,8 @@ html, body {
 	.recipe-col{
 		@include padding-none;
 		overflow-x: hidden;
+		-ms-overflow-x: hidden;
+		-ms-overflow-style: none;
 		width: 100%;
 	}
 }
@@ -392,6 +399,8 @@ html, body {
 	.recipe-col{
 		@include padding-none;
 		overflow-x: hidden;
+		-ms-overflow-x: hidden;
+		-ms-overflow-style: none;
 	}
 	.recipe-col-left{
 		padding: 0px;
@@ -554,6 +563,8 @@ html, body {
 	}
 
 	overflow-x: auto;
+	-ms-overflow-x: auto;
+	-ms-overflow-style: none;
 	bottom: 25%;
 
 	p{
@@ -570,6 +581,8 @@ html, body {
 
 	font-size: 20px;
 	overflow-x: auto;
+	-ms-overflow-x: auto;
+	-ms-overflow-style: none;
 	bottom: 5%;
 
 	p{

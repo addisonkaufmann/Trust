@@ -178,7 +178,7 @@ app.factory('Tiles', function(){
         'content': 'Impatto CO2',
         'link': 'co2impact',
         'image': iconHome + 'co2impact_icon.png',
-        'valid': false
+        'valid': true
     },
     {
         'state': 'ingredient',
@@ -186,7 +186,7 @@ app.factory('Tiles', function(){
         'content': 'Ingredienti particolari',
         'link': 'ingredient',
         'image': iconHome + 'ingredient_icon.png',
-        'valid': false
+        'valid': true
     },
     {
         'state': 'water',
@@ -194,7 +194,7 @@ app.factory('Tiles', function(){
         'content': 'Utilizzo acqua',
         'link': 'water',
         'image': iconHome + 'water_icon.png',
-        'valid': false
+        'valid': true
     },
     {
         'state': 'recipe',

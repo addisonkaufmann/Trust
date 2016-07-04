@@ -280,6 +280,7 @@ html, body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  -ms-overflow-style: none;
   height: 100%; }
   .fill img {
     flex-shrink: 0;
@@ -306,6 +307,8 @@ html, body {
     padding-right: 0;
     padding-left: 0;
     overflow-x: hidden;
+    -ms-overflow-x: hidden;
+    -ms-overflow-style: none;
     width: 100%; } }
 
 @media (width: 768px) {
@@ -314,7 +317,9 @@ html, body {
     padding-bottom: 0;
     padding-right: 0;
     padding-left: 0;
-    overflow-x: hidden; }
+    overflow-x: hidden;
+    -ms-overflow-x: hidden;
+    -ms-overflow-style: none; }
   .recipe-col-left {
     padding: 0px;
     margin-right: 1.5vw; }
@@ -442,6 +447,8 @@ html, body {
   color: white;
   font-size: 6vh;
   overflow-x: auto;
+  -ms-overflow-x: auto;
+  -ms-overflow-style: none;
   bottom: 25%; }
   @media (max-height: 500px) {
     .overlay-title {
@@ -456,6 +463,8 @@ html, body {
   color: white;
   font-size: 20px;
   overflow-x: auto;
+  -ms-overflow-x: auto;
+  -ms-overflow-style: none;
   bottom: 5%; }
   .overlay-title-sm p {
     font-size: 3.5vh; }
