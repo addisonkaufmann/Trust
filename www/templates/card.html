@@ -33,28 +33,23 @@
 
 			<div ng-if="t.timelineChilds"  >
 
-				<!-- <div class="checkbox">
-			 		<label><input type="checkbox" ng-model="expand" ng-click="console.log(expand);">Expand</label>
-				</div> -->
-
-				<div style="text-align: center" ng-show="!expand" ng-class="social-img " ng-click="expand = !expand" >  
-					More<br/>
+				<div ng-show="!expand" ng-class="social-img " ng-click="expand = !expand" >
 		            <img class="small-chevron" ng-src="{{iconhome + 'chevron_down.png'}}">
-		            
+		            More   
 		        </div>
 
-		        <div style="text-align: center" ng-show="expand" ng-class="social-img" ng-click="expand = !expand" >  
-		        	Less<br/>
+		        <div ng-show="expand" ng-class="social-img" ng-click="expand = !expand" >  
 		            <img class="small-chevron" ng-src="{{iconhome + 'chevron_up.png'}}">
-		           
+		            Less
 		        </div>
 
-				<card ng-if="expand" style = "padding-left: 3%; padding-right: 3%;" ng-repeat="t in t.timelineChilds" ></card>
+				<card class="animated fadeIn" 
+					ng-if="expand" 
+					style = "padding-left: 3%;" 
+					ng-repeat="t in t.timelineChilds">
+				</card>
+
 			</div>
-
-			
-
-			<!-- <button class="btn btn-primary" ng-click="toggleChildren(t)">Expand</button> -->
 
 		</div>
 	</div>

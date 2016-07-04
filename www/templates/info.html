@@ -1,4 +1,4 @@
-<div class="minimum-width animated {{animateIn}} {{animateOut}}">
+<div class="minimum-width animated {{animateIn}} {{animateOut}} font-black">
 	
 	<div class="row card">
 		<header/>
@@ -9,10 +9,13 @@
 			{{title.value}}
 		</div>
 
- 
-		<!-- <div ng-if="current.carousel" class="col-xs-12 padding-none" >
-			<carousel/>
-		</div> -->
+		<div class="black carousel-inner carousel-height" role="listbox">
+	        <div class="item carousel-height active" style="position: relative;">
+	            <img  
+	               	class="carousel-media active" ng-src="{{'http://localhost:8080/trust/api/file/getImageWithFarm/' + data.farmId + '/normal/' + img.value}}">
+	        </div>
+    	</div>
+
 
 		<div class="card-text col-xs-12 {{current.color}}" ng-bind-html="info.value"></div>
 	</div>
