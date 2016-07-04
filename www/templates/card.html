@@ -1,4 +1,4 @@
-<div>
+<div ng-controller="cardCtrl">
 	
 	<div class="row">
 		<div class="card-title col-xs-12 {{current.color}}">
@@ -6,11 +6,11 @@
 		</div>
 	</div>
 
-	<div class="row" ng-if="current.carousel && t.image">
+	<div class="row"  ng-if="t.image">
 		<carousel/>
 	</div>
 
-	<div class="row card">
+	<div class="row card" >
 		<div class="card-text col-xs-12 {{current.color}}">
 
 			<b ng-if="t.details">DETAILS</b>
@@ -31,7 +31,7 @@
 				<p>{{p.value}}</p>
 			</div>
 
-			<div ng-if="t.timelineChilds" ng-controller="cardCtrl">
+			<div ng-if="t.timelineChilds"  >
 
 				<!-- <div class="checkbox">
 			 		<label><input type="checkbox" ng-model="expand" ng-click="console.log(expand);">Expand</label>

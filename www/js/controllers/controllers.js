@@ -1,7 +1,9 @@
 app.controller('carouselCtrl', function($scope, Images){
-    $scope.getCarousel = function(id){
-        $scope.carousel = Images.get(id);
-        return $scope.carousel;
+    $scope.getCarousel = function(obj){
+        console.log(obj);
+        var car = Images.getAll(obj);
+        console.log(car);
+        return car;
     };
 
     $scope.deactivateCurrent = function(carousel, len){
@@ -28,6 +30,9 @@ app.controller('carouselCtrl', function($scope, Images){
     };
 
 });
+
+
+
 
 
 
@@ -107,9 +112,7 @@ app.controller('dashCtrl', function($scope, $http, $timeout, $rootScope, $stateP
 
 
 
-app.controller('detailCtrl', function($rootScope, $scope, $stateParams, data, Tiles, Icons, Images){
-
-    Images.generateFromTimelineChilds(data.data);
+app.controller('detailCtrl', function($rootScope, $scope, $stateParams, data, Tiles, Icons){
 
     // $scope.expand = false;
     // console.log($scope.expand);
@@ -145,10 +148,8 @@ app.controller('headerCtrl', function($scope, $state, $stateParams, $timeout){
 
 
 
-app.controller('infoCtrl', function($scope, $stateParams, Tiles, Icons, Images, data) {
+app.controller('infoCtrl', function($scope, $stateParams, Tiles, Icons, data) {
 
-    Images.generateFromProductDescr(data.data);
-    // console.log(Images.all());
 
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
@@ -392,17 +393,20 @@ app.controller('profileCtrl', function($scope, $stateParams, Contacts, Tiles, Ic
 
 
 
-app.controller('recipeCtrl', function($scope, $stateParams, $rootScope, $state, $http,  $q, Recipes, data, Icons, Tiles, Images){
+app.controller('recipeCtrl', function($scope, $stateParams, $rootScope, $state, $http,  $q, Recipes, data, Icons, Tiles){
     // console.log('before');
     // console.log(data);
     // console.log('after');
+    $scope.iconhome = Icons.home();
+    $scope.menuicon = Icons.menu();
+    $scope.current = Tiles.get('recipe');
+    $scope.data = data.data;
 
-    Recipes.getAll(9).then(function(d) {
+
+    Recipes.getAll($scope.data.totalItems).then(function(d) {
         $scope.tester = d;
         $scope.data = d.data;
         // console.log(d.data);
-        Images.generateFromRecipeList($scope.data);
-
     }); 
 
 
@@ -449,10 +453,7 @@ app.controller('recipeCtrl', function($scope, $stateParams, $rootScope, $state, 
     }
 
 
-    $scope.iconhome = Icons.home();
-    $scope.menuicon = Icons.menu();
-    $scope.current = Tiles.get('recipe');
-    $scope.data = data.data;
+    
 });
 
 
@@ -527,6 +528,7 @@ app.controller('waterCtrl', function($scope, $stateParams, Tiles, Icons){
 
 app.controller('cardCtrl', function($scope){
     $scope.expand = false;
+ 
 });
 
 
