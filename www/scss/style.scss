@@ -34,6 +34,23 @@ $min-width-lg: 1200px;
 /* other */
 $rounded-corners-bottom: 0px 0px 15px 15px; 
 
+@mixin font {
+	font-family: 'Lato', sans-serif; 
+	color: white;
+}
+
+html, body {
+	@include font;
+}
+
+.font-black {
+	color: black;
+}
+
+.font-green {
+	color: $light-green;
+}
+
 
 /* MIXINS */
 @mixin footer-common {

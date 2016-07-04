@@ -3,6 +3,16 @@
 /*font sizes*/
 /*media size breaks*/
 /* other */
+html, body {
+  font-family: 'Lato', sans-serif;
+  color: white; }
+
+.font-black {
+  color: black; }
+
+.font-green {
+  color: #81bc5f; }
+
 /* MIXINS */
 /*	MEDIA QUERIES - IN ORDER OF SIZE	*/
 @media (max-width: 767px) {
