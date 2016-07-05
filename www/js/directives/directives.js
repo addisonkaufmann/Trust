@@ -2,6 +2,17 @@ app.directive('backimg', function(){
     return function(scope, element, attrs){
         var url = attrs.backimg;
         console.log(url);
+        if (attrs.disablescroll){
+            element.css({
+                'background-image': 'url(' + url +')',
+                'background-size': 'cover',
+                'background-repeat': 'no-repeat',
+                'background-position': 'center',
+                'box-shadow': 'inset 0rem -55vh 15rem -43vh rgba(0,0,0,0.7)'
+
+            });
+
+        } else {
         element.css({
             'background-image': 'url(' + url +')',
             'background-size': 'cover',
@@ -9,6 +20,7 @@ app.directive('backimg', function(){
             'background-attachment': 'fixed',
             'background-position': 'center bottom'
         });
+        }
     };
 });
 

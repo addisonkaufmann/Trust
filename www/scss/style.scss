@@ -316,6 +316,7 @@ html, body {
 
 
 
+
 .chart-container {
 
 	/*set height in javascript*/
@@ -388,9 +389,8 @@ html, body {
 }
 
 .recipe-list-item {
-	height: 30vh; 
-	margin-top: 15px; 
-	margin-bottom:15px;
+	height: 30vh;
+	
 }
 
 
@@ -413,12 +413,12 @@ html, body {
 		-ms-overflow-style: none;
 	}
 	.recipe-col-left{
-		padding: 0px;
-		margin-right: 1.5vw;
+
+		border-right: 5px solid white; 
 
 	}
 	.recipe-col-right{
-		margin-left: 1.5vw;
+		border-left: 5px solid white; 
 
 	}
 }
@@ -460,6 +460,7 @@ html, body {
 		display: none;
 	}
 }
+
 
 .hidden-sm {
 	@media (max-width: $max-width-sm) {

@@ -1,7 +1,7 @@
-<div class="row card" scroll=no>
-	<div class="col-xs-12 col-sm-6"  ng-class="{'recipe-col-left': $even, 'recipe-col-right': $odd}"ng-repeat="d in data.list" ng-init = "id = d.id" >
+<div class="">
+	<div  ng-repeat="d in data.list" >
 
-		<div class="recipe-list-item overlay-container" ui-sref="recipe.detail({'id': d.id})" >
+		<!-- <div class="recipe-list-item overlay-container"  >
 		    <div class="fill vignette-small">
 		        <img ng-src="{{getImage(d)}}">
 		    </div>
@@ -9,7 +9,35 @@
 		    <div class="overlay-title-sm">
 		        {{d.name}}<br/>
 		    </div>
+		</div> -->
+
+		<!-- <div 
+		class=" tile-8 col-xs-12 col-sm-6 recipe-list-item vignette-small" 
+		ng-class="{'recipe-col-left': $even, 'recipe-col-right': $odd}"  
+		backimg="{{getImage(d)}}" 
+		disablescroll="true">
+			<div class="overlay-title-sm">
+		        {{d.name}}<br/>
+		    </div>
+		</div> -->
+		<div
+		 	class="col-xs-6" 
+		 	id="tileContainer"
+		 	ng-class="{
+			'left': $even, 
+			'right': $odd}"
+		 	ui-sref="recipe.detail({'id': d.id})">
+
+			<div class="tile-6 tile-lg black" backimg="{{getImage(d)}}" 
+			disablescroll="true">
+			
+				<div class="overlay-title-sm">
+		        {{d.name}}<br/>
+		    	</div>
+
+			</div>
 		</div>
+
 
 	</div>
 </div>
