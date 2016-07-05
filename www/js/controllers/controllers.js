@@ -229,7 +229,7 @@ app.controller('nutritionCtrl', function($scope, $stateParams, Tiles, Icons, Cha
             color: 'rgba(124, 159, 64, 1)',
             data: 10,
             total: 20,
-            valid: true
+            valid: false
         }
     ];
 
