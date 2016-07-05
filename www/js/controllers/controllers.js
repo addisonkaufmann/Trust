@@ -376,9 +376,17 @@ app.controller('profileCtrl', function($scope, $stateParams, Contacts, Tiles, Ic
 
 
     var imgUrl = 'http://localhost:8080/trust/api/file/getImageWithFarm/' + $scope.data.id + '/normal/';
-    $scope.logo =  imgUrl + $scope.data.logo;
+    if ($scope.data.logo){
+        $scope.logo =  imgUrl + $scope.data.logo;
+    } else {
+        $scope.logo = '';
+    }
 
-    $scope.profilepic = imgUrl + $scope.data.presentationImage;
+    if ($scope.data.presentationImage){
+        $scope.profilepic = imgUrl + $scope.data.presentationImage;
+    } else {
+        $scope.profilepic = 'img/no_image_profile.png';
+    }
 
     $scope.backgroundpic = '';
 

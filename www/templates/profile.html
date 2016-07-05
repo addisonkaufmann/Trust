@@ -4,7 +4,7 @@
 	</div>
 
 	<div class="col-xs-12 overlay-container-sm" backimg="img/farm.jpg" >
-		<div class="overlay-tab-sm">
+		<div ng-if="logo" class="overlay-tab-sm">
 			<img class="logo" ng-src="{{logo}}">
 		</div>
 
@@ -13,8 +13,7 @@
 	</div>
 
 	<div class="col-xs-12">
-		<div class="fill profile-pic-container">
-			<img ng-src="{{profilepic}}">
+		<div class=" profile-pic-container" backimg="{{profilepic}}" disablescroll="true">
 		</div>
 	</div>
 
@@ -30,8 +29,10 @@
 
 		<div class="card-text">
 			<div class="contact-container" ng-repeat="c in contacts">
-				<img class="contact-img" ng-src="{{c.img}}">	
-				<p>{{c.value}}</p>
+				<a ng-href="{{c.link}}">
+					<img  class="contact-img" ng-src="{{c.img}}">	
+					<p>{{c.value}}</p>
+				</a>
 
 			</div>
 		</div>
