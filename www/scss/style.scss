@@ -81,23 +81,17 @@ html, body {
 	}
 }
 
-@mixin active-scale($factor) {
-	&:active {
-		@include transform(scale($factor, $factor));
-	}
-}
-
-@mixin tile-animate {
-    cursor: pointer;
-    @include hover-opacity(.50);
-    @include active-scale(0.9);
-}
-
 @mixin transform($trans){
 	-webkit-transform: $trans;
 	-moz-transform: $trans;
 	-ms-transform: $trans;
 	transform: $trans;
+}
+
+@mixin active-scale($factor) {
+	&:active {
+		@include transform(scale($factor, $factor));
+	}
 }
 
 
@@ -107,12 +101,12 @@ html, body {
 		@include overlay-common;
 		width: 100vw;
 		height: 100vh;
-		margin-left:-15px;
+
 	}
 
-	.overlay-container-sm {
-		margin-left:-15px;
-	}
+	// .overlay-container-sm {
+	// 	margin-left:-15px;
+	// }
 }
 
 @media (min-width: $min-width-sm){
@@ -121,6 +115,27 @@ html, body {
 		height: 100vh;
 		width: 100%;
 	}
+}
+
+.recipe-left {
+		@include padding-none;
+		padding-right: 0.5vw;
+		padding-bottom: 1vh;
+
+	}
+	/*tiles on the right side*/
+.recipe-right {
+	@include padding-none;
+	padding-left: 0.5vw;
+	padding-bottom: 1vh;
+}
+
+.recipe-animate {
+	cursor: pointer;
+	@include active-scale(.90);
+	opacity: 0.90;
+	@include hover-opacity(1);
+
 }
 
 @media (max-width: $max-width-sm ) {
@@ -153,7 +168,6 @@ html, body {
 
 	.tile-8 {
 		/* 20 + 4*1 + 4*19 = 100 */
-		@include tile-animate;
 		width: 100%;
 		height: 19vh; 
 		min-height: 70px;
@@ -161,7 +175,6 @@ html, body {
 
 	.tile-7 {
 		/* 20 + 4*1 + 4*19 = 100 */
-		@include tile-animate;
 		width: 100%;
 		height: 19vh; 
 		min-height: 70px;
@@ -169,7 +182,6 @@ html, body {
 
 	.tile-6 {
 		/* 20 + 3*1 + 3*25.65 = 100 */
-		@include tile-animate;
 		width: 100%;
 		height: 25.65vh;
 		min-height: 70px;
@@ -177,7 +189,6 @@ html, body {
 
 	.tile-5 {
 		/* 20 + 2*1 + 2*39 = 100 */
-		@include tile-animate;
 		width: 100%;
 		height: 25.65vh;
 		min-height: 70px;
@@ -185,7 +196,6 @@ html, body {
 
 	.tile-4 {
 		/* 20 + 2*1 + 2*39 = 100 */
-		@include tile-animate;
 		width: 100%;
 		height: 39vh;
 		min-height: 70px;
@@ -193,7 +203,6 @@ html, body {
 
 	.tile-2 {
 		/* 20 + 2*1 + 2*39 = 100 */
-		@include tile-animate;
 		width: 100%;
 		height: 39vh;
 		min-height: 70px;
@@ -201,7 +210,6 @@ html, body {
 
 	.tile-3 {
 		/* same as tile-4 */
-		@include tile-animate;
 		width: 100%;
 		height: 25.6vh;
 		min-height: 70px;
@@ -246,7 +254,6 @@ html, body {
 	}
 
 	.tile-lg {
-		@include tile-animate;
   		width: 100%;
   		height: 32vh;
 
@@ -277,6 +284,12 @@ html, body {
 
 /*	CLASSES	- ALPHABETICAL	*/
 
+.tile-animate {
+    cursor: pointer;
+    @include hover-opacity(.50);
+    @include active-scale(0.9);
+}
+
 .carousel-media {
 	max-height: 100%;  
     max-width: 100%; 
@@ -295,6 +308,7 @@ html, body {
 }
 
 .card {
+	min-width: 400px;
 	margin-bottom: 1%;
 }
 
@@ -304,6 +318,7 @@ html, body {
 	@media (max-width: $max-width-xs) {
 		font-size: small;
 	}
+	margin-bottom: 1%;
 }
 
 .card-title {
@@ -314,8 +329,9 @@ html, body {
 
 
 
+
 .chart-container {
-	width: 50%;
+
 	/*set height in javascript*/
 
 	margin-left: auto;
@@ -325,6 +341,13 @@ html, body {
 
 	.chart-data {
 		margin-bottom: 5%;
+	}
+}
+
+.container{
+	@media (max-width: $max-width-xs){
+		padding: 0;
+
 	}
 }
 
@@ -353,65 +376,48 @@ html, body {
 	padding-left: 2%;
 }
 
-.fill { 
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	overflow: hidden;
-	-ms-overflow-style: none;
-	height: 100%;
+// .fill { 
+// 	display: flex;
+// 	justify-content: center;
+// 	align-items: center;
+// 	overflow: hidden;
+// 	-ms-overflow-style: none;
+// 	height: 100%;
 
-	img {
-		flex-shrink: 0;
-		min-width: 100%;
-		min-height: 100%;
-	}
-}
+// 	img {
+// 		flex-shrink: 0;
+// 		min-width: 100%;
+// 		min-height: 100%;
+// 	}
+// }
 
 .header-container {
 	padding-left: 3%;
 	padding-right: 3%;
+	margin-bottom: 1%;
 	height: 60px;
 	@media (max-width: $max-width-xs) {
 		height: 45px;
 	}
 }
 
-.recipe-list-item {
-	height: 30vh; 
-	margin-top: 15px; 
-	margin-bottom:15px;
-}
+// .recipe-list-item {
+// 	height: 30vh;
+	
+// }
 
 
 
-@media(max-width: $max-width-xs){
-	.recipe-col{
-		@include padding-none;
-		overflow-x: hidden;
-		-ms-overflow-x: hidden;
-		-ms-overflow-style: none;
-		width: 100%;
-	}
-}
+// @media(max-width: $max-width-xs){
+// 	.recipe-col{
+// 		@include padding-none;
+// 		overflow-x: hidden;
+// 		-ms-overflow-x: hidden;
+// 		-ms-overflow-style: none;
+// 		width: 100%;
+// 	}
+// }
 
-@media(width: $min-width-sm){
-	.recipe-col{
-		@include padding-none;
-		overflow-x: hidden;
-		-ms-overflow-x: hidden;
-		-ms-overflow-style: none;
-	}
-	.recipe-col-left{
-		padding: 0px;
-		margin-right: 1.5vw;
-
-	}
-	.recipe-col-right{
-		margin-left: 1.5vw;
-
-	}
-}
 
 .header-title {
 	vertical-align: middle;
@@ -450,6 +456,7 @@ html, body {
 		display: none;
 	}
 }
+
 
 .hidden-sm {
 	@media (max-width: $max-width-sm) {
@@ -506,13 +513,15 @@ html, body {
 	@include overlay-common;
 	width: 100vw;
 	height: 100vh;
-	margin-left:-15px;
+	
 	height: 130vh;
 	min-height: 455px;
 }
 
+
 .overlay-container-sm {
-	@include overlay-common;
+	position: relative;
+	// @include overlay-common;
 	height:45vh;
 	min-height: 200px;
 }
@@ -626,10 +635,10 @@ html, body {
 	margin-left: auto;
 	margin-right: auto;
 	
-	img {
-		width: 100%;
-		height: 100%;
-	}
+	// img {
+	// 	width: 100%;
+	// 	height: 100%;
+	// }
 }
 
 .profile-title {
@@ -708,56 +717,69 @@ html, body {
 	top: 30%;
 }
 
-.vignette {
-	img {
-		display: block;
-	}
+.vignette{
+	box-shadow: inset 0rem -55vh 15rem -13vh $transparent-black;
+}
 
-	&:after {
-		@include transform(translate(-50%, -50%))
-		content: '';
-		position: absolute;
-		top: 50%;
-    	left: 50%;
-    	width: 100%;
-    	height: 100%;
-		box-shadow: inset 0rem -55vh 15rem -13vh $transparent-black;
-	}
+.vignette-expanded{
+	box-shadow: inset 0rem -67vh 15rem -13vh $transparent-black;
 }
 
 .vignette-small {
-	img {
-		display: block;
-	}
-
-	&:after {
-		@include transform(translate(-50%, -50%))
-		content: '';
-		position: absolute;
-		top: 50%;
-    	left: 50%;
-    	width: 100%;
-    	height: 100%;
-		box-shadow: inset 0rem -55vh 15rem -43vh $transparent-black;
-	}
+	box-shadow: inset 0rem -55vh 15rem -43vh rgba(0,0,0,0.7);
 }
 
-.vignette-expanded {
-	img {
-		display: block;
-	}
+// .vignette {
+// 	img {
+// 		display: block;
+// 	}
 
-	&:after {
-		@include transform(translate(-50%, -50%))
-		content: '';
-		position: absolute;
-		top: 50%;
-    	left: 50%;
-    	width: 100%;
-    	height: 100%;
-		box-shadow: inset 0rem -67vh 15rem -13vh $transparent-black;
-	}
-}
+// 	&:after {
+// 		@include transform(translate(-50%, -50%))
+// 		content: '';
+// 		position: absolute;
+// 		top: 50%;
+//     	left: 50%;
+//     	width: 100%;
+//     	height: 100%;
+// 		box-shadow: inset 0rem -55vh 15rem -13vh $transparent-black;
+// 	}
+// }
+
+
+// .vignette-small {
+// 	img {
+// 		display: block;
+// 	}
+
+// 	&:after {
+// 		@include transform(translate(-50%, -50%))
+// 		content: '';
+// 		position: absolute;
+// 		top: 50%;
+//     	left: 50%;
+//     	width: 100%;
+//     	height: 100%;
+// 		box-shadow: inset 0rem -55vh 15rem -43vh $transparent-black;
+// 	}
+// }
+
+// .vignette-expanded {
+// 	img {
+// 		display: block;
+// 	}
+
+// 	&:after {
+// 		@include transform(translate(-50%, -50%))
+// 		content: '';
+// 		position: absolute;
+// 		top: 50%;
+//     	left: 50%;
+//     	width: 100%;
+//     	height: 100%;
+// 		box-shadow: inset 0rem -67vh 15rem -13vh $transparent-black;
+// 	}
+// }
 
 
 /*	COLOR CLASSES	*/
@@ -817,12 +839,12 @@ a:hover {
 
 /*	IDs	- ALPHABETICAL	*/
 
-#socialDash {
-	@media (min-width: $min-width-md) {
-		margin-left: 1vh;
-		margin-right: 1vh;
-	}
-}
+// #socialDash {
+// 	@media (min-width: $min-width-md) {
+// 		margin-left: 1vh;
+// 		margin-right: 1vh;
+// 	}
+// }
 
 #tileContainer {
 	@media (min-width: $min-width-md) {
@@ -833,8 +855,8 @@ a:hover {
 
 #tilesContainer {
 	@media (min-width: $min-width-md) {
-		margin-left: 0px;
-		margin-right: 0px;
+		margin-left: -0.5vw;
+		margin-right: -0.5vw;
 	}
 }
 

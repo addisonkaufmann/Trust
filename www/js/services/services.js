@@ -56,31 +56,39 @@ app.service('Image', function(){
     return Image;
 });
 
-app.service('Contacts', function(Icons, Contact){
+app.service('Contacts', function(Contact){
     var contacts = [];
 
-    var iconhome = Icons.home();
-
-    var contactPush = function(data, type){
-        var content;
-        if (type === 'address'){
-            content = angular.fromJson(data.address).address;
-        }else{
-            content = data[type];
-        }
-        if (content){
-            contacts.push(
-                new Contact(type, iconhome + 'contact_' + type + '.png', content)
-            );
-        }
-    };
+    // var contactPush = function(data, type){
+    //     var content;
+    //     if (type === 'address'){
+    //         content = angular.fromJson(data.address).address;
+    //     }else{
+    //         content = data[type];
+    //     }
+    //     if (content){
+    //         contacts.push(
+    //             new Contact(type, iconhome + 'contact_' + type + '.png', content)
+    //         );
+    //     }
+    // };
 
     var generate = function(data){
-        contactPush(data, 'website');
-        contactPush(data, 'address');
-        contactPush(data, 'email');
-        contactPush(data, 'phone');
-        contactPush(data, 'facebookPage');
+        contacts.push(new Contact(data,'website'));
+        contacts.push(new Contact(data,'address'));
+        contacts.push(new Contact(data,'email'));
+        contacts.push(new Contact(data,'phone'));
+        contacts.push(new Contact(data,'facebookPage'));
+
+        contacts = contacts.filter(function(contact){
+            return contact.valid === true;
+        });
+
+        // contactPush(data, 'website');
+        // contactPush(data, 'address');
+        // contactPush(data, 'email');
+        // contactPush(data, 'phone');
+        // contactPush(data, 'facebookPage');
 
     };
 
@@ -94,11 +102,38 @@ app.service('Contacts', function(Icons, Contact){
     };
 });
 
-app.service('Contact', function(){
-    var Contact = function(type, img, val){
+app.service('Contact', function(Icons){
+    var iconhome = Icons.home();
+    var Contact = function(data, type){
+        var val;
+        if (type === 'address'){
+            console.log(angular.fromJson(data.address));
+            val = angular.fromJson(data.address).address;
+        }else{
+            val = data[type];
+        }
+
+        if (val){
+            this.valid = true;
+        } else {
+            this.valid = false;
+            return;
+        }
+
+        var link = '';
+        if (type === 'facebookPage' || type === 'website' || type === 'email'){
+            link = val;
+        }
+
+        this.link = link;
+
         this.type = type;
-        this.img = img;
+        this.img = iconhome + 'contact_' + type + '.png';
         this.value = val;
+
+        console.log(this);
+
+
     };
     return Contact;
 });

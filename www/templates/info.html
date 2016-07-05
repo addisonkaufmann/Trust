@@ -1,25 +1,23 @@
-<div class="minimum-width animated {{animateIn}} {{animateOut}} font-black">
+<div class="animated {{animateIn}} {{animateOut}} font-black">
 	
-	<div class="row card">
+	<div>
 		<header/>
 	</div>
 
-	<div class="row card" ng-init="id = data.id">
-		<div class="card-title col-xs-12 {{current.color}}">
-			{{title.value}}
-		</div>
 
-		<div class="black carousel-inner carousel-height" role="listbox">
-	        <div class="item carousel-height active" style="position: relative;">
-	            <img  
-	               	class="carousel-media active" ng-src="{{'http://localhost:8080/trust/api/file/getImageWithFarm/' + data.farmId + '/normal/' + img.value}}">
-	        </div>
-    	</div>
-
-
-		<div class="card-text col-xs-12 {{current.color}}" ng-bind-html="info.value"></div>
+	<div class="card-title col-xs-12 {{current.color}}">
+		{{title.value}}
 	</div>
 
-	<social class="row gray" ng-controller="socialCtrl"/>
+	<div class="black carousel-inner carousel-height" role="listbox">
+    	<div class="item carousel-height active" style="position: relative;">
+        	<img  
+           	class="carousel-media active" ng-src="{{'http://localhost:8080/trust/api/file/getImageWithFarm/' + data.farmId + '/normal/' + img.value}}">
+    	</div>
+    </div>
+
+	<div class="card-text col-xs-12 {{current.color}}" ng-bind-html="info.value"></div>
+
+	<social class="col-xs-12 gray" style="margin: 0;" ng-controller="socialCtrl"/>
 
 </div>

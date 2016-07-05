@@ -1,33 +1,10 @@
-<div class="minimum-width animated {{animateIn}} {{animateOut}}">
-	<div class="row card">
+<div class="animated {{animateIn}} {{animateOut}}">
+	<div >
 		<header/>
 	</div>
 
-<!-- 	<img ng-src="http://localhost:8080/trust/api/file/getImageWithFarm/13/normal/bd68fea2-b640-42.jpg"></img> -->
-
 	<card ng-repeat="t in data.timelineChilds " ng-init="id = t.id"></card>
-	<!-- <div class="row card" >
 
-		<div class="card-text col-xs-12 {{current.color}}">
-			<div class="card-title" ng-click="log()">PRODUCT NAME</div>
-		</div>
-
-
-		<div ng-if="current.carousel" class="col-xs-12 padding-none">
-			<carousel/>
-		</div>
-
-		<div class="card-text col-xs-12 {{current.color}}">
-			<p><b>Lotto:</b> </p>
-			<p><b>Data Lotto:</b>  </p>
-			<p><b>Name </b> </p>
-			<p><b>Dettagli:</b>  </p>
-			<p><b>Descrizione (Italiano)</b>  </p>
-			<p><b>Description (English)</b>  </p>
-			<p><b>Prodotti </b> </p>
-		</div>
-	</div> -->
-
-	<social class="row gray" ng-controller="socialCtrl"/>
+	<social class="col-xs-12 gray" style="margin: 0;" ng-controller="socialCtrl"/>
 	
 </div>

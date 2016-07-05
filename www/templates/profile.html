@@ -1,25 +1,21 @@
-<div class="minimum-width animated {{animateIn}} {{animateOut}} font-black">
-	<div class="row card">
+<div class="animated {{animateIn}} {{animateOut}} font-black">
+	<div>
 		<header/>
 	</div>
 
-	<div class="row overlay-container-sm">
-		<div class="fill">
-			<img src="img/farm.jpg">
-		</div>
-
-		<div class="overlay-tab-sm">
+	<div class="col-xs-12 overlay-container-sm" backimg="img/farm.jpg" >
+		<div ng-if="logo" class="overlay-tab-sm">
 			<img class="logo" ng-src="{{logo}}">
 		</div>
 	</div>
 
-
-	<div class="fill profile-pic-container">
-		<img ng-src="{{profilepic}}">
+	<div class="col-xs-12">
+		<div class=" profile-pic-container" backimg="{{profilepic}}" disablescroll="true">
+		</div>
 	</div>
 
 
-	<div class="card" >
+	<div class="col-xs-12" >
 		<div class="profile-title">
 			{{data.name}}
 			<p>{{data.description}}</p>
@@ -30,14 +26,16 @@
 
 		<div class="card-text">
 			<div class="contact-container" ng-repeat="c in contacts">
-				<img class="contact-img" ng-src="{{c.img}}">	
-				<p>{{c.value}}</p>
+				<a ng-href="{{c.link}}">
+					<img  class="contact-img" ng-src="{{c.img}}">	
+					<p>{{c.value}}</p>
+				</a>
 
 			</div>
 		</div>
 	</div>
 
 
-	<social class="row gray" ng-controller="socialCtrl"/>
+	<social class="col-xs-12 gray" style="margin: 0;" ng-controller="socialCtrl"/>
 
 </div>
