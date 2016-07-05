@@ -375,7 +375,7 @@ app.controller('nutritionCtrl', function($scope, $stateParams, Tiles, Icons) {
     $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
         for (var i = 0; i < $scope.charts.length; i++) {
             if ($('#' + $scope.charts[i].name).length) {
-                $scope.calorieChart = new Chart($('#' + $scope.charts[i].name), {
+                $scope.someChart = new Chart($('#' + $scope.charts[i].name), {
                     type: 'doughnut',
                     data: {
                         labels: ["", ""],
@@ -458,8 +458,7 @@ app.controller('recipeCtrl', function($scope, $stateParams, $rootScope, $state, 
 
     $scope.getImage = function(obj){
         if (obj.image){
-            return 'http://localhost:8080/trust/api/file/getImageWithFarm/' 
-            + obj.farmId + '/normal/' + obj.image;
+            return 'http://localhost:8080/trust/api/file/getImageWithFarm/' + obj.farmId + '/normal/' + obj.image;
         } else {
             return 'img/no_image_recipe.png';
         }
