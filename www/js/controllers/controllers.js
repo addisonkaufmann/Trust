@@ -36,7 +36,7 @@ app.controller('carouselCtrl', function($scope, Images){
 
 
 
-app.controller('co2impactCtrl', function($scope, $stateParams, Tiles, Icons){
+app.controller('co2impactCtrl', function($scope, $stateParams, Tiles, Icons, Charts){
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
     } else {
@@ -46,92 +46,16 @@ app.controller('co2impactCtrl', function($scope, $stateParams, Tiles, Icons){
     $scope.current = Tiles.get('co2impact');
     $scope.menuicon = Icons.menu();
 
-
-    // ==========  FUNCTIONS  ==========
-
-    function populatePercentage() {
-        $scope.chart.percentage = 100 * $scope.chart.data/$scope.chart.total;
-    }
-
-    function getDataArray() {
-        return [$scope.chart.data, $scope.chart.total - $scope.chart.data];
-    }
-
-    //used to dynamically resize the charts on the page
-    function innerCircleWidth() {
-        return $('div.innerPercentage').width();
-    }
-
-    function headerHeight() {
-        return $('div.innerPercentage h2').height();
-    }
-
-
-
-    $(window).resize(function() {
-        $('div.innerPercentage').css({'height': innerCircleWidth() + 'px'});
-        $('div.chart-title').css({'font-size': 0.25*innerCircleWidth() + 'px'});
-        $('div.chart-data').css({'font-size': 0.12*innerCircleWidth() + 'px'});
-        $('div.innerPercentage h2').css({'font-size': 0.30*innerCircleWidth() + 'px'});
-        $('div.innerPercentage h2').css({'margin-top': -0.5*headerHeight() + 'px'});
-        populatePercentage();
-    });
-
-
-
-    $scope.chart = {
+    $scope.chart = [{
         name: 'CO2',
-        color: 'rgba(124, 159, 64, 1)',
+        color: 'rgba(244, 89, 64, 1)',
         data: 15,
         total: 20,
         valid: true
-    };
+    }];
 
-
-
-    //Some standard formatting settings for all charts
-    var options = {
-        cutoutPercentage: 90,
-        animateIn: {
-            animateScale: true
-        },
-        legend: {
-            display: false
-        },
-        tooltips: {
-            enabled: false
-        }
-    };
-
-    var transparent = 'rgba(0, 0, 0, 0)';
-
-
-
-
-
-    if ($('#CO2').length) {
-        $scope.co2Chart = new Chart($('#' + $scope.chart.name), {
-            type: 'doughnut',
-            data: {
-                labels: ["", ""],
-                datasets: [{
-                    data: getDataArray(),
-                    backgroundColor: [
-                        $scope.chart.color,
-                        transparent
-                    ],
-                    borderColor: [
-                        $scope.chart.color,
-                        transparent
-                    ],
-                    borderWidth: 0
-                }]
-            },
-            options: options
-        });
-    }
-
-    $(window).trigger('resize');
+    $(window).resize(function() { return Charts.resizeFunction($scope.chart); });
+    Charts.createCharts($scope, $scope.chart);
 });
 
 
@@ -273,7 +197,7 @@ app.controller('ingredientCtrl', function($scope, $stateParams, Tiles, Icons){
 
 
 
-app.controller('nutritionCtrl', function($scope, $stateParams, Tiles, Icons) {
+app.controller('nutritionCtrl', function($scope, $stateParams, Tiles, Icons, Charts) {
 
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
@@ -284,42 +208,6 @@ app.controller('nutritionCtrl', function($scope, $stateParams, Tiles, Icons) {
     $scope.iconhome = Icons.home();
     $scope.current = Tiles.get('nutrition');
     $scope.menuicon = Icons.menu();
-
-
-    // ==========  FUNCTIONS  ==========
-
-    function populatePercentages() {
-        for (var i = 0; i < $scope.charts.length; i++) {
-            $scope.charts[i].percentage = 
-                100 * $scope.charts[i].data/$scope.charts[i].total;
-        }
-    }
-
-    function getDataArray(i) {
-        return [$scope.charts[i].data, $scope.charts[i].total - $scope.charts[i].data];
-    }
-
-    //used to dynamically resize the charts on the page
-    function innerCircleWidth() {
-        return $('div.innerPercentage').width();
-    }
-
-    function headerHeight() {
-        return $('div.innerPercentage h2').height();
-    }
-
-
-
-    $(window).resize(function() {
-        $('div.innerPercentage').css({'height': innerCircleWidth() + 'px'});
-        $('div.chart-title').css({'font-size': 0.25*innerCircleWidth() + 'px'});
-        $('div.chart-data').css({'font-size': 0.12*innerCircleWidth() + 'px'});
-        $('div.innerPercentage h2').css({'font-size': 0.30*innerCircleWidth() + 'px'});
-        $('div.innerPercentage h2').css({'margin-top': -0.5*headerHeight() + 'px'});
-        populatePercentages();
-    });
-
-
 
     $scope.charts = [
         {
@@ -341,63 +229,19 @@ app.controller('nutritionCtrl', function($scope, $stateParams, Tiles, Icons) {
             color: 'rgba(124, 159, 64, 1)',
             data: 10,
             total: 20,
-            valid: false
+            valid: true
         }
     ];
 
-
-
-    //Some standard formatting settings for all charts
-    var options = {
-        cutoutPercentage: 90,
-        animateIn: {
-            animateScale: true
-        },
-        legend: {
-            display: false
-        },
-        tooltips: {
-            enabled: false
-        }
-    };
-
-    var transparent = 'rgba(0, 0, 0, 0)';
-
+    $(window).resize(function() { return Charts.resizeFunction($scope.charts); });
 
 
     //must wait until the ng-repeat directive is finished, otherwise none
     //of the elements will be rendered on the page. In this case, all of the 
     //if(someElement.length) statements will evaluate to false because they do not
     //exist yet
-
-
-
     $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
-        for (var i = 0; i < $scope.charts.length; i++) {
-            if ($('#' + $scope.charts[i].name).length) {
-                $scope.someChart = new Chart($('#' + $scope.charts[i].name), {
-                    type: 'doughnut',
-                    data: {
-                        labels: ["", ""],
-                        datasets: [{
-                            data: getDataArray(i),
-                            backgroundColor: [
-                                $scope.charts[i].color,
-                                transparent
-                            ],
-                            borderColor: [
-                                $scope.charts[i].color,
-                                transparent
-                            ],
-                            borderWidth: 0
-                        }]
-                    },
-                    options: options
-                });
-            }
-        }
-
-        $(window).trigger('resize');
+        Charts.createCharts($scope, $scope.charts);
     });
 
 
@@ -557,8 +401,7 @@ app.controller('summaryCtrl', function($scope, $timeout, $state, data){
 
 
 
-app.controller('waterCtrl', function($scope, $stateParams, Tiles, Icons){
-    // console.log($stateParams.animateIn);
+app.controller('waterCtrl', function($scope, $stateParams, Tiles, Icons, Charts){
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
     } else {
@@ -568,97 +411,22 @@ app.controller('waterCtrl', function($scope, $stateParams, Tiles, Icons){
     $scope.current = Tiles.get('water');
     $scope.menuicon = Icons.menu();
 
-
-    // ==========  FUNCTIONS  ==========
-
-    function populatePercentage() {
-        $scope.chart.percentage = 100 * $scope.chart.data/$scope.chart.total;
-    }
-
-    function getDataArray() {
-        return [$scope.chart.data, $scope.chart.total - $scope.chart.data];
-    }
-
-    //used to dynamically resize the charts on the page
-    function innerCircleWidth() {
-        return $('div.innerPercentage').width();
-    }
-
-    function headerHeight() {
-        return $('div.innerPercentage h2').height();
-    }
-
-
-
-    $(window).resize(function() {
-        $('div.innerPercentage').css({'height': innerCircleWidth() + 'px'});
-        $('div.chart-title').css({'font-size': 0.25*innerCircleWidth() + 'px'});
-        $('div.chart-data').css({'font-size': 0.12*innerCircleWidth() + 'px'});
-        $('div.innerPercentage h2').css({'font-size': 0.30*innerCircleWidth() + 'px'});
-        $('div.innerPercentage h2').css({'margin-top': -0.5*headerHeight() + 'px'});
-        populatePercentage();
-    });
-
-
-
-    $scope.chart = {
+    $scope.chart = [{
         name: 'Water',
         color: 'rgba(1, 259, 164, 1)',
         data: 7,
         total: 20,
         valid: true
-    };
+    }];
 
-
-
-    //Some standard formatting settings for all charts
-    var options = {
-        cutoutPercentage: 90,
-        animateIn: {
-            animateScale: true
-        },
-        legend: {
-            display: false
-        },
-        tooltips: {
-            enabled: false
-        }
-    };
-
-    var transparent = 'rgba(0, 0, 0, 0)';
-
-
-
-
-
-    if ($('#Water').length) {
-        $scope.waterChart = new Chart($('#' + $scope.chart.name), {
-            type: 'doughnut',
-            data: {
-                labels: ["", ""],
-                datasets: [{
-                    data: getDataArray(),
-                    backgroundColor: [
-                        $scope.chart.color,
-                        transparent
-                    ],
-                    borderColor: [
-                        $scope.chart.color,
-                        transparent
-                    ],
-                    borderWidth: 0
-                }]
-            },
-            options: options
-        });
-    }
-
-    $(window).trigger('resize');
+    $(window).resize(function() { return Charts.resizeFunction($scope.chart); });
+    Charts.createCharts($scope, $scope.chart);
 });
+
+
 
 app.controller('cardCtrl', function($scope){
     $scope.expand = false;
- 
 });
 
 

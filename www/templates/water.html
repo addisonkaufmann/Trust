@@ -14,14 +14,14 @@
 			<carousel/>
 		</div> -->
 
-		<div class="chart-container chart-single" ng-show="chart.valid">
-			<div class="chart-title">{{chart.name}}</div>
-			<div class="chart-data">{{chart.data}}</div>
+		<div class="chart-container chart-single" ng-show="chart[0].valid">
+			<div class="chart-title">{{chart[0].name}}</div>
+			<div class="chart-data">{{chart[0].data}}</div>
 			<div>
 				<canvas id="Water" width="1" height="1"></canvas>
 			</div>
 			<div class="innerPercentage">
-				<h2>{{chart.percentage|number:0}}%</h2>
+				<h2>{{chart[0].percentage|number:0}}%</h2>
 			</div>
 		</div>
 
@@ -29,9 +29,11 @@
 
 
 		<div class="card-text col-xs-12 {{current.color}}">
-			<p><b>Info:</b> </p>
+			<p><b>Info:</b></p>
 			<p>Lorem ipsum dolor sit amet, ea eos nibh modus accommodare, sed probo ridens eu, et aperiam platonem pro. Phaedrum voluptatum mei in, ei ceteros dissentias ullamcorper eos, ius ex case quaerendum. Vim eu brute appetere, sale eripuit ne pro. Nam te wisi harum albucius, id est dico habeo atqui. Duo amet modus facete te. Ad atomorum mnesarchum referrentur mel, ne sed stet semper, et vis rebum possit voluptua. Ne est propriae splendide, est et odio dolorem.</p>
 		</div>
 	</div>
+
+
 	
 </div>

@@ -15,14 +15,14 @@
 		</div> -->
 
 
-		<div class="chart-container chart-single" ng-show="chart.valid">
-			<div class="chart-title">{{chart.name}}</div>
-			<div class="chart-data">{{chart.data}}</div>
+		<div class="chart-container chart-single" ng-show="chart[0].valid">
+			<div class="chart-title">{{chart[0].name}}</div>
+			<div class="chart-data">{{chart[0].data}}</div>
 			<div>
 				<canvas id="CO2" width="1" height="1"></canvas>
 			</div>
 			<div class="innerPercentage">
-				<h2>{{chart.percentage|number:0}}%</h2>
+				<h2>{{chart[0].percentage|number:0}}%</h2>
 			</div>
 		</div>
 
