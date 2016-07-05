@@ -10,9 +10,23 @@
 		</div>
 
 
-		<div ng-if="current.data.carousel" class="col-xs-12 padding-none">
+		<!-- <div ng-if="current.data.carousel" class="col-xs-12 padding-none">
 			<carousel/>
+		</div> -->
+
+
+		<div class="chart-container" ng-show="chart.valid">
+			<div class="chart-title">{{chart.name}}</div>
+			<div class="chart-data">{{chart.data}}</div>
+			<div>
+				<canvas id="CO2" width="1" height="1"></canvas>
+			</div>
+			<div class="innerPercentage">
+				<h2>{{chart.percentage|number:0}}%</h2>
+			</div>
 		</div>
+
+
 
 		<div class="card-text col-xs-12 {{current.color}}">
 			<p><b>Info:</b> </p>

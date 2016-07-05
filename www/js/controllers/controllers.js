@@ -45,6 +45,93 @@ app.controller('co2impactCtrl', function($scope, $stateParams, Tiles, Icons){
     $scope.iconhome = Icons.home();
     $scope.current = Tiles.get('co2impact');
     $scope.menuicon = Icons.menu();
+
+
+    // ==========  FUNCTIONS  ==========
+
+    function populatePercentage() {
+        $scope.chart.percentage = 100 * $scope.chart.data/$scope.chart.total;
+    }
+
+    function getDataArray() {
+        return [$scope.chart.data, $scope.chart.total - $scope.chart.data];
+    }
+
+    //used to dynamically resize the charts on the page
+    function innerCircleWidth() {
+        return $('div.innerPercentage').width();
+    }
+
+    function headerHeight() {
+        return $('div.innerPercentage h2').height();
+    }
+
+
+
+    $(window).resize(function() {
+        $('div.innerPercentage').css({'height': innerCircleWidth() + 'px'});
+        $('div.chart-title').css({'font-size': 0.25*innerCircleWidth() + 'px'});
+        $('div.chart-data').css({'font-size': 0.12*innerCircleWidth() + 'px'});
+        $('div.innerPercentage h2').css({'font-size': 0.30*innerCircleWidth() + 'px'});
+        $('div.innerPercentage h2').css({'margin-top': -0.5*headerHeight() + 'px'});
+        populatePercentage();
+    });
+
+
+
+    $scope.chart = {
+        name: 'CO2',
+        color: 'rgba(124, 159, 64, 1)',
+        data: 15,
+        total: 20,
+        valid: true
+    };
+
+
+
+    //Some standard formatting settings for all charts
+    var options = {
+        cutoutPercentage: 90,
+        animateIn: {
+            animateScale: true
+        },
+        legend: {
+            display: false
+        },
+        tooltips: {
+            enabled: false
+        }
+    };
+
+    var transparent = 'rgba(0, 0, 0, 0)';
+
+
+
+
+
+    if ($('#CO2').length) {
+        $scope.co2Chart = new Chart($('#' + $scope.chart.name), {
+            type: 'doughnut',
+            data: {
+                labels: ["", ""],
+                datasets: [{
+                    data: getDataArray(),
+                    backgroundColor: [
+                        $scope.chart.color,
+                        transparent
+                    ],
+                    borderColor: [
+                        $scope.chart.color,
+                        transparent
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: options
+        });
+    }
+
+    $(window).trigger('resize');
 });
 
 
@@ -186,7 +273,7 @@ app.controller('ingredientCtrl', function($scope, $stateParams, Tiles, Icons){
 
 
 
-app.controller('nutritionCtrl', function($scope, $stateParams, $timeout, Tiles, Icons) {
+app.controller('nutritionCtrl', function($scope, $stateParams, Tiles, Icons) {
 
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
@@ -286,71 +373,28 @@ app.controller('nutritionCtrl', function($scope, $stateParams, $timeout, Tiles, 
 
 
     $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
-
-        if ($('#Calories').length) {
-            $scope.calorieChart = new Chart($('#' + $scope.charts[0].name), {
-                type: 'doughnut',
-                data: {
-                    labels: ["", ""],
-                    datasets: [{
-                        data: getDataArray(0),
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 1)',
-                            transparent
-                        ],
-                        borderColor: [
-                            'rgba(255,99,132,1)',
-                            transparent
-                        ],
-                        borderWidth: 0
-                    }]
-                },
-                options: options
-            });
-        }
-
-        if ($('#Protein').length) {
-            $scope.proteinChart = new Chart($('#' + $scope.charts[1].name), {
-                type: 'doughnut',
-                data: {
-                    labels: ["", ""],
-                    datasets: [{
-                        data: getDataArray(1),
-                        backgroundColor: [
-                            'rgba(155, 199, 32, 1)',
-                            transparent
-                        ],
-                        borderColor: [
-                            'rgba(155, 199, 32, 1)',
-                            transparent
-                        ],
-                        borderWidth: 0
-                    }]
-                },
-                options: options
-            });
-        }
-
-        if ($('#Fat').length) {
-            $scope.fatChart = new Chart($('#' + $scope.charts[2].name), {
-                type: 'doughnut',
-                data: {
-                    labels: ["", ""],
-                    datasets: [{
-                        data: getDataArray(2),
-                        backgroundColor: [
-                            'rgba(124, 159, 64, 1)',
-                            transparent
-                        ],
-                        borderColor: [
-                            'rgba(124, 159, 64, 1)',
-                            transparent
-                        ],
-                        borderWidth: 0
-                    }]
-                },
-                options: options
-            });
+        for (var i = 0; i < $scope.charts.length; i++) {
+            if ($('#' + $scope.charts[i].name).length) {
+                $scope.calorieChart = new Chart($('#' + $scope.charts[i].name), {
+                    type: 'doughnut',
+                    data: {
+                        labels: ["", ""],
+                        datasets: [{
+                            data: getDataArray(i),
+                            backgroundColor: [
+                                $scope.charts[i].color,
+                                transparent
+                            ],
+                            borderColor: [
+                                $scope.charts[i].color,
+                                transparent
+                            ],
+                            borderWidth: 0
+                        }]
+                    },
+                    options: options
+                });
+            }
         }
 
         $(window).trigger('resize');

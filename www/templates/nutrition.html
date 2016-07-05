@@ -11,14 +11,14 @@
 
 
 		<div ng-repeat="c in charts" on-finish-render="ngRepeatFinished" class="chart-container col-xs-1" ng-show="c.valid">
-				<div class="chart-title">{{c.name}}</div>
-				<div class="chart-data">{{c.data}}</div>
-				<div>
-					<canvas id="{{c.name}}" width="1" height="1"></canvas>
-				</div>
-				<div class="innerPercentage">
-					<h2>{{c.percentage|number:0}}%</h2>
-				</div>
+			<div class="chart-title">{{c.name}}</div>
+			<div class="chart-data">{{c.data}}</div>
+			<div>
+				<canvas id="{{c.name}}" width="1" height="1"></canvas>
+			</div>
+			<div class="innerPercentage">
+				<h2>{{c.percentage|number:0}}%</h2>
+			</div>
 		</div>
 	</div>
 
