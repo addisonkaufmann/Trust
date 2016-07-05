@@ -1,3 +1,17 @@
+app.directive('backimg', function(){
+    return function(scope, element, attrs){
+        var url = attrs.backimg;
+        console.log(url);
+        element.css({
+            'background-image': 'url(' + url +')',
+            'background-size': 'cover',
+            'background-repeat': 'no-repeat',
+            'background-attachment': 'fixed',
+            'background-position': 'center bottom'
+        });
+    };
+});
+
 app.directive('onFinishRender', function ($timeout) {
     return {
         restrict: 'A',

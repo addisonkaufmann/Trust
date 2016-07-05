@@ -110,9 +110,9 @@ html, body {
 		margin-left:-15px;
 	}
 
-	.overlay-container-sm {
-		margin-left:-15px;
-	}
+	// .overlay-container-sm {
+	// 	margin-left:-15px;
+	// }
 }
 
 @media (min-width: $min-width-sm){
@@ -295,6 +295,7 @@ html, body {
 }
 
 .card {
+	min-width: 400px;
 	margin-bottom: 1%;
 }
 
@@ -304,6 +305,7 @@ html, body {
 	@media (max-width: $max-width-xs) {
 		font-size: small;
 	}
+	margin-bottom: 1%;
 }
 
 .card-title {
@@ -325,6 +327,13 @@ html, body {
 
 	.chart-data {
 		margin-bottom: 5%;
+	}
+}
+
+.container{
+	@media (max-width: $max-width-xs){
+		padding: 0;
+
 	}
 }
 
@@ -371,6 +380,7 @@ html, body {
 .header-container {
 	padding-left: 3%;
 	padding-right: 3%;
+	margin-bottom: 1%;
 	height: 60px;
 	@media (max-width: $max-width-xs) {
 		height: 45px;
@@ -511,8 +521,14 @@ html, body {
 	min-height: 455px;
 }
 
+
+.newfill{
+	height: 45vh;
+}
+
 .overlay-container-sm {
-	@include overlay-common;
+	position: relative;
+	// @include overlay-common;
 	height:45vh;
 	min-height: 200px;
 }

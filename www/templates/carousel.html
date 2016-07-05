@@ -1,4 +1,4 @@
-<div  class="carousel slide" ng-controller="carouselCtrl" ng-init = "carousel = getCarousel(t)">
+<div  class="black col-xs-12 carousel slide" ng-controller="carouselCtrl" ng-init = "carousel = getCarousel(t)">
     
     <!-- Indicators -->
     <ol ng-if="carousel.length > 1" class="carousel-indicators">
@@ -7,7 +7,7 @@
 
 
     <!-- Carousel -->
-    <div class="carousel-inner black carousel-height" role="listbox">
+    <div class="carousel-inner carousel-height" role="listbox">
         <div class="item carousel-height" style="position: relative;"  ng-class="{'active': i.active}" ng-repeat="i in carousel">
             <img 
                 class="carousel-media animated" 

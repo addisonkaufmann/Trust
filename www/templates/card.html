@@ -1,58 +1,57 @@
-<div ng-controller="cardCtrl">
+<div  ng-controller="cardCtrl">
 	
-	<div class="row">
-		<div class="card-title col-xs-12 {{current.color}}">
-			{{t.title}}
+
+	<div class="card-title col-xs-12 {{current.color}}">
+		{{t.title}}
+	</div>
+
+
+	<carousel ng-if="t.image"></carousel>
+
+
+
+	<div class="card-text col-xs-12 {{current.color}}">
+
+		<b ng-if="t.details">DETAILS</b>
+		<div ng-repeat="d in t.details">
+			<p>{{d.value}}</p>
 		</div>
-	</div>
 
-	<div class="row"  ng-if="t.image">
-		<carousel/>
-	</div>
-
-	<div class="row card" >
-		<div class="card-text col-xs-12 {{current.color}}">
-
-			<b ng-if="t.details">DETAILS</b>
-			<div ng-repeat="d in t.details">
-				<p>{{d.value}}</p>
+		<b ng-if="t.infoChilds">INFO CHILDS</b>
+		<div ng-repeat="i in t.infoChilds">
+			<div ng-repeat = "item in i.details">
+				<b>{{item.key}}</b>:{{item.value}}
+				<br></br>
 			</div>
+		</div>
 
-			<b ng-if="t.infoChilds">INFO CHILDS</b>
-			<div ng-repeat="i in t.infoChilds">
-				<div ng-repeat = "item in i.details">
-					<b>{{item.key}}</b>:{{item.value}}
-					<br></br>
-				</div>
-			</div>
+		<b ng-if="t.plannedProducts">PLANNED PRODUCTS</b>
+		<div ng-repeat="p in t.plannedProducts">
+			<p>{{p.value}}</p>
+		</div>
 
-			<b ng-if="t.plannedProducts">PLANNED PRODUCTS</b>
-			<div ng-repeat="p in t.plannedProducts">
-				<p>{{p.value}}</p>
-			</div>
+		<div ng-if="t.timelineChilds"  >
 
-			<div ng-if="t.timelineChilds"  >
+			<div ng-show="!expand" ng-class="social-img " ng-click="expand = !expand" >
+	            <img class="small-chevron" ng-src="{{iconhome + 'chevron_down.png'}}">
+	            More   
+	        </div>
 
-				<div ng-show="!expand" ng-class="social-img " ng-click="expand = !expand" >
-		            <img class="small-chevron" ng-src="{{iconhome + 'chevron_down.png'}}">
-		            More   
-		        </div>
+	        <div ng-show="expand" ng-class="social-img" ng-click="expand = !expand" >  
+	            <img class="small-chevron" ng-src="{{iconhome + 'chevron_up.png'}}">
+	            Less
+	        </div>
 
-		        <div ng-show="expand" ng-class="social-img" ng-click="expand = !expand" >  
-		            <img class="small-chevron" ng-src="{{iconhome + 'chevron_up.png'}}">
-		            Less
-		        </div>
-
-				<card class="animated fadeIn" 
-					ng-if="expand" 
-					style = "padding-left: 3%;" 
-					ng-repeat="t in t.timelineChilds">
-				</card>
-
-			</div>
+			<card class="animated fadeIn" 
+				ng-if="expand" 
+				style = "padding-left: 3%; padding-right: 1%;" 
+				ng-repeat="t in t.timelineChilds">
+			</card>
 
 		</div>
+
 	</div>
+
 
 
 </div>
