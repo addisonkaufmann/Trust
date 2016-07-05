@@ -125,7 +125,6 @@ app.service('Contact', function(Icons){
             link = val;
         }
 
-https://www.google.it/maps/place/Via+dei+Lamberti,+1,+50123+Firenze/
         this.link = link;
 
         this.type = type;

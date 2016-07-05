@@ -508,7 +508,10 @@ app.controller('summaryCtrl', function($scope, $timeout, $state, data){
     $scope.data = data.data;
 
     var imgUrl = 'http://localhost:8080/trust/api/file/getImageWithFarm/'+ $scope.data.id + '/normal/';
-    $scope.logo =  imgUrl + $scope.data.logo;
+    $scope.logo= '';
+    if ($scope.data.logo){
+        $scope.logo =  imgUrl + $scope.data.logo;
+    }
 
     $scope.animateExit = false;
 
