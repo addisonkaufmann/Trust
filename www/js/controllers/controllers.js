@@ -341,7 +341,7 @@ app.controller('nutritionCtrl', function($scope, $stateParams, Tiles, Icons) {
             color: 'rgba(124, 159, 64, 1)',
             data: 10,
             total: 20,
-            valid: true
+            valid: false
         }
     ];
 
@@ -567,6 +567,93 @@ app.controller('waterCtrl', function($scope, $stateParams, Tiles, Icons){
     $scope.iconhome = Icons.home();
     $scope.current = Tiles.get('water');
     $scope.menuicon = Icons.menu();
+
+
+    // ==========  FUNCTIONS  ==========
+
+    function populatePercentage() {
+        $scope.chart.percentage = 100 * $scope.chart.data/$scope.chart.total;
+    }
+
+    function getDataArray() {
+        return [$scope.chart.data, $scope.chart.total - $scope.chart.data];
+    }
+
+    //used to dynamically resize the charts on the page
+    function innerCircleWidth() {
+        return $('div.innerPercentage').width();
+    }
+
+    function headerHeight() {
+        return $('div.innerPercentage h2').height();
+    }
+
+
+
+    $(window).resize(function() {
+        $('div.innerPercentage').css({'height': innerCircleWidth() + 'px'});
+        $('div.chart-title').css({'font-size': 0.25*innerCircleWidth() + 'px'});
+        $('div.chart-data').css({'font-size': 0.12*innerCircleWidth() + 'px'});
+        $('div.innerPercentage h2').css({'font-size': 0.30*innerCircleWidth() + 'px'});
+        $('div.innerPercentage h2').css({'margin-top': -0.5*headerHeight() + 'px'});
+        populatePercentage();
+    });
+
+
+
+    $scope.chart = {
+        name: 'Water',
+        color: 'rgba(1, 259, 164, 1)',
+        data: 7,
+        total: 20,
+        valid: true
+    };
+
+
+
+    //Some standard formatting settings for all charts
+    var options = {
+        cutoutPercentage: 90,
+        animateIn: {
+            animateScale: true
+        },
+        legend: {
+            display: false
+        },
+        tooltips: {
+            enabled: false
+        }
+    };
+
+    var transparent = 'rgba(0, 0, 0, 0)';
+
+
+
+
+
+    if ($('#Water').length) {
+        $scope.waterChart = new Chart($('#' + $scope.chart.name), {
+            type: 'doughnut',
+            data: {
+                labels: ["", ""],
+                datasets: [{
+                    data: getDataArray(),
+                    backgroundColor: [
+                        $scope.chart.color,
+                        transparent
+                    ],
+                    borderColor: [
+                        $scope.chart.color,
+                        transparent
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: options
+        });
+    }
+
+    $(window).trigger('resize');
 });
 
 app.controller('cardCtrl', function($scope){
