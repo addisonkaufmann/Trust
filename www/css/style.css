@@ -19,14 +19,30 @@ html, body {
   .overlay-container {
     position: relative;
     width: 100vw;
-    height: 100vh;
-    margin-left: -15px; } }
+    height: 100vh; } }
 
 @media (min-width: 768px) {
   .overlay-container {
     position: relative;
     height: 100vh;
     width: 100%; } }
+
+.recipe-left {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: 0;
+  padding-left: 0;
+  padding-right: 0.5vw;
+  padding-bottom: 1vh; }
+
+/*tiles on the right side*/
+.recipe-right {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: 0;
+  padding-left: 0;
+  padding-left: 0.5vw;
+  padding-bottom: 1vh; }
 
 @media (max-width: 991px) {
   /*tiles on the left side*/
@@ -659,19 +675,14 @@ a:hover {
 
 /*	IDs	- ALPHABETICAL	*/
 @media (min-width: 992px) {
-  #socialDash {
-    margin-left: 1vh;
-    margin-right: 1vh; } }
-
-@media (min-width: 992px) {
   #tileContainer {
     padding-left: 1vh;
     padding-right: 1vh; } }
 
 @media (min-width: 992px) {
   #tilesContainer {
-    margin-left: 0px;
-    margin-right: 0px; } }
+    margin-left: -0.5vw;
+    margin-right: -0.5vw; } }
 
 /*Styling for splash page*/
 #loader-wrapper {

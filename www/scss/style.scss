@@ -107,7 +107,7 @@ html, body {
 		@include overlay-common;
 		width: 100vw;
 		height: 100vh;
-		margin-left:-15px;
+
 	}
 
 	// .overlay-container-sm {
@@ -121,6 +121,19 @@ html, body {
 		height: 100vh;
 		width: 100%;
 	}
+}
+
+.recipe-left {
+		@include padding-none;
+		padding-right: 0.5vw;
+		padding-bottom: 1vh;
+
+	}
+	/*tiles on the right side*/
+.recipe-right {
+	@include padding-none;
+	padding-left: 0.5vw;
+	padding-bottom: 1vh;
 }
 
 @media (max-width: $max-width-sm ) {
@@ -834,12 +847,12 @@ a:hover {
 
 /*	IDs	- ALPHABETICAL	*/
 
-#socialDash {
-	@media (min-width: $min-width-md) {
-		margin-left: 1vh;
-		margin-right: 1vh;
-	}
-}
+// #socialDash {
+// 	@media (min-width: $min-width-md) {
+// 		margin-left: 1vh;
+// 		margin-right: 1vh;
+// 	}
+// }
 
 #tileContainer {
 	@media (min-width: $min-width-md) {
@@ -850,8 +863,8 @@ a:hover {
 
 #tilesContainer {
 	@media (min-width: $min-width-md) {
-		margin-left: 0px;
-		margin-right: 0px;
+		margin-left: -0.5vw;
+		margin-right: -0.5vw;
 	}
 }
 
