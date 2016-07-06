@@ -214,9 +214,6 @@ html, body {
   padding: 3%; }
 
 .chart-container {
-  /*set height in javascript*/
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
   color: #8a8a8a; }
   .chart-container .chart-data {
@@ -228,7 +225,10 @@ html, body {
 
 .chart-single {
   width: 50%;
-  max-width: 300px; }
+  max-width: 300px;
+  /*set height in javascript*/
+  margin-left: auto;
+  margin-right: auto; }
 
 .contact-container {
   padding-bottom: 2%; }

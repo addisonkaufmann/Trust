@@ -331,9 +331,6 @@ html, body {
 
 
 .chart-container {
-	/*set height in javascript*/
-	margin-left: auto;
-	margin-right: auto;
 	text-align: center;
 	color: $gray;
 
@@ -353,6 +350,9 @@ html, body {
 .chart-single {
 	width: 50%;
 	max-width: 300px;
+	/*set height in javascript*/
+	margin-left: auto;
+	margin-right: auto;
 }
 
 
