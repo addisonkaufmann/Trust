@@ -443,6 +443,9 @@ html, body {
 
 	.header-left, .header-right {
 		height: 40px;
+		@include active-scale(0.9);
+		opacity: 0.7;
+		@include hover-opacity(1);
 	}
 
 	@media (max-width: $max-width-xs) {
