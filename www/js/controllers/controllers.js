@@ -361,6 +361,13 @@ app.controller('socialCtrl', function($scope, $state, $location, $window, $rootS
             $state.current = toState;  
         });
 
+    // angular.element($window).bind('resize', function () {
+    //     if ($window.innerWidth >= 992){
+    //         $scope.hideExpand();
+    //         console.log($scope.expand);
+    //     }
+    // });
+
     $scope.state = $state.current.name;
 
     $scope.iconhome = Icons.home();
@@ -379,7 +386,6 @@ app.controller('socialCtrl', function($scope, $state, $location, $window, $rootS
 
     $scope.scrollToBottom = function(){
         $("html,body").animate({ scrollTop: $window.innerHeight}, "slow");
-
     };
 
     $scope.scrollToTop = function(){
@@ -391,8 +397,12 @@ app.controller('socialCtrl', function($scope, $state, $location, $window, $rootS
 
 
 
-app.controller('summaryCtrl', function($scope, $timeout, $state, data){
+app.controller('summaryCtrl', function($window, $scope, $timeout, $state, data){
     $scope.data = data.data;
+    // console.log($window.innerWidth);
+
+
+
 
     var imgUrl = 'http://localhost:8080/trust/api/file/getImageWithFarm/'+ $scope.data.id + '/normal/';
     $scope.logo= '';

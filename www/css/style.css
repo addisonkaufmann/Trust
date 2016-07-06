@@ -371,12 +371,15 @@ html, body {
 .overlay-container {
   min-height: 350px; }
 
-.overlay-container-expanded {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  height: 130vh;
-  min-height: 455px; }
+@media (max-width: 991px) {
+  .overlay-container-expanded {
+    position: relative;
+    height: 130vh;
+    min-height: 455px; } }
+
+@media (min-width: 992px) {
+  .overlay-container-expanded {
+    height: 100vh; } }
 
 .overlay-container-sm {
   position: relative;
@@ -416,7 +419,7 @@ html, body {
   overflow-x: auto;
   -ms-overflow-x: auto;
   -ms-overflow-style: none;
-  bottom: 25%; }
+  bottom: 23%; }
   @media (max-height: 500px) {
     .overlay-title {
       font-size: 30px; } }
@@ -512,7 +515,7 @@ html, body {
   margin-left: 3vw;
   margin-right: 3vw; }
 
-.summary-social {
+.overlay-social {
   width: 100%;
   position: absolute;
   top: 77%; }

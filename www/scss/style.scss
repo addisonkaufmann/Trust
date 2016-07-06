@@ -513,13 +513,16 @@ html, body {
 	min-height: 350px;
 }
 
+
 .overlay-container-expanded {
-	@include overlay-common;
-	width: 100vw;
-	height: 100vh;
-	
-	height: 130vh;
-	min-height: 455px;
+	@media(max-width: $max-width-sm){
+		@include overlay-common;
+		height: 130vh;
+		min-height: 455px;
+	}
+	@media(min-width: $min-width-md){
+		height: 100vh;
+	}
 }
 
 
@@ -578,7 +581,7 @@ html, body {
 	overflow-x: auto;
 	-ms-overflow-x: auto;
 	-ms-overflow-style: none;
-	bottom: 25%;
+	bottom: 23%;
 
 	p{
 		font-size: $font-normal-responsive;
@@ -695,7 +698,7 @@ html, body {
 	margin-right: 3vw;
 }
 
-.summary-social {
+.overlay-social {
 	width: 100%;
 	position: absolute;
 	top: 77%;
