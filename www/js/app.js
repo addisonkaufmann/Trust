@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router', 'ngSanitize']);
+var app = angular.module('app', ['ui.router', 'ngSanitize', 'matchMedia']);
 
 
 $(window).load(function() {

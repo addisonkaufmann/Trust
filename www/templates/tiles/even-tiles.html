@@ -2,10 +2,11 @@
 	 class="{{classes}} animated" 
 	 id="tileContainer"
 	 ng-class="{
-		'fadeInLeft': $even, 
-		'fadeInRight': $odd, 
+		'fadeInLeft': $even && (size === 'sm' || size === 'xs' || numValidTiles === 4 || numValidTiles === 2), 
+		'fadeInRight': $odd && (size === 'sm' || size === 'xs' || numValidTiles === 4 || numValidTiles === 2), 
 		'left': $even, 
-		'right': $odd}"
+		'right': $odd, 
+		'fadeInDown': (size === 'md' || size === 'lg') && numValidTiles !== 4}"
 	 ng-click="animateLink(t.link, false, $odd)">
 
 	<div class="tile-animate {{tilesize}} tile-lg {{t.color}}">
@@ -13,3 +14,4 @@
 		<div class="tile-text">{{t.content}}</div>
 	</div>
 </div>
+

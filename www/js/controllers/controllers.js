@@ -32,10 +32,6 @@ app.controller('carouselCtrl', function($scope, Images){
 });
 
 
-
-
-
-
 app.controller('co2impactCtrl', function($scope, $stateParams, Tiles, Icons, Charts){
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
@@ -60,7 +56,20 @@ app.controller('co2impactCtrl', function($scope, $stateParams, Tiles, Icons, Cha
 
 
 
-app.controller('dashCtrl', function($scope, $http, $timeout, $rootScope, $stateParams, $state, Icons, Tiles, TileClasses){
+app.controller('dashCtrl', function($scope, screenSize, $http, $timeout, $rootScope, $stateParams, $state, Icons, Tiles, TileClasses){
+
+    $scope.size = '';
+
+    if (screenSize.is('xs')) {$scope.size = 'xs';}
+    if (screenSize.is('sm')) {$scope.size = 'sm';}
+    if (screenSize.is('md')) {$scope.size = 'md';}
+    if (screenSize.is('lg')) {$scope.size = 'lg';}
+
+    screenSize.on('xs', function() {$scope.size = 'xs'; });
+    screenSize.on('sm', function() {$scope.size = 'sm'; });
+    screenSize.on('md', function() {$scope.size = 'md'; });
+    screenSize.on('lg', function() {$scope.size = 'lg'; });
+
 
     $rootScope.$on('$stateChangeSuccess', 
         function(event, toState, toParams, fromState, fromParams){
@@ -88,21 +97,12 @@ app.controller('dashCtrl', function($scope, $http, $timeout, $rootScope, $stateP
     $scope.classes = $scope.tileclasses.classes;
     $scope.first = $scope.tileclasses.first;
 
-    $scope.exitLeft = false;
-    $scope.exitRight = false;
-    $scope.exitDown = false;
-
     $scope.animateLink = function(link, first, even) {
 
         var animateIn = '';
         var animateOut = '';
 
-        if (first){
-            $scope.animateDash = 'fadeOutDown';
-            animateIn = 'fadeInDown';
-            animateOut = 'fadeOutUp';
-
-        } else {
+        if ($scope.size === 'xs' || $scope.size === 'sm'){
             if (even){
                 $scope.animateDash = 'fadeOutLeft';
                 animateIn = 'fadeInRight';
@@ -113,7 +113,13 @@ app.controller('dashCtrl', function($scope, $http, $timeout, $rootScope, $stateP
                 animateIn = 'fadeInLeft';
                 animateOut = 'fadeOutLeft';
             }
+        } else {
+            $scope.animateDash = 'fadeOut';
+            animateIn = 'fadeIn';
+            animateOut = 'fadeOut';
+
         }
+        console.log('going out with ' + animateOut);
 
         $timeout(function() {
             $state.go(link, { animateIn: animateIn, animateOut: animateOut });
@@ -250,7 +256,6 @@ app.controller('nutritionCtrl', function($scope, $stateParams, Tiles, Icons, Cha
 
 
 app.controller('profileCtrl', function($scope, $stateParams, Contacts, Tiles, Icons, data) {
-    
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
     } else {
@@ -379,7 +384,6 @@ app.controller('socialCtrl', function($scope, $state, $location, $window, $rootS
 
     $scope.scrollToBottom = function(){
         $("html,body").animate({ scrollTop: $window.innerHeight}, "slow");
-
     };
 
     $scope.scrollToTop = function(){
@@ -391,8 +395,12 @@ app.controller('socialCtrl', function($scope, $state, $location, $window, $rootS
 
 
 
-app.controller('summaryCtrl', function($scope, $timeout, $state, data){
+app.controller('summaryCtrl', function($window, $scope, $timeout, $state, data){
     $scope.data = data.data;
+    // console.log($window.innerWidth);
+
+
+
 
     var imgUrl = 'http://localhost:8080/trust/api/file/getImageWithFarm/'+ $scope.data.id + '/normal/';
     $scope.logo= '';
@@ -403,6 +411,7 @@ app.controller('summaryCtrl', function($scope, $timeout, $state, data){
     $scope.animateExit = false;
 
     $scope.exit = function(){
+        $scope.animateExit = true;
         $timeout(function() {
             $state.go('home');
         }, 1000);
