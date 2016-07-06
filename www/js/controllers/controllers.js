@@ -106,26 +106,8 @@ app.controller('dashCtrl', function($scope, screenSize, $http, $timeout, $rootSc
         var animateIn = '';
         var animateOut = '';
 
-        // if (first){
-        //     $scope.animateDash = 'fadeOutUp';
-        //     animateIn = 'fadeInDown';
-        //     animateOut = 'fadeOutUp';
-
-        // } else {
-            // if (even){
-            //     $scope.animateDash = 'fadeOutLeft';
-            //     animateIn = 'fadeInRight';
-            //     animateOut = 'fadeOutRight'; 
-
-            // } else {
-            //     $scope.animateDash = 'fadeOutRight';
-            //     animateIn = 'fadeInLeft';
-            //     animateOut = 'fadeOutLeft';
-            // }
-        // }
-
         if ($scope.size === 'xs' || $scope.size === 'sm'){
-             if (even){
+            if (even){
                 $scope.animateDash = 'fadeOutLeft';
                 animateIn = 'fadeInRight';
                 animateOut = 'fadeOutRight'; 
