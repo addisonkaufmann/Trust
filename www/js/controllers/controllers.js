@@ -32,10 +32,6 @@ app.controller('carouselCtrl', function($scope, Images){
 });
 
 
-
-
-
-
 app.controller('co2impactCtrl', function($scope, $stateParams, Tiles, Icons, Charts){
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;

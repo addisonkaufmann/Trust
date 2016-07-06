@@ -269,7 +269,7 @@ app.factory('Tiles', function(){
         'content': 'Dettagli prodotto',
         'link': 'detail',
         'image': iconHome + 'detail_icon.png',
-        'valid': false
+        'valid': true
     },
     {
         'state': 'nutrition',
