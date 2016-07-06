@@ -64,16 +64,15 @@ app.controller('dashCtrl', function($scope, screenSize, $http, $timeout, $rootSc
 
     $scope.size = '';
 
-    if (screenSize.is('xs')) {$scope.size = 'xs'; console.log($scope.size);}
-    if (screenSize.is('sm')) {$scope.size = 'sm'; console.log($scope.size);}
-    if (screenSize.is('md')) {$scope.size = 'md'; console.log($scope.size);}
-    if (screenSize.is('lg')) {$scope.size = 'lg'; console.log($scope.size);}
+    if (screenSize.is('xs')) {$scope.size = 'xs';}
+    if (screenSize.is('sm')) {$scope.size = 'sm';}
+    if (screenSize.is('md')) {$scope.size = 'md';}
+    if (screenSize.is('lg')) {$scope.size = 'lg';}
 
-
-    // screenSize.on('xs', function() );
-    // screenSize.on('sm', function() {$scope.size = 'sm'; console.log($scope.size);});
-    // screenSize.on('md', function() {$scope.size = 'md'; console.log($scope.size);});
-    // screenSize.on('lg', function() {$scope.size = 'lg'; console.log($scope.size);});
+    screenSize.on('xs', function() {$scope.size = 'xs'; });
+    screenSize.on('sm', function() {$scope.size = 'sm'; });
+    screenSize.on('md', function() {$scope.size = 'md'; });
+    screenSize.on('lg', function() {$scope.size = 'lg'; });
 
 
     $rootScope.$on('$stateChangeSuccess', 
@@ -107,13 +106,26 @@ app.controller('dashCtrl', function($scope, screenSize, $http, $timeout, $rootSc
         var animateIn = '';
         var animateOut = '';
 
-        if (first){
-            $scope.animateDash = 'fadeOutUp';
-            animateIn = 'fadeInDown';
-            animateOut = 'fadeOutUp';
+        // if (first){
+        //     $scope.animateDash = 'fadeOutUp';
+        //     animateIn = 'fadeInDown';
+        //     animateOut = 'fadeOutUp';
 
-        } else {
-            if (even){
+        // } else {
+            // if (even){
+            //     $scope.animateDash = 'fadeOutLeft';
+            //     animateIn = 'fadeInRight';
+            //     animateOut = 'fadeOutRight'; 
+
+            // } else {
+            //     $scope.animateDash = 'fadeOutRight';
+            //     animateIn = 'fadeInLeft';
+            //     animateOut = 'fadeOutLeft';
+            // }
+        // }
+
+        if ($scope.size === 'xs' || $scope.size === 'sm'){
+             if (even){
                 $scope.animateDash = 'fadeOutLeft';
                 animateIn = 'fadeInRight';
                 animateOut = 'fadeOutRight'; 
@@ -123,6 +135,11 @@ app.controller('dashCtrl', function($scope, screenSize, $http, $timeout, $rootSc
                 animateIn = 'fadeInLeft';
                 animateOut = 'fadeOutLeft';
             }
+        } else {
+            $scope.animateDash = 'fadeOut';
+            animateIn = 'fadeIn';
+            animateOut = 'fadeOut';
+
         }
         console.log('going out with ' + animateOut);
 
