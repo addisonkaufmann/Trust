@@ -214,9 +214,6 @@ html, body {
   padding: 3%; }
 
 .chart-container {
-  /*set height in javascript*/
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
   color: #8a8a8a; }
   .chart-container .chart-data {
@@ -228,7 +225,10 @@ html, body {
 
 .chart-single {
   width: 50%;
-  max-width: 300px; }
+  max-width: 300px;
+  /*set height in javascript*/
+  margin-left: auto;
+  margin-right: auto; }
 
 .contact-container {
   padding-bottom: 2%; }
@@ -255,6 +255,20 @@ html, body {
   display: inline-block;
   padding-left: 2%; }
 
+/*// .fill { 
+// 	display: flex;
+// 	justify-content: center;
+// 	align-items: center;
+// 	overflow: hidden;
+// 	-ms-overflow-style: none;
+// 	height: 100%;
+
+// 	img {
+// 		flex-shrink: 0;
+// 		min-width: 100%;
+// 		min-height: 100%;
+// 	}
+// }*/
 .header-container {
   padding-left: 3%;
   padding-right: 3%;
@@ -264,6 +278,22 @@ html, body {
     .header-container {
       height: 45px; } }
 
+/*// .recipe-list-item {
+// 	height: 30vh;
+	
+// }
+
+
+
+// @media(max-width: $max-width-xs){
+// 	.recipe-col{
+// 		@include padding-none;
+// 		overflow-x: hidden;
+// 		-ms-overflow-x: hidden;
+// 		-ms-overflow-style: none;
+// 		width: 100%;
+// 	}
+// }*/
 .header-title {
   vertical-align: middle;
   text-align: center;

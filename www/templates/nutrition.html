@@ -16,7 +16,7 @@
 		<div>
 			<canvas id="{{c.name}}" width="1" height="1"></canvas>
 		</div>
-		<div class="innerPercentage">
+		<div class="innerPercentage" ng-if="c.valid">
 			<h2>{{c.percentage|number:0}}%</h2>
 		</div>
 	</div>

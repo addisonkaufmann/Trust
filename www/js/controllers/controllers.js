@@ -229,7 +229,7 @@ app.controller('nutritionCtrl', function($scope, $stateParams, Tiles, Icons, Cha
             color: 'rgba(124, 159, 64, 1)',
             data: 10,
             total: 20,
-            valid: false
+            valid: true
         }
     ];
 
@@ -241,7 +241,6 @@ app.controller('nutritionCtrl', function($scope, $stateParams, Tiles, Icons, Cha
     //if(someElement.length) statements will evaluate to false because they do not
     //exist yet
     $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
-        console.log('checking...');
         Charts.createCharts($scope, $scope.charts);
     });
 
