@@ -241,7 +241,6 @@ app.controller('nutritionCtrl', function($scope, $stateParams, Tiles, Icons, Cha
     //if(someElement.length) statements will evaluate to false because they do not
     //exist yet
     $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
-        console.log('checking...');
         Charts.createCharts($scope, $scope.charts);
     });
 
