@@ -66,7 +66,7 @@ app.factory('Charts', function() {
             this.resizeFunction(charts);
         }
 
-    } //return object
+    }; //return object
 }); //Charts factory
 
 
