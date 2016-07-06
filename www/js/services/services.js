@@ -301,7 +301,7 @@ app.factory('Tiles', function(){
         'content': 'Utilizzo acqua',
         'link': 'water',
         'image': iconHome + 'water_icon.png',
-        'valid': true
+        'valid': false
     },
     {
         'state': 'recipe',

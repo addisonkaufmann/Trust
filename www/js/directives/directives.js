@@ -7,18 +7,8 @@ app.directive('backimg', function(){
             'background-image': 'url(' + url +')',
             'background-size': 'cover',
             'background-repeat': 'no-repeat',
+            'background-position': 'center'
         });
-        if (attrs.disablescroll){
-            element.css({      
-                'background-position': 'center',
-
-            });
-        } else {
-            element.css({
-                'background-attachment': 'fixed',
-                'background-position': 'center bottom'
-            });
-        }
     };
 });
 

@@ -88,17 +88,13 @@ app.controller('dashCtrl', function($scope, $http, $timeout, $rootScope, $stateP
     $scope.classes = $scope.tileclasses.classes;
     $scope.first = $scope.tileclasses.first;
 
-    $scope.exitLeft = false;
-    $scope.exitRight = false;
-    $scope.exitDown = false;
-
     $scope.animateLink = function(link, first, even) {
 
         var animateIn = '';
         var animateOut = '';
 
         if (first){
-            $scope.animateDash = 'fadeOutDown';
+            $scope.animateDash = 'fadeOutUp';
             animateIn = 'fadeInDown';
             animateOut = 'fadeOutUp';
 
@@ -114,6 +110,7 @@ app.controller('dashCtrl', function($scope, $http, $timeout, $rootScope, $stateP
                 animateOut = 'fadeOutLeft';
             }
         }
+        console.log('going out with ' + animateOut);
 
         $timeout(function() {
             $state.go(link, { animateIn: animateIn, animateOut: animateOut });
@@ -250,7 +247,6 @@ app.controller('nutritionCtrl', function($scope, $stateParams, Tiles, Icons, Cha
 
 
 app.controller('profileCtrl', function($scope, $stateParams, Contacts, Tiles, Icons, data) {
-    
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
     } else {
@@ -360,13 +356,6 @@ app.controller('socialCtrl', function($scope, $state, $location, $window, $rootS
         function(event, toState){
             $state.current = toState;  
         });
-
-    // angular.element($window).bind('resize', function () {
-    //     if ($window.innerWidth >= 992){
-    //         $scope.hideExpand();
-    //         console.log($scope.expand);
-    //     }
-    // });
 
     $scope.state = $state.current.name;
 

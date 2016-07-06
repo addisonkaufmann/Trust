@@ -1,35 +1,19 @@
 <div>
-	<div  ng-repeat="d in data.list" >
-
-		<!-- <div class="recipe-list-item overlay-container"  >
-		    <div class="fill vignette-small">
-		        <img ng-src="{{getImage(d)}}">
-		    </div>
-
-		    <div class="overlay-title-sm">
-		        {{d.name}}<br/>
-		    </div>
-		</div> -->
-
-		<!-- <div 
-		class=" tile-8 col-xs-12 col-sm-6 recipe-list-item vignette-small" 
-		ng-class="{'recipe-col-left': $even, 'recipe-col-right': $odd}"  
-		backimg="{{getImage(d)}}" 
-		disablescroll="true">
-			<div class="overlay-title-sm">
-		        {{d.name}}<br/>
-		    </div>
-		</div> -->
+	<div ng-repeat="d in data.list" >
 		<div
 		 	class="col-xs-6" 
-		 
 		 	ng-class="{
-			'recipe-left': $even, 
-			'recipe-right': $odd}"
+				'recipe-left': $even, 
+				'recipe-right': $odd}"
 		 	ui-sref="recipe.detail({'id': d.id})">
 
-			<div class="tile-6 tile-lg black vignette-small recipe-animate" backimg="{{getImage(d)}}" 
-			disablescroll="true">
+			<div 
+				class=
+					"tile-6 
+					tile-lg black 
+					vignette-small 
+					recipe-animate" 
+				backimg="{{getImage(d)}}">
 			
 				<div class="overlay-title-sm">
 		        {{d.name}}<br/>

@@ -286,7 +286,7 @@ html, body {
 
 .tile-animate {
     cursor: pointer;
-    @include hover-opacity(.50);
+    @include hover-opacity(.80);
     @include active-scale(0.9);
 }
 
@@ -547,12 +547,6 @@ html, body {
 	text-align: center;
 }
 
-.overlay-social-row {
-	@extend %overlay-item;
-	bottom: 0;
-  	top: 50%;
-}
-
 .overlay-tab {
 	@extend %overlay-item;
 	top: 0;
@@ -729,7 +723,12 @@ html, body {
 }
 
 .vignette-expanded{
-	box-shadow: inset 0rem -67vh 15rem -13vh $transparent-black;
+	@media(max-width: $max-width-sm){
+		box-shadow: inset 0rem -67vh 15rem -13vh $transparent-black;
+	} 
+	@media(min-width: $min-width-md){
+		box-shadow: inset 0rem -55vh 15rem -13vh $transparent-black;
+	}
 }
 
 .vignette-small {
@@ -839,6 +838,10 @@ a:hover {
 	text-decoration: none;
 }
 
+
+.background-fixed  {
+	background-attachment: fixed;
+}
 
 
 
