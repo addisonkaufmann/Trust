@@ -253,7 +253,7 @@ app.factory('Tiles', function(){
         'content': 'Azienda agricola',
         'link': 'profile',
         'image': iconHome + 'profile_icon.png',
-        'valid': true
+        'valid': false
     },
     {
         'state': 'info',
@@ -261,7 +261,7 @@ app.factory('Tiles', function(){
         'content': 'Informazioni prodotto',
         'link': 'info',
         'image': iconHome + 'info_icon.png',
-        'valid': true
+        'valid': false
     },
     {
         'state': 'detail',
@@ -285,7 +285,7 @@ app.factory('Tiles', function(){
         'content': 'Impatto CO2',
         'link': 'co2impact',
         'image': iconHome + 'co2impact_icon.png',
-        'valid': true
+        'valid': false
     },
     {
         'state': 'ingredient',
@@ -301,7 +301,7 @@ app.factory('Tiles', function(){
         'content': 'Utilizzo acqua',
         'link': 'water',
         'image': iconHome + 'water_icon.png',
-        'valid': false
+        'valid': true
     },
     {
         'state': 'recipe',

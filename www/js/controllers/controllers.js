@@ -60,7 +60,21 @@ app.controller('co2impactCtrl', function($scope, $stateParams, Tiles, Icons, Cha
 
 
 
-app.controller('dashCtrl', function($scope, $http, $timeout, $rootScope, $stateParams, $state, Icons, Tiles, TileClasses){
+app.controller('dashCtrl', function($scope, screenSize, $http, $timeout, $rootScope, $stateParams, $state, Icons, Tiles, TileClasses){
+
+    $scope.size = '';
+
+    if (screenSize.is('xs')) {$scope.size = 'xs'; console.log($scope.size);}
+    if (screenSize.is('sm')) {$scope.size = 'sm'; console.log($scope.size);}
+    if (screenSize.is('md')) {$scope.size = 'md'; console.log($scope.size);}
+    if (screenSize.is('lg')) {$scope.size = 'lg'; console.log($scope.size);}
+
+
+    // screenSize.on('xs', function() );
+    // screenSize.on('sm', function() {$scope.size = 'sm'; console.log($scope.size);});
+    // screenSize.on('md', function() {$scope.size = 'md'; console.log($scope.size);});
+    // screenSize.on('lg', function() {$scope.size = 'lg'; console.log($scope.size);});
+
 
     $rootScope.$on('$stateChangeSuccess', 
         function(event, toState, toParams, fromState, fromParams){
@@ -402,6 +416,7 @@ app.controller('summaryCtrl', function($window, $scope, $timeout, $state, data){
     $scope.animateExit = false;
 
     $scope.exit = function(){
+        $scope.animateExit = true;
         $timeout(function() {
             $state.go('home');
         }, 1000);

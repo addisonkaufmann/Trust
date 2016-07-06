@@ -4,11 +4,11 @@
 	ng-class="{
 		'{{classes}}': !$first,
 		'{{first}}': $first,
-		'fadeInDown': $first,  
-		'fadeInLeft': $odd && !$first, 
-		'fadeInRight': $even && !$first, 
+		'fadeInDown': $first && (size === 'sm' || size === 'xs') || (size === 'md' || size === 'lg'),  
+		'fadeInLeft': $odd && !$first && (size === 'sm' || size === 'xs'), 
+		'fadeInRight': $even && !$first && (size === 'sm' || size === 'xs'), 
 		'left': $odd && !$first, 
-		'right': $even && !$first}" 
+		'right': $even && !$first }" 
 	ng-click="animateLink(t.link, $first, $even)">
 
 	<div class="{{tilesize}} tile-animate tile-lg {{t.color}} ">
