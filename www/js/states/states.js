@@ -1,3 +1,8 @@
+app.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.latencyThreshold = 10;
+    cfpLoadingBarProvider.includeSpinner = false;
+  }]);
+
 app.config(function($stateProvider, $urlRouterProvider) {
     
     $urlRouterProvider.otherwise('/summary');

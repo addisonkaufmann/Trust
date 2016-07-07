@@ -106,7 +106,7 @@ gulp.task('serve', ['build'], function(){
 	gulp.watch('www/img/**/*', ['copy:img']);
 	gulp.watch(paths.js.src, ['scripts']);
 	gulp.watch('www/scss/*.scss', ['styles']);
-
+	gulp.watch('bower_components/**/*', ['copy:bower']);
 	gulp.watch('build/**/*').on("change", reload);
 });
 
