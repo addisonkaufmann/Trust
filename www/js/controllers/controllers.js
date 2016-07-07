@@ -1,8 +1,8 @@
 app.controller('carouselCtrl', function($scope, Images){
     $scope.getCarousel = function(obj){
-        console.log(obj);
+        // console.log(obj);
         var car = Images.getAll(obj);
-        console.log(car);
+        // console.log(car);
         return car;
     };
 
@@ -119,11 +119,11 @@ app.controller('dashCtrl', function($scope, screenSize, $http, $timeout, $rootSc
             animateOut = 'fadeOut';
 
         }
-        console.log('going out with ' + animateOut);
+        // console.log('going out with ' + animateOut);
 
         $timeout(function() {
             $state.go(link, { animateIn: animateIn, animateOut: animateOut });
-        }, 200);
+        }, 300);
     };
 });
 
@@ -414,7 +414,7 @@ app.controller('summaryCtrl', function($window, $scope, $timeout, $state, data){
         $scope.animateExit = true;
         $timeout(function() {
             $state.go('home');
-        }, 1000);
+        }, 300);
     };
 
 });

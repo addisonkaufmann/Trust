@@ -179,7 +179,7 @@ app.service('Contact', function(Icons){
     var Contact = function(data, type){
         var val;
         if (type === 'address'){
-            console.log(angular.fromJson(data.address));
+            // console.log(angular.fromJson(data.address));
             val = angular.fromJson(data.address).address;
         }else{
             val = data[type];
@@ -203,7 +203,7 @@ app.service('Contact', function(Icons){
         this.img = iconhome + 'contact_' + type + '.png';
         this.value = val;
 
-        console.log(this);
+        // console.log(this);
 
 
     };

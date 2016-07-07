@@ -1,7 +1,7 @@
 app.directive('backimg', function(){
     return function(scope, element, attrs){
         var url = attrs.backimg;
-        console.log(url);
+        // console.log(url);
 
         element.css({
             'background-image': 'url(' + url +')',
