@@ -268,7 +268,7 @@ app.controller('nutritionCtrl', function($scope, $timeout, $stateParams, Tiles, 
         valid: true
     },
     {
-        heading: 'Calories',
+        heading: 'Protein',
         labels: ['',''],
         colors: ['#FD1F5E', '#ffffff'],
         data: [2000, 0], 
@@ -276,7 +276,7 @@ app.controller('nutritionCtrl', function($scope, $timeout, $stateParams, Tiles, 
         valid: true
     },
     {
-        heading: 'Calories',
+        heading: 'Fat',
         labels: ['',''],
         colors: ['#FD1F5E', '#ffffff'],
         data: [2000, 0], 
