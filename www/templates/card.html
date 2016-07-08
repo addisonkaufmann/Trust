@@ -1,11 +1,11 @@
 <div  ng-controller="cardCtrl">
-	<div class="card-title col-xs-12 {{current.color}}">
+	<div class=" card-title col-xs-12 {{current.color}}">
 		{{t.title}}
 	</div>
 
 	<carousel ng-if="t.image"></carousel>
 
-	<div class="card-text col-xs-12 {{current.color}}">
+	<div class=" card-text col-xs-12 {{current.color}}">
 
 		<b ng-if="t.details">DETAILS</b>
 		<div ng-repeat="d in t.details">

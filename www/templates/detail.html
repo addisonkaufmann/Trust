@@ -3,8 +3,8 @@
 		<header/>
 	</div>
 
-	<card ng-repeat="t in data.timelineChilds " ng-init="id = t.id"></card>
+	<card class="minimum-width" ng-repeat="t in data.timelineChilds " ng-init="id = t.id"></card>
 
-	<social class="col-xs-12 gray" style="margin: 0;" ng-controller="socialCtrl"/>
+	<social class="minimum-width col-xs-12 gray" style="margin: 0;" ng-controller="socialCtrl"/>
 	
 </div>

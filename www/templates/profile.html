@@ -3,19 +3,19 @@
 		<header/>
 	</div>
 
-	<div class="col-xs-12 overlay-container-sm background-fixed" backimg="img/farm.jpg" >
+	<div class="minimum-width col-xs-12 overlay-container-sm background-fixed" backimg="img/farm.jpg" >
 		<div ng-if="logo" class="overlay-tab-sm">
 			<img class="logo" ng-src="{{logo}}">
 		</div>
 	</div>
 
-	<div class="col-xs-12">
+	<div class="minimum-width col-xs-12">
 		<div class=" profile-pic-container" backimg="{{profilepic}}" disablescroll="true">
 		</div>
 	</div>
 
 
-	<div class="col-xs-12" >
+	<div class="minimum-width col-xs-12" >
 		<div class="profile-title">
 			{{data.name}}
 			<p>{{data.description}}</p>
@@ -36,6 +36,6 @@
 	</div>
 
 
-	<social class="col-xs-12 gray" style="margin: 0;" ng-controller="socialCtrl"/>
+	<social class="minimum-width col-xs-12 gray" style="margin: 0;" ng-controller="socialCtrl"/>
 
 </div>
