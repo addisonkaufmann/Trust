@@ -12,6 +12,14 @@ app.directive('backimg', function(){
     };
 });
 
+app.directive('donutchart', function(){
+    return {
+        restrict: 'E', 
+        replace: 'true', 
+        templateUrl: 'templates/chart.html'
+    };
+});
+
 app.directive('onFinishRender', function ($timeout) {
     return {
         restrict: 'A',

@@ -32,7 +32,15 @@ app.controller('carouselCtrl', function($scope, Images){
 });
 
 
-app.controller('co2impactCtrl', function($scope, $stateParams, Tiles, Icons, Charts){
+
+app.controller('co2impactCtrl', function($scope, $timeout, $stateParams, Tiles, Icons, Charts){
+
+    $timeout(function() {
+        Charts.resizeFunction();
+    }, 50);
+
+
+    $(window).resize(function() { return Charts.resizeFunction();});
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
     } else {
@@ -42,16 +50,23 @@ app.controller('co2impactCtrl', function($scope, $stateParams, Tiles, Icons, Cha
     $scope.current = Tiles.get('co2impact');
     $scope.menuicon = Icons.menu();
 
-    $scope.chart = [{
-        name: 'CO2',
-        color: 'rgba(244, 89, 64, 1)',
-        data: 15,
-        total: 20,
+    $scope.mylabels = ["Label1", "Label2"];
+    $scope.mydata = [300, 500];
+    $scope.mycolors = ['#FD1F5E', '#ffffff']; 
+
+    $scope.charts = [{
+        heading: 'CO2 Chart',
+        labels: ['',''], 
+        colors: ['#FD1F5E', '#ffffff'],
+        data: $scope.mydata,
+        percent: $scope.mydata[0]/($scope.mydata[1] + $scope.mydata[0]) * 100, 
         valid: true
     }];
 
-    $(window).resize(function() { return Charts.resizeFunction($scope.chart); });
-    Charts.createCharts($scope, $scope.chart);
+
+    Charts.resizeFunction();
+    // $(window).resize(function() { return Charts.resizeFunction($scope.chart); });
+    // Charts.createCharts($scope, $scope.chart);
 });
 
 
@@ -203,8 +218,12 @@ app.controller('ingredientCtrl', function($scope, $stateParams, Tiles, Icons){
 
 
 
-app.controller('nutritionCtrl', function($scope, $stateParams, Tiles, Icons, Charts) {
+app.controller('nutritionCtrl', function($scope, $timeout, $stateParams, Tiles, Icons, Charts) {
 
+    $timeout(function() {
+        Charts.resizeFunction();
+    }, 50);
+    $(window).resize(function() { return Charts.resizeFunction();});
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
     } else {
@@ -215,40 +234,66 @@ app.controller('nutritionCtrl', function($scope, $stateParams, Tiles, Icons, Cha
     $scope.current = Tiles.get('nutrition');
     $scope.menuicon = Icons.menu();
 
-    $scope.charts = [
-        {
-            name: 'Calories',
-            color: 'rgba(255, 99, 132, 1)',
-            data: 2000,
-            total: 2000,
-            valid: true
-        },
-        {
-            name: 'Protein',
-            color: 'rgba(155, 199, 32, 1)',
-            data: 24,
-            total: 30,
-            valid: true
-        },
-        {
-            name: 'Fat',
-            color: 'rgba(124, 159, 64, 1)',
-            data: 10,
-            total: 20,
-            valid: true
-        }
-    ];
+    // $scope.charts = [
+    //     {
+    //         name: 'Calories',
+    //         color: 'rgba(255, 99, 132, 1)',
+    //         data: 2000,
+    //         total: 2000,
+    //         valid: true
+    //     },
+    //     {
+    //         name: 'Protein',
+    //         color: 'rgba(155, 199, 32, 1)',
+    //         data: 24,
+    //         total: 30,
+    //         valid: true
+    //     },
+    //     {
+    //         name: 'Fat',
+    //         color: 'rgba(124, 159, 64, 1)',
+    //         data: 10,
+    //         total: 20,
+    //         valid: true
+    //     }
+    // ];
 
-    $(window).resize(function() { return Charts.resizeFunction($scope.charts); });
+
+    $scope.charts = [{
+        heading: 'Calories',
+        labels: ['',''],
+        colors: ['#FD1F5E', '#ffffff'],
+        data: [2000, 0], 
+        percent: 2000/(2000 + 0) * 100, 
+        valid: true
+    },
+    {
+        heading: 'Calories',
+        labels: ['',''],
+        colors: ['#FD1F5E', '#ffffff'],
+        data: [2000, 0], 
+        percent: 2000/(2000 + 0) * 100, 
+        valid: true
+    },
+    {
+        heading: 'Calories',
+        labels: ['',''],
+        colors: ['#FD1F5E', '#ffffff'],
+        data: [2000, 0], 
+        percent: 2000/(2000 + 0) * 100, 
+        valid: true
+    }];
+
+    // $(window).resize(function() { return Charts.resizeFunction($scope.charts); });
 
 
     //must wait until the ng-repeat directive is finished, otherwise none
     //of the elements will be rendered on the page. In this case, all of the 
     //if(someElement.length) statements will evaluate to false because they do not
     //exist yet
-    $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
-        Charts.createCharts($scope, $scope.charts);
-    });
+    // $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
+    //     Charts.createCharts($scope, $scope.charts);
+    // });
 
 
 });
@@ -421,7 +466,11 @@ app.controller('summaryCtrl', function($window, $scope, $timeout, $state, data){
 
 
 
-app.controller('waterCtrl', function($scope, $stateParams, Tiles, Icons, Charts){
+app.controller('waterCtrl', function($scope, $stateParams, Tiles, Icons, $timeout, Charts){
+      $timeout(function() {
+        Charts.resizeFunction();
+    }, 50);
+    $(window).resize(function() { return Charts.resizeFunction();});
     if ($stateParams.animateIn){
         $scope.animateIn = $stateParams.animateIn;
     } else {
@@ -431,16 +480,21 @@ app.controller('waterCtrl', function($scope, $stateParams, Tiles, Icons, Charts)
     $scope.current = Tiles.get('water');
     $scope.menuicon = Icons.menu();
 
-    $scope.chart = [{
-        name: 'Water',
-        color: 'rgba(1, 259, 164, 1)',
-        data: 7,
-        total: 20,
+    $scope.mylabels = ["Label1", "Label2"];
+    $scope.mydata = [300, 500];
+    $scope.mycolors = ['#FD1F5E', '#ffffff']; 
+
+    $scope.charts = [{
+        heading: 'Water Chart', 
+        labels: ['',''],
+        colors: ['#FD1F5E', '#ffffff'],
+        data: $scope.mydata,
+        percent: $scope.mydata[0]/($scope.mydata[1] + $scope.mydata[0]) * 100, 
         valid: true
     }];
 
-    $(window).resize(function() { return Charts.resizeFunction($scope.chart); });
-    Charts.createCharts($scope, $scope.chart);
+    // $(window).resize(function() { return Charts.resizeFunction($scope.chart); });
+    // Charts.createCharts($scope, $scope.chart);
 });
 
 

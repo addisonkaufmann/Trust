@@ -14,15 +14,8 @@
 	</div>
 
 	<div class="minimum-width">
-		<div class="chart-container chart-single" ng-show="chart[0].valid">
-			<div class="chart-title">{{chart[0].name}}</div>
-			<div class="chart-data">{{chart[0].data}}</div>
-			<div>
-				<canvas id="Water" width="1" height="1"></canvas>
-			</div>
-			<div class="innerPercentage">
-				<h2>{{chart[0].percentage|number:0}}%</h2>
-			</div>
+		<div class="card-text col-xs-12" ng-repeat = "c in charts" >
+			<donutchart></donutchart>
 		</div>
 	</div>
 
