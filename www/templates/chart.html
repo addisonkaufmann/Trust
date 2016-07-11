@@ -1,0 +1,19 @@
+<div>
+	<div class="font-gray chart-heading">
+		{{c.heading}}
+	</div>
+
+	<div style="position: relative;">
+		<canvas 
+			id="doughnut" 
+			class="chart chart-doughnut chart-size"chart-data="c.data" 
+			chart-options="{cutoutPercentage: 88}" 
+			chart-colors="c.colors" 
+			chart-labels="c.labels">
+		</canvas> 
+
+		<div class="percent-circle" >
+			<div class="percent">{{c.percent|number:0}}%</div>
+		</div>	
+	</div>
+</div>

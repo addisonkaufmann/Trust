@@ -1,73 +1,73 @@
 app.factory('Charts', function() {
     return {
-        populatePercentages: function(charts) {
-            for (var i = 0; i < charts.length; i++) {
-                charts[i].percentage = 100 * charts[i].data/charts[i].total;
-            }
-        },
-        getDataArray: function(chart) {
-            return [chart.data, chart.total - chart.data];
-        },
+        // populatePercentages: function(charts) {
+        //     for (var i = 0; i < charts.length; i++) {
+        //         charts[i].percentage = 100 * charts[i].data/charts[i].total;
+        //     }
+        // },
+        // getDataArray: function(chart) {
+        //     return [chart.data, chart.total - chart.data];
+        // },
         //used to dynamically resize the charts on the page
         innerCircleWidth: function() {
-            return $('div.innerPercentage').width();
+            return $('div.percent-circle').width();
         },
-        headerHeight: function() {
-            return $('div.innerPercentage h2').height();
-        },
-        resizeFunction: function(charts) {
-            $('div.innerPercentage').css({'height': this.innerCircleWidth() + 'px'});
-            $('div.chart-title').css({'font-size': 0.25*this.innerCircleWidth() + 'px'});
-            $('div.chart-data').css({'font-size': 0.12*this.innerCircleWidth() + 'px'});
-            $('div.innerPercentage h2').css({'font-size': 0.30*this.innerCircleWidth() + 'px'});
-            $('div.innerPercentage h2').css({'margin-top': -0.5*this.headerHeight() + 'px'});
-            this.populatePercentages(charts);
-        },
-
-        //Some standard formatting settings for all charts
-        options: {
-            cutoutPercentage: 90,
-            animateIn: {
-                animateScale: true
-            },
-            legend: {
-                display: false
-            },
-            tooltips: {
-                enabled: false
-            }
-        },
-        transparent: 'rgba(0, 0, 0, 0)',
-
-        createCharts: function(scope, charts) {
-            for (var i = 0; i < charts.length; i++) {
-                if ($('#' + charts[i].name).length) {
-                    scope.someChart = new Chart($('#' + charts[i].name), {
-                        type: 'doughnut',
-                        data: {
-                            labels: ["", ""],
-                            datasets: [{
-                                data: this.getDataArray(charts[i]),
-                                backgroundColor: [
-                                    charts[i].color,
-                                    this.transparent
-                                ],
-                                borderColor: [
-                                    charts[i].color,
-                                    this.transparent
-                                ],
-                                borderWidth: 0
-                            }]
-                        },
-                        options: this.options
-                    });
-                }
-            }
-            this.resizeFunction(charts);
+        // headerHeight: function() {
+        //     return $('div.innerPercentage h2').height();
+        // },
+        resizeFunction: function() {
+            // $('div.innerPercentage').css({'height': this.innerCircleWidth() + 'px'});
+            // $('div.chart-title').css({'font-size': 0.25*this.innerCircleWidth() + 'px'});
+            // $('div.chart-data').css({'font-size': 0.12*this.innerCircleWidth() + 'px'});
+            $('div.percent').css({'font-size': 0.30*this.innerCircleWidth() + 'px'});
+            // $('div.innerPercentage h2').css({'margin-top': -0.5*this.headerHeight() + 'px'});
+            // this.populatePercentages(charts);
         }
 
-    }; //return object
-}); //Charts factory
+        //Some standard formatting settings for all charts
+        // options: {
+        //     cutoutPercentage: 90,
+        //     animateIn: {
+        //         animateScale: true
+        //     },
+        //     legend: {
+        //         display: false
+        //     },
+        //     tooltips: {
+        //         enabled: false
+        //     }
+        // },
+        // transparent: 'rgba(0, 0, 0, 0)',
+
+        // createCharts: function(scope, charts) {
+        //     for (var i = 0; i < charts.length; i++) {
+        //         if ($('#' + charts[i].name).length) {
+        //             scope.someChart = new Chart($('#' + charts[i].name), {
+        //                 type: 'doughnut',
+        //                 data: {
+        //                     labels: ["", ""],
+        //                     datasets: [{
+        //                         data: this.getDataArray(charts[i]),
+        //                         backgroundColor: [
+        //                             charts[i].color,
+        //                             this.transparent
+        //                         ],
+        //                         borderColor: [
+        //                             charts[i].color,
+        //                             this.transparent
+        //                         ],
+        //                         borderWidth: 0
+        //                     }]
+        //                 },
+        //                 options: this.options
+        //             });
+        //         }
+        //     }
+        //     this.resizeFunction(charts);
+        // }
+
+    }; 
+}); 
 
 
 app.factory('Recipes', function($http) {

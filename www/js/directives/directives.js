@@ -12,18 +12,26 @@ app.directive('backimg', function(){
     };
 });
 
-app.directive('onFinishRender', function ($timeout) {
+app.directive('donutchart', function(){
     return {
-        restrict: 'A',
-        link: function (scope, element, attr) {
-            if (scope.$last === true) {
-                $timeout(function () {
-                    scope.$emit('ngRepeatFinished');
-                });
-            }
-        }
+        restrict: 'E', 
+        replace: 'true', 
+        templateUrl: 'templates/chart.html'
     };
 });
+
+// app.directive('onFinishRender', function ($timeout) {
+//     return {
+//         restrict: 'A',
+//         link: function (scope, element, attr) {
+//             if (scope.$last === true) {
+//                 $timeout(function () {
+//                     scope.$emit('ngRepeatFinished');
+//                 });
+//             }
+//         }
+//     };
+// });
 
 
 app.directive('social', function(){
