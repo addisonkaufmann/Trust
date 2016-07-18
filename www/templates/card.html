@@ -1,6 +1,6 @@
 <div  ng-controller="cardCtrl">
-	<div class=" card-title col-xs-12 {{current.color}}">
-		{{t.title}}
+	<div class=" card-title col-xs-12 {{current.color}}" translate="{{t.title}}">
+		
 	</div>
 
 	<carousel ng-if="t.image"></carousel>
@@ -9,13 +9,13 @@
 
 		<b ng-if="t.details">DETAILS</b>
 		<div ng-repeat="d in t.details">
-			<p>{{d.value}}</p>
+			<p translate="{{d.value}}"></p>
 		</div>
 
 		<b ng-if="t.infoChilds">INFO CHILDS</b>
 		<div ng-repeat="i in t.infoChilds">
 			<div ng-repeat = "item in i.details">
-				<b>{{item.key}}</b>:{{item.value}}
+				<b translate="{{item.key}}"></b>: <span translate="{{item.value}}"></span>
 				<br></br>
 			</div>
 		</div>
